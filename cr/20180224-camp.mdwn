@@ -1,0 +1,116 @@
+[[!meta title="Camp n°15 - 24/25 février 2018"]]
+[[!meta date="20180224"]]
+[[!tag done]]
+
+Lieu : local de La Quadrature du Net, 60 rue des Orteaux 75020 Paris, France
+Heure : 9h30
+
+Là le samedi (pseudo@groupe) :
+
+    * blackmoor@adminsys
+    * vg@adminsys
+    * olb@adminsys
+    * tom28@adminsys
+    * belette (en remote)
+
+Là le dimanche (pseudo@groupe) :
+
+    * olb@adminsys
+
+À distance :
+
+    * tom28 (dimanche)
+
+Pas là :
+
+  * wanig@adminsys
+  * Capslock
+
+
+## mini cr réunion Gitoyen du 21/02 (tom28)
+
+tom a participé à sa première réunion Gitoyen. Trois personnes de FDN ont été
+inscrites à la liste équipage de gitoyen (tom, kris, wannig).
+
+La question de la revue des tarifs a été évoquée : on la renvoie au buro.
+
+sebian fera une présentation de Gitoyen à l'AG de FDN.
+
+On demande à rajouter tom et belette dans les accès permanents de TH2.
+
+
+## prochain camp
+
+Date en conflit avec l'AG de la fédération FDN. Reportée au 19/20 mai.
+
+
+## mail du bureau "question devenue urgente" du 14/02
+
+Besoin de faire un inventaire des services et des log afin de déterminer la
+durée que conservation pour chaque service (notamment d'interpreter la loi ou
+les reglements européen).
+
+On en reparle au prochain camp : nous ne sommes pas en mesure de répondre pour
+l'instant.
+
+
+## SSL/TLS des mails
+
+> si vous pouvez checker le point #3 (mails : Passer sur la config SSL/TLS des
+> mails) je pense que je l'ai déjà fait mais je préfère double check avant de
+> le supprimer
+
+vg fait un double check
+
+
+## infra mail
+
+On a décider de réserver du temps pour parler de ce qu'on souhaite mettre en
+place à un prochain admin camp  (lequel?) avec tom28, vg, et pinger fabien.
+
+
+## LibreNMS ?
+
+Refonte monitoring, est-ce que ça vous plairait d'avoir un libreNMS pour
+monitoring interne? si oui, quoi monitorer / remplacer ou étendre munin ?
+
+Oui pour installer libenms mais sur une nouvelle machine dédiée au monitoring.
+
+On monitore tous les ports, de toutes les machines (virtuelles, physiques et switch).
+
+-> est-ce que l'on fait déjà actuellement? qu'est ce que pourrait amener libreNMS en plus de munin?
+
+Oui, l'idée est de mettre libreNMS en plus de munin car ce ne sont pas les même approches : librenms -> réseau (snmp), munin -> système (agent).
+
+-> ca me va bien, je suis ok pour m'en occuper (belette)
+
+-> peut-être voir pour envoyer/activer smtpd via puppet sur toutes nos machines?
+
+## Remplacement de Nagios par Icinga ou Shinken ?
+
+> Moins lourd, corrélation d'alertes plus intelligentes..., quelqu'un a une expérience et un avis ?
+
+On sait pas trop. Pas d'avis tranché. On préfère laisser la question en suspens jusqu'au prochain camp.
+
+## préparation de l'ag ?
+
+Dire les choses que l'on a faites sur l'année passée (2017) et ce qu'on prévoit pour l'année à venir (2018).
+
+Proposition de faire plus d'admincamp (tous les deux mois) mais avoir un admincamp sur 2 qui soit en remote planifié (avancer en binomes, trinomes, mettre des outils comme mumble ou pk pas visio en place). L'intérêt que l'on y voit c'est d'alléger la participation à l'équipe adminsys tout en intégrant plus les gens que l'on voit rarement physiquement.
+
+Idées de chantiers pour l'année à venir
+
+- remettre à plat le mail
+- remettre à plat l'hébergement Web
+- Mettre un LNS et un hyperviseur sur chaque site (chaque DC)
+- Grosse purge des vieux comptes/espaces/services_cassés_ou_useless
+- Achever Leia
+
+
+## secretaire bimestriel
+
+L'idée est de répondre aux gens sur adminsys pour leur signifier que l'on a
+bien pris en compte leur demande et de maintenir la todo en conséquence.
+
+-> tom pour le premier round (et olb en fait un peu aussi)
+

@@ -1,0 +1,209 @@
+!
+version 12.2
+no service pad
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname switch-fdn-th2-11a4
+!
+boot-start-marker
+boot-end-marker
+!
+enable secret 5 $1$secret.
+enable password secret
+!
+no aaa new-model
+system mtu routing 1500
+vtp mode transparent
+ip subnet-zero
+!
+!
+!
+crypto pki trustpoint TP-self-signed-1660256512
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-1660256512
+ revocation-check none
+ rsakeypair TP-self-signed-1660256512
+!
+!
+crypto pki certificate chain TP-self-signed-1660256512
+ certificate self-signed 01
+  3082024C 308201B5 A0030201 02020101 300D0609 2A864886 F70D0101 04050030 
+  31312F30 2D060355 04031326 494F532D 53656C66 2D536967 6E65642D 43657274 
+  69666963 6174652D 31363630 32353635 3132301E 170D3933 30333031 30303031 
+  33335A17 0D323030 31303130 30303030 305A3031 312F302D 06035504 03132649 
+  4F532D53 656C662D 5369676E 65642D43 65727469 66696361 74652D31 36363032 
+  35363531 3230819F 300D0609 2A864886 F70D0101 01050003 818D0030 81890281 
+  8100B8EA 77C65C00 26B6C29A BFDCC2BF A283CDF6 5C02E6A9 0AC9E0E0 B98C5782 
+  C8C8CE0B 6DD0A7A6 73DB6829 5E4AB31D FB846166 ADC0D6DE 3098C6B0 90EAE1D1 
+  56EB163B 772883DB 8E2FBED8 ED83DF8C 312BB901 F2DB7C71 F68A57DF DA5BE0A9 
+  97BF8A05 F6ED019A 1C968B76 081C5DB9 95629186 685C96A4 09B9D909 19D65B75 
+  C8F30203 010001A3 74307230 0F060355 1D130101 FF040530 030101FF 301F0603 
+  551D1104 18301682 14737769 7463682D 66646E2D 7468322D 31316134 2E301F06 
+  03551D23 04183016 80149F24 4195B2E2 931EFC91 179A18B7 4B49CD6D AE2C301D 
+  0603551D 0E041604 149F2441 95B2E293 1EFC9117 9A18B74B 49CD6DAE 2C300D06 
+  092A8648 86F70D01 01040500 03818100 2A1400A0 6248D595 ACB99433 FB8BB19D 
+  09DA91DE 24CA50D1 4C039C86 0B39AF6D 07F2F541 4FE7EB46 45098BC3 AC37748B 
+  BFC3D24F 80E69160 25567050 DAD84007 8622BCB3 DF8FE85E D7073BD2 FB2B12CD 
+  D8A8E844 5C0EA673 A865DAC3 780912F2 C5A7CC06 253BB3DD A90216FE AD4BB707 
+  4FD8D9E9 60F28C54 45BC3E08 885A33CE
+  quit
+!
+!
+spanning-tree mode pvst
+spanning-tree extend system-id
+!
+vlan internal allocation policy ascending
+!
+vlan 3,10-11,14,16-17,20-22,119,801,2019,2052 
+!
+!
+!
+interface GigabitEthernet0/1
+ description interv admin
+ switchport access vlan 801
+ switchport mode access
+!
+interface GigabitEthernet0/2
+ description description lns11 - eth1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan none
+ switchport mode trunk
+!
+interface GigabitEthernet0/3
+!
+interface GigabitEthernet0/4
+ description lns22 - eth1
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan none
+ switchport mode trunk
+!
+interface GigabitEthernet0/5
+!
+interface GigabitEthernet0/6
+ description nerim - ancien cable
+!
+interface GigabitEthernet0/7
+ description lns11 - ipmi
+ switchport access vlan 801
+ switchport mode access
+!
+interface GigabitEthernet0/8
+ description lns22 - ipmi
+ switchport access vlan 801
+ switchport mode access
+!
+interface GigabitEthernet0/9
+ description lns11 - eth0
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3,11,14,16,17,20-22,119,801,2019,2052
+ switchport mode trunk
+!
+interface GigabitEthernet0/10
+ description lns22 - eth0
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3,11,14,16,17,20-22,119,801,2019,2052
+ switchport mode trunk
+!
+interface GigabitEthernet0/11
+!
+interface GigabitEthernet0/12
+!
+interface GigabitEthernet0/13
+!
+interface GigabitEthernet0/14
+!
+interface GigabitEthernet0/15
+!
+interface GigabitEthernet0/16
+ description gitoyen
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 3,20-22,119,801,2019,2052
+ switchport mode trunk
+!
+interface GigabitEthernet0/17
+!
+interface GigabitEthernet0/18
+ description nerim pppoe
+ switchport access vlan 16
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 16
+ switchport mode access
+!
+interface GigabitEthernet0/19
+!
+interface GigabitEthernet0/20
+ switchport access vlan 16
+ switchport mode access
+!
+interface GigabitEthernet0/21
+!
+interface GigabitEthernet0/22
+!
+interface GigabitEthernet0/23
+!
+interface GigabitEthernet0/24
+ description interv internet
+ switchport access vlan 3
+ switchport mode access
+!
+interface GigabitEthernet0/25
+ description sames via gixe
+ switchport trunk encapsulation dot1q
+ switchport trunk allowed vlan 22
+ switchport mode trunk
+!
+interface GigabitEthernet0/26
+!
+interface GigabitEthernet0/27
+!
+interface GigabitEthernet0/28
+!
+interface Vlan1
+ no ip address
+ no ip route-cache
+!
+interface Vlan14
+ no ip address
+ no ip route-cache
+!
+interface Vlan16
+ no ip address
+ no ip route-cache
+!
+interface Vlan20
+ no ip address
+ no ip route-cache
+!
+interface Vlan21
+ no ip address
+ no ip route-cache
+!
+interface Vlan22
+ no ip address
+ no ip route-cache
+!
+interface Vlan801
+ ip address 10.0.0.39 255.255.255.0
+ no ip route-cache
+!
+interface Vlan2052
+ no ip address
+ no ip route-cache
+!
+ip http server
+ip http secure-server
+!
+control-plane
+!
+!
+line con 0
+line vty 0 4
+ password secret
+ login
+line vty 5 15
+ password secret
+ login
+!
+end

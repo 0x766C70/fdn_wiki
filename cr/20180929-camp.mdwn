@@ -1,0 +1,41 @@
+[[!meta title="Camp n°18 - 29/30 septembre 2018"]]
+[[!meta date="20180929"]]
+[[!tag done]]
+
+Cet admincamp était prévu en physique mais suite à plusieurs indisponibilités,
+il s'est transformé en (mini-)admincamp à distance.
+ 
+Présent(s) : tom28
+
+# Rappel des prochaines dates d'admincamp :
+
+Le prochain admincamp en physique est prévu le week-end des 3 et 4 novembre 2018.
+
+# Demandes en souffrance traitées
+
+- Stéphane I. "question site web"
+- Cyril D. "messagerie fdn"
+- Melopee "accès fibre en Alsace"
+- Jacques "reverse DNS"
+- Nicolas O. "Acces SSH"
+- Thierry R. "Reverse DNS"
+- Jean-Michel B. "MX secondaires / Délégation DNS /"
+- Alan L. "Adresse mail FDN"
+- Thomas C. "DNS server usage for freifunk berlin router firmware"
+- Belette "Admincamp virtuel feedback"
+- Thomas Criscione, infos gestion RTC
+- Alexandre "Sympa - problème List-Id"
+- hamster "message de bienvenue de sympa"
+
+
+# Divers
+
+- solo : retour en mode "reload" du logrotate apache2. Le reload fonctionne à
+  nouveau depuis cette semaine : après debug avec Asmadeus, il faut
+  "simplement" que le paquet apache2-suexec-pristine ou apache2-suexec-custom
+  soit installé. Apache2 n'a pas le même comportement selon que le fichier
+  /usr/lib/apache2/suexec existe ou n'existe pas (indépendamment de
+  l'activation ou non de mod_suexec, dont nous n'avons pas besoin).
+
+  "Tout ça pour ça" !
+

@@ -1,0 +1,247 @@
+[[!meta title="Camp n°16 - 19/20 mai 2018"]]
+[[!meta date="20180519"]]
+[[!tag done]]
+
+# Rappel des prochaines dates d'admincamp :
+
+ * 29/30 septembre 2018
+
+
+# Qui vient (venir c'est bien, s'inscrire c'est mieux !) ?
+
+Là :
+    - blackmoor@[adminsys|buro]
+    - vg@adminsys
+    - HyP Le 20/05/2018 seulement
+    - Moitah (malheureusement un imprévu familial m'empêche de venir, à distance si c'est jouable ?)
+    - DelTree
+    - thierry.rousseau6@free.fr
+    - olb
+    - sebian
+    - tom28@adminsys (samedi)
+
+(Si une ou plusieurs personnes souhaitent faire cuistot pour le weekend. Il ne faut pas hésiter sachant qu'on a une cuisine tout à fait pratique pour ça (four, plaques, plats divers et variés, ustensiles....).
+
+Pas là :
+
+    - afriqs
+    - belette (malheureusement)
+    - Caps'
+
+À distance :
+
+    - tom28 (dimanche)
+
+
+# coordination
+
+## librenms, snmp et parefeu
+
+> Pour rappel nous (wannig et olb) avons commencé l'installation de librenms sur la machine boba (créé spécifiquement). Et nous avons besoin de mettre un snmpd sur toutes les machines de fdn pour librenns mais nous ne souhaitons par ouvrir snmp à tout internet. Cela pose la question du pare-feu à fdn. Deux approches possibles (pas forcément contradictoire) :
+>    
+>    - une approche atomique par machine
+>    - une approche sur les passerelles de fdn (mais difficile à gérer)
+>    
+> Questions :
+>
+> - quelle approche ?
+> - opt-in / opt-out ?
+> - utilisation d'un outil tel que ferm, shorewall, ... ?
+> - puppetisation du parefeu ?
+
+- on ne fait pas passer de SNMP en dehors du réseau de FDN (sur les machines externes on peut éventuellement mettre en place des tunnels chiffrés).
+- on se fait pas de pare-feu pour ça sur les passerelles.
+- on fait ça sur un réseau privé que l'on configurerait sur chaque machine administrée par FDN. Pour l'instant, ce réseau servirait à SNMP et plus tard les backups. On puppetise ça.
+- on puppetise les accès à librenms
+
+## Le 10G on s'organise ?
+
+> ou on attend que ça sature...
+> 
+> On a des interfaces (lns) 1G qui font des pointes à plus de 500Mbps. Si on traine à passer au 10G on doit pouvoir faire de la cuisine en répartissant les vlan sur les deux ports de chaque LNS mais c'est clairement pas du long terme. Bref, le mieux serait de s'organiser pour le passage au 10G sur nos machines ?
+
+Passer les passerelles et droïdes en 10G:
+
+- aller vérifier le modèle des boîtiers (ou trouver dans les mails ou la compta)
+- cartes mères : lns == Supermicro X9SCL/X9SCM, droides == Supermicro X9DRL-7F
+- riser card : droite/gauche à checker ~20€/unité (peut-être déjà vendu avec les cartes réseau) x4 (en acheter 4 de droite et 4 de gauche si sens non trouvé) https://pub.sebian.fr/DE170118.pdf (gitoyen pour les x520)
+- Deux cartes réseau double port Intel x520 ou x5XX ? par ex: Intel 82599ES ~120€/unité (à vérifier) x4 
+- Quatre câbles twinax 10G SFP+ (tout petit (0.5m) car le switch est 1U en dessous) https://www.fs.com/products/40109.html ~20€/unité (4x50cm et 4x2m) x8
+
+Budget estimé: 800 €
+
+https://www.ebay.com/itm/INTEL-DELL-X520-DA2-Ethernet-Server-Adapter-10Gbps-Dual-Port-E10G42BTDA-/252440714854
+https://www.ebay.com/itm/Intel-X520-DA1-10-Gigabit-10Gbps-PCI-E-E10G42BTDA-Server-Network-Adapter/131847037922
+
+Commandes :
+    
+- cable twinax sur fs.com
+- cartes réseaux et riser card : par ex adimes.fr / asinfo ou nisc (en refurb)
+
+
+## Web mutualisé
+
+> Alexandre a préparé un sondage pour le futur du web mutualisé à FDN. Ce sondage a été validé par le bureau. Avec un peu de chance, au moment où l'on fait ce point de coordination, on a suffisament de résultats. ==> On y jette un œil ? ;)
+>
+> https://framaforms.org/service-hebergement-mutualise-fdn-1519573036
+
+On attend Alexandre pour en parler.
+
+
+## Obfuscation VPN
+
+> Mettre les tunnels vpn dans du stunnel/sslh pour cacher ça dans un flux TLS (proposition de belette).
+>
+> - sslh : pour diriger les requètes http sur apache et le reste sur openvpn
+> - stunnel : pour encapsuler tout ça dans du tls
+
+Super : oui pour mettre ça sur chacune des machines vpn sur des ip spécifiques et pour supprimer la vm spécifique (guri).
+
+
+## Service de VM mutualisées
+
+> Machines virtuelles non administrées par FDN :
+>    
+> - geeknode (geeknode)
+> - éxégètes (en cours de passation à FDN, voir plus bas)
+> - nebkha (machine membre historique)
+> - unefede (ffdn)
+
+- discussion autours du cœur d'activité de certaines assos membres de Gitoyen : autre.net (mail, web), globenet (hébergement physique + VM), fdn (FAI). Toutes font du mail, toutes font du web mutualisé, toutes sont dans les mêmes lieux, voire les mêmes baies... N'aurait-on pas intérêt à nous recentrer pour éviter de faire en double ou triple les choses ? Cela dit, c'est un gros chantier à long terme.
+
+- si à court terme on part sur un service de VM pour les membres, il serait bien de prendre un /24 dédié.
+- OK pour que les anciens droïdes servent à ça.
+
+
+## Disques durs droides
+
+- au niveau place disque, on est environ à 65% utilisé
+- bcp trop d'iowait, l'idée serait de voir si passer à des SSD serait nécessaire
+
+prix ~ 400€/disque il faudrait 8 disque soit ~ 3 200 €
+
+## VM FFDN
+
+> Besoin d'une nouvelle machine qui remplacerait unefede
+
+Ok: memoire 4G, disque 40G, 2 vcpu (booté sur un debian installer).
+
+
+## Récupération de l'adminsys exegetes
+
+- les adminsys acceptent de reprendre l'intérim.
+- pour la suite, on attend de voir comment le groupe exégètes se refonde
+- nous n'intégrons pas les deux machines dans les outils d'admin de FDN pour l'instant. Nous voyons plutôt la chose comme de l'infogérance "externe" bénévole le temps que ça se tasse.
+- on crée des comptes root pour : tom28, blackmoor, vg et olb. olb a sa clé sur les comptes root. On attend aussi les passphrases luks (olb demande à taziden).
+
+
+## Upgrade wordpress
+
+- le wordpress qui était géré par feue l'équipe communication n'est donc plus à jour.
+- si les adminsys avaient su qu'ils auraient eu cette charge, les choses auraient probablement été pensées différement : choix de l'outil, choix de la méthode.
+- cependant, le wordpress n'est pas capable de modifier lui même son code source (ce qui limite beaucoup l'impact des attaques)
+
+
+## backups
+
+- La piste 1U en baie FAI Maison semble trop chère pour du backup.
+- dedibox ovh (à priori non)
+
+À court terme, on peut commencer sur une machine chez tom28 :
+
+- un mini pc 400€ HT + disk 4T 2x150€ soit max 700€.
+- Ou une VM chez Globenet.
+
+Au niveau logiciel : backupninja + borg
+
+À long terme, on aimerait un endroit hors de Paris, géré collectivement par une structure ayant un objet compatible avec celui de FDN
+
+- tetaneutral : serait possible mais grosse concentration là bas.
+- aquilenet : à demander.
+- ...
+
+olb contacte Globenet.
+
+
+## Admincamp à distance
+
+> - Quelle organisation ?
+> - Outils : irc ?? mumble ??
+
+Besoin d'un ordre du jour pour savoir qui fait quoi. L'idée serait de partir de la todo du wiki et de se répartir les choses en début de weekend via mumble + pad.
+
+On se fixe un mini point d'organisation en début de weekend : 10h le samedi et on essaye de travailler en groupe (plus de 1 sur chaque tâche).
+
+
+## Et si on transformait ackbar en nœud peertube ?
+
+Les adminsys trouveraient bien que ackbar devienne un nœud peertube et aimeraient se pencher dessus.
+
+On installe un nœud de test d'ici septembre pour découvrir le machin.
+
+olb, vg
+
+On en parle à thy pour voir si ça l'intéresse.
+
+
+## Procédure d'abonnement aux services de base
+
+> - Comment ça se passe pour la partie administrative / facturation. On a une demande en souffrance à gérer ce week-end c'est la bonne occasion pour en parler.
+> - Clairement le site Web n'est pas assez clair pour les non-geeks, vu les questions qu'on reçoit à ce sujet... propositions d'améliorations à faire...
+
+- page du site : proposer à Thomas et Khrys de travailler sur cette page
+- c'est le buro qui gère la souscription et ensuite les adminsys font la technique
+
+
+## Service de base vs services gratuits : mail
+
+> Point à clarifer sur le partie mail des services gratuits pour tous les adhérents :
+> - le site parle d'alias uniquement, en pratique j'ai l'impression qu'on ne respecte jamais ça et on fait des bals quand même
+> - par ailleur faire du forwarding (potentiellement de spams) n'est à mon avis (tom28) pas une riche idée, ça risque de nous plomber auprès de serveurs destinataires tâtillons sur le sujet, ce qui impacterait l'ensemble des utilisateurs et pas seulement la personne ayant un alias
+
+Proposition pour le buro :
+
+- la partie alias : à virer (les gens voulant du mail peuvent prendre les services de base, on ne revient pas sur le fait que certaines personnes ne payent pas leurs alias ?)
+- on (les quelques adminsys ayant accès au SI) essaye de vérifier pour les futures demandes si les gens sont adhérents et s'ils ont un abonnement.
+
+TODO: inscrire vg sur le si.
+
+
+## Discussion infra mail
+
+- en parler à fabien pour savoir s'il est toujours intéressé d'y participer
+- est-ce qu'on rajouterait d'un antispam (ex: rspamd,spamassasin) pour les mails et pour sympa ?
+- déployer un serveur de base et tester le temps de vérifier la viabilité (ex: dovecot + postfix)
+- réfléchir aux implications sur le serveur de news+uucp (réfléchir si c'est possible de séparer)
+- vm dédiée pour les listes (ex: sympa)
+- vm dédiée pour le webmail (ex: roundcube, rainloop)
+- faire l'inventaire des services fournis par solo
+- comment migrer les users ?
+
+tom et vg s'y collent :
+    
+- l'idée est de monter une infra (trois vm: mail / lists / webmail) d'y mettre dovecot+postfix / sympa / rainloop ou roundcube ou autre.
+- ils commenceront par la vm mail et vérifieront que newsgroup over uucp fonctionnent.
+
+on crée les trois vm si besoin ce weekend.
+
+
+## virtualiser l2tpns 
+
+Historiquement le logiciel LNS de FDN a été installé sur les machines servant de passerelle. Actuellement, ce service qui termine les tunnel PPP des abonnés DSL pourrait être virtualisé. Cela isolerait la partie LNS de la partie passerelle. Les machines physiques portant les passerelles seraient alors potentiellement supprimables (la méthode de livraison de Gitoyen devrait changer).
+
+Avantages :
+    
+- isolation des l2tpns
+- clarification de la relation entre l2tpns et les passerelles.
+- cela permettrait potentiellement de supprimer deux machines physiques
+
+Discussion à creuser.
+
+## RTC
+
+(Rajout post weekend)
+
+D'après des échanges sur bistro et adminsys, le service RTC de neuronnexion sur lequel s'appuis FDN et Globenet a été réparé. Il faudrait faire des tests.
+
+

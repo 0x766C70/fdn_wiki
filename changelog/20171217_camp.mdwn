@@ -1,0 +1,71 @@
+### augmentation de la mémoire
+
+- de resolver0 a 512M (comme resolver1) pour éviter les omkiller
+- de palpatine de 2G à 2.5G pour puppet master (too just)
+
+
+### git-tmp.fdn.fr
+
+Cette machine n'est pas utitisée depuis le 22 janvier (probablement créé le 22
+janvier). Nous l'avons éteinte si pas de plainte d'ici le prochain camp, on la
+supprime.
+
+### Migration de gitlab vers kamino
+
+- et mise à jour de gitlab vers la dernière version
+- et passage de kamino en stretch
+
+### Mise à jour des résolveurs DNS vers stretch
+
+### Mise à jour de solo vers jessie
+
+### Migration à puppet5
+
+Au camp d'octobre caps et olb ont installé une vm dédiée: palpatine. ils ont
+installé dessus le puppet master en v5 et déplacer le git des recettes puppet
+et ont mis à jour les recettes puppet en testant la migration sur quelques machines.
+
+Au camp de décembre olb et blackmoor ont installé la version 5 du puppet agent
+sur toute les machines et les brancher sur le nouveau master. (seul yoda a un
+puppet agent en v4 car la vm est trop vielle)
+
+La doc puppet à été mise à jour.
+
+Un hook pre-receive à été mis dans le git puppet de leia pour bloquer les push
+et rediriger et mettre un msg.
+
+Pour le git des recettes il suffit de changer dans la conf leia en palpatine
+pour que ça fonctionne.
+
+### Erreur certificat lists/webmail/news
+
+(VG & belette)
+
+### Ajout de deux alias pour isengard
+
+- statut.fdn.fr
+- status.fdn.fr
+
+### Savoir qu'on est sur une ip FDN
+
+Ajout d'une image sur le site web public qui confirme le passage par VPN
+(actuelement fonctionnel sur isengard mais pas publiquement annoncé).
+
+
+### www.fdn.fr régulièrement par terre
+
+sur chewie : problème de mysql qui se fait oom_killer. Le pb vient peut-être de
+la conf php/apache Regarder la conf php.ini.  Augmenter temporairement la ram à
+3 Go.
+
+On a refait des test de stress avec 3G ça passe.
+
+
+### Migration prosody
+
+wanig a fini la migration de jabber sur prosody.
+
+Nous avons éteint la machine jabber.fdn.fr. Si pas de problème d'ici le
+prochain camp on la supprimera.
+
+

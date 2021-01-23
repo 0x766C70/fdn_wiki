@@ -1,0 +1,331 @@
+[[!meta title="Camp n°17 - 21/22 juillet 2018"]]
+[[!meta date="20180721"]]
+[[!tag done]]
+
+Il n'y a pas eu de compte-rendu mais le changelog a été mis dans [[changelog/]].
+
+Pour les archives, le contenu du pad tel quel :
+
+
+Remotecamp n°17 - 21 et 22 juillet 2018
+
+Ce camp est un peu particulier car il se passera à distance, notamment pour nous forcer à trouver des méthodes de travail à distance avec les membres qui ne se déplacent pas aux camps "centralisés".
+
+Cela dit, une proposition de camps décentralisés à été faites, pour nous retrouver localement dans les endroits où plusieurs adminsys FDN se trouvent. N'hésitez pas ! (en indiquant le coin où vous êtes)
+
+Début samedi 21 juillet 10h :
+
+Là :
+    
+    - olb (grenoble)
+    - afriqs (Lannion)
+    - tom28 (Épernon)
+    - sebian (Internet)
+
+    
+Pas là :
+    
+    - HyP
+    - Caps
+    - Stéphane Ascoët (m'enfin quand même sur le wiki ;-) )
+    - Chakiral
+    
+L'idée c'est de faire un point le samedi à 10h, pour voir qui souhaite faire quoi et faire des binômes ou des trinômes. Pour cela deux canaux :
+    
+    irc: #fdn-adminsys sur geeknode
+    mumble: mumble.grenode.net (mot de passe : "grenode51083") sur le canal FDN
+    
+
+Concernant mumble, qui est une manière de discuter à plusieurs à distance :
+    
+    - si vous avez un smartphone, ça juste marche™ avec l'application plumble
+    - sur une distro linux bien éduquée, il devrait y avoir l'application mumble (mais ça demande un peu plus de configuration que plumble)
+
+
+Choses à faire
+
+Ne rien mettre ici directment mais dans la page todo
+    
+https://adminsys.fdn.fr/todo/
+
+
+Chantiers du weekend
+
+L'idée c'est de mettre ici le/les chantiers sur lesquelles on a prévu de bosser pour permettre aux autres de venir faire un binôme ou un trimôme.
+
+## Tri des mails des deux derniers mois pour écumer les demandes non exaucées (olb, tom28, )
+
+Inventaire des demandes (à déplacer au fur et à mesure dans les choses faites) :
+- Thomas Criscione, aider remplissage wiki pour mep page services
+- Thomas Criscione, infos gestion RTC
+- Herve Guilbert : certificat jabber.fdn.fr
+
+
+
+
+## Fin de l'installation de librenms (olb,  )
+
+Librenms est un outil de mesure des flux réseau.
+
+Librenms repose sur snmp, et nous avons décidé de ne pas mettre les services snmp sur des ip publiques.
+
+Pour cela, nous avons décidé de rajouter un réseau "intra" sur toutes les machines de fdn. Intra c'est un réseau sur lequel se trouverons toutes les vm de fdn et machines physiques et qui permettra d'y exposer des services non publiés sur internet...
+
+Plan d'avancement :
+
+- [ok] configuration lans ganeti : gnt-instance modify --net 1:add,link=br800 ...
+- [ok] configuration /etc/network/interfaces
+- reboot --type=full
+
+## Nettoyage des objets RIPE de FDN (olb, sebian, )
+
+- ajout d'un « mnt-ref: GITOYEN-NCC » à ORG-FDN2-RIPE
+
+## Analyse et maj du service hébergement mutualisé (afriqs, )
+
+Voir pour mettre à jour le serveur, suite aux résultats du sondage. En attente de retours sur la liste Adminsys concernant les personnes impactées.
+
+## Inventaire des propriétaires et modérateurs des listes hébergées sur lists.fdn.fr (tom28, )
+
+[tom28] Faire un état des lieux précis et complet, en vue de modifier par la suite le fonctionnement de notre service de listes. Actuellement listmaster est propriétaire et/ou modérateur de la plupart de nos listes, ce qui n'est pas du tout souhaitable. Listmaster n'a pas à se substituer aux propriétaires et modérateurs de chaque liste, qui devraient être correctement identifiés et configurés pour chaque liste. Cela aiderait également à trouver plus de bonnes volontés pour le fonctionnement de ce service (parce qu'actuellement, recevoir listmaster@, c'est la triple peine : spams + demandes de modération de spams + alertes de destinataires en erreur pour plein de listes : c'est juste ingérable). 
+
+[sascoet] Je l'ai fait en partie pour prévenir tout le monde pour le passage à Dmarc. Je suis entièrement d'accord sur le fait que nous ne respectons pas les bonnes pratiques pour le rôle de maître des listes chez FFDN.
+J'ai mis des requêtes pour faire ce que tu veux dans une nouvelle rubrique "listes de discussion" dans laquelle j'ai déplacé la page du wiki adminsys qui parle des listes(il me paraitrait indispensable aussi de faire un point sur le compte à utiliser pour se connecter à la BDD sans devoir utiliser root). Il y a aussi un début de déscription détaillée de différentes listes sur l'ancien wiki(https://wiki-adh.fdn.fr/adminsys:listmaster#les_listes, apparemment ça n'a pas été transféré, à faire plus tard avec parcimonie dans la nouvelle rubrique, avec le résultat de tes investigations).
+ La liste "tresorier" devrait etre renommée ou recrée en "tresoriers" ou autre mot(fdntreso?). Et d'ailleurs il faudrait prendre l'habitude de commencer ou finir les noms de listes relatives à FDN par "fdn".
+N'hésitez pas à me téléphoner au 0238737592 si besoin de quoi que ce soit(Samedi uniquement)
+
+[tom28] j'ai fait mumuse avec quelques requêtes mais le temps a manqué pour faire plus que ça. Il y a 79 cas où listmaster@fdn.fr est soit owner, soit editor, et qu'il faudra donc modifier au cas par cas : travail de longue haleine à prévoir...
+
+{steph} Vu que le traitement des demandes d'adhérents se poursuivait encore jusqu'en fin d'après-midi, je me doutais qu'il ne serait pas possible d'aller plus loin, sachant que de toutes façons c'est plus un travail de réflexion sur du moyen terme que d'action éclair sur un admincamp. 79, ça me paraît quand même énorme par rapport à ce que j'ai obtenu pour mes messages concernant Dmarc, es-tu sûr de n'avoir pris que les listes ouvertes?
+
+## Inventaire des distribs de tous nos serveurs (tom28, )
+
+Et des difficultés prévues. En vue de planifier plus précisément les migrations vers stretch.
+
+## ...
+
+
+
+
+Choses faites
+
+Mettre ici les choses que vous avez faites
+
+
+## Demandes en souffrance traitées
+
+- [tom28] Anthony Bourguignon, délégation d'une zone DNS
+- [tom28] Alexis Fournier, infos dnsbl + modif IP dans le DNS
+- [tom28] Jeremi Dupin, MX backup
+- [tom28] nicolas.outin@fdn.fr: boite mail: nicolas.outin@fdn.fr
+- [tom28] Jean-Michel BAREL <jean-michel@barel.org> : boite mail jmbarel@fdn.fr + alias jean-michel.barel
+- [tom28] stephane ibrahime, alias (faire un mail à la place ?)
+- [tom28] Thomas Criscione, création liste services@
+- [tom28] thy, création de la liste avenir@
+- [olb] Ielo/Liazo, Accès Datacenter Paris Bourse - Mise à Jour de la liste d'accès avant le 30 Juin 2018 (initialement envoyé à suivi-adsl@) ???
+- [tom28] Thomas Criscione, accès rw wiki pour poster les CR
+- [olb] Jean-Michel Barel, demande de /30
+- [olb] info@cier14.org: Demande d'adresse IPV4 supplémentaire
+
+
+Erreurs d'aiguillage :
+    
+- [olb] sysjunk, changement d'adresse mail impossible dans l'espace adhérent
+- [olb] Brice, problème sur l'installation d'une brique internet
+
+
+## Service web mutualisé - yoda
+
+[olb] accès SSH pour afriqs + sudo
+[afriqs] analyse des confs apache activées (voir plus bas)
+autres : 1/3 actif
+fdn : 5/10 actifs
+membres : 17/24 actifs (dont 4 obsolètes ou inutiles)
+packages spécifiques :
+- Apache 2 (2.2.16-6+squeeze15)
+- PHP 5 (5.3.3.1-7+squeeze29)
+- proftpd (1.3.3a-6squeeze7)
+- mysql (5.1.73-1+deb6u1) (mysql 5.5 installé également mais pa sutilisé)
+utilisateurs www-data dans /home, donc accessibles via http://web.fdn.fr/~user_name et ayant des données :
+dans WWW : 41
+dans WWWS : 7
+
+[afriqs] Pad de rélexion sur le prochain serveur : https://pad.gresille.org/p/FDN-Mutu-reloaded
+
+### Confs Apache
+
+Autres
+/etc/apache2/sites-available/autres/ffdn
+=> HS : dig renvoie hermes.ffdn.org  => DÉSACTIVÉ
+etc/apache2/sites-available/autres/rienamontrer
+=> HS : dig ne répond pas  => DÉSACTIVÉ
+/etc/apache2/sites-available/autres/wikileaks
+=> !!! TOUJOURS ACTIF !!!
+FDN 
+/etc/apache2/sites-available/fdn/blog
+=> HS : sur chewie => DÉSACTIVÉ
+/etc/apache2/sites-available/fdn/fdn2
+=> HS : sur chewie => DÉSACTIVÉ
+/etc/apache2/sites-available/fdn/howto 
+=> !!! TOUJOURS ACTIF !!! mais redirect permanent https://vador.fdn.fr/wiki/support:faq puis redirect temp https://wiki-adh.fdn.fr/support:faq
+/etc/apache2/sites-available/fdn/news
+=> HS : sur solo => DÉSACTIVÉ
+/etc/apache2/sites-available/fdn/usenet-fr
+=> !!! TOUJOURS ACTIF !!!
+/etc/apache2/sites-available/fdn/vie-privee
+=> HS : dig ne répond pas => DÉSACTIVÉ
+/etc/apache2/sites-available/fdn/web
+=> !!! TOUJOURS ACTIF !!! ident du serveur et permet l'accès aux sites vias http[s]://web.fdn.fr/~user_name/, où user_name correspond à celui de /home
+/etc/apache2/sites-available/fdn/wiki
+=> HS : sur kylo => DÉSACTIVÉ
+/etc/apache2/sites-available/fdn/www.open
+=> !!! TOUJOURS ACTIF !!! retourne toto !?
+/etc/apache2/sites-available/fdn/x
+=> !!! TOUJOURS ACTIF !!!
+Membres
+acvfti:   
+/etc/apache2/sites-available/membres/acvfti/www.cartophilie-viroflay.org
+=> !!! TOUJOURS ACTIF !!!
+ahulin: 
+/etc/apache2/sites-available/membres/ahulin/hulin.net
+=> !!! TOUJOURS ACTIF !!!
+labourhakan.org -> /etc/apache2/sites-available/membres/ahulin/labourhakan.org
+=> !!! TOUJOURS ACTIF !!!
+arenevier:
+/etc/apache2/sites-available/membres/arenevier/alaure.renevier.net
+=> HS : dig ne répond pas => DÉSACTIVÉ
+/etc/apache2/sites-available/membres/arenevier/thomas.renevier.net
+=> HS : ne pointe pas vers yoda => DÉSACTIVÉ
+arpajon:
+/etc/apache2/sites-available/membres/arpajon/www.arpajon.fdn.fr
+=> !!! TOUJOURS ACTIF !!!
+/etc/apache2/sites-available/membres/arpajon/www.libra.fdn.fr
+=> !!! TOUJOURS ACTIF !!! mais redirige vers le site web de FDN... => DÉSACTIVÉ => RÉACTIVÉ le 29/07 à la demande de l'adhérent.
+aschmitt:                                                                                                      
+/etc/apache2/sites-available/membres/aschmitt/www.as-ci.net
+=> HS : ne pointe pas vers yoda => DÉSACTIVÉ
+/etc/apache2/sites-available/membres/aschmitt/www.freefoundation.org
+=> !! TOUJOURS ACTIF !!!
+/etc/apache2/sites-available/membres/aschmitt/www.gratin.org
+=> !! TOUJOURS ACTIF !!!
+/etc/apache2/sites-available/membres/aschmitt/www.puppetpresident.net
+=> !! TOUJOURS ACTIF !!!
+/etc/apache2/sites-available/membres/aschmitt/www.TheBit.org
+=> !! TOUJOURS ACTIF !!!
+bbayart:
+/etc/apache2/sites-available/membres/bbayart/www.fdntex.fdn.fr
+=> !! TOUJOURS ACTIF !!!
+cpaulus:
+/etc/apache2/sites-available/membres/cpaulus/www.quesaco.org
+=> HS : pointe vers 1&1 => DÉSACTIVÉ
+dchampeimont:           
+/etc/apache2/sites-available/membres/dchampeimont/aikidojodobures.fdn.fr
+=> !! TOUJOURS ACTIF !!!
+fpargami:                                
+/etc/apache2/sites-available/membres/fpargami/www.abyara.org
+=> HS : dig ne répond pas => DÉSACTIVÉ
+gbereta:                               
+/etc/apache2/sites-available/membres/gbereta/gbereta.conf
+=> HS : conf improbable, pas de ServerName => DÉSACTIVÉ
+hgbamy:                                 
+/etc/apache2/sites-available/membres/hgbamy/zzsmileyfamily.net
+=> !! TOUJOURS ACTIF !!! mais
+        Zzsmiley-family.fdn.fr : OK
+        www.Zzsmiley-family.fdn.fr : dig ne répond pas
+        zzsmileyfamily.net : pointe vers un autre serveur (infomaniak network sa) => DÉSACTIVÉ
+jblamy:                                   
+/etc/apache2/sites-available/membres/jblamy/laterrevuedailleurs.fdn.org
+=> !! TOUJOURS ACTIF !!! mais plus maintenu et pointe vers un autre site http://www.lesfleursdunormal.fr
+jcrobert:                                      
+/etc/apache2/sites-available/membres/jcrobert/www.jcrobert.com
+=> !! TOUJOURS ACTIF !!!
+jybarthel:
+/etc/apache2/sites-available/membres/jybarthel/www.aquapassion.org           
+=> HS : dig ne répond pas => DÉSACTIVÉ
+mherinx:
+/etc/apache2/sites-available/membres/mherinx/johannespoterie.eu.org
+=> HS : l'autre net  => DÉSACTIVÉ
+/etc/apache2/sites-available/membres/mherinx/www.suna.fdn.fr
+=> !! TOUJOURS ACTIF !!!
+picnat:   
+/etc/apache2/sites-available/membres/picnat/www.picardie-nature.org
+=> HS : neuronnexion => DÉSACTIVÉ
+sbizien:
+/etc/apache2/sites-available/membres/sbizien/samuel.bizien.info
+=> HS : Toile libre  => DÉSACTIVÉ
+sdescarp:                                                                                                       
+/etc/apache2/sites-available/membres/sdescarp/sdescarp.fdn.fr
+=> !! TOUJOURS ACTIF !!!
+teleplaisance:                                                                                                                 
+/etc/apache2/sites-available/membres/teleplaisance/www.teleplaisance.org
+=> HS : dig renvoie vers namebrightdns.com  => DÉSACTIVÉ
+xbenech:
+/etc/apache2/sites-available/membres/xbenech/www.ondim.fr
+=> HS : dig renvoie vers easynet.fr  => DÉSACTIVÉ
+ykerbiriou:
+/etc/apache2/sites-available/membres/ykerbiriou/www.auvr.fdn.fr
+=> !! TOUJOURS ACTIF !!! mais vide
+
+
+## Mise à jour de la base du RIPE
+
+whois -h whois.ripe.net -i mnt-ref,mnt-by,mnt-domains,mnt-irt,mnt-lower,mnt-nfy,mnt-routes -Br FDN-NCC
+
+    - rajouter des clés gpg sur l'auth de l'objet maintainer FDN-NCC. Qui ?
+      - olb: PGPKEY-FE03A581
+      - tom28: PGPKEY-2DA2D3F9
+    - virer  bureau+ncc@fdn.org de FDN-NCC
+    - rajouter/supprimer des individus admin & tech sur le role NOC FDN
+      - tech/admin olb: OLB8-RIPE
+      - tech/admin tom28: THP25-RIPE
+    - modifier l'adresse de l'organisation FDN
+    - rajouter GITOYEN-NCC en mnt-by sur ALTERN-NCC
+
+->  https://pad.gresille.org/p/m23xQecoHA
+
+- rajouter un mnt-by sur tous les préfixes annoncés par FDN
+- changer l'abuse ? (Il manque un mnt-ref: GITOYEN-NCC dans l'objet org pour que Gitoyen le fasse).
+    
+      - | 80.67.160.96/29  | vanhu                                                                              
+      - | 80.67.160.104/30 | jcd                                                                                
+      - | 80.67.160.112/29 | absolight                                                                          
+      - | 80.67.160.120/29 | onagre                                                                             
+      - | 80.67.160.128/28 | delphine rignon                                                                    
+      - | 80.67.168.112/29 | Loupi                                                                              
+      - | 80.67.168.120/29 | Levasseur                                                                          
+      - | 80.67.168.152/29 | Bret                                                                               
+      - | 80.67.168.160/29 | Beelo                                                                              
+      - | 80.67.168.168/29 | Nono                                                                     
+
+## Rattachement de plusieurs nic-hdl dans la base du RIPE
+
+THP25-RIPE & OLB8-RIPE
+
+- Création du NIC-HDL de Thomas : https://pad.gresille.org/p/EovMx2i1oo => OK THP25-RIPE
+
+
+
+## Routage de deux préfixes
+
+1. création des deux objets deux /29 => OK
+
+- https://pad.gresille.org/p/VpO4xM2zVL
+- 80.67.168.128/29, reverses dns assignés aux nameserver de FDN (pas encore configuré coté FDN)
+- 80.67.168.136/29, reverses dns assignés aux nameserver de FDN (par encore configuré coté FDN)
+
+2. modification des filtres Gitoyen => OK
+
+- https://github.com/gitoyen/bird-config/blob/master/etc/local/bird/bird/filters.conf#L47-L48
+
+3. ajout de l'attribut radius dans le SI
+
+- dans le si de FDN. Il faut chercher le compte radius et rajouter un attribut Framed-Route de type reply avec le prefixe comme valeur.
+
+## Divers
+
+- [tom28] remise en état des logs sur solo (systemd-journald était mort depuis le 25/06 suite à un manque de mémoire, et cela impactait certains logs notamment ceux de cyrus) {steph}Et sympa.log? Il faudrait mettre en place une alerte là-dessus
+- |tom28] mises à jour Debian sur solo
+- [tom28] l'agent puppet n'était pas lancé sur solo (parce que etckeeper indiquait des modifs au moment de son dernier lancement)
+- [tom28] les pb Sympa suite à migration strech semblent s'être réglés automagiquemnt ou parce que j'en ai corrigé certains(éventuellement indicretement)?{Steph}
+
+

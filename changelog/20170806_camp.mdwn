@@ -1,0 +1,81 @@
+
+
+### [DSL Liazo] Problème de MTU
+
+Problème de MTU sur la collecte xDSL Liazo remonté par Grenode.
+
+    # set l2tp_mtu 1500
+    set l2tp_mtu 1498
+
+### wildcard *.vpn.fdn.fr et *.vpn-rw.fdn.fr (mail de youpi du 15/04/2017)
+
+- (belette)
+
+### Let's encrypt sur isengard via puppet
+
+- (belette)
+
+### Ajouter vpn3 à vpn.fdn.fr et vpn3-rw à vpn-rw.fdn.fr + correction rdns vpn3
+
+- (belette)
+
+### Nouvelle VM pour les exégètes
+
+ - (fabien) VM créée / luksée / confée vaguement. Infos envoyées par mail.
+
+### Switchs N3K-3064PQ-10GE \& SFP 100Mbps
+
+(olb) Les SFP Solid Optics fonctionnent enfin en 100Mbps en les recodant avec
+la marque cisco et en appliquant un hotfix fournit par Alturna. Pour mémoire, à
+priori, c'est la dernière fois que nous en avons besoin car les cartes IPMI des
+prochaines machines seront très probablement en 1Gbps.
+
+Nous avons recodé 10 SFP, deux sont branchés et dispo dans le switch à PBO. Il en reste SFP que l'on
+mettra dans le switch de TH2.
+
+
+### Switch à PBO
+
+Nous avons racké le switch N3K-3064-10GE à PBO, branché les machine, et monté
+un nouveau lien entre FDN et Gitoyen est en 10Gbps à PBO. Tout s'est bien passé
+
+L'ancien switch est encore dans la baie prêt au cas où (on l'enlèvera au
+prochain admincamp probablement).
+
+Il y a une paire de fibres dispo entre notre baie et celle de l'autre (car pour
+l'opération nous avons demandé une nouvelle paire de fibre).
+
+
+### Duree de conservation des journaux Sympa (demande de Stephane Ascoet), actuellement c'est d'une semaine, n'est-ce pas trop court ? cf mail du 29/01/2017
+
+(tom28) passé de 7j à 31j
+
+### 2e porte collecte Liazo
+
+Pour gérer la redondance, Liazo a préféré une 2e porte de collecte. On a donc
+trois nouveaux VLAN : 1 pour le traffic RADIUS, 1 pour le traffic DATA "Best
+Effort" et 1 pour le traffic DATA "Premimum" (inutilisé chez nous) et de
+nouveaux peers BGP.
+
+(fsirjean, tom28) configuration switch (3 nouveaux VLAN sur le trunk Liazo et
+livrés sur les trunks des LNS) et LNS (sessions BGP dans bird). Ajout des
+nouveaux VLAN dans le wiki.
+
+
+### Installation de la vm endor
+
+C'est une machine virtuelle qui nous permet d'avoir un accès à notre infra
+indépendament de notre réseau public (ie si nos passerelles sont down.
+
+Pour accéder :
+
+- endor.fdn.fr (sur le réseau)
+- endor-gitoyen.fdn.fr, endor-fdn.gitoyen.net, admin-fdn.gitoyen.net (sur le réseau de gitoyen)
+- endor-admin.fdn.fr (sur le réseau d'admin de FDN)
+
+### Création de compte adminsys
+
+- vince
+- bbichero
+
+

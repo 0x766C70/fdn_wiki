@@ -1,0 +1,93 @@
+#!/bin/bash
+
+info() {
+    echo "$@"
+}
+
+while [ "$#" -ge 1 ]
+do
+    case "$1" in
+        --crt)
+            shift
+            CRT="$1"
+            ;;
+        --csr)
+            shift
+            CSR="$1"
+            ;;
+        --chained)
+            shift
+            CHAINED="$1"
+            ;;
+        --intermediate)
+            shift
+            INTERMEDIATE="$1"
+            ;;
+        --acme-key)
+            shift
+            ACME_KEY="$1"
+            ;;
+        --acme-dir)
+            shift
+            ACME_CHALLENGE_DIR="$1"
+            ;;
+        --config)
+            shift
+            CONFIG="$1"
+            . "$CONFIG"
+            ;;
+    esac
+    shift
+done
+
+
+[ "$(id -u -n)" = "root" ] || {
+  info "need to be run as root"
+  exit 1
+}
+[ "$CRT" ] || exit 1
+[ "$CSR" ] || exit 1
+[ "$CHAINED" ] || exit 1
+[ "$INTERMEDIATE" ] || exit 1
+[ "$ACME_KEY" ] || exit 1
+[ "$ACME_CHALLENGE_DIR" ] || exit 1
+
+
+umask 077
+[ -s "$KEY" ] || {
+    info "Generate key : $KEY"
+    openssl genrsa 4096 > "$KEY"
+}
+
+[ -s "$ACME_KEY" ] || {
+    info "Generate acme key : $ACME_KEY"
+    openssl genrsa 4096 > "$ACME_KEY"
+    chown acme "$ACME_KEY"
+}
+
+umask 022
+[ -s "$CSR" ] || {
+    info "Generate csr $CSR"
+    SUBJECT_ALT_NAME="$(echo "$DOMAINS" | sed -e 's/^/DNS:/' -e 's/ /,DNS:/g')"
+
+    openssl req -new -sha256 -key $KEY -subj "/" -reqexts SAN \
+        -config <(cat /etc/ssl/openssl.cnf <(printf "[SAN]\nsubjectAltName=$SUBJECT_ALT_NAME")) \
+        > $CSR
+}
+
+[ -s "$INTERMEDIATE" ] || {
+    info "Retrieving intermediate certificate $INTERMEDIATE"
+    wget --quiet --no-check-certificate -O - https://letsencrypt.org/certs/lets-encrypt-x3-cross-signed.pem > "$INTERMEDIATE"
+}
+
+info "Create stub files to be writen by acme_renew"
+touch "$CRT"
+touch "$CHAINED"
+chown acme "$CRT"
+chown acme "$CHAINED"
+
+[ -d $ACME_CHALLENGE_DIR ] || {
+    info "Create challeng dir $ACME_CHALLENGE_DIR"
+    sudo -u acme mkdir -p "$ACME_CHALLENGE_DIR"
+}
+

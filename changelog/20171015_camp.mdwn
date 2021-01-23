@@ -1,0 +1,84 @@
+### Installation du deuxième nouveau switch de FDN à TH2
+
+Nous avons changé le switch de FDN à TH2 pour le remplacer par un
+N3k-3064PQ-10GE.
+
+- (belette, boug) préparation de la configuration du switch
+- (tom28, vince, sebian) remplacement du switch dans la baie 11A4 à TH2
+
+À la base, il était également question de déplacer nos équipements (les deux
+lns et le switch) en haut de la baie car Gitoyen voudrait mettre les
+équipements des membres en haut et ceux de gitoyen en bas. Nous avions peur le
+la longueur des câbles des interco mais au final c'est bon. Il nous manque un
+jarretière fibre suffisamment longue. Pour déplacer nos équipement.
+
+### Fin de la mise en place de [[infra/machines/endor]]
+
+Pour mémoire, il s'agit d'une machine pour l'[[outils/acces de secours]]. Elle
+nous permet d'accéder à nos réseaux via le réseau de gitoyen.  Elle a une patte
+dans trois réseaux différents : fdn (vlan 3), fdn-admin (vlan 801), celui de
+gitoyen.
+
+- (sebian) augmentation de la mémoire 128Mo → 256Mo
+- (olb) vérification que puppet passe
+- (olb) correction de /etc/network/intefaces (oubli de auto ethX)
+- (olb) documentation de cette machine
+
+### Isolation du puppetmaster sur palpatine
+
+(olb, caps) [[infra/machines/palpatine]] est une nouvelle vm qui fait tourner juste le
+puppetmaster (puppetserver, puppetdb, postgresql). Il reste à fédérer les
+autres vm. Nous y avons installé puppet5.
+
+### NSA down !
+
+(olb) reboot de la machine [[infra/machines/nsa]] car impossible de s'y
+connecter malgré les ping qui fonctionnent (ni en console, ni en ssh). Elle
+semble down depuis 2017-10-13T23:30 d'après les log.
+
+### Jardinage de Wiki
+
+(caps) Entre autres :
+
+    * [[services/email]]
+    * [[howto/conventions]]
+
+### (caps) Suivi des demandes formulées par mail
+
+#### Demandes traitées
+
+* "Suppression d'une boite mail"  du 25/04/2017
+* "Changement de l'IP de mon serveur DNS" du 12/02/2017 ; config slave déjà à jour et matchant bien le NS faisant autorité pour la zone de l'adhérent
+
+#### Demandes non traitées car "HS" et/ou chronophagement inutiles (à discuter, cf point plus bas)
+
+* "Demande complexe, demande d'aide et de conseil plus demande de certain services" du 21/04/2017 : tout à l'air dans le titre mais en même temps le mail est pas clair >> abandon ?
+ * "demande de conseil pour le choix d'un routeur adsl" du 25/04/2017 "quel routeur" de 0750421783@free.fr : HS ; pas de news depuis le 25/04/2017 >> abandon ?
+
+#### Demandes en "pause" jusqu'à la fin de l'admincamp (si pas plus d'info : abandon.)
+
+ * "demande de création de boite mail" du 23/05/2017 du "livreur particulier" (sujet "Demande") : pas de news depuis la réponse de blackmoor du 21/05/2017 >> attente d'infos de blackmoor : a-t-elle eu une réponse depuis ?
+ * "obtenir une adresse mail fdn" du 13/01/2017: complément d'info à été demandé le 22/05/2017, toujours pas de news
+
+### Màj des reverse dns pour lignes dsl non utilisées (vince)
+
+### Inscription des numéros d'adhérent dans puppet
+
+(olb) Il y a deux type de numéros dans le SI : le numéro d'adhérent et le
+numéro de client. J'ai mis le numéro d'adhérent, je ne suis pas sur que ce
+soit le plus pertinent.
+
+### Divers
+
+- (olb) mise à jour mineures de toutes les machines. Elles ont toutes besoin d'être redémarrées.
+- (olb) [puppet] la sonde puppet dans check\_mk n'est pas de type <<local>>. Elle a sa propre entête '<<puppet>>'. Du coup, elle n'a rien a faire dans /usr/lib/check\_mk\_agent/local, il faut la mettre dans le répertoire /usr/lib/check\_mk\_agent/plugins/puppet.
+- (olb) [puppet] remplacement de la fonction try\_get\_value qui est dépréciée. C'est dig44 qui doit être utilisée.
+- (olb) [bird] nettoyage de la conf bird des lns (suppression de filtre vpn plus utilisé)
+- (olb) [vpn] suppression de l'enregistrement ipv6  sur open.fdn.fr
+- (olb) [lns] vérification déprovision TTN \& DSL. Il reste les sessions bgp.
+- (olb) il n'y a pas suffisamment de mémoire sur vpn2 (et à forciori sur vpn1 et vpn3). Un processus openvpn s'est fait tuer pendant une maj apt. Passage de 512M à 768M sur [[infra/machines/vpn1]], [[infra/machines/vpn2]] et [[infra/machines/vpn3]].
+- (olb) Sur certaines machines, la version de l'agent puppet n'était pas la bonne (kylo, resolver0, resolver1, c3px).
+- (olb) Sur certaines machines, l'agent puppet ne tournait pas.
+
+
+

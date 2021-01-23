@@ -1,0 +1,9 @@
+### Ajout de deux nouveau adminsys
+
+### Installation de librenms.fdn.fr
+
+Nous avons créé la machine [[machines/boba]] spécifiquement pour [[outils/librenms]].
+
+Pour l'instant, seur boba et les deux switchs sont graphés (réseau admin). Dans
+l'idéal l'ensemble des machines virtuelles devraient être graphées mais pour
+cela il faut installer snmpd et nous ne voulons pas l'ouvrir publiquement.

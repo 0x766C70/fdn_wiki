@@ -1,0 +1,7 @@
+[[!meta description="r2d2 - nœud du cluster ganeti (éteint)"]]
+[[!tag physique]]
+
+nœud du [[outils/ganeti|cluster Ganeti]]
+
+- achetée fin 2012 avec c3po
+

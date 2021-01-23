@@ -1,0 +1,135 @@
+#!/bin/sh
+
+notice() {
+    [ "$VERBOSE" ] || return
+    echo "$@"
+}
+
+info() {
+    echo "$@"
+}
+
+error() {
+    echo "$@" >&2
+}
+
+set -e
+
+VERBOSE=1
+FORCE=
+NDAYS=45
+RELOAD_SERVICES=
+CONFIG=
+ALL=
+while [ "$#" -ge 1 ]
+do
+    case "$1" in
+        --quiet)
+            VERBOSE=
+            ;;
+        --force)
+            FORCE=1
+            ;;
+        --all)
+            ALL=1
+            ;;
+        --config)
+            shift
+            CONFIG="$1"
+            ;;
+    esac
+    shift
+done
+
+[ "$(id -u -n)" = acme ] || {
+    error "Need to be run as acme"
+    exit 1
+}
+[ "$ALL" ] || [ "$CONFIG" ] || {
+    error "Need either --all or --config PATH"
+    exit 1
+}
+
+renew_cert()
+{
+    local CRT CSR CHAINED INTERMEDIATE ACME_KEY ACME_CHALLENGE_DIR
+    local RELOAD_SERVICE RESTART_SERVICE
+    local NEED_RENEW NOW NOT_AFTER EXPIRE TMP_CRT
+    local CONFIG="$1"
+
+    . "$CONFIG"
+
+    [ "$CRT" ] || return 0
+    [ "$CHAINED" ] || return 0
+    [ -s "$CSR" ] || return 0
+    [ -s "$INTERMEDIATE" ] || return 0
+    [ -s "$ACME_KEY" ] || return 0
+    [ -d "$ACME_CHALLENGE_DIR" ] || return 0
+
+    NOW="$(date "+%s")"
+    NOT_AFTER="$(date "+%s" -d "$(openssl x509 -in "$CRT" -text | grep -i "not after" | cut -d':' -f 2-)")" || NOT_AFTER="$NOW"
+
+    NEED_RENEW=
+    EXPIRE=$(( ( $NOT_AFTER - $NOW ) / 3600 / 24 ))
+    if [  $(( $NOW + 3600 * 24 * $NDAYS )) -ge $NOT_AFTER ]
+    then
+        notice "Certificate $CRT expires in $EXPIRE day(s) (< $NDAYS days)"
+        NEED_RENEW=1
+    else
+        notice "Certificate $CRT expires in $EXPIRE day(s) (> $NDAYS days)"
+    fi
+
+    if [ "$NEED_RENEW" ] || [ "$FORCE" ]
+    then
+        TMP_CRT="$(mktemp)"
+        if python /usr/local/bin/acme_tiny.py \
+            --quiet \
+            --account-key "$ACME_KEY" \
+            --csr "$CSR" \
+            --acme-dir "$ACME_CHALLENGE_DIR" > "$TMP_CRT"
+        then
+            cat "$TMP_CRT" > "$CRT"
+            cat "$CRT" "$INTERMEDIATE" > "$CHAINED"
+            info "Certificate $CRT has been renew"
+            [ ! "$RESTART_SERVICE" ] || RESTART_SERVICES="$RESTART_SERVICES $RESTART_SERVICE"
+            [ ! "$RELOAD_SERVICE" ] || RELOAD_SERVICES="$RELOAD_SERVICES $RELOAD_SERVICE"
+        else
+            error "acme_tiny call failed for $CRT"
+        fi
+    fi
+}
+
+RESTART_SERVICES=
+restart_services()
+{
+    [ "$RESTART_SERVICES" ] || return 0
+    for SERVICE in $(echo -n "$RESTART_SERVICES" | xargs -n 1 | sort | uniq)
+    do
+        sudo service $SERVICE restart
+    done
+}
+
+RELOAD_SERVICES=
+reload_services()
+{
+    [ "$RELOAD_SERVICES" ] || return 0
+    for SERVICE in $(echo -n "$RELOAD_SERVICES" | xargs -n 1 | sort | uniq)
+    do
+        sudo service $SERVICE reload
+    done
+}
+
+
+if [ "$ALL" ]
+then
+    for CONFIG in /etc/acme/*.conf
+    do
+        renew_cert "$CONFIG"
+    done
+else
+    renew_cert "$CONFIG"
+fi
+
+restart_services
+reload_services
+

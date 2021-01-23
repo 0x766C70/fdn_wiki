@@ -1,0 +1,7 @@
+[[!meta description="r4p17 - nœud du cluster ganeti"]]
+[[!tag physique]]
+
+nœud du [[outils/ganeti|cluster Ganeti]]
+
+- achetée fin 2014 avec c3px
+

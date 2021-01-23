@@ -1,0 +1,6 @@
+[[!meta description="lns01 - passerelle et LNS"]]
+[[!tag physique]]
+
+Machine physique faisant passerelle et LNS redondée avec lns02.
+
+- nouveau matériel en 2016.

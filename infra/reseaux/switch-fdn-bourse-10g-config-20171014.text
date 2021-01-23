@@ -1,0 +1,293 @@
+hostname pbo-10g
+
+no feature telnet
+feature interface-vlan
+feature lldp
+username admin password 5 $5$6/MX4k6h$xFcShMllliCdf3mTfHwWdE/Rp6h87hddPEZ25W2Cx97  role network-admin
+ssh key rsa 2048 
+ip domain-lookup
+system default switchport shutdown
+service unsupported-transceiver
+
+vlan 1
+vlan 3
+  name fdn-infra
+vlan 14
+  name fdn-lns-radius
+vlan 16
+  name nerim-dsl
+vlan 17
+  name nerim-dsl-pppoe
+vlan 20
+  name tetaneutral-collecte
+vlan 21
+  name grenode-collecte
+vlan 22
+  name sames-collecte
+vlan 119
+  name gitoyen-grand-ternet
+vlan 126
+  name liazo-radius
+vlan 127
+  name liazo-best-effort
+vlan 128
+  name liazo-premium
+vlan 801
+  name fdn-admin
+vlan 802
+  name fdn-replication
+vlan 2019
+  name franciliens-collecte
+vlan 2052
+  name pclight-collecte
+vrf cointerface Vlan1
+
+interface Vlan3
+  no shutdown
+
+interface Vlan14
+  no shutdown
+
+interface Vlan16
+  no shutdown
+
+interface Vlan17
+  no shutdown
+
+interface Vlan20
+  no shutdown
+
+interface Vlan21
+  no shutdown
+
+interface Vlan22
+  no shutdown
+
+interface Vlan119
+  no shutdown
+
+interface Vlan126
+  no shutdown
+
+interface Vlan127
+  no shutdown
+
+interface Vlan128
+  no shutdown
+
+interface Vlan801
+  no shutdown
+  management
+  ip address 10.0.0.51/24
+
+interface Vlan802
+  no shutdown
+
+interface Vlan2019
+  no shutdown
+
+interface Vlan2052
+  no shutdown
+
+interface Ethernet1/1
+  speed 1000
+  description c3po-replication
+  switchport mode trunk
+  switchport trunk allowed vlan 802
+  no shutdown
+
+interface Ethernet1/2
+  speed 1000
+  description c3po-vlans
+  switchport mode trunk
+  switchport trunk allowed vlan 3,801
+  no shutdown
+
+interface Ethernet1/3
+  speed 1000
+  description r2d2-replication
+  switchport mode trunk
+  switchport trunk allowed vlan 802
+  no shutdown
+
+interface Ethernet1/4
+  speed 1000
+  description r2d2-vlans
+  switchport mode trunk
+  switchport trunk allowed vlan 3,801
+  no shutdown
+
+interface Ethernet1/5
+  speed 1000
+  description c3px replication
+  switchport mode trunk
+  switchport trunk allowed vlan 802
+  no shutdown
+
+interface Ethernet1/6
+  speed 1000
+  description c3px vlans
+  switchport mode trunk
+  switchport trunk allowed vlan 3,801
+  no shutdown
+
+interface Ethernet1/7
+  speed 1000
+  description r4p17 replication
+  switchport mode trunk
+  switchport trunk allowed vlan 802
+  no shutdown
+interface Ethernet1/8
+  speed 1000
+  description r4p17 vlans
+  switchport mode trunk
+  switchport trunk allowed vlan 3,801
+  no shutdown
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+  speed 1000
+  description RMLL
+  switchport access vlan 3
+  no shutdown
+
+interface Ethernet1/11
+
+interface Ethernet1/12
+
+interface Ethernet1/13
+
+interface Ethernet1/14
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+  speed 1000
+  description "Acces pour intervention"
+  switchport access vlan 3
+  no shutdown
+
+interface Ethernet1/17
+  speed 100
+  description R2D2 IPMI
+  switchport access vlan 801
+  no shutdown
+
+interface Ethernet1/18
+  speed 100
+  description C3PO IPMI
+  switchport access vlan 801
+  no shutdown
+
+interface Ethernet1/19
+  speed 100
+  description C3PX IPMI
+  switchport mode trunk
+  switchport trunk allowed vlan 801
+  no shutdown
+
+interface Ethernet1/20
+  speed 100
+  description R4P17 IPMI
+  switchport mode trunk
+  switchport trunk allowed vlan 801
+  no shutdown
+
+interface Ethernet1/21
+
+interface Ethernet1/22
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+
+interface Ethernet1/33
+
+interface Ethernet1/34
+
+interface Ethernet1/35
+
+interface Ethernet1/36
+
+interface Ethernet1/37
+
+interface Ethernet1/38
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+  description upstream-gitoyen
+  switchport mode trunk
+  switchport trunk allowed vlan 3,14,16-17,20-22,119,126-128,801-802,2019,2052
+  no shutdown
+
+interface Ethernet1/49/1
+
+interface Ethernet1/49/2
+
+interface Ethernet1/49/3
+
+interface Ethernet1/49/4
+
+interface Ethernet1/50/1
+
+interface Ethernet1/50/2
+
+interface Ethernet1/50/3
+
+interface Ethernet1/50/4
+
+interface Ethernet1/51/1
+
+interface Ethernet1/51/2
+
+interface Ethernet1/51/3
+
+interface Ethernet1/51/4
+
+interface Ethernet1/52/1
+
+interface Ethernet1/52/2
+
+interface Ethernet1/52/3
+
+interface Ethernet1/52/4
+
+interface mgmt0
+  vrf member management
+  ip address 10.0.0.41/24
+  line console
+  line vty

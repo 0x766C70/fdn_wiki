@@ -1,0 +1,85 @@
+## Demandes en souffrance traitées
+
+- [tom28] Anthony Bourguignon, délégation d'une zone DNS
+- [tom28] Alexis Fournier, infos dnsbl + modif IP dans le DNS
+- [tom28] Jeremi Dupin, MX backup
+- [tom28] nicolas.outin@fdn.fr: boite mail: nicolas.outin@fdn.fr
+- [tom28] Jean-Michel BAREL <jean-michel@barel.org> : boite mail jmbarel@fdn.fr + alias jean-michel.barel
+- [tom28] stephane ibrahime, alias (faire un mail à la place ?)
+- [tom28] Thomas Criscione, création liste services@
+- [tom28] thy, création de la liste avenir@
+- [olb] Ielo/Liazo, Accès Datacenter Paris Bourse - Mise à Jour de la liste d'accès avant le 30 Juin 2018 (initialement envoyé à suivi-adsl@) ???
+- [tom28] Thomas Criscione, accès rw wiki pour poster les CR
+- [olb] Jean-Michel Barel, demande de /30
+- [olb] info@cier14.org: Demande d'adresse IPV4 supplémentaire
+
+
+Erreurs d'aiguillage :
+    
+- [olb] sysjunk, changement d'adresse mail impossible dans l'espace adhérent
+- [olb] Brice, problème sur l'installation d'une brique internet
+
+
+## Service web mutualisé - yoda
+
+- [olb] accès SSH pour afriqs + sudo
+- [afriqs] analyse des confs apache activées (voir plus bas)
+
+   - autres : 1/3 actif
+   - fdn : 5/10 actifs
+   - membres : 17/24 actifs (dont 4 obsolètes ou inutiles)
+
+   packages spécifiques :
+
+    - Apache 2 (2.2.16-6+squeeze15)
+    - PHP 5 (5.3.3.1-7+squeeze29)
+    - proftpd (1.3.3a-6squeeze7)
+    - mysql (5.1.73-1+deb6u1) (mysql 5.5 installé également mais pa sutilisé)
+
+    utilisateurs www-data dans /home, donc accessibles via http://web.fdn.fr/~user_name et ayant des données :
+
+    - dans WWW : 41
+    - dans WWWS : 7
+
+- [afriqs] Pad de rélexion sur le prochain serveur : https://pad.gresille.org/p/FDN-Mutu-reloaded
+
+## Mise à jour de la base du RIPE
+
+whois -h whois.ripe.net -i mnt-ref,mnt-by,mnt-domains,mnt-irt,mnt-lower,mnt-nfy,mnt-routes -Br FDN-NCC
+
+    - rajouter des clés gpg sur l'auth de l'objet maintainer FDN-NCC. Qui ?
+      - olb: PGPKEY-FE03A581
+      - tom28: PGPKEY-2DA2D3F9
+    - virer  bureau+ncc@fdn.org de FDN-NCC
+    - rajouter/supprimer des individus admin & tech sur le role NOC FDN
+      - tech/admin olb: OLB8-RIPE
+      - tech/admin tom28: THP25-RIPE
+    - modifier l'adresse de l'organisation FDN
+    - rajouter GITOYEN-NCC en mnt-by sur ALTERN-NCC
+
+## Rattachement de plusieurs nic-hdl dans la base du RIPE
+
+THP25-RIPE & OLB8-RIPE
+
+## Routage de deux préfixes
+
+1. création des deux objets deux /29 => OK
+
+- https://pad.gresille.org/p/VpO4xM2zVL
+- 80.67.168.128/29, reverses dns assignés aux nameserver de FDN (pas encore configuré coté FDN)
+- 80.67.168.136/29, reverses dns assignés aux nameserver de FDN (par encore configuré coté FDN)
+
+2. modification des filtres Gitoyen => OK
+
+- https://github.com/gitoyen/bird-config/blob/master/etc/local/bird/bird/filters.conf#L47-L48
+
+3. ajout de l'attribut radius dans le SI
+
+- dans le si de FDN. Il faut chercher le compte radius et rajouter un attribut Framed-Route de type reply avec le prefixe comme valeur.
+
+## Divers
+
+- [tom28] remise en état des logs sur solo (systemd-journald était mort depuis le 25/06 suite à un manque de mémoire, et cela impactait certains logs notamment ceux de cyrus)
+- |tom28] mises à jour Debian sur solo
+- [tom28] l'agent puppet n'était pas lancé sur solo (parce que etckeeper indiquait des modifs au moment de son dernier lancement)
+- [tom28] les pb Sympa suite à migration strech semblent s'être réglés automagiquement (ou parce que j'en ai corrigé certains (éventuellement indirectement))?{Steph}
