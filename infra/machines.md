@@ -77,16 +77,12 @@
 
 ## Machines physiques
 
-[[!map pages="./machines/* and !tagged(dead) and tagged(physique) and !tagged(ext)" show="description"]]
 
 ## Machines virtuelles
 
-[[!map pages="./machines/* and !tagged(dead) and !tagged(physique) and !tagged(ext)" show="description"]]
 
 ## Machines externes
 
-[[!map pages="./machines/* and !tagged(dead) and tagged(ext)" show="description"]]
 
 # Archives des machines
 
-[[!map pages="./machines/* and tagged(dead)" show="description"]]

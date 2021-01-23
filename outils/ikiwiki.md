@@ -62,7 +62,6 @@ On commence par cloner le dépôt :
 Les sources du wiki sont dans le répertoire *wiki* du dépôt `fdn-adminsys`.
 
 Pour de l'aide sur les commandes git voir:
-[[!map pages="howto/git*" show="title"]]
 
 
 ### Installation de paquets Debian nécessaires

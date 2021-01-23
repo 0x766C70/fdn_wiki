@@ -60,7 +60,6 @@ Les prochains :
 <h2>Services</h2>
 
 <p>Il s'agit de l'ensemble des services fournis aux membres ou au public. Les [[outils internes|outils]] sont traités dans une section à part.</p>
-[[!map pages="services/* and !services/*/*" show=title]]
 
 </div>
 </div>
