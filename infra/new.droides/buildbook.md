@@ -1,6 +1,6 @@
 # Buildbook temporaire en mode POC
 
-* [installation](installation) sur base Debian stretch
+* [installation](https://git.fdn.fr/adminsys/wiki/-/blob/master/infra/new.droides/installation.md) sur base Debian stretch
 * configuration [Fail2ban](fail2ban)
 * configuration du [cluster](Cluster)
 * préparation de l'espace de [stockage](stockage)
