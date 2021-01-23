@@ -1,4 +1,3 @@
-[[!meta title="Infrastructure"]]
 
 Dans cette section, un état des lieux de l'infra système et réseau de FDN. 
 

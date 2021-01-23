@@ -1,4 +1,3 @@
-[[!meta title="Mumble - VoIP"]]
 
 FDN fournit une instance Mumble, mumble est le client disponible sur un grand nombre de plateformes (Linux, MacOS, F-Droid [Plumble]...)
 

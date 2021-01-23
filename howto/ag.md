@@ -1,4 +1,3 @@
-[[!meta title="Comment gérer les AG dans le SI"]]
 
 Pour quelqu'un ayant les droits sur si (si@fdn.fr) :
 

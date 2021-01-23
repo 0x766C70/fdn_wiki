@@ -1,5 +1,3 @@
-[[!meta title="FDNcamp n°2 (Admincamp n°12) - 5/6 août 2017"]]
-[[!meta date="20170803"]]
 [[!tag done]]
 
 Pad : [[https://pad.gresille.org/p/tei1aixi-fdn-admincamp-20170803]]

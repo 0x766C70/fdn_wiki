@@ -1,4 +1,3 @@
-[[!meta title="Gestion des secrets partagés"]]
 
 [Pass](http://zx2c4.com/projects/password-store/) (password-store) est un
 gestionnaire de mot de passe se basant sur GPG. Les mots de passe sont

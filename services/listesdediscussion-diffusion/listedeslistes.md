@@ -1,3 +1,2 @@
-[[!meta title="Informations sur quelques listes de discussion/diffusion du domaine FDN du serveur Sympa FFDN"]]
 services@fdn.fr a servi de prototype pour une adresse de contact unique concernant les demandes et est desormais remplacee par une boite courriel classique.
 ...to be continued...

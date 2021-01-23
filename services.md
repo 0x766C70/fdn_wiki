@@ -1,4 +1,3 @@
-[[!meta title="Services fournis"]]
 
 L'ensemble des services fournis au public ou aux membres. Les outils internes,
 tels que les backups ou la supervision, sont documentés dans la section

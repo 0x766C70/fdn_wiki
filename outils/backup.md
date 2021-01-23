@@ -1,4 +1,3 @@
-[[!meta title="WIP - backups"]]
 
 > olb : **attention: ** ceci est une ébauche de documentation qui n'a pas
 > encore été mise en place.

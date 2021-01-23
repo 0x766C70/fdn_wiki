@@ -1,4 +1,3 @@
-[[!meta title="Réseaux"]]
 
 FDN dispose de deux POP (voir [[points de presence]]), avec un switch dans
 chaque baie :

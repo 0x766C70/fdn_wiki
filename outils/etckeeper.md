@@ -1,4 +1,3 @@
-[[!meta title="Versionning de /etc - etckeeper"]]
 
 Nous utilisons etckeeper sur toutes les machines gérées par puppet. Il est
 installé via puppet.

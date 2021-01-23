@@ -1,4 +1,3 @@
-[[!meta title="Comptes-rendus"]]
 
 Nous nous réunissons quasi uniquement lors des admincamps. Si vous voulez venir aux admincamps, c'est par là : [[equipe/nous_rejoindre]].
 

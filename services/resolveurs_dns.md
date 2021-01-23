@@ -1,4 +1,3 @@
-[[!meta title="Resolveurs DNS ouverts"]]
 
 FDN fourni des resolveurs dns ouverts dont les adresses sont : 80.67.169.12 et 80.67.169.40.
 

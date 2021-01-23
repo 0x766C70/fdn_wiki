@@ -1,4 +1,3 @@
-[[!meta title="Partager un screen sur une machine"]]
 
 Quand on travaille à plusieurs sur une machine, il est utile d'avoir une console partagée. Il y a deux cas de figure, expliqués ci-dessous.
 

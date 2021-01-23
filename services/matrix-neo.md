@@ -1,4 +1,3 @@
-[[!meta title="Matrix Synapse - messagerie instantanée"]]
 
 FDN fournit une instance Synapse.
 

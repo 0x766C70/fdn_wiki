@@ -1,4 +1,3 @@
-[[!meta title="Intra Monitoring"]]
 
 # Généralités
 

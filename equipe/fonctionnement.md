@@ -1,4 +1,3 @@
-[[!meta title="Fonctionnement de l'équipe"]]
 
 ##Fonctionnement groupe Adminsys
 

@@ -1,4 +1,3 @@
-[[!meta description="c3po - nœud du cluster ganeti (éteint)"]]
 [[!tag physique]]
 
 nœud du [[outils/ganeti|cluster Ganeti]]

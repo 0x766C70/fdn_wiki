@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°3 - 5/6 décembre 2015"]]
-[[!meta date="20151205"]]
 [[!tag done]]
 
 Lieu : Paris, dans les locaux de la quadrature du net.    

@@ -1,4 +1,3 @@
-[[!meta title="phpMyAdmin"]]
   - Les bases de données sont accessibles via phpMyAdmin http://www.fdn.fr/phpmyadmin 8-)
   - Pour avoir les codes d'accès superadministrateur, faire, sur le serveur Web [[adminsys:serveurs:yoda]] :  ''cat /root/.my.cnf''
   - Pour créer un couple utilisateur+base, il faut aller dans ''Privilèges'' 8-) Attention à ne pas donner les droits globaux :-(

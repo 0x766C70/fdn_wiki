@@ -1,4 +1,3 @@
-[[!meta title="[DRAFT] new email infra"]]
 
 Mise en place d'une nouvelle infra email
 

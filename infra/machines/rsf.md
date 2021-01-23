@@ -1,4 +1,3 @@
-[[!meta description="rsf - tunnels chiffrés pour RSF"]]
 
 Machine virtuelle RSF pour des tunnels chiffrés pour RSF.
 

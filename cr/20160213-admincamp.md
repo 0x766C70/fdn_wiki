@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°4 - 13/14 février 2016"]]
-[[!meta date="20160213"]]
 [[!tag done]]
 
 Lieu : La Quadrature du Net, 60 rue des Orteaux, 75020 Paris    

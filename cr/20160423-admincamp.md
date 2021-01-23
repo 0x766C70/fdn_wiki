@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°5 - 23/24 avril 2016"]]
-[[!meta date="20160423"]]
 [[!tag done]]
 
 Dates: 23/24 avril    

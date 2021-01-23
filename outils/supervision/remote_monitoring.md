@@ -1,4 +1,3 @@
-[[!meta title="Remote Monitoring"]]
 
 # Généralités
 

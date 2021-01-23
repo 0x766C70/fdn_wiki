@@ -1,4 +1,3 @@
-[[!meta title="Conventions (de nommage, etc...)"]]
 
 # Conventions de nommage
 

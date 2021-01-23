@@ -1,5 +1,3 @@
-[[!meta title="Nouveaux switchs"]]
-[[!meta date="20171016"]]
 
 Voilà, les deux nouveaux switchs (N3K-3064PQ-10GE) sont rackés à Paris Bourse
 et à TH2, on en prend pour quelques années. Ceux que nous avons enlevés avaient

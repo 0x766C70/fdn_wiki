@@ -1,4 +1,3 @@
-[[!meta title="FDN - adminsys"]]
 
 <div class="block-wrapper">
 <div class="block-accueil">

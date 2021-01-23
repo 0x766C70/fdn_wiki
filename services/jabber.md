@@ -1,4 +1,3 @@
-[[!meta title="Service Jabber - XMPP"]]
 
 FDN héberge un service XMPP pour les adhérents sur la machine [[infra/machines/jyn]] pour le domaine **jabber.fdn.fr**.
 

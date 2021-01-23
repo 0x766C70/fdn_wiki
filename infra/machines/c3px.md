@@ -1,4 +1,3 @@
-[[!meta description="c3px - nœud du cluster ganeti"]]
 [[!tag physique]]
 
 nœud du [[outils/ganeti|cluster Ganeti]]

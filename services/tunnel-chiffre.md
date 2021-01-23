@@ -1,4 +1,3 @@
-[[!meta title="VPN - tunnel chiffré"]]
 
 FDN fournit à la fois des VPNs authentifiés pour nos adhérents, des VPNs openbar, et des VPNs authentifiés pour des adhérents de partenaires.
 

@@ -1,4 +1,3 @@
-[[!meta description="palpa2 - ancien hyperviseur Xen"]]
 [[!tag dead physique]]
 
 palpa2 est une ancien hyperviseur xen plus en activité (éteinte en 2014 et

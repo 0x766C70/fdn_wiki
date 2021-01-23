@@ -1,4 +1,3 @@
-[[!meta title="Chiffrement des machines"]]
 
 Certaines machines de FDN sont chiffrées. Cela veut dire que les données sur le
 disque dur sont chiffrées et que une fois la machine éteinte il est très

@@ -1,4 +1,3 @@
-[[!meta title="NTP"]]
 
 Le LNS se synchronisent auprès de _*.pool.ntp.org_. Les autres
 machines se synchronisent auprès des LNS.

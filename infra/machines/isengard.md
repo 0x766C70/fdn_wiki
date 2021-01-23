@@ -1,5 +1,3 @@
-[[!meta title="isengard"]]
-[[!meta description="isengard - vm pour monitoring externe"]]
 [[!tag vm]]
 
 Machine virtuelle fournie par [[equipe/tiers/ldn]] pour le [[monitoring à distance|outils/supervision/remote_monitoring]].

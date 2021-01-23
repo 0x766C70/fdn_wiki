@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°8 - 11/12/13 novembre 2016"]]
-[[!meta date="20161111"]]
 [[!tag done]]
 
 Lieu : La quadrature du net

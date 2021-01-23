@@ -1,4 +1,3 @@
-[[!meta description="jabba - archivage"]]
 
 Machine virtuelle (temporaire) d'archivage d'autres machines de FDN (jira, kamino, etc.).
 

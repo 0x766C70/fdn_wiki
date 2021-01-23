@@ -1,4 +1,3 @@
-[[!meta description="vpns - vms pour les tunnels chiffrés des membres"]]
 
 Machine virtuelle pour les [[tunnels chiffrés des membres|services/tunnel_chiffre]].
 

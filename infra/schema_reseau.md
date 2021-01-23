@@ -1,4 +1,3 @@
-[[!meta title="Schéma Réseau"]]
 
 [[!toc levels=2]]
 

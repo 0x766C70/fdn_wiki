@@ -1,4 +1,3 @@
-[[!meta title="Web pour FDN"]]
 
 # Web public de FDN
 

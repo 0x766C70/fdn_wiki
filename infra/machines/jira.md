@@ -1,4 +1,3 @@
-[[!meta description="jira - ticketing"]]
 
 Machine virtuelle hébergeant l'outil de [[outils/ticketing]].
 

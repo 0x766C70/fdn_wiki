@@ -1,4 +1,3 @@
-[[!meta title="Outils internes"]]
 
 L'ensemble des outils internes qui ne sont destinés ni au public ni aux membres.
 

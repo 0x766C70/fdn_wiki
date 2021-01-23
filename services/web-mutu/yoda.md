@@ -1,4 +1,3 @@
-[[!meta title="Web mutualisé - Yoda"]]
 
 FDN fournissait historiquement à ses membres de l'hébergement de site web sur yoda.
 Ce service a été migré vers une nouvelle machine, rey, et le processus de migration est en cours. Il est donc possible de trouver des sites sur les deux machines.

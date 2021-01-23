@@ -1,4 +1,3 @@
-[[!meta title="Qui fait quoi ?"]]
 
 ## Noyau
 

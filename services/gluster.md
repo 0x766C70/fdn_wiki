@@ -1,4 +1,3 @@
-[[!meta title="GlusterFS - stockage distribué des hyperviseurs"]]
 
 gluster est une solution de stockage distribué (en concurrence avec CEPH)
 CEPH a besoin d'un multiple de trois nœuds pour fonctionner donc nous sommes parti sur gluster qui autorise une configuration plus risquée à 2 nœuds.

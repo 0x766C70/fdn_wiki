@@ -1,4 +1,3 @@
-[[!meta title="Web mutualisé - Rey"]]
 
 FDN fournit à ses membres de l'hébergement de site web sur [[infra/machines/rey]] correspond au domaine mutu.fdn.fr.
 

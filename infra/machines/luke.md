@@ -1,4 +1,3 @@
-[[!meta description="luke - ancien hyperviseur Xen"]]
 [[!tag dead physique]]
 
 luke est une ancien hyperviseur xen plus en activité (éteinte en 2014 et bénée

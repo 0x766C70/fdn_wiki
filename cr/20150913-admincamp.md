@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°2 - 12/13 septembre 2015"]]
-[[!meta date="2015-09-13"]]
 [[!tag done]]
 
 Date : 12 et 13 septembre 2015, à partir de 9h le matin    

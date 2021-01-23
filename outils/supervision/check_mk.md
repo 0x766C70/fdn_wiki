@@ -1,4 +1,3 @@
-[[!meta title="check_mk"]]
 
 # TODO
 

@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°9 - 21 janvier 2017"]]
-[[!meta date="20170121"]]
 [[!tag done]]
 
 Pad : [[https://pad.gresille.org/p/aiqu9ah4ua-fdn-admincamp-20170121]]     

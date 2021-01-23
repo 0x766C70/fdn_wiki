@@ -1,4 +1,3 @@
-[[!meta title="Munin"]]
 
 Munin tourne sur leia, on peut voir la sortie sur <https://munin.fdn.fr/>
 

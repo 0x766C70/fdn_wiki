@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°1 - 18/19/20/21 juin 2015"]]
-[[!meta date="2015-06-21"]]
 [[!tag done]]
 
 Lieu: Paris, en marge de PSES

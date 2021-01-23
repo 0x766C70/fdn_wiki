@@ -1,5 +1,3 @@
-[[!meta title="Camp n°13 - 14/15 octobre 2017"]]
-[[!meta date="20171014"]]
 [[!tag done]]
 
 Lieu : local de La Quadrature du Net, 60 rue des Orteaux 75020 Paris, France

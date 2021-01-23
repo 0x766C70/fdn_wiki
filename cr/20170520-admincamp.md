@@ -1,5 +1,3 @@
-[[!meta title="FDNcamp n° 1 (admincamp n°11) - 20/21 mai 2017"]]
-[[!meta date="20170520"]]
 [[!tag done]]
 
 Pad : [[https://pad.gresille.org/p/oov1teeg-fdn-admincamp-20170520]]

@@ -1,4 +1,3 @@
-[[!meta title="Nouveau chez les adminsys"]]
 
 # Nouveau chez les adminsys !
 

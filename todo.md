@@ -1,4 +1,3 @@
-[[!meta title="Choses à faire - TODO"]]
 
 # NOTE : NE PLUS METTRE À JOUR (READ ONLY et non maintenue) [Version à jour](https://git.fdn.fr/adminsys/suivi/issues)
 

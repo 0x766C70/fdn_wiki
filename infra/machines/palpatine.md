@@ -1,5 +1,3 @@
-[[!meta title="palpatine"]]
-[[!meta description="palpatine - vm pour notre puppet master"]]
 [[!tag vm]]
 
 Cette vm est hébergée sur l'infrastructure de FDN.

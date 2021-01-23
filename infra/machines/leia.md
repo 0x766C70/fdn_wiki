@@ -1,4 +1,3 @@
-[[!meta description="leia - machine foure-tout en cours de demembrement"]]
 
 Machine foure-tout en cours de demembrement
 

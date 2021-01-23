@@ -1,4 +1,3 @@
-[[!meta title="Backporter un paquet debian"]]
 
 Le fait de "backporter" un paquet signie de le compiler pour une version
 précédente de debian. Quand il n'y a pas de problème de dépendance, c'est assez

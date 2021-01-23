@@ -1,4 +1,3 @@
-[[!meta title="À propos de ce wiki"]]
 
 Ce wiki est propulsé à l'aide d'[ikiwiki](http://ikiwiki.info) ([[mode d'emploi|outils/ikiwiki]].
 

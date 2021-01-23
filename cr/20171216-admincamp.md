@@ -1,5 +1,3 @@
-[[!meta title="Camp n°14 - 16/17 décembre 2017"]]
-[[!meta date="20171216"]]
 [[!tag done]]
 
 Lieu : local de La Quadrature du Net, 60 rue des Orteaux 75020 Paris, France

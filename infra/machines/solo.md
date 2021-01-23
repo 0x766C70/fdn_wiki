@@ -1,4 +1,3 @@
-[[!meta description="solo - vm messagerie email & listes"]]
 
 Machine virtuelle pour les boîtes et les listes email.
 

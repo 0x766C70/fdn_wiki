@@ -1,4 +1,3 @@
-[[!meta title="Automatisation configuration - puppet"]]
 [[!toc levels=2]]
 
 

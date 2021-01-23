@@ -1,4 +1,3 @@
-[[!meta title="Ticketing - Request tracker (RT)"]]
 
 # Request Tracker
 

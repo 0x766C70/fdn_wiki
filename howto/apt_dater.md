@@ -1,4 +1,3 @@
-[[!meta title="Mettre à jour les machines avec apt-dater"]]
 
 Pour se simplifier la vie lors des mises à jour des serveurs, on peut utiliser l'outil apt-dater.
 

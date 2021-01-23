@@ -1,4 +1,3 @@
-[[!meta title="Usenet (newsgroups)"]]
 
 Le serveur `news.fdn.fr` est accessible sans authentification depuis toutes
 les adresses IP FDN (xDSL ou VPN). Depuis le reste du monde, il est accessible

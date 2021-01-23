@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°10 - 11/12 mars 2017"]]
-[[!meta date="20170311"]]
 [[!tag done]]
 
 Pad : [[https://pad.gresille.org/p/sa0iethe-fdn-admincamp-20170311]]    

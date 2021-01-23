@@ -1,4 +1,3 @@
-[[!meta title="Git: tutoriel rapide d'utilisation"]]
 
 Git est notamment utilisé pour révisionner le wiki adminsys, voici un petit
 tuto sur les commandes de base.

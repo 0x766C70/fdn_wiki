@@ -1,4 +1,3 @@
-[[!meta title="Les machines"]]
 
 # Les serveurs physiques
 

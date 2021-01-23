@@ -1,4 +1,3 @@
-[[!meta title="L'équipe"]]
 
 # Rejoindre l'équipe
 

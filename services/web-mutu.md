@@ -1,4 +1,3 @@
-[[!meta title="Web mutualisé"]]
 
 FDN fournit à ses membres de l'hébergement de site web.
 

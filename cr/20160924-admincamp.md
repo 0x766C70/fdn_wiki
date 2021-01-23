@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°7 - 24/25 septembre 2016"]]
-[[!meta date="20160924"]]
 [[!tag done]]
 
 # Présences

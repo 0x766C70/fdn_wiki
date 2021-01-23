@@ -1,4 +1,3 @@
-[[!meta title="Points de présence"]]
 
 FDN dispose de deux *points de présence* (POP), à Paris. Il s'agit de
 *Telehouse 2* (TH2) et *Paris Bourse* (PBO).

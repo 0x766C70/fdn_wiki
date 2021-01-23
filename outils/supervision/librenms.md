@@ -1,4 +1,3 @@
-[[!meta title="LibreNMS"]]
 
 LibreNMS tourne sur boba (comme Boba Fett, le chasseur de primes, qui a « trop la classe »), on peut voir la sortie sur <https://librenms.fdn.fr/>
 

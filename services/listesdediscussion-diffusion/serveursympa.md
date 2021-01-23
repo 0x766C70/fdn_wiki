@@ -1,5 +1,4 @@
 
-[[!meta title="Administration du serveur Sympa FFDN de listes de discussion/diffusion"]]
 
 Préambule
 =========

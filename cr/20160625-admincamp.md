@@ -1,5 +1,3 @@
-[[!meta title="Admincamp n°6 - 25/26 juin 2016"]]
-[[!meta date="20160625"]]
 [[!tag done]]
 
 Admincamp FDN n°6

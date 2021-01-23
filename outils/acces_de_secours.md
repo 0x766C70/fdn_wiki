@@ -1,4 +1,3 @@
-[[!meta title="Accès de secours"]]
 
 Nous avons une machine virtuelle chez gitoyen pour nous permettre d'accéder à
 notre infrastructure indépendament de nos passerelles. Cette machines est

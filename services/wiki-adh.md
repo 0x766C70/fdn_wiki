@@ -1,4 +1,3 @@
-[[!meta title="Wiki adhérents"]]
 
 Il est hébergé sur [[infra/machines/kylo]]. Le logiciel utilisé est
 [DokuWiki](https://www.dokuwiki.org/).

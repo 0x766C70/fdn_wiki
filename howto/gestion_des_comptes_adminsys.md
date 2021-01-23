@@ -1,4 +1,3 @@
-[[!meta title="Gestion des comptes d'administration systeme"]]
 
 
 Les comptes d'administration système sont gérés par puppet. On distingue les
