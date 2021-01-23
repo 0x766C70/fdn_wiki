@@ -1,6 +1,6 @@
 # Buildbook temporaire en mode POC
 
-* [installation](Installation-sur-Debian-base) sur base Debian stretch
+* [installation](installation) sur base Debian stretch
 * configuration [Fail2ban](fail2ban)
 * configuration du [cluster](Cluster)
 * préparation de l'espace de [stockage](stockage)
