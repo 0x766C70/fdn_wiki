@@ -1,6 +1,5 @@
 Machine virtuelle pour l'hébergement mutualisé de sites web des adhérents. Remplacera à terme [[infra/machines/yoda]].
 
-[[!toc levels=2]]
 
 # Caractéristiques
 

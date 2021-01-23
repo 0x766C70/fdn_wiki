@@ -2,7 +2,6 @@
 Git est notamment utilisé pour révisionner le wiki adminsys, voici un petit
 tuto sur les commandes de base.
 
-[[!toc levels=2]]
 
 # Les Bases
 

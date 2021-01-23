@@ -1,4 +1,3 @@
-[[!toc levels=2]]
 
 
 Introduction

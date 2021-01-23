@@ -13,7 +13,6 @@ Si le membre n'a pas de domaine, il est possible d'héberger un site sur http(s)
 
 FDN fourni également un outil de statistiques.
 
-[[!toc levels=2]]
 
 # Procédures
 

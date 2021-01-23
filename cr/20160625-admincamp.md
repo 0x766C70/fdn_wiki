@@ -6,7 +6,6 @@ Dates: 25 et 26 juin à partir de 9h
 Lieu: 60 rue des Orteaux, Paris 20e.    
 Wiki: https://adminsys.fdn.fr     
 
-[[!toc levels=2]]
 
 # Présences
 

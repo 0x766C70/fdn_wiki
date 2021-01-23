@@ -5,7 +5,6 @@ Info personnage:
 
 Jabba est le fils du célèbre Zorba le Hutt et, comme lui, il est le chef gangster d'une grande organisation criminelle : le Clan Desilijic des Hutts.
  
-[[!toc levels=3]]
 
 # Caractéristiques
 

@@ -1,6 +1,5 @@
 Machine virtuelle pour le service [Nitter](https://github.com/zedeus/nitter) permettant d'accéder à Twitter.
 
-[[!toc levels=2]]
 
 # Caractéristiques
 

@@ -1,5 +1,4 @@
 
-[[!toc levels=2]]
 
 Le schéma et les informations ci-dessous date du 2017/05/20 (en cours de
 migration de la collecte Nérim vers Liazo).

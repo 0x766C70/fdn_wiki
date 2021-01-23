@@ -3,7 +3,6 @@
 Date : 12 et 13 septembre 2015, à partir de 9h le matin    
 Lieu : La Quadrature du Net, 60 rue des Orteaux, 75020 Paris
 
-[[!toc]]
 
 
 # Réunion

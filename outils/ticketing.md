@@ -13,7 +13,6 @@ L'interface utilisateur est accessible à l'url [tickets.fdn.fr](https://tickets
 
 Le serveur hébergeant la solution est [[infra/machines/jira]].
 
-[[!toc levels=4]]
 
 ## Principe de fonctionnement
 

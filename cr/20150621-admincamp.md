@@ -2,7 +2,6 @@
 
 Lieu: Paris, en marge de PSES
 
-[[!toc]]
 
 # Ce que nous avons fait
 

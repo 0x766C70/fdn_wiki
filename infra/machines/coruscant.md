@@ -1,6 +1,5 @@
 Machine virtuelle hébergeant [gitlab](https://git.fdn.fr/)
 
-[[!toc levels=2]]
 
 # Caractéristiques
 

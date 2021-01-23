@@ -4,7 +4,6 @@ Dates: 23/24 avril
 Lieu: 60 rue des Orteaux, Paris 20e    
 Présent⋅e⋅s : Fabien, Olivier, Belette, Ben, Khrys, Kankan, Nono, Scara, Mat, Clément, Benjamin
 
-[[!toc levels=1]]
 
 # Choses faites
 

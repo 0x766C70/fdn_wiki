@@ -1,6 +1,5 @@
 Machine virtuelle pour le service [Invidious](https://github.com/omarroth/invidious) permettant d'accéder à Youtube.
 
-[[!toc levels=2]]
 
 # Caractéristiques
 

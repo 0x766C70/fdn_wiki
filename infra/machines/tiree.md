@@ -2,7 +2,6 @@
 
 Machine virtuelle pour l'instance Peertube de FDN.
 
-[[!toc levels=2]]
 
 # Caractéristiques
 * Machine: virtuelle;

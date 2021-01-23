@@ -13,7 +13,6 @@ Cette liste est appelée à évoluer en fonction des besoins des adhérents.
 
 Si le membre n'a pas de domaine, il est possible d'héberger un site sur **http(s)://username.mutu.fdn.fr**, la gestion du sous-domaine mutu.fdn.fr étant déléguée sur rey.
 
-[[!toc levels=2]]
 
 # Présentation
 

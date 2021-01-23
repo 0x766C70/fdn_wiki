@@ -3,7 +3,6 @@
 Lieu : Paris, dans les locaux de la quadrature du net.    
 Présent·e·s : Fabien, Capslock, Benjamin, Thomas, Mat, Olivier, Quota, Scara
 
-[[!toc levels=3]]
 
 # Rappels de l'infrastructure de FDN
 

@@ -1,6 +1,5 @@
 Machine virtuelle pour le service [Bibliogram](https://git.sr.ht/~cadence/bibliogram) permettant d'accéder à Instagram.
 
-[[!toc levels=2]]
 
 # Caractéristiques
 

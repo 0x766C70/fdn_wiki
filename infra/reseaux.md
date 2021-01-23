@@ -15,7 +15,6 @@ chaque baie :
 
 Sommaire :
 
-[[!toc levels=2]]
 
 ## Spare
 

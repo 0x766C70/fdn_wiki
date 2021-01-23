@@ -5,7 +5,6 @@ Présent·e·s : Olb, Mat, Nono, CapsLock, Fabien, Benjamin, Sebian, Scara
 Nouveaux·elles : Clément, Benoît (ben), Benoît (belette), Thomas, Kankan
 
 
-[[!toc levels=2]]
 
 # Réunion de coordination
 

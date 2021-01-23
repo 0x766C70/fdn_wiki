@@ -12,7 +12,6 @@ la possibilité de supprimer des anciennes sauvegarde.
 
 Par ailleurs, ces sauvegardes sont accessibles par l'ensemble du noyau adminsys.
 
-[[!toc levels=2]]
 
 Procédures
 ==========

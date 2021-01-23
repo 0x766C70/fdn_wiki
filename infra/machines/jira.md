@@ -7,7 +7,6 @@ Jira est une vieille marchande de fruits et légumes vivant à Mos Espa sur la
 planète Tatooine. Elle est une des voisines du jeune Anakin Skywalker quand
 celui-ci est encore l'esclave du ferrailleur Watto54.
  
-[[!toc levels=3]]
 
 # Caractéristiques
 

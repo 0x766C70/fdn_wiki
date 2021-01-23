@@ -6,7 +6,6 @@ peut l'éditer.
 Le wiki adminsys est rédigé en Markdown. Voir les bases sur le site officiel à
 l'adresse <https://daringfireball.net/projects/markdown/basics>.
 
-[[!toc levels=2]]
 
 Procédures
 ==========
