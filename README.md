@@ -11,7 +11,7 @@ l'équipe adminsys peuvent le modifier.
 
 Si vous souhaitez nous rejoindre, les meilleurs moments sont les rencontres
 physiques : admincamp, assemblée générale. Vous trouverez l'ensemble des infos
-utiles sur la page de l'[équipe](https://git.fdn.fr/adminsys/wiki/-/tree/vlp_update_01/equipe).
+utiles sur les pages [fonctionnement](./equipe/fonctionnement.md) et [équipe](./equipe/qui.md).
 
 ![wearher map](https://librenms.fdn.fr/plugins/Weathermap/output/fdn.png)
 
@@ -29,8 +29,8 @@ Pour les retardataires, nous subissons une pandémie mondiale. Les Camps restent
 
 # Services
 
-Il s'agit de l'ensemble des [services](https://git.fdn.fr/adminsys/wiki/-/tree/master/services) fournis aux membres ou au public.
+Il s'agit de l'ensemble des [services](./services) fournis aux membres ou au public.
 
 # Les outils
 
-Ces [outils](https://git.fdn.fr/adminsys/wiki/-/tree/master/outils) nous servent à faire tourner la boutique !
+Ces [outils](./outils) nous servent à faire tourner la boutique !
