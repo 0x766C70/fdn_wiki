@@ -1,5 +1,4 @@
-
-FDN dispose de deux POP (voir [[points de presence]]), avec un switch dans
+FDN dispose de deux POP (voir [points de presence](./points_de_presence.md)), avec un switch dans
 chaque baie :
 
   * Un Cisco c2970 en ''11A4'' au Telehouse 2
@@ -60,7 +59,7 @@ Autre (niveau 2 fourni par Gitoyen, livré à FDN en mode access, pour l'OOB) :
 
 2 sources d'infos : /etc/bird.conf sur les lns/vpn, et conf radius (mysql sur lns ou si)
 
-la page correspondante gitoyen https://doc.gitoyen.net/lir/ra/
+la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)]
 
 #### Récap
 
@@ -186,9 +185,9 @@ Empty set (0.01 sec)
 | 27   | -                          |        |                           |
 | 28   | -                          |        |                           |
 
-* [[dump de la conf du switch TH2 du 20160925|reseaux/switch-fdn-th2-11a4-config-20160925.text]]
-* [[dump de la conf du switch TH2 10G du 20171014|reseaux/switch-fdn-th2-10g-config-20171014.text]]
-* [[dump de la conf du switch PBO 10G du 20171014|reseaux/switch-fdn-bourse-10g-config-20171014.text]]
+* ![dump de la conf du switch TH2 du 20160925](./reseaux/switch-fdn-th2-11a4-config-20160925.text)
+* ![dump de la conf du switch TH2 10G du 20171014](./reseaux/switch-fdn-th2-10g-config-20171014.text)
+* ![dump de la conf du switch PBO 10G du 20171014](./reseaux/switch-fdn-bourse-10g-config-20171014.text)
 
 ## Ports c3560-brs - à PBO
 
