@@ -59,7 +59,7 @@ Autre (niveau 2 fourni par Gitoyen, livré à FDN en mode access, pour l'OOB) :
 
 2 sources d'infos : /etc/bird.conf sur les lns/vpn, et conf radius (mysql sur lns ou si)
 
-la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)]
+la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)
 
 #### Récap
 
