@@ -1,48 +1,54 @@
 
-##Fonctionnement groupe Adminsys
+# Fonctionnement groupe Adminsys
+
+## Rejoindre l'équipe
+
+Il y a plusieurs manières de s'impliquer dans FDN, l'une d'entre elles est de
+rejoindre l'équipe adminsys. Cela peut paraître au premier abord très technique
+mais l'ensemble des choses à y faire est au final assez divers. Cela va du
+routage dynamique BGP à la maintenance de VM en passant par de l'animation du groupe.
+
+- Voici la liste actuelle des membres du [groupe adminsys](./equipe_adminsys.md)
+- Un guide des premières étapes en tant que [nouveau adminsys](./nouveau_membre_adminsys.md)
+
+## Organisation
 
 Le groupe adminsys est organisé en plusieurs niveaux (ou AdminRank).
 
 Chaque AdminRank donne accès à un ensemble de droits dans l'infrastructure FDN.
 
-Être dans un des différents AdminRank, n'impose aucunement de vouloir passer à celui du dessus. Un AdminRookie peut par exemple très bien vouloir continuer avancer sur ses projets sans avoir à devenir adminSys.
-
 Les niveaux s'organisent ainsi:
 
-**Niveau AdminGuest (Période probatoire de 3 mois):**
+**Niveau AdminGuest:**
 
-* Accès à #adminsys (chan publique IRC)
-* Compte gitlab Guest adminsys/suivi + accès à des projets précis en Guest
+* Depuis le gitlab FDN, accès au groupe de projets **adminsys**
 * Possibilité d'assister au Standup call mensuel du groupe
-* Un adminGuest est parrainé par un AdminSys
+* Reporter sur tous les projets Gitlab
 
-**Niveau AdminRookie (AdminGuest actif + période probatoire de 3 mois + présence à un camp):**
+**Niveau AdminSys:**
 
-* Être visible en tant qu'AdminGuest
-* Accès au salon privé fdn-adminsys-internal sur [m]
-* Possibilité de root sur des machines de tests
-* Rank Dev sur gitlab
-* Intégration au mailing adminsys@
+* Possibilité de root sur des machines de prod de certains projets non vitaux
+* Maintainer sur ses propres projets Gitlab
+* Dev sur les autres projets Gitlab
 
-**Niveau AdminSys (AdminRookie actif + période probatoire de 3 mois + 1 camp + qq bières IRL):**
-
-* Possibilité de root sur des machines de prod de projets où iel a participé
-* Rank Maintainer sur ses projets Gitlab
-* Accompagner des nouveaux AdminGuest
-* Possibilité de participer aux réunions de bureau comme porte parole du groupe
-
-**Niveau AdminCore (être AdminSys actif + période probatoire de 3 mois + vote à la majorité sans veto des AdminCore):**
+**Niveau AdminCore:**
 
 * Avoir accès aux droides
 * Accès aux VM sensibles (SI, LNS, ...)
 * Créer de nouvelles VM
 * Être admin sur gitlab
-* Avoir son nom pour accéder aux DC
-* Participer aux orientations stratégico-techniques de l'asso
+* Avoir son nom enregistré pour accéder aux DC
 
-##Pérennité dans les groupes
+## Admincamps
 
-Être Admin ne se fait que sur des "mandats" renouvelables d'un an.
+Le plus facile pour s'intégrer à l'équipe adminsys est de venir à un admincamp.
+Les admincamps sont des weekends lors desquels nous nous coordonnons et nous avançons concrètement dans une ambiance conviviale.
+
+Il y a en a environ 4 à 6 par an.  Les admincamps sont annoncés sur les listes benevoles@fdn.fr et ag@fdn.fr et leurs dates sont généralement prévues au moins 6 mois à l'avance et publiées sur ce wiki. N'hésitez pas à vous annoncer si vous souhaitez y participer : `benevoles@fdn.fr`
+
+## Pérennité dans les groupes
+
+Être Adminsys ne se fait que sur des "mandats" renouvelables d'un an.
 
 Avant chaque AG, il sera demandé de confirmer ou pas sa volonté et sa dispo.
 
@@ -52,11 +58,11 @@ En cas de non réponse ou si l'Admin exprime le fait d'avoir moins de temps, son
 
 Il y a une différence entre installer un logiciel chez soi, en mode standalone/one shot et faire tourner un service chez FDN. La mise en service d'un nouveau service nécessite qu'une documentation soit effecuée avant la proposition du service à nos adhérent·e·s.
 
-Cette documentation doit inclure:
+Cette documentation doit se faire sur le git en rapport avec le projet sous la forme:
 
-* Les étapes d'installation
-* Les étapes de configuration
-* Les étapes de maintenance
+* buildbook : à destination des adminsys, pour remonter un services en cas de besoin et voir comment il a été monté à l'origine
+* administration : à destination des adminsys, pour les actions courantes à effectuer sur le service (maj, ajout compte, etc.) et une FAQ
+* utilisation : à destination des adhérents, des informations concernant le service et son utilisation au quotidien avec FAQ
 
 C'est une étape indispensable afin que le service soit maintenu et que nos futur·e·s adminsys puissent prendre la main sur le service et comprendre l'historique.
 
