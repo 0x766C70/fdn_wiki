@@ -1,11 +1,10 @@
 
-
 Le schéma et les informations ci-dessous date du 2017/05/20 (en cours de
 migration de la collecte Nérim vers Liazo).
 
 # Schéma high level du réseau FDN
 
-[[!img fdn_network.0.10.svg size=x800]]
+![img fdn_network.0.10.svg size=x800](./schema_reseau/fdn_network.0.10.svg)
 
 Ce schéma est une ébauche, il y a des choses à modifier, corriger, améliorer.
 
@@ -85,7 +84,7 @@ nos services.
 A Paris Bourse, FDN héberge une machine physique pour les RMLL.
 
 Schéma de la vielle collecte et du routage chez FDN:
-_À l'époque avant Nérim_ : [schema_collect_routage_fdn](https://wiki-adh.fdn.fr/essaimage:ressources:schema_collecte_routage_fdn)
+[À l'époque avant Nérim](https://wiki-adh.fdn.fr/essaimage:ressources:schema_collecte_routage_fdn)]
 
 
 # Chantiers
