@@ -13,23 +13,23 @@ routage dynamique BGP à la maintenance de VM en passant par de l'animation du g
 
 ## Organisation
 
-Le groupe adminsys est organisé en plusieurs niveaux (ou AdminRank).
+Le groupe adminsys est organisé en plusieurs niveaux.
 
-Chaque AdminRank donne accès à un ensemble de droits dans l'infrastructure FDN.
+Chaque niveau donne accès à un ensemble de droits dans l'infrastructure FDN.
 
 Les niveaux s'organisent ainsi:
 
-**Niveau AdminGuest:**
+**Niveau Membre FDN:**
 
-* Depuis le gitlab FDN, accès au groupe de projets **adminsys**
-* Possibilité d'assister au Standup call mensuel du groupe
-* Reporter sur tous les projets Gitlab
+* Depuis le gitlab FDN, accès au groupe de projets **adminsys** en mode Reporter
+* Vous pouvez commencer à prendre part aux échanges en ouvrant des Issues ou en en commantant d'autres
 
 **Niveau AdminSys:**
 
-* Possibilité de root sur des machines de prod de certains projets non vitaux
-* Maintainer sur ses propres projets Gitlab
-* Dev sur les autres projets Gitlab
+* Vous avez le niveau Developper dans le groupe de projet **adminsys**
+* Vous pouvez gérer vos propres projets:
+ * Vous êtes Maintainer sur vos projets Gitlab
+ * Vous êtes root sur la machaine associé
 
 **Niveau AdminCore:**
 
