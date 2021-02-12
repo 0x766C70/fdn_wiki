@@ -25,8 +25,6 @@ L'objectif est qu'il n'y ait pas de Direct Member dans les projets.
 
 ## Groupes spécifiques Adminsys
 
-reco: les déplacer dans les projets du groupe admincore
-
 ### DNS
 
 Membres:
@@ -42,3 +40,4 @@ Membre:
 ## Suivi des groupes
 
 Chaque années 1 mois avant l'AG, il sera demandé aux différents membres des groupes de maintenir ou pas leur adhésion pour que lors de l'AG la mise à jour de la base puisse se faire.
+
