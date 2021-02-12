@@ -3,35 +3,39 @@
 ## Mise en place de 3 groupes principaux
 
 * Admincore (anciennement noyau)
-* Adminsys
-* FDN
+* Adminsys (équipe adminsys)
+* FDN (tous les membres)
 
 Pour les descriptions: fonctionnement.md
 
-adminsys est le groupe projet pivot dans lequel tous les projets fdn sont crées
+"adminsys" est le groupe projet pivot dans lequel tous les projets fdn sont créés selon l'organisation ci-dessous:
 
 Membres:
 * Groupe Admincore en owner
-* les membres admsinsys Adminsys en developer
+* les membres Adminsys en developer
 * Groupe FDN en Reporter
 
 L'objectif est que tous les membres FDN puisse voir l'activité adminsys et participer aux échanges via les issues.
 Les adminsys peuvent faire des propositions de MR
 Seuls les Admincore peuvent pousser les proposition dans Master
 
+Si pour des projets spécifique, des adhérents souhaitent passer developer. Il faudra créer un groupe portant le nom du projet et inviter ce groupe dans le projet en tant que developper.
+Les adhérents integreront se groupe  pour participer au developpement du projet.
+L'objectif est qu'il n'y ait pas de Direct Member dans les projets.
+
 ## Groupes spécifiques Adminsys
 
-### DSN
+### DNS
 
 Membres:
 * Groupe Admincore en owner
-* Direct Member en Developer
+* Groupe DNS en Developer
 
 ## fdn-adsl
 
 Membre:
 * Groupe Admincore en owner
-* Direct member en Developer
+* Groupe fdn-adsl en Developer
 
 ## Suivi des groupes
 
