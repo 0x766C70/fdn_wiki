@@ -25,6 +25,8 @@ L'objectif est qu'il n'y ait pas de Direct Member dans les projets.
 
 ## Groupes spécifiques Adminsys
 
+reco: les déplacer dans les projets du groupe admincore
+
 ### DNS
 
 Membres:
