@@ -2,73 +2,71 @@
 # Les serveurs physiques
 
  - Les LNS (routeurs et L2TP)
-
-   - [[lns11]]
-   - [[lns22]]
+    - [lns11](./machines/lns11.md)
+    - [lns22](./machines/lns22.md)
 
  - Les droïdes (cluster Ganeti)
-
-   - [[r4p17]]
-   - [[c3px]]
-   - [[r2d2]] (down)
-   - [[c3po]] (down)
+    - [r4p17](./machines/r4p17.md)
+    - [c3px](./machines/c3px.md)
+    - [r2d2](./machines/r2d2.md) (down)
+    - [c3po](./machines/c3po.md) (down)
 
 # Les machines virtuelles
 
  - Les serveurs de nom :
-   - [[nsa]]
-   - [[gchq]]
+   - [nsa](./machines/nsa.md)
+   - [gchq](./machines/gchq.md)
 
  - Les résolveurs DNS
-   - [[resolver0]]
-   - [[resolver1]]
+   - [resolver0](./machines/resolver0.md)
+   - [resolver1](./machines/resolver1.md)
 
  - Tunnels chiffrés (OpenVPN) :
-   - [[vpns]] vpn[1-5][-rw]
-   - [[vpn-open1]]
-   - [[rsf]]
+   - [vpns](./machines/vpns.md) vpn[1-5][-rw]
+   - [vpn-open1](./machines/vpn-open1.md)
+   - [rsf](./machines/rsf.md)
 
  - Web & contenu :
-   - [[yoda]] (web mutualisé)
-   - [[rey]] (web mutualisé *reloaded*)
-   - [[chewie]] (web pour fdn)
-   - [[ackbar]] (tracker torrent + media.fdn.fr)
-   - [[tiree]] (peertube)
+   - [yoda](./machines/yoda.md) (web mutualisé)
+   - [rey](./machines/rey.md) (web mutualisé *reloaded*)
+   - [chewie](./machines/chewie.md) (web pour fdn)
+   - [ackbar](./machines/ackbar.md) [(tracker torrent + media.fdn.fr)](https://ackbar.fdn.fr/)
+   - [tiree](./machines/tiree.md) [(peertube)](https://tube.fdn.fr/)
 
  - Messageries :
-   - [[solo]] (mail + listes + webmail)
-   - [[jabber]] (serveur jabber)
-   - [[korr]] (mail bac à sable)
-   - [[pz4co]] (matrix + mumble)
+   - [solo](./machines/solo.md) (mail + listes + webmail)
+   - [jabber] (serveur jabber)
+   - [korr](./machines/korr.md) (mail bac à sable)
+   - [pz4co] (matrix + mumble)
 
  - Outils internes :
-   - [[kylo]] (pour les bénévoles : wiki adhérent, flyspray...)
-   - [[obiwan]] (pour les adminsys : git + wiki adminsys + apt-dater)
-   - [[leia]] (nagios, munin, ... à démembrer)
-   - [[coruscant]] (gitlab)
-   - [[si]] (SI fdn)
-   - [[palpatine]] (puppetmaster)
-   - [[jabba]] (archivage)
+   - [kylo](./machines/kylo.md) (pour les bénévoles : wiki adhérent, flyspray...)
+   - [obiwan](./machines/obiwan.md) (pour les adminsys : git + wiki adminsys + apt-dater)
+   - [leia](./machines/leia.md) (nagios, munin, ... à démembrer)
+   - [coruscant](./machines/coruscant.md) [(gitlab)](https://git.fdn.fr/)
+   - [si](./machines/si.md) (SI fdn)
+   - [palpatine](./machines/palpatine.md) (puppetmaster)
+   - [jabba](./machines/jabba.md) (archivage)
 
  - Supervision externe :
-   - [[isengard]] (supervision externe : VM LDN)
+   - [isengard](./machines/isengard.md) (supervision externe : VM LDN)
 
  - Ticketing :
-   - [[jira]]
+   - [jira](./machines/jira.md)
 
  - Système d'information de FDN2 :
-   - [[fdn2]]
+   - [fdn2](./machines/fdn2.md)
 
  - Services offuscation HTTP :
-   - [[invidious]] (accès Youtube)
-   - [[nitter]] (accès Twitter)
-   - [[bibliogram]] (accès Instagram)
+   - [invidious](https://invidious.fdn.fr/) (accès Youtube)
+   - [nitter](https://nitter.fdn.fr/) (accès Twitter)
+   - [bibliogram](https://bibliogram.fdn.fr/) (accès Instagram)
 
 # Les machines virtuelles non gérées par FDN
 
- - [[exegetes.eu.org]] : les exégètes amateurs - `contact@exegetes.eu.org`
- - [[geeknode]] : asso geeknode - `bureau@geeknode.org`
- - [[unefede]] : Fédération FDN - `adminsys@ffdn.org`
+ - [exegetes.eu.org] : les exégètes amateurs (contact@exegetes.eu.org)
+ - [geeknode] : asso geeknode - (bureau@geeknode.org)
+ - [unefede] : Fédération FDN - (adminsys@ffdn.org)
 
 
 

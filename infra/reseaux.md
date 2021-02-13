@@ -185,9 +185,9 @@ Empty set (0.01 sec)
 | 27   | -                          |        |                           |
 | 28   | -                          |        |                           |
 
-* ![dump de la conf du switch TH2 du 20160925](./reseaux/switch-fdn-th2-11a4-config-20160925.text)
-* ![dump de la conf du switch TH2 10G du 20171014](./reseaux/switch-fdn-th2-10g-config-20171014.text)
-* ![dump de la conf du switch PBO 10G du 20171014](./reseaux/switch-fdn-bourse-10g-config-20171014.text)
+* [dump de la conf du switch TH2 du 20160925](./reseaux/switch-fdn-th2-11a4-config-20160925.text)
+* [dump de la conf du switch TH2 10G du 20171014](./reseaux/switch-fdn-th2-10g-config-20171014.text)
+* [dump de la conf du switch PBO 10G du 20171014](./reseaux/switch-fdn-bourse-10g-config-20171014.text)
 
 ## Ports c3560-brs - à PBO
 
