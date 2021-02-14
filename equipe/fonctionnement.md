@@ -29,7 +29,7 @@ Les niveaux s'organisent ainsi:
 * Vous avez le niveau Developper dans le groupe de projet **adminsys**
 * Vous pouvez gérer vos propres projets:
 * Vous êtes Maintainer sur vos projets Gitlab
- * Vous êtes root sur la machaine associé
+* Vous êtes root sur la machine associé
 
 **Niveau AdminCore:**
 
