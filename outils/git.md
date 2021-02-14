@@ -20,7 +20,7 @@ Les adminsys peuvent faire des propositions de MR
 Seuls les Admincore peuvent pousser les propositions dans Master
 
 Si pour des projets spécifique, des adhérents souhaitent passer developer. Il faudra créer un groupe portant le nom du projet et inviter ce groupe dans le projet en tant que developper.
-Les adhérents integreront se groupe  pour participer au developpement du projet.
+Les adhérents intégreront ce groupe  pour participer au développement du projet.
 L'objectif est qu'il n'y ait pas de Direct Member dans les projets.
 
 ## Groupes spécifiques Adminsys
