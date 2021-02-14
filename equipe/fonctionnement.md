@@ -19,7 +19,7 @@ Chaque niveau donne accès à un ensemble de droits dans l'infrastructure FDN.
 
 Les niveaux s'organisent ainsi:
 
-**Niveau Membre FDN:**
+### Niveau Adhérent FDN
 
 * Depuis le gitlab FDN, accès au groupe de projets **adminsys** en mode Reporter
 * Vous pouvez commencer à prendre part aux échanges en ouvrant des Issues ou en en commantant d'autres
