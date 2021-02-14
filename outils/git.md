@@ -17,7 +17,7 @@ Membres:
 
 L'objectif est que tous les membres FDN puissent voir l'activité adminsys et participer aux échanges via les issues.
 Les adminsys peuvent faire des propositions de MR
-Seuls les Admincore peuvent pousser les proposition dans Master
+Seuls les Admincore peuvent pousser les propositions dans Master
 
 Si pour des projets spécifique, des adhérents souhaitent passer developer. Il faudra créer un groupe portant le nom du projet et inviter ce groupe dans le projet en tant que developper.
 Les adhérents integreront se groupe  pour participer au developpement du projet.
