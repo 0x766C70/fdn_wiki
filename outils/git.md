@@ -15,7 +15,7 @@ Membres:
 * les membres Adminsys en developer
 * Groupe FDN en Reporter
 
-L'objectif est que tous les membres FDN puisse voir l'activité adminsys et participer aux échanges via les issues.
+L'objectif est que tous les membres FDN puissent voir l'activité adminsys et participer aux échanges via les issues.
 Les adminsys peuvent faire des propositions de MR
 Seuls les Admincore peuvent pousser les proposition dans Master
 
