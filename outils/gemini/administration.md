@@ -2,12 +2,11 @@
 
 > À destination des adminsys : comment adminsitrer le service
 
-## Caractéristiques
+## Caractéristiques VM
 
-Machine physique, virtuelle, emplacement salle/cluster, etc.
-
-*Pas la peine de trop détailler les caractérisqtiques des machines virtuelles car elles peuvent être modifiées assez souvent ;)*
-
+* 2 cores
+* 1GB RAM
+* /var/ de 10GB
 
 ## Administration
 
@@ -17,26 +16,26 @@ Machine physique, virtuelle, emplacement salle/cluster, etc.
 
 ### Logs
 
-*Où trouver les logs en cas de problème*
+`cat /var/log/syslog | grep gemini`
 
 ### Base de données
 
-*Sauvegardes, restoration*
+N/A
 
 ### Sauvegarde
 
-*Où et comment sont sauvegardés les données et/ou fichiers de configuration*
+Les datas de la capsule sont stockées dans:
 
-> Si aucune sauvegarde, l'indiquer quand même (ça évite de chercher)
+* /srv/gemini/content/
+
+Les datas sont placées dans le repo:
+
+* https://git.fdn.fr/communication/capsule
 
 ### En cas de pépins
 
-*Mettre les commandes habituelles pour checker un status, redemarrer...*
+`sudo systemctl status gemini.service`
 
 ## FAQ administration
 
-> Lister ici les questions fréquemment rencontrées par les adminsys : ex "j'ai ce log, qu'est-ce que je fais ?"
-
-### Question
-
-Réponse...
+RAS
