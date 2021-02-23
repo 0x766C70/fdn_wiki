@@ -12,7 +12,7 @@
 
 ### Tâches spécifiques
 
-*Lister ici les tâches spécifiques au service : création d'utilisateur, administration de l'outil, etc.*
+Suivre les updates du repo
 
 ### Logs
 
