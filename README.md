@@ -11,7 +11,7 @@ l'équipe adminsys peuvent le modifier.
 
 Si vous souhaitez nous rejoindre, les meilleurs moments sont les rencontres
 physiques : admincamp, assemblée générale. Vous trouverez l'ensemble des infos
-utiles sur les pages [fonctionnement](./equipe/fonctionnement.md) et [équipe](./equipe/qui.md).
+utiles sur les pages [fonctionnement](./equipe/fonctionnement.md) et [équipe](./equipe/equipe_adminsys.md).
 
 ![wearher map](https://librenms.fdn.fr/plugins/Weathermap/output/fdn.png)
 
