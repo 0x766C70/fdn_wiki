@@ -7,16 +7,18 @@ Disclaimer: il n'y a pas besoin d'être adminsys dans une base secrète du gouve
 * Des taches qui commenencent à toucher à de l'adminsys: maintenir des VM et des applis
 * Et bien sur, toutes les taches qui touchent au coeur du réseau de l'asso
 
-## Pour demander son intégration à l'équipe:
+# En tant que membre FDN:
 
-Envoyer un email à [services@fdn.fr](mailto:service@fdn.fr)
+En tant que membre, vous avez déjà une vue sur tout ce qu'il se passe du côté de l'adminsys.
 
-Vous obtiendrez le rank d'[AdminGuest](./fonctionnement.md)
+Vous retrouverez [ici](https://git.fdn.fr/adminsys) tous les projets en cours et surtout le projets de [suivi](https://git.fdn.fr/adminsys/suivi/-/issues) qui regroupe toute notre todo.
+
+Vous verrez plusieurs taches avec le tag : **je suis nouveau**. Ce sont des taches que nous identifions plus accessibles si vous avez envie de vous lancer. Dans tous les cas, n'hésitez pas à participer aux discussions !
 
 ## Les indispensables pour participez à la vie du groupe
 
-* Un ordinateur (distro linux, c'est plus propre ^^)
-* Tes identifiants lors de ton adhésion ( Format Nom Prénom et ton numéro d'ahérent No d'adh.: xxxx) ainsi que tes identifiants de connection (login : adhacc-xxxx )
+* Un ordinateur
+* Ton accès au gitlab
 * Client IRC (Webchat irssi, pidgin, xchat,... ) et/ou client Matrix (Element par exemple, vous pouvez demander un compte en écrivant à services@fdn.fr)
 
 ## Le wiki Adminsys
@@ -31,12 +33,3 @@ C'est un bon point de départ pour donner un coup de main car il y a toujours de
 
 Le plus important dans l'histoire c'est de comprendre comment le groupe fonctionne pour mieux s'adapter et s'intégrer :)
 Un tour dans la [page dédiée](./fonctionnement.md) à ce sujet est fortement conseillée !
-
-## Contribuer au Wiki Adminsys
-
-Pour devenir contributeur il faut cloner le repo sur son disque soit via SSH soit via HTTPS.
-
-Puis commencer à modifier les fichiers. Une fois terminé, poussez les documents dans une branch qui sera review par un admincore pour être intégré dans la doc.
-
-Consultez un tutorial git & markdown pour commencer à participer ! Et n'hésitez pas à venir poser des questions sur le chan adminsys ! 
-
