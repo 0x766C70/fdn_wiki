@@ -16,7 +16,7 @@ Suivre les updates du repo
 
 ### Logs
 
-`cat /var/log/syslog | grep gemini`
+`grep gemini /var/log/syslog`
 
 ### Base de données
 
@@ -35,7 +35,3 @@ Les datas sont placées dans le repo:
 ### En cas de pépins
 
 `sudo systemctl status gemini.service`
-
-## FAQ administration
-
-RAS

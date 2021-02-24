@@ -1,0 +1,16 @@
+[Unit]
+Description=Agate gemini server
+
+[Service]
+WorkingDirectory=/srv/gemini/
+ExecStart=agate --hostname capsule.fdn.fr --lang fr-FR
+
+Restart=always
+RestartSec=1
+
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=gemini
+
+[Install]
+WantedBy=multi-user.target

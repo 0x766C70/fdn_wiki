@@ -1,5 +1,13 @@
-## Buildbook
+## Buildbook du serveur Agate (Gemini)
 
-*Détailler ici toutes les étapes suivies pour l'installation et la configuration dudit service, de A à Z. Idéalement ajouter un peu de texte pour expliquer ce qui est fait à chaque étape parce que 1) tout le monde ne connait pas tout et 2) il faut permettre aux bénévoles de mettre le pied à l'étriller facilement.*
+### Install de la toolchain RUST
 
-> Note : a minima, si pas le temps, un `history` est toujours mieux que rien ;)
+En root:
+
+`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`
+
+### Repo Agate
+
+* [Repo Github du service](https://github.com/mbrubeck/agate)
+* Déploiement dans /srv/gemini
+* [Mise en place du service](./gemini.service)
