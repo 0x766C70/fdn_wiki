@@ -1,4 +1,3 @@
-
 FDN fournit une instance Synapse.
 
 # Synapse
@@ -287,22 +286,23 @@ Aller dans un salon bridgé IRC et cliquer sur C dans la liste des membres à dr
 
 	systemctl restart matrix-appservice-irc
 
-###Password reset
+### Réinitialisation du mot de passe
 
 Pour effectuer un _reset_ de mot de passe d'un utilisateur manuellement :
 
 - se connecter à neo.fdn.fr
 - calculer le hash du mot de passe
-
-	$ sudo hash_password
-	Password:
-	Confirm password:
-	$2a$12$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-
+```bash
+$ sudo hash_password
+Password:
+Confirm password:
+$2a$12$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
 - mettre à jour la base de données
-
-	$ sudo su - postgres
-	$ psql
-	postgres=# \c synapse
-	postgres=# UPDATE users SET password_hash='$2a$12$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' WHERE name='@nick:matrix.fdn.fr';
-	postgres=# \q
+```bash
+$ sudo su - postgres
+$ psql
+postgres=# \c synapse
+postgres=# UPDATE users SET password_hash='$2a$12$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' WHERE name='@nick:matrix.fdn.fr';
+postgres=# \q
+```
