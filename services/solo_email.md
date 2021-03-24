@@ -1,6 +1,6 @@
 ## Comptes POP/IMAP
 
-*Note : ceci est un rafraichissement de l'ancienne page dokuwiki sur la gestion des comptes POP/IMAP, plusieurs vérifications ont été menées lors de cette transposition, il y a pu également avoir des suppressions. si une info vous manque, vous pouvez toujours consulter l'[archive dokuwiki](/archives_dokuwiki/services/comptesmail) de cette page.*
+*Note : ceci est un rafraichissement de l'ancienne page dokuwiki sur la gestion des comptes POP/IMAP, plusieurs vérifications ont été menées lors de cette transposition, il y a pu également avoir des suppressions. si une info vous manque, vous pouvez toujours consulter l'[archive dokuwiki](./archives/archives_dokuwiki/services/comptesmail.md) de cette page.*
 
 # Création d'un compte mail
 
@@ -8,18 +8,18 @@
 
 Les informations nécessaires pour la création d'un compte mail sont :
 
-* numéro adhérent
-* abonnement(s)
-* adresse souhaitée
-* cette nouvelle adresse est-elle à utiliser pour les listes de discussion ? le SI ?
+- numéro adhérent
+- abonnement(s)
+- adresse souhaitée
+- cette nouvelle adresse est-elle à utiliser pour les listes de discussion ? le SI ?
 
 S'il s'agit du premier compte mail pour la personne demandeuse, il faut en plus :
 
-* vérifier qu'elle est bien adhérente
-* vérifier qu'elle est abonnée aux services
-* nom et prénom de la personne (pour la création du compte unix, vous devrez alors suivre la [convention de nommage](/howto/conventions) pour composer le login)
-* une clé SSH publique (facultative) de la personne demandeuse (dans le setup actuel, l'utilisateur doit se connecter en SSH à solo pour changer son mot de passe)
-* un mot de passe aléatoire pour le nouvel utilisateur (*pwgen* ou *apg* ou *makepasswd* peuvent vous en générer un, par exemple)
+- vérifier qu'elle est bien adhérente
+- vérifier qu'elle est abonnée aux services
+- nom et prénom de la personne (pour la création du compte unix, vous devrez alors suivre la [convention de nommage](./howto/conventions.md) pour composer le login)
+- une clé SSH publique (facultative) de la personne demandeuse (dans le setup actuel, l'utilisateur doit se connecter en SSH à solo pour changer son mot de passe)
+- un mot de passe aléatoire pour le nouvel utilisateur (*pwgen* ou *apg* ou *makepasswd* peuvent vous en générer un, par exemple)
 
 ## Premier compte email pour la personne demandeuse
 
@@ -149,7 +149,7 @@ Au moment ou tu rediges un message, tu peux choisir quelle identité utiliser.
 
 ## Mail additionnel pour une personne ayant déjà un compte mail chez FDN
 
-Dans ce cas, il vaut mieux créer un [sous-domaine](/services/dns), ce qui peut donner michu@dugenou.fdn.fr.
+Dans ce cas, il vaut mieux créer un [sous-domaine](./dns.md), ce qui peut donner michu@dugenou.fdn.fr.
 
 Se baser sur les comptes présents dans */etc/postfix/virtusertable* par exemple :
 
@@ -343,7 +343,7 @@ Enfin, pour finaliser les suppressions, on fait un commit *etckeeper*.
 
 Dans le cas de la suppression d'un mail lié à un sous-domaine, il faudra retirer les enregistrements MX associés.
 
-Voir la documentation sur le [dns](/services/dns/).
+Voir la documentation sur le [dns](./dns.md).
 
 Une conséquence fâcheuse de ce retrait pur et simple est l'application du mécanisme de A-record fallback. Si un MTA ne trouve pas de MX, il va contacter la machine indiqué par le RR A.
 

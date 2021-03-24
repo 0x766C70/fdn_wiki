@@ -244,7 +244,7 @@ Ajout du module acme dans puppet pour les VM concernées vpn[1,2,3].pp
 
 ### Apache2 & acme
 
-Suivre la procédure [let's encrypt](https://adminsys.fdn.fr/outils/letsencrypt)
+Suivre la procédure [let's encrypt](./outils/letsencrypt.md)
 
 Modifier le site default (/etc/apache2/site-available/default) par: 
 

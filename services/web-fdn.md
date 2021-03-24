@@ -1,7 +1,7 @@
 
 # Web public de FDN
 
-L'hébergement Web FDN est effectué par [http://chewie.fdn.fr](http://chewie.fdn.fr)
+L'hébergement Web FDN est effectué par [chewie](http://chewie.fdn.fr/) ([*](./infra/machines/chewie.md))
 
 Les services actuellement hébergés sont :
 
@@ -10,7 +10,7 @@ Les services actuellement hébergés sont :
 
 L'équipe communication est autonome pour héberger la partie hébergement Web des sites Web de FDN.
 
-Cette page a pour but de documenter l'hébergement des sites web www.fdn.fr et blog.fdn.fr sur la machine virtuelle chewie.fdn.fr.
+Cette page a pour but de documenter l'hébergement des sites web [fdn.fr](https://www.fdn.fr/) et [blog.fdn.fr](https://blog.fdn.fr/) sur la machine virtuelle [chewie](http://chewie.fdn.fr/).
 
 ## Caractéristiques de l'hébergement
 
@@ -46,8 +46,8 @@ Description des répertoires :
 
 Exemple :
 
-  * http://www.fdn.fr ; site Web de FDN en production ; est hébergé dans /srv/web/www-prod
-  * http://www-devel.fdn.fr ; site Web de FDN en développement ; est hébergé dans /srv/web/www-devel
+  * site Web de FDN en [production](https://www.fdn.fr/) ; est hébergé dans /srv/web/www-prod
+  * site Web de FDN en [développement](https://www-devel.fdn.fr/) ; est hébergé dans /srv/web/www-devel
 
 Les sites web en production sont calés sur la branche master.
 

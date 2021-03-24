@@ -1,5 +1,5 @@
 
-FDN héberge un service XMPP pour les adhérents sur la machine [[infra/machines/jyn]] pour le domaine **jabber.fdn.fr**.
+FDN héberge un service XMPP pour les adhérents sur la [machine](./infra/machines/jyn.md) pour le domaine **[jabber.fdn.fr](https://jabber.fdn.fr/)**.
 
 On utilise pour cela [prosody](https://prosody.im/) et les données sont stockées dans une base de données MariaDB.
 
@@ -8,7 +8,7 @@ On utilise pour cela [prosody](https://prosody.im/) et les données sont stocké
 Les fichiers de configuration sont dans `/etc/prosody` :
 
 - **prosody.cfg.lua** : configuration principale ;
-- **conf.d/jabber.fdn.fr.cfg.lua** : configuration du domaine **jabber.fdn.fr**
+- **conf.d/jabber.fdn.fr.cfg.lua** : configuration du domaine **[jabber.fdn.fr](https://jabber.fdn.fr/)**
 
 ## Administration
 

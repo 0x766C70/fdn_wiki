@@ -1,7 +1,5 @@
 
-L'ensemble des services fournis au public ou aux membres. Les outils internes,
-tels que les backups ou la supervision, sont documentés dans la section
-[[outils]].
+L'ensemble des services fournis au public ou aux membres. Les outils internes, tels que les backups ou la supervision, sont documentés dans la section [outils](./outils/README.md).
 
 
 ## État des services FDN
@@ -41,13 +39,13 @@ Les différentes colonnes correspondent aux questions suivantes :
 
 | Service          | Date    | Prioritaire | Fonctionnel | Maintenu | Réparable | ToDo | Commentaires
 |------------------|:-------:|:-----------:|:-----------:|:--------:|:---------:|:----:|---
-| www.fdn.fr       | 2016-08 | oui         | oui         | ???      | oui       | oui  | Contenu à compléter. Maintenance : qui fait les mises à jour de wordpress ?
-| www.fdn2.org     | 2016-08 | oui         | oui         | ???      | oui       | oui  | Transféré sur chewie en statique. Comment les bénévoles peuvent éditer le contenu ?
-| blog.fdn.fr      | 2016-08 | oui         | oui         | non      | oui       | oui  | À transférer sur chewie. Qui fait les mises à jour de dotclear ? Modifs sales pour le spam empêchent de mettre à jour ? 
-| media.fdn.fr     | 2016-08 | oui         | oui         | oui      | oui       | oui  | Projet de mediakit ? Faire une jolie page web avec les liens direct et torrent ?
-| www.open.fdn.fr  | 2016-08 | oui         | non         |          |           | oui  | En cours de réalisation. Site explicatif pour le vpn openbar.
-| isengard.fdn.fr  | 2016-08 | non         | non         | oui      | oui       | oui  | En cours de réalisation. Mire pour les services FDN.
-| wikileaks.fdn.fr | 2016-08 | non         | oui         | non      | ???       | oui  | Miroir wikileaks. À couper ou à mettre à jour, c'est selon. À priori plutôt couper.
+| [fdn.fr](https://www.fdn.fr/)      | 2016-08 | oui         | oui         | ???      | oui       | oui  | Contenu à compléter. Maintenance : qui fait les mises à jour de wordpress ?
+| [fdn2.org](https://www.fdn2.org/)     | 2016-08 | oui         | oui         | ???      | oui       | oui  | Transféré sur chewie en statique. Comment les bénévoles peuvent éditer le contenu ?
+| [blog.fdn.fr](https://blog.fdn.fr/)     | 2016-08 | oui         | oui         | non      | oui       | oui  | À transférer sur chewie. Qui fait les mises à jour de dotclear ? Modifs sales pour le spam empêchent de mettre à jour ? 
+| [media.fdn.fr](https://media.fdn.fr/)     | 2016-08 | oui         | oui         | oui      | oui       | oui  | Projet de mediakit ? Faire une jolie page web avec les liens direct et torrent ?
+| [open.fdn.fr](https://www.open.fdn.fr/)  | 2016-08 | oui         | non         |          |           | oui  | En cours de réalisation. Site explicatif pour le vpn openbar.
+| [isengard.fdn.fr](https://isengard.fdn.fr/)  | 2016-08 | non         | non         | oui      | oui       | oui  | En cours de réalisation. Mire pour les services FDN.
+| [wikileaks.fdn.fr](https://wikileaks.fdn.fr/) | 2016-08 | non         | oui         | non      | ???       | oui  | Miroir wikileaks. À couper ou à mettre à jour, c'est selon. À priori plutôt couper.
 
 
 ### Services pour les membres
@@ -62,7 +60,3 @@ Les différentes colonnes correspondent aux questions suivantes :
 | Tracker torrent  | 2016-08 | non (-)     | oui         | non      | ???       | ???  | Est-ce qu'il sert ? Qui s'en occupe ? Où est-ce installé (si c'est leïa, il faut le déplacer).
 | NewsGroups       | 2016-08 | non (??)    | ???         | non      | ???       | ???  | Service non maintenu. Potentiellement à moitié fonctionnel (blocs IP en écriture pas à jour ?). Des demandes en attente. Qui s'en occupe ? Est-ce qu'on ferme le service (objet de l'asso, usenet...) ?
 | x.fdn.fr         | 2016-08 | oui         | oui         | non      | oui       | oui  | Raccourcisseur d'URL. Utilisé pour la com et publication (exégètes). À nettoyer, et ranger sur chewie ?
-
-
-
-

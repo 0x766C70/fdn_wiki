@@ -1,21 +1,23 @@
 
-
-
 ## Généralités
 
-Historiquement, les serveurs de FDN faisant authorité étaient *ns0.fdn.org* (*[[adminsys:serveurs:leia]]*, 80.67.169.12) et *ns1.fdn.org* (*[[adminsys:serveurs:vador]]*, 80.67.169.40).
+Historiquement, les serveurs de FDN faisant authorité étaient *[ns0.fdn.org - 80.67.169.12](./infra/machines/leia.md)* et *[ns1.fdn.org - 80.67.169.40](./infra/machines/vador.md)*.
 
-Depuis la mise en place des droïdes, les serveurs faisant autorité pour FDN sont *nsa.fdn.fr* et *gchq.fdn.fr*. Ces serveurs sont hébergés sur le cluster ganeti dans des VM éponymes.
+Depuis la mise en place des droïdes, les serveurs faisant autorité pour FDN sont *[nsa.fdn.fr](./infra/machines/nsa.md)* et *[gchq.fdn.fr](./infra/machines/gchq.md)*. Ces serveurs sont hébergés sur le cluster ganeti dans des VM éponymes.
 
-Les zones DNS sont gérées dans git, celles de FDN sont dans [dns/fdn](https://git.fdn.fr/dns/fdn).  Pour les modifier, cloner ce dépôt là, modifier les zones, committer, et les pousser, le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
+<<<<<<< HEAD
+Les zones DNS sont gérées dans [git](https://git.fdn.fr/). Pour les modifier, cloner ce dépôt là, modifier les zones, committer, et les pousser, le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
+=======
+Les zones DNS sont gérées dans [git](https://git.fdn.fr/), celles de FDN sont dans [dns/fdn](./../../../../../dns/fdn/).  Pour les modifier, cloner ce dépôt là, modifier les zones, committer, et les pousser, le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
+>>>>>>> 34bd5e4be5e7f3963482fd8bc79dc02d8f13a661
 
-Les outils utilisés sont dans le dépôt [dns/utils](https://git.fdn.fr/dns/utils), le Makefile peut être utilisé en local pour valider les zones, le hook client/pre-commit peut être utilisé pour valider les zones au commit.
+Les outils utilisés sont dans le dépôt [dns/utils](./../../../../../dns/utils/), le Makefile peut être utilisé en local pour valider les zones, le hook client/pre-commit peut être utilisé pour valider les zones au commit.
 
 ## Hébergement de domaine
 
 La mise en place d'un domaine pour un adhérent passe, tout d'abord, par la création d'un dépôt git spécifique à l'adhérent :
 
-  * Créer un dépôt sur [gitlab](https://git.fdn.fr), dans le [groupe dns](https://git.fdn.fr/groups/dns), ayant pour nom `pnom`. Pour Marcel Dugenou, il sera donc `mdugenou`.
+  * Créer un dépôt sur [gitlab](https://git.fdn.fr/), dans le [groupe dns](./../../../../../groups/dns/), ayant pour nom `pnom`. Pour Marcel Dugenou, il sera donc `mdugenou`.
   * Se connecter en SSH sur *git.fdn.fr*
   * Obtenir le chemin vers le dépôt :
 
@@ -34,7 +36,7 @@ La mise en place d'un domaine pour un adhérent passe, tout d'abord, par la cré
         $ sudo -u bot-dns -i
         $ cd depots && git clone git@git.fdn.fr:dns/mdugenou
 
-  * Si l'adhérent souhaite pouvoir modifier lui même ses zones, lui créer un compte sur git.fdn.fr (dans l'interface d'administration de gitlab), lui donner accès à son dépot avec les permissions "Maintainer" ("Developer" ne permet pas de faire un push vers la branche master, il faut alors passer par des "merge requests", ce n'est pas du tout le but ici...), et lui indiquer que [dns/utils](https://git.fdn.fr/dns/utils) contient un Makefile et un pre-commit hook dans le dossier client permettant de valider les zones lors d'un commit.
+  * Si l'adhérent souhaite pouvoir modifier lui même ses zones, lui créer un compte sur git.fdn.fr (dans l'interface d'administration de gitlab), lui donner accès à son dépot avec les permissions "Maintainer" ("Developer" ne permet pas de faire un push vers la branche master, il faut alors passer par des "merge requests", ce n'est pas du tout le but ici...), et lui indiquer que [dns/utils](./../../../../../dns/utils/) contient un Makefile et un pre-commit hook dans le dossier client permettant de valider les zones lors d'un commit.
 
   * Créer un fichier de zone, nommé `db.le-nom-de-la-zone` (il **faut** que ce soit le vrai nom de la zone, sinon ça ne fonctionnera pas). Y mettre le contenu suivant :
 
@@ -63,11 +65,11 @@ faire les manipulations suivantes pour positionner les *hooks* qui vont bien :
 
         $ mkdir dns-fdn && cd dns-fdn
 
-  * Cloner le dépôt que l'on veut modifier, par exemple, [dns/fdn](https://git.fdn.fr/dns/fdn):
+  * Cloner le dépôt que l'on veut modifier, par exemple, [dns/fdn](./../../../../../dns/fdn/):
 
         $ git clone git@git.fdn.fr:dns/fdn.git
 
-  * Cloner le dépôt [dns/utils](https://git.fdn.fr/dns/utils|dns/utils):
+  * Cloner le dépôt [dns/utils](./../../../../../dns/utils/):
 
         $ git clone git@git.fdn.fr:dns/utils.git
 
@@ -107,7 +109,7 @@ faire les manipulations suivantes pour positionner les *hooks* qui vont bien :
 
 ## Hébergement de sous-domaine de fdn.fr/org
 
-Un sous-domaine n'est qu'un domaine "en-dessous", c'est à dire un enregistrement dans le DNS de la zone "au-dessus". Récupérer le dépôt git ou se trouvent les zones DNS de FDN, [dns/fdn](https://git.fdn.fr/dns/fdn).
+Un sous-domaine n'est qu'un domaine "en-dessous", c'est à dire un enregistrement dans le DNS de la zone "au-dessus". Récupérer le dépôt git ou se trouvent les zones DNS de FDN, [dns/fdn](./../../../../../dns/fdn).
 
 Note, la zone fdn.org est un lien symbolique sur fdn.fr, elles contiennent donc là **même** chose.
 
@@ -123,8 +125,8 @@ Un exemple pour configurer des MX pour le sous-domaine exemple.fdn.fr et un hôt
 
     ; adhérent, numéro et email
     exemple          IN      A       192.0.2.3
-                   IN      MX 10   exemple
-                   IN      MX 20   mail
+                     IN      MX 10   exemple
+                     IN      MX 20   mail
     www.exemple      IN      CNAME   exemple
 
 En fait "www" n'est qu'un sous-sous-domaine de fdn.fr...
@@ -193,7 +195,7 @@ En général, la zone parente n'est pas déléguée à FDN, (vu qu'on va prendre
 
 ### IPv6
 
-La plage d'adresses IPv6 allouée aux adhérents est 2001:910:1000::/38, et il y a quatre fichiers de zones inversées qui sont `db.0.1.0.1.9.0.1.0.0.2.ip6.arpa`, `db.1.1.0.1.9.0.1.0.0.2.ip6.arpa`, `db.2.1.0.1.9.0.1.0.0.2.ip6.arpa` et `db.3.1.0.1.9.0.1.0.0.2.ip6.arpa`. Ils se trouvent avec toutes les zones de FDN, dans le dépôt git@git.fdn.fr:dns/fdn.git.
+La plage d'adresses IPv6 allouée aux adhérents est 2001:910:1000::/38, et il y a quatre fichiers de zones inversées qui sont `db.0.1.0.1.9.0.1.0.0.2.ip6.arpa`, `db.1.1.0.1.9.0.1.0.0.2.ip6.arpa`, `db.2.1.0.1.9.0.1.0.0.2.ip6.arpa` et `db.3.1.0.1.9.0.1.0.0.2.ip6.arpa`. Ils se trouvent avec toutes les zones de FDN, dans le [dépôt](./../../../../../dns/fdn/).
 
 Il faut donc d'une part trouver à quelle zone ajouter les enregistrements, (ou la délégation,) pour cela, le plus simple est de ne pas chercher sois-même mais d'utiliser une commande, livrée avec bind, qui elle, ne va pas se tromper en retournant l'adresse :
 
@@ -243,8 +245,8 @@ La mise en place d'un domaine pour un adhérent passe par le création d'une zon
                 IN      NS      ns1.fdn.org.
                 IN      MX 10   mail.fdn.fr.
                 IN      MX 20   guinness.fdn.fr.
-    @               IN      A       80.67.169.18    ; www.fdn.fr
-    www             IN      A       80.67.169.18
+    @           IN      A       80.67.169.18    ; www.fdn.fr
+    www         IN      A       80.67.169.18
 
   * Insérer une ligne faisant référence à `ladherent.conf` dans `/etc/bind/named.conf`
   * Recharger la configuration : `rndc reconfig`
