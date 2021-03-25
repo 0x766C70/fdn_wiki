@@ -1,4 +1,4 @@
-# Differentes options pour créer un hash
+# Différentes options pour créer un hash
 
 # openssl
 
