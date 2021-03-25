@@ -1,4 +1,3 @@
-
 # Let's encrypt
 
 Nous utilisons [Let's encrypt](https://letsencrypt.org)  pour nos
@@ -168,8 +167,7 @@ nécessaires, install un cron.
 
 ## Pour ajouter un altname, nouveau domaine à un certificat existant
 
-- Supprimer la requête CSR existante pour pouvoir la recréer avec
-  `acme_create`, puis forcer un renew, ex:
+Supprimer la requête CSR existante pour pouvoir la recréer avec `acme_create` puis forcer un renew, exemple :
 
 	sudo rm /etc/apache2/sites/lists.fdn.fr/lists.fdn.fr.csr
 	sudo /usr/local/bin/acme_create --config /etc/acme/lists.fdn.fr.conf
