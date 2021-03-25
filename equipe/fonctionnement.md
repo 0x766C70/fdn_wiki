@@ -24,14 +24,14 @@ Les niveaux s'organisent ainsi:
 * Depuis le gitlab FDN, accès au groupe de projets **adminsys** en mode Reporter
 * Vous pouvez commencer à prendre part aux échanges en ouvrant des Issues ou en en commantant d'autres
 
-**Niveau AdminSys:**
+### Niveau AdminSys:
 
 * Vous avez le niveau Developper dans le groupe de projet **adminsys**
 * Vous pouvez gérer vos propres projets:
 * Vous êtes Maintainer sur vos projets Gitlab
 * Vous êtes root sur la machine associé
 
-**Niveau AdminCore:**
+### Niveau AdminCore:
 
 * Avoir accès aux droides
 * Accès aux VM sensibles (SI, LNS, ...)
@@ -65,5 +65,6 @@ Cette documentation doit se faire sur le git en rapport avec le projet sous la f
 * utilisation : à destination des adhérents, des informations concernant le service et son utilisation au quotidien avec FAQ
 
 C'est une étape indispensable afin que le service soit maintenu et que nos futur·e·s adminsys puissent prendre la main sur le service et comprendre l'historique.
+Un template de doc se trouve dans ce wiki.
 
 Dans la mesure du possible, terminer la documentation sur le projet sur lequel on travaille avant d'en démarrer un autre.
