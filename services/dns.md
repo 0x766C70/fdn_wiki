@@ -5,11 +5,7 @@ Historiquement, les serveurs de FDN faisant authorité étaient *[ns0.fdn.org - 
 
 Depuis la mise en place des droïdes, les serveurs faisant autorité pour FDN sont *[nsa.fdn.fr](./infra/machines/nsa.md)* et *[gchq.fdn.fr](./infra/machines/gchq.md)*. Ces serveurs sont hébergés sur le cluster ganeti dans des VM éponymes.
 
-<<<<<<< HEAD
-Les zones DNS sont gérées dans [git](https://git.fdn.fr/). Pour les modifier, cloner ce dépôt là, modifier les zones, committer, et les pousser, le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
-=======
-Les zones DNS sont gérées dans [git](https://git.fdn.fr/), celles de FDN sont dans [dns/fdn](./../../../../../dns/fdn/).  Pour les modifier, cloner ce dépôt là, modifier les zones, committer, et les pousser, le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
->>>>>>> 34bd5e4be5e7f3963482fd8bc79dc02d8f13a661
+Les zones DNS sont gérées dans [git](https://git.fdn.fr/), dans le groupe *dns*. Pour les modifier, cloner le dépôt concerné, modifier les zones, committer, et les pousser : le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
 
 Les outils utilisés sont dans le dépôt [dns/utils](./../../../../../dns/utils/), le Makefile peut être utilisé en local pour valider les zones, le hook client/pre-commit peut être utilisé pour valider les zones au commit.
 
