@@ -224,6 +224,11 @@ Aller dans un salon bridgé IRC et cliquer sur C dans la liste des membres à dr
 	nick identify password
 	Si tout se passe bien vous recevrez : "You are now identified"
 
+### Donner les droits d'administration à un utilisateur (utile pour les requêtes API)
+```bash
+sudo su -c "psql -c \"UPDATE users SET admin = 1 WHERE name = '@user:matrix.fdn.fr'\" -d synapse" -l postgresu -c "psql -c \"UPDATE users SET admin = 0 WHERE name = '@user:matrix.fdn.fr'\" -d synapse" -l postgres
+```
+
 ## #fdn-adminsys-internal (Register + Invite Only)
 ### creation (irssi)
 	/join -geeknode #fdn-adminsys-internal
@@ -305,4 +310,18 @@ $ psql
 postgres=# \c synapse
 postgres=# UPDATE users SET password_hash='$2a$12$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' WHERE name='@nick:matrix.fdn.fr';
 postgres=# \q
+```
+
+- ou avec une méthode directe de requête sur la table :
+```bash
+su -c "psql -c \"UPDATE users SET password_hash='$2a$12$xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx' WHERE name='@nick:matrix.fdn.fr'\" -d synapse" -l postgres
+```
+
+- ou avec une requête API
+être utilisateur "admin" > créer un token > modifier le mot de passe > vérification
+```bash
+user_url="@admin_user:matrix.fdn.fr"
+token=$(curl -k -XPOST -d '{"type":"m.login.password", "user":"$user_url", "password":"'xxxxxxxx'"}' "https://localhost:8448/_matrix/client/r0/login" | jq -r ".access_token")
+curl -XPOST -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d '{"new_password":"xxxxxxxx"}' "https://localhost:8448/_matrix/client/r0/admin/reset_password/$user_url"
+curl --insecure -XGET -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d '{}' "https://localhost:8448/_synapse/admin/v2/users/$user_url"
 ```
