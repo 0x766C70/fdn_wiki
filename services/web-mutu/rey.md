@@ -1,5 +1,7 @@
 
-FDN fournit à ses membres de l'hébergement de site web sur [[infra/machines/rey]] correspond au domaine mutu.fdn.fr.
+[[_TOC_]]
+
+FDN fournit à ses membres de l'hébergement de site web sur [rey](./infra/machines/rey.md) correspond au domaine mutu.fdn.fr.
 
 Les technos supportées sont :
 
@@ -16,7 +18,7 @@ Si le membre n'a pas de domaine, il est possible d'héberger un site sur **http(
 
 # Présentation
 
-Voir la fiche de [[infra/machines/rey]] pour en savoir plus.
+Voir la fiche de [rey](./infra/machines/rey.md) pour en savoir plus.
 
 ## Dossiers utilisateur
 
@@ -57,7 +59,7 @@ Pour l'instant, seuls les adminsys ont la possibilité de créer des bases de do
 
 # Mise en place d'un site
 
-Afin de gagner du temps en adminsys et d'éviter des erreurs de typo, des scripts ont été mis en place. Ils se trouvent dans `/root/fdn-mutu/scripts` avec un dépôt sur [gitlab](https://git.fdn.fr/afriqs/fdn-mutu).
+Afin de gagner du temps en adminsys et d'éviter des erreurs de typo, des scripts ont été mis en place. Ils se trouvent dans avec un dépôt sur [gitlab](https://git.fdn.fr/adminsys/fdn-mutu/-/tree/master/scripts).
 
 > il faut être root (ou sudo) pour lancer les scripts
 

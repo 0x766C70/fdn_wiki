@@ -1,5 +1,6 @@
-Machine virtuelle pour l'hébergement mutualisé de sites web des adhérents. Remplacera à terme [[infra/machines/yoda]].
+Machine virtuelle pour l'hébergement mutualisé de sites web des adhérents. Remplacera à terme [yoda](./infra/machines/yoda.md).
 
+[[_TOC_]]
 
 # Caractéristiques
 
@@ -114,7 +115,7 @@ puis
 
 ## TLS
 
-Suivre la procédure [[outils/letsencrypt]] pour mettre en place un certificat TLS pour Apache 2.4 et le domaine **mutu.fdn.fr**.
+Suivre la procédure [letsencrypt](./outils/letsencrypt.md)] pour mettre en place un certificat TLS pour Apache 2.4 et le domaine **mutu.fdn.fr**.
 
 ## Logs Apache2
 
