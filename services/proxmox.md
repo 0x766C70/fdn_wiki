@@ -72,6 +72,9 @@ node2# apt upgrade
 node2# pkill glusterfsd
 node2# systemctl start glusterd
 
+# ou
+node2# /root/start-gluster.sh
+
 node2# gluster volume status
 node2# gluster volume heal data info
 # et une fois que c'est clean on remigre les VMs dans l'autre sens.
