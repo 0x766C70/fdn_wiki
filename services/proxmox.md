@@ -36,7 +36,7 @@ absolument attendre une resynchro entre la mise à jour de chaque hyperviseur.
 # ce n'est pas indispensable en pratique, mais s'il sera rebooté par la suite autant
 # le faire.
 # Les VMs non-migrables peuvent rester allumer à cette étape.
-node1# qm migrate... ou bien "bulk migrate" dans l'interface
+node1# qm migrate... # ou bien "bulk migrate" dans l'interface
 # couper le maitre
 node1# systemctl stop glusterd
 # on upgrade ; les briques et clients tournent encore

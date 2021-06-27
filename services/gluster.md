@@ -50,7 +50,7 @@ done; done; done |
 ## settings du volume
 
 Il existe un "group" virt; voici les settings placés pour archivage détaillé
-``shell
+```shell
 # partie TLS -- /!\ hostname doit matcher le certif (donc les vrais hostnames)
 gluster volume set data auth.ssl-allow "host1.fdn.fr,host2.fdn.fr"
 gluster volume set data client.ssl on
