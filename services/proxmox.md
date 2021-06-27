@@ -88,3 +88,58 @@ pkill -x glusterfs # pour le heal daemon et le montage fuse si le umount ne pass
 node[1-2]# lsof | grep deleted
 # ne doit pas contenir de lib ou bin
 ```
+
+
+## Snapshots
+
+La plupart des VMs peuvent prendre des snapshots dans l'interface.
+Il faut savoir que les snapshots empêchent de faire des manipulation sur les disques
+(tels qu'agrandissement) et qu'un snapshot consomme des ressources, donc ceux-ci sont
+à supprimer une fois l'action pour laquelle ils avaient été faits est terminée.
+
+S'il faut les garder longtemps, vous voulez des backups!
+
+
+Pour les VMs "non-migrables" sur disques locales telles que les gw, lvm a été
+utilisé qui permet de faire des snapshots... mais pas pour proxmox.
+
+Dans ce cas, des snapshots peuvent être faits à la main:
+```sh
+root@tc14:~# lvs
+  LV               VG     Attr       LSize   Pool Origin Data%  Meta%  Move Log Cpy%Sync Convert
+  vm-169252-disk-0 vg-vms -wi-ao----   5.00g
+  vm-169252-disk-1 vg-vms -wi-ao----  10.00g
+  cryptswap        vg1    -wi-ao---- <39.72g
+  pveroot          vg1    -wi-ao----  20.00g
+
+## le faire pour tous les volumes de la VM!
+root@tc14:~# lvcreate -s -L 5g -n snap-gw2-0 vg-vms/vm-169252-disk-0
+  Logical volume "snap-gw2-0" created.
+root@tc14:~# lvcreate -s -L 5g -n snap-gw2-1 vg-vms/vm-169252-disk-1
+  Logical volume "snap-gw2-1" created.
+
+root@tc14:~# lvs
+  LV               VG     Attr       LSize   Pool Origin           Data%  Meta%  Move Log Cpy%Sync
+Convert
+  snap-gw2-0       vg-vms swi-a-s---   5.00g      vm-169252-disk-0 0.00
+  snap-gw2-1       vg-vms swi-a-s---   5.00g      vm-169252-disk-1 0.00
+  vm-169252-disk-0 vg-vms owi-aos---   5.00g
+  vm-169252-disk-1 vg-vms -wi-ao----  10.00g
+  cryptswap        vg1    -wi-ao---- <39.72g
+  pveroot          vg1    -wi-ao----  20.00g
+
+
+# si besoin de le revert (VM éteinte!)
+root@tc14:~# lvconvert --merge vg-vms/snap-gw2-0
+root@tc14:~# lvconvert --merge vg-vms/snap-gw2-1
+
+
+# le ménage:
+root@tc14:~# lvremove vg-vms/snap-gw2-0
+Do you really want to remove and DISCARD active logical volume vg-vms/snap-gw2-0? [y/n]: y
+  Logical volume "snap-gw2-0" successfully removed
+root@tc14:~# lvremove vg-vms/snap-gw2-1
+Do you really want to remove and DISCARD active logical volume vg-vms/snap-gw2-1? [y/n]: y
+  Logical volume "snap-gw2-1" successfully removed
+
+```
