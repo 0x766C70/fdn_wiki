@@ -112,50 +112,7 @@ Le "heal info" par exemple est donc un client qui va simplement comparer le cont
 Les mises à jour peuvent se faire sans couper les VMs, avec une grosse condition: bien vérifier et attendre que le volume soit synchro avant chaque mise à jour, et ne surtout pas faire plusieurs serveurs en même temps.
 En pratique sous debian l'upgrade ne coupe pas les services briques donc il faut bien redémarrer manuellement les processes gluster après une upgrade.
 
-Un scenario potentiel est donc par exemple:
-```shell
-# optionellement en amont démigrer toutes les VMs qui tournent sur l'hyperviseur.
-# ce n'est pas indispensable en pratique, mais s'il sera rebooté par la suite autant
-# le faire.
-node1# qm migrate... ou bien "bulk migrate" dans l'interface
-# couper le maitre
-node1# systemctl stop glusterd
-# on upgrade ; les briques et clients tournent encore
-node1# apt upgrade
-# soit reboot, soit la suite jusqu'au status
-# on tue les briques pour qu'elles soient relancés avec le service
-node1# pkill glusterfsd
-node1# systemctl start glusterd
-node1# gluster volume status
-# doit lister les 2 nodes, toutes les briques Online Y avec un PID
-# sinon attendre un peu
-# sinon pleurer.
-node1# gluster volume heal data info
-# au début listera probablement quelques fichiers, puis assez rapidement plus rien
-# si ça dure, regarder dans un iftop s'il y a bien du traffic
-# si plus rien ne se passe et qu'il reste des trucs passer en case troubleshoot
-# et impérativement réparer ça avant de continuer.
-# Une fois que c'est bien clean, on peut passer à l'autre nœud ;
-# si migration en masse de VMs il y a, c'est le moment.
-node2# qm migrate...
-# On déroule pareil:
-node2# systemctl stop glusterd
-node2# apt upgrade
-# reboot ou restart des briques+service
-node2# pkill glusterfsd
-node2# systemctl start glusterd
-node2# gluster volume status
-node2# gluster volume heal data info
-# et une fois que c'est clean on remigre les VMs dans l'autre sens.
-
-# enfin, si le nœud n'a pas été rebooté, finir de redémarrer les processus
-# qui utilisent encore le vieux gluster:
-umount -a -t fuse.glusterfs # proxmox remonte tout seul derrière
-pkill -x glusterfs # pour le heal daemon et le montage fuse si le umount ne passe pas
-# Puis vérifier que plus rien n'utilise les vieilles libs gluster:
-node[1-2]# lsof | grep deleted
-# ne doit pas contenir de lib ou bin
-```
+Un exemple détaillé est lisible dans la page de [mise à jour proxmox](./proxmox.md#mises-à-jour)
 
 ## Remplacement d'une brique (en attente de remplacement d'un disque cassé par exemple)
 
