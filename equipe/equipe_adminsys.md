@@ -1,4 +1,4 @@
-## Noyau
+## Admincore
 
 | login             | Nom/Pseudo                      | Email                          | Responsabilités, rôles                    | Files Request Tracker                                                 |
 | ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------- |---------------------------------------------------------------------- |
@@ -6,6 +6,8 @@
 | asmadeus          | Dominique Martinet              | asmadeus@codewreck.org         | noyau, debug collecte, RT                 | services, services-xdsl, support, services-other                      |
 | blt               | Benoit Neviani                  | benoit@neviani.fr              | noyau, supervision (isengard)             | services-vpn, services-other                                          |
 | tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | noyau, mail/news/UUCP, DNS                | services, services-dns, services-mail, services-other                 |
+| vlp		    | Thomas Criscione	  	      | thomas@criscione.fr            | mail2.0, ldap, gitlab, matrix, botbot	   | services, services-mail, services-im                                  |       
+
 
 ## Adminsys
 
@@ -20,7 +22,6 @@
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | adminsys, listmaster                      |                                                                       |
 | symeon            | Renaud Alexandre                | symeon@zaclys.net              | adminsys, bbb                             | services-other                                                        |
 | vg                | vg                              | vgm+fdn@devys.org              | vpn                                       |                                                                       |
-| vlp               | Thomas Criscione                | thomas@criscione.fr            | adminsys                                  | services, services-vpn, services-web-mutu, services-xdsl, services-im |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | adminsys, vpn, rsf, si                    |                                                                       |
 
 ## Autres comptes
