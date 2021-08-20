@@ -1,4 +1,3 @@
-
 ## Noyau
 
 | login             | Nom/Pseudo                      | Email                          | Responsabilités, rôles                    | Files Request Tracker                                                 |
@@ -15,7 +14,7 @@
 | blackmoor         | Marianne Chevrot                | blackmoor+assos-ffdn@devys.org | adminsys, vpn                             |                                                                       |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | adminsys, bbb                             | services-other                                                        |
 | hamo              | Jonathan Roulé                  | jroule@lunawan.fr              | adminsys, matrix, peertube                | services-other                                                        |
-| khrys             | Khrys                           | khrys@fdn.fr                   | adminsys, communication                   |                                                                       |
+| khrys             | Khrys                           | khrys@fdn.fr                   | adminsys, listmaster, si, liaison bureau+communication                   |                        toutes les files (a priori)                                               |
 | mlrx              |                                 |                                |                                           |                                                                       |
 | olb               | Olivier Le Brouster             | olb@nebkha.net                 |                                           |                                                                       |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | adminsys, listmaster                      |                                                                       |
