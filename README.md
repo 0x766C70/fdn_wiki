@@ -17,4 +17,6 @@ Il s'agit de l'ensemble des [services](./services_aux_adherents) fournis aux mem
 
 Ces [outils](./outils_internes) nous servent à faire tourner la boutique !
 
+# Notre infra en temps réel
+
 ![wearher map](https://librenms.fdn.fr/plugins/Weathermap/output/fdn.png)
