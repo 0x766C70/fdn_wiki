@@ -1,4 +1,3 @@
-
 # Fonctionnement groupe Adminsys
 
 ## Rejoindre l'équipe
@@ -22,7 +21,7 @@ Les niveaux s'organisent ainsi:
 ### Niveau Adhérent FDN
 
 * Depuis le gitlab FDN, accès au groupe de projets **adminsys** en mode Reporter
-* Vous pouvez commencer à prendre part aux échanges en ouvrant des Issues ou en en commantant d'autres
+* Vous pouvez commencer à prendre part aux échanges en ouvrant des Issues ou en en commentant d'autres
 
 ### Niveau AdminSys:
 
