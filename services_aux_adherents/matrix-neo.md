@@ -326,3 +326,43 @@ token=$(curl -k -XPOST -d '{"type":"m.login.password", "user":"$user_admin_url",
 curl -k -XPOST -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d '{"new_password":"xxxxxxxx"}' "https://localhost:8448/_matrix/client/r0/admin/reset_password/$user_url"
 curl -k -XGET -H "Authorization: Bearer $token" -H "Content-Type: application/json" -d '{}' "https://localhost:8448/_synapse/admin/v2/users/$user_url"
 ```
+
+## Clean Matrix
+
+### Token
+
+    curl -X POST -d '{"type":"m.login.password", "user":"vlp", "password":"XXXXXXX"}' "http://127.0.0.1:8008/_matrix/client/r0/login"
+    export token="your_token"
+
+### Purge local data:
+
+    curl --header "Authorization: Bearer $token" -X POST -d '{}' "http://127.0.0.1:8008/_synapse/admin/v1/media/matrix.fdn.fr/delete?before_ts=1625097600000"
+
+### Purge remote data:
+
+curl --header "Authorization: Bearer $token" -X POST -d '{}' "http://127.0.0.1:8008/_synapse/admin/v1/purge_media_cache?before_ts=1625097600000"
+
+### Purge event
+
+    curl --header "Authorization: Bearer $token" -X POST -H "Content-Type: application/json" -d '{ "delete_local_events": true, "purge_up_to_ts": 1625097600000 }' 'http://127.0.0.1:8008/_synapse/admin/v1/purge_history/!coderoom:matrix.org/'
+    curl --header "Authorization: Bearer $token" -X POST -H "Content-Type: application/json" -d '{}' 'http://127.0.0.1:8008/_synapse/admin/v1/purge_history_status/PURGE_ID_FROM_COMMAND_ABOVE/'
+
+### Purge room
+
+    curl --header "Authorization: Bearer $token" -X POST -H "Content-Type: application/json" -d "{ \"room_id\": \"!coderoom:matrix.org\" }" 'http://127.0.0.1:8008/_synapse/admin/v1/purge_room/'
+
+### Delete room
+
+    curl --header "Authorization: Bearer $token" -X DELETE -H "Content-Type: application/json" -d "{ \"purge\": true }" 'http://127.0.0.1:8008/_synapse/admin/v1/rooms/!code_room:matrix.org'
+
+### Get version
+
+    curl --header "Authorization: Bearer $token" -X GET -H "Content-Type: application/json" -d '{}' 'http://127.0.0.1:8008/_synapse/admin/v1/server_version'
+
+### Check event number by room
+
+    SELECT room_id, count(*) AS count FROM state_groups_state GROUP BY room_id ORDER BY count DESC;
+
+### Check DB size in Postgres
+
+    select schemaname as table_schema, relname as table_name, pg_size_pretty(pg_relation_size(relid)) as data_size from pg_catalog.pg_statio_user_tables order by pg_relation_size(relid) desc;
