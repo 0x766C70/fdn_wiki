@@ -5,5 +5,5 @@ Historiquement, les sites étaient hébergés sur [yoda](./infra/machines/yoda.m
 
 Les procédures ayant évoluées, il faudra le temps de la migration gérer les deux serveurs via les procédures suivantes :
 
-- sur [yoda](./services/web-mutu/yoda.md) (sites en **web.fdn.fr**)
-- sur [rey](./services/web-mutu/rey.md) (sites en **mutu.fdn.fr**)
+- sur [yoda](./yoda.md) (sites en **web.fdn.fr**)
+- sur [rey](./rey.md) (sites en **mutu.fdn.fr**)
