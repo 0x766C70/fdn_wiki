@@ -32,12 +32,15 @@
 - [chewie](./machines/chewie.md) (web pour fdn)
 - [ackbar](./machines/ackbar.md) [(tracker torrent + media.fdn.fr)](https://ackbar.fdn.fr/)
 - [tiree](./machines/tiree.md) [(peertube)](https://tube.fdn.fr/)
+- [guardian](./machines/guardian.md) (sso)
 
-#### Messageries :
-- [solo](./machines/solo.md) (mail + listes + webmail)
+#### Communication :
+- [solo](./machines/solo.md) (old-mail + listes + old-webmail)
 - [jabber](./machines/jyn.md) (serveur jabber)
 - [korr](./machines/korr.md) (mail bac à sable)
-- [pz4co] (matrix + mumble)
+- [neo](./machines/neo.md) (matrix + mumble)
+- [taslin](./machines/taslin.md) (nouvelle infra mail)
+- [katarn](./machines/katarn.md) (new webmail + postfixadmin)
 
 #### Outils internes :
 - [kylo](./machines/kylo.md) (pour les bénévoles : wiki adhérent, flyspray...)
@@ -47,6 +50,8 @@
 - [si](./machines/si.md) (SI fdn)
 - [palpatine](./machines/palpatine.md) (puppetmaster)
 - [jabba](./machines/jabba.md) (archivage)
+- [sabe](./machines/ldap.md) (serveur ldap - master)
+- [padme](./machines/ldap.md) (serveur ldap - master)
 
 #### Supervision externe :
 - [isengard](./machines/isengard.md) (supervision externe : VM LDN)
