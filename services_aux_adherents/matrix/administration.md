@@ -128,7 +128,7 @@ Pour effectuer un _reset_ de mot de passe d'un utilisateur manuellement :
 
 #### Purge remote data:
 
-curl --header "Authorization: Bearer $token" -X POST -d '{}' "http://127.0.0.1:8008/_synapse/admin/v1/purge_media_cache?before_ts=1625097600000"
+    curl --header "Authorization: Bearer $token" -X POST -d '{}' "http://127.0.0.1:8008/_synapse/admin/v1/purge_media_cache?before_ts=1625097600000"
 
 #### Purge event
 
