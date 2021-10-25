@@ -167,11 +167,11 @@ Pour effectuer un _reset_ de mot de passe d'un utilisateur manuellement :
 
 ### Base de données
 
-*Sauvegardes, restoration*
+Dump hebdo sur jabba
 
 ### Sauvegarde
 
-*Où et comment sont sauvegardés les données et/ou fichiers de configuration*
+Snapshot/Backup hebdo de la VM
 
 ### En cas de pépins
 
