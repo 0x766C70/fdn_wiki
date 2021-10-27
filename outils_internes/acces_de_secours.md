@@ -13,3 +13,6 @@ Pour s'y connecter :
 - ssh endor-admin.fdn.fr
 - ssh admin-fdn.gitoyen.net
 
+En parallèle et pas forcement que depuis endor (mais je ne veux pas mettre une nouvelle pas que pour ça, celle-ci est adaptée) il est possible de se connecter aux droides via IPMI (depuis endor par exemple mais pas que).
+
+Les pass et les IP sont dans pass.
