@@ -6,17 +6,7 @@ FDN est parti sur la mise en place d'une instance [Synapse](https://github.com/m
 
 ### Installation paquet
 
-La conf puppet descend sur la machine le repo matrix automatiquement.
-
-Néanmoins au cas où, voici le process proposé sur la page install du projet synapse
-
-    sudo apt install -y lsb-release wget apt-transport-https
-    sudo wget -O /usr/share/keyrings/matrix-org-archive-keyring.gpg https://packages.matrix.org/debian/matrix-org-archive-keyring.gpg
-    echo "deb [signed-by=/usr/share/keyrings/matrix-org-archive-keyring.gpg] https://packages.matrix.org/debian/ $(lsb_release -cs) main" |
-        sudo tee /etc/apt/sources.list.d/matrix-org.list
-    sudo apt update
-    sudo apt install matrix-synapse-py3
-
+Puppet descend sur la machine le repo matrix automatiquement ainsi que son install & fichier de conf.
 
 **en root**
 
@@ -31,11 +21,8 @@ Néanmoins au cas où, voici le process proposé sur la page install du projet s
 
 ### Synapse PostgreSQL
 
-    systemctl stop puppet
-    deb http://apt.postgresql.org/pub/repos/apt/ buster-pgdg main
-    wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
-    apt-get update
-    apt install postgresql-9.6
+Puppet descend sur la machine le repo Postgres et son install
+
     su - postgres
     createdb synapse
     createuser --pwprompt synapse_user
@@ -62,8 +49,8 @@ Nous sommes parti sur le bridge [matrix-appservice-irc](https://github.com/matri
 
 ### Installation paquet
 
-    curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-    apt-get install -y nodejs make gcc build-essential node-typescript
+Pupper descend les paquets necessaires au bridge et l'installe
+
     adduser --system  matrix-bridge-irc
     mkdir -p /usr/lib/node_modules/matrix-appservice-irc/bin/matrix-appservice-irc
     ln -s /usr/lib/node_modules/matrix-appservice-irc/bin/matrix-appservice-irc /usr/bin/matrix-appservice-irc
@@ -74,17 +61,17 @@ Dans /etc/passwd ajouter à la fin
     matrix-bridge-irc:x:116:65534::/home/matrix-bridge-irc:/bin/bash
     
     su - matrix-bridge-irc
-	npm install matrix-appservice-irc --global
-	cd /usr/lib/node_modules/matrix-appservice-irc
-	npm install
-	npm test
+    cd /usr/lib/node_modules/matrix-appservice-irc
+    npm install
+    npm test
 
 ### IRC bridge PostgreSQL
-	su - postgres
-	createuser --pwprompt irc_bridge_db_user
-	psql
-	  CREATE DATABASE irc_bridge_db ENCODING 'UTF8'	LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER irc_bridge_db_user;
-	  \q
+
+    su - postgres
+    createuser --pwprompt irc_bridge_db_user
+    psql
+      CREATE DATABASE irc_bridge_db ENCODING 'UTF8'	LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER irc_bridge_db_user;
+      \q
 
 Dans /etc/postgresql/9.6/main/pg_hba.conf ajout à la fin:
 
@@ -116,46 +103,24 @@ Dans /etc/postgresql/9.6/main/pg_hba.conf ajout à la fin:
     
 ### Reverse proxy nginx
 
-    apt install nginx
-    
-Dans /etc/nginx/sites-enabled/synapse
+*Puppet descend l'install de nginx et son fichier de conf*
 
-    server {
-    	listen 443 ssl;
-    	listen [::]:443 ssl;
-    	server_name matrix.fdn.fr;
-    	ssl_certificate /etc/letsencrypt/live/matrix.fdn.fr/fullchain.pem;
-    	ssl_certificate_key /etc/letsencrypt/live/matrix.fdn.fr/privkey.pem;
-    	location /_matrix {
-    		proxy_pass http://localhost:8008;
-    		proxy_set_header X-Forwarded-For $remote_addr;
-    		client_max_body_size 50M;
-        }
-    	access_log /var/log/nginx/matrix-clients.access.log;
-    	error_log /var/log/nginx/matrix-clients.error.log;
-    }
-    server {
-        listen 8448 ssl default_server;
-        listen [::]:8448 ssl default_server;
-        server_name matrix.fdn.fr;
-        ssl_certificate /etc/letsencrypt/live/matrix.fdn.fr/fullchain.pem;
-        ssl_certificate_key /etc/letsencrypt/live/matrix.fdn.fr/privkey.pem;
-    	location / {
-    		proxy_pass http://localhost:8008;
-    		proxy_set_header X-Forwarded-For $remote_addr;
-    	}
+Il faut néanmoins ajouter dans /srv/http/.well-known/synapse/
 
-    	access_log /var/log/nginx/matrix-federation.access.log;
-    	error_log /var/log/nginx/matrix-federation.error.log;
+* un fichier: client
+
+    {
+      "m.homeserver": {
+        "base_url": "https://matrix.fdn.fr"
+      }
     }
 
-    systemctl restart nginx
+* un fichier: server
 
-### Lier le bridge à l'instance synapse
+    {
+      "m.server": "matrix.fdn.fr:443"
+    }
 
-Ajouter dans /etc/matrix-synapse/homeserver.yaml
-
-    app_service_config_files: ["/etc/matrix-appservice-irc/my_registration_file.yaml"]
 
 ### Generation du my_registration_file.yaml
 
