@@ -17,4 +17,4 @@
 * Users : ajouter son user PAM, changer le groupe pour admins
 * Datacenter > Host > Certificates > Edit Domains : ajouter le nom de la machine > Register Account > Accept TOS > email : adminsys@fdn.fr puis Order Certificate and that's it !
 * Users : Edit user root : Uncheck Enabled
-* Suppression du warning de licence : sudo sed -i.bak "s/data.status !== 'Active'/false/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && sudo systemctl restart pveproxy.service
+* Suppression du warning de licence : sudo sed -Ezi.bak "s/(Ext.Msg.show\(\{\s+title: gettext\('No valid sub)/void\(\{ \/\/\1/g" /usr/share/javascript/proxmox-widget-toolkit/proxmoxlib.js && sudo systemctl restart pveproxy.service
