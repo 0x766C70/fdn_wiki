@@ -1,22 +1,26 @@
 # Utilisation du service
 
-> À destination des utilisateurs/adhérents, donc ne pas hésiter à détailler et à fournir des liens pour aller voir plus en détail ailleurs si besoin.
-
 ## Utilité
 
-*À quoi ça sert, le pourquoi*
+Matrix is an open source project that publishes the Matrix open standard for secure, decentralised, real-time communication, and its Apache licensed reference implementations.
+
+Maintained by the non-profit Matrix.org Foundation, we aim to create an open platform which is as independent, vibrant and evolving as the Web itself... but for communication.
 
 ## Principe de fonctionnement
 
-*Comment ça fonctionne : succinctement avec lien pour plus de détails*
+Matrix fonctionne comme de nombreux logiciel de messagerie instantanée. Notre serveur a en plus la particularité d'être connecté aux serveurs IRC historique d'FDN.
 
 ## Utilisation
 
-*Très vague mais globalement : configuration, accès, authentification, fonctionnalités, etc.*
+Vous pouvez demander un compte matrix en envoyant une demande à services@fdn.fr
+
+Par ailleurs, l'équipe com à réalisé un tutorial disponible [ici](https://tube.fdn.fr/w/esom3KZZH6WopV2ev8NzZ1)
 
 ## FAQ utilisateur
 
-# IRC
+# Utilisation du bridge IRC
+
+*Utile uniquement si vous souhaitez rejoindre des chans IRC privés*
 
 ## users
 
@@ -48,8 +52,3 @@ Aller dans un salon bridgé IRC et cliquer sur C dans la liste des membres à dr
 
 	nick identify password
 	Si tout se passe bien vous recevrez : "You are now identified"
-> Lister ici les questions fréquemment posées par les utilisateurs
-
-### Question
-
-Réponse...
