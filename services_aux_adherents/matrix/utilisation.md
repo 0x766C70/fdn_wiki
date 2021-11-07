@@ -6,15 +6,17 @@ Matrix is an open source project that publishes the Matrix open standard for sec
 
 Maintained by the non-profit Matrix.org Foundation, we aim to create an open platform which is as independent, vibrant and evolving as the Web itself... but for communication.
 
+[sources](https://matrix.org/)
+
 ## Principe de fonctionnement
 
-Matrix fonctionne comme de nombreux logiciel de messagerie instantanée. Notre serveur a en plus la particularité d'être connecté aux serveurs IRC historique d'FDN.
+Matrix fonctionne comme de nombreux logiciels de messagerie instantanée. Notre serveur a, en plus, la particularité d'être connecté au serveur IRC historique d'FDN.
 
 ## Utilisation
 
 Vous pouvez demander un compte matrix en envoyant une demande à services@fdn.fr
 
-Par ailleurs, l'équipe com à réalisé un tutorial disponible [ici](https://tube.fdn.fr/w/esom3KZZH6WopV2ev8NzZ1)
+Par ailleurs, l'équipe com a réalisé un tutorial disponible [ici](https://tube.fdn.fr/w/esom3KZZH6WopV2ev8NzZ1)
 
 ## FAQ utilisateur
 
