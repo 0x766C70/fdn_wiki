@@ -16,7 +16,7 @@
 | blackmoor         | Marianne Chevrot                | blackmoor+assos-ffdn@devys.org | -                                             | -                                      |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | tiree, bbb, guardian, pad                     | -                                      |
 | hamo              | Jonathan Roulé                  | jroule@lunawan.fr              | tiree                                         | -                                      |
-| khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mail, mailing                 |
+| khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mailing                       |
 | mlrx              | -                               | -                              | taslin, katar, mutu, jyn, neo, resolver       | mail                                   |
 | olb               | Olivier Le Brouster             | olb@nebkha.net                 | -                                             |                                        |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | -                                      |
@@ -38,5 +38,5 @@
 | sebian            | -                               | -                              | Gitoyen <3                                    | -                                      |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
 | Cefin             | -                               | cefin@protonmail.com           | mutu                                          | -                                      |
-| hguilbert         | -                               | -                              |                                               | mail                                   |
+| hguilbert         | -                               | -                              | -                                             | mail                                   |
 | pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | -                                      |
