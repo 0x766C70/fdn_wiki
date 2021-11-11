@@ -1,45 +1,42 @@
 ## Admincore
 
-| login             | Nom/Pseudo                      | Email                          | Responsabilités, rôles                    | Files Request Tracker                                                 |
-| ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------- |---------------------------------------------------------------------- |
-| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | noyau, webmutu, RT                        | admin RT, services, services-xdsl, services-web-mutu, support         |
-| asmadeus          | Dominique Martinet              | asmadeus@codewreck.org         | noyau, debug collecte, RT                 | services, services-xdsl, support, services-other                      |
-| blt               | Benoit Neviani                  | benoit@neviani.fr              | noyau, supervision (isengard)             | services-vpn, services-other                                          |
-| tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | noyau, mail/news/UUCP, DNS                | services, services-dns, services-mail, services-other                 |
-| vlp		    | Thomas Criscione	  	      | thomas@criscione.fr            | mail2.0, ldap, gitlab, matrix, botbot	   | services, services-mail, services-im                                  |       
+| login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
+| ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
+| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | noyau                                         | webmutu, RT, gitlab                    |
+| asmadeus          | Dominique Martinet              | asmadeus@codewreck.org         | noyau                                         | debug collecte, RT                     |
+| blt               | Benoit Neviani                  | benoit@neviani.fr              | noyau                                         | supervision, vpn                       |
+| tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | noyau                                         | mail_solo, sympa, uucp, dns            |
+| vlp		    | Thomas Criscione	  	      | thomas@criscione.fr            | noyau                                         | mail, ldap, gitlab, matrix, botbot     |       
 
 
 ## Adminsys
 
-| login             | Nom/Pseudo                      | Email                          | Responsabilités, rôles                    | Files Request Tracker                                                 |
-| ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------- |---------------------------------------------------------------------- |
-| blackmoor         | Marianne Chevrot                | blackmoor+assos-ffdn@devys.org | adminsys, vpn                             |                                                                       |
-| dino              | Nicolas Schont                  | dino@jabberwookie.fr           | adminsys, bbb                             | services-other                                                        |
-| hamo              | Jonathan Roulé                  | jroule@lunawan.fr              | adminsys, matrix, peertube                | services-other                                                        |
-| khrys             | Khrys                           | khrys@fdn.fr                   | adminsys, listmaster, si, liaison bureau+communication                   |                        toutes les files (a priori)                                               |
-| mlrx              |                                 |                                |                                           |                                                                       |
-| olb               | Olivier Le Brouster             | olb@nebkha.net                 |                                           |                                                                       |
-| stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | adminsys, listmaster                      |                                                                       |
-| symeon            | Renaud Alexandre                | symeon@zaclys.net              | adminsys, bbb                             | services-other                                                        |
-| vg                | vg                              | vgm+fdn@devys.org              | vpn                                       |                                                                       |
-| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | adminsys, vpn, rsf, si                    |                                                                       |
+| login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
+| ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
+| blackmoor         | Marianne Chevrot                | blackmoor+assos-ffdn@devys.org | -                                             | -                                      |
+| dino              | Nicolas Schont                  | dino@jabberwookie.fr           | tiree, bbb, guardian, pad                     | -                                      |
+| hamo              | Jonathan Roulé                  | jroule@lunawan.fr              | tiree                                         | -                                      |
+| khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mail, mailing                 |
+| mlrx              | -                               | -                              | taslin, katar, mutu, jyn, neo, resolver       | mail                                   |
+| olb               | Olivier Le Brouster             | olb@nebkha.net                 | -                                             |                                        |
+| stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | -                                      |
+| symeon            | Renaud Alexandre                | symeon@zaclys.net              | bbb                                           | -                                      |
+| vg                | vg                              | vgm+fdn@devys.org              |                                               | -                                      |
+| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, palpatine, solo, lns                     | vpn                                    |
 
-## Autres comptes
+## Adminguest
 
-| login             | Nom/Pseudo                      | Email                          | Responsabilités, rôles                    |
-| ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------- |
-| capslock          | Thibault Lecuyer                | legeox@legeox.net              | adminsys                                  |
-| cyril             |                                 |                                |                                           |
-| deplagne          | Eric Deplagne                   | eric@deplagne.name             | si                                        |
-| domi              | Dominique Rousseau              | domi@lee-loo.net               | adminsys, dns                             |                                                                       |
-| gal_bolle         |                                 |                                |                                           |
-| hyp	            |                                 |                                |                                           |
-| jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | listmaster                                |
-| nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | si                                        |
-| perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr          | si                                        |
-| sebian            |                                 |                                |                                           |
-| taziden           |                                 |                                |                                           |
-| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | torrent, support, suivi adsl              |
-| vlnzt             |                                 |                                |                                           |
-| zorun             |                                 |                                |                                           |
-| Cefin             |                                   | cefin@protonmail.com                          | webmutu
+| login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
+| ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
+| cyril             |                                 |                                | jitsi                                         | mail                                   |
+| domi              | Dominique Rousseau              | domi@lee-loo.net               | dns, lns, resolver                            | -                                      |
+| gal_bolle         | -                               | -                              | solo                                          | -                                      |
+| hyp	            | -                               | -                              | tube                                          | -                                      |
+| jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | solo                                          | sympa                                  |
+| nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | solo                                          | mail                                   |
+| perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr          | solo                                          | -                                      |
+| sebian            | -                               | -                              | Gitoyen <3                                    | -                                      |
+| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
+| Cefin             | -                               | cefin@protonmail.com           | mutu                                          | -                                      |
+| hguilbert         | -                               | -                              |                                               | mail                                   |
+| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | -                                      |
