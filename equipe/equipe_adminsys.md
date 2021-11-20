@@ -18,7 +18,6 @@
 | hamo              | Jonathan Roulé                  | jroule@lunawan.fr              | tiree                                         | -                                      |
 | khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mailing                       |
 | mlrx              | -                               | -                              | taslin, katar, mutu, jyn, neo, resolver       | mail                                   |
-| olb               | Olivier Le Brouster             | olb@nebkha.net                 | -                                             |                                        |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | -                                      |
 | symeon            | Renaud Alexandre                | symeon@zaclys.net              | bbb                                           | -                                      |
 | vg                | vg                              | vgm+fdn@devys.org              |                                               | -                                      |
@@ -28,15 +27,13 @@
 
 | login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
-| cyril             |                                 |                                | jitsi                                         | mail                                   |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | dns, lns, resolver                            | -                                      |
 | gal_bolle         | -                               | -                              | solo                                          | -                                      |
-| hyp	            | -                               | -                              | tube                                          | -                                      |
 | jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | solo                                          | sympa                                  |
 | nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | solo                                          | mail                                   |
 | perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr          | solo                                          | -                                      |
 | sebian            | -                               | -                              | Gitoyen <3                                    | -                                      |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
 | Cefin             | -                               | cefin@protonmail.com           | mutu                                          | -                                      |
-| hguilbert         | -                               | -                              | -                                             | mail                                   |
+| hguilbert         | -                               | -                              | neo                                           | mail                                   |
 | pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | -                                      |
