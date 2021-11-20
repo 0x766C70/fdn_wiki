@@ -1,4 +1,3 @@
-
 # Les serveurs physiques
 
 #### Les LNS (routeurs et L2TP)
@@ -44,7 +43,6 @@
 
 #### Outils internes :
 - [kylo](./machines/kylo.md) (pour les bénévoles : wiki adhérent, flyspray...)
-- [obiwan](./machines/obiwan.md) (pour les adminsys : git + wiki adminsys + apt-dater)
 - [leia](./machines/leia.md) (nagios, munin, ... à démembrer)
 - [coruscant](./machines/coruscant.md) [(gitlab)](https://git.fdn.fr/)
 - [si](./machines/si.md) (SI fdn)
