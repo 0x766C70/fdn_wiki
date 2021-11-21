@@ -23,6 +23,7 @@
 
 | login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
+| Neox              | Adrien Bourmault                | -                              | jyn                                           | xmpp                                   |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | dns, lns, resolver                            | dns                                    |
 | gal_bolle         | -                               | -                              | solo                                          | -                                      |
 | jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | solo                                          | sympa                                  |
