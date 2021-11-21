@@ -13,14 +13,10 @@
 
 | login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
-| blackmoor         | Marianne Chevrot                | blackmoor+assos-ffdn@devys.org | -                                             | -                                      |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | tiree, bbb, guardian, pad                     | -                                      |
-| hamo              | Jonathan Roulé                  | jroule@lunawan.fr              | tiree                                         | -                                      |
 | khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mailing                       |
 | mlrx              | -                               | -                              | taslin, katar, mutu, jyn, neo, resolver       | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | -                                      |
-| symeon            | Renaud Alexandre                | symeon@zaclys.net              | bbb                                           | -                                      |
-| vg                | vg                              | vgm+fdn@devys.org              |                                               | -                                      |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, palpatine, solo, lns                     | vpn                                    |
 
 ## Adminguest
