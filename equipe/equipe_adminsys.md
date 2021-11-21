@@ -13,23 +13,23 @@
 
 | login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
-| dino              | Nicolas Schont                  | dino@jabberwookie.fr           | tiree, bbb, guardian, pad                     | -                                      |
+| dino              | Nicolas Schont                  | dino@jabberwookie.fr           | tiree, bbb, guardian, pad                     | peertube, pad                          |
 | khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mailing                       |
 | mlrx              | -                               | -                              | taslin, katar, mutu, jyn, neo, resolver       | mail                                   |
-| stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | -                                      |
+| stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | mailing                                |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, palpatine, solo, lns                     | vpn                                    |
 
 ## Adminguest
 
 | login             | Nom/Pseudo                      | Email                          | Accès Infra (Puppet Users)                    | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | ----------------------------------------------|--------------------------------------- |
-| domi              | Dominique Rousseau              | domi@lee-loo.net               | dns, lns, resolver                            | -                                      |
+| domi              | Dominique Rousseau              | domi@lee-loo.net               | dns, lns, resolver                            | dns                                    |
 | gal_bolle         | -                               | -                              | solo                                          | -                                      |
 | jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | solo                                          | sympa                                  |
 | nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | solo                                          | mail                                   |
 | perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr          | solo                                          | -                                      |
-| sebian            | -                               | -                              | Gitoyen <3                                    | -                                      |
+| sebian            | -                               | -                              | Gitoyen <3                                    | n/a                                    |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
-| Cefin             | -                               | cefin@protonmail.com           | mutu                                          | -                                      |
-| hguilbert         | -                               | -                              | neo                                           | mail                                   |
-| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | -                                      |
+| Cefin             | -                               | cefin@protonmail.com           | mutu                                          | mutu                                   |
+| hguilbert         | -                               | -                              | neo                                           | mail, matrix                           |
+| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | pad                                    |
