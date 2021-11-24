@@ -19,9 +19,9 @@ Puppet descend sur la machine le repo matrix automatiquement ainsi que son insta
     (Y)es/(N)o: N
     Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c' to cancel): matrix.fdn.fr
 
-### Synapse PostgreSQL
+### Postgres
 
-Puppet descend sur la machine le repo Postgres et son install
+Puppet descend sur la machine le repo Postgres et install Postgres 14. Il reste à créer le user et la table synapse:
 
     su - postgres
     createdb synapse
@@ -30,7 +30,7 @@ Puppet descend sur la machine le repo Postgres et son install
       CREATE DATABASE synapse ENCODING 'UTF8' LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER synapse_user;
 	  \q
 
-Dans /etc/postgresql/9.6/main/pg_hba.conf ajout à la fin:
+Dans /etc/postgresql/14/main/pg_hba.conf ajout à la fin:
 
     host    synapse         synapse_user    ::1/128                 md5
 
@@ -49,7 +49,7 @@ Nous sommes parti sur le bridge [matrix-appservice-irc](https://github.com/matri
 
 ### Installation paquet
 
-Pupper descend les paquets necessaires au bridge et l'installe
+Pupper descend les paquets necessaires au bridge et l'installe. On va créer un user pour le bridge:
 
     adduser --system  matrix-bridge-irc
     mkdir -p /usr/lib/node_modules/matrix-appservice-irc/bin/matrix-appservice-irc
@@ -65,7 +65,9 @@ Dans /etc/passwd ajouter à la fin
     npm install
     npm test
 
-### IRC bridge PostgreSQL
+### Postgres
+
+On crée le user et la table pour le bridge:
 
     su - postgres
     createuser --pwprompt irc_bridge_db_user
@@ -94,6 +96,7 @@ Dans /etc/postgresql/9.6/main/pg_hba.conf ajout à la fin:
     [Install]
     WantedBy=multi-user.target
 
+(à mettre dans Puppet ?)
 
 ### Pour federer: ajout des DNS (CNAME interdit) 
 
@@ -127,3 +130,7 @@ Il faut néanmoins ajouter dans /srv/http/.well-known/synapse/
 Ce fichier "compile" la config du bridge pour la donner en lecture à synapse
  
 	node /usr/lib/node_modules/matrix-appservice-irc/app.js -r -f /etc/matrix-appservice-irc/my_registration_file.yaml -u "http://matrix.fdn.fr:9999" -c /etc/matrix-appservice-irc/config.yaml -l neo
+
+### restart
+
+Redémarrer synapse puis le bridge
