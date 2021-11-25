@@ -1,16 +1,30 @@
 # Buildbook
 
-## Installation Synapse
+FDN est parti sur la mise en place d'une instance [Synapse](https://github.com/matrix-org/synapse/) avec un bridge [IRC](https://github.com/matrix-org/matrix-appservice-irc).
 
-FDN est parti sur la mise en place d'une instance [Synapse](https://github.com/matrix-org/synapse/).
+** en root **
 
-### Installation paquet
+## Préparation Postgrès
 
-Puppet descend sur la machine le repo matrix automatiquement ainsi que son install & fichier de conf.
+Postgrès 14 est installé par puppet: il reste à créer les users et les bases:
 
-**en root**
+    su - postgres
+    createdb synapse
+    createdb irc_bridge_db
+    createuser --pwprompt synapse_user
+    createuser --pwprompt irc_bridge_db_user
+    psql                                                                                                         
+      CREATE DATABASE synapse       ENCODING 'UTF8' LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER synapse_user;
+      CREATE DATABASE irc_bridge_db ENCODING 'UTF8' :C_COLLATE='C' LC_CTYPE='C' template=template0 OWNER irc_bridge_db_user;
+    \q
 
-### Certbot
+## Installations paquets
+
+Puppet descend sur la machine l'application synapse, le bridge ainsi que les fichiers de conf
+
+## Finalisation conf Synapse
+
+### Mise en place de certbot pour le https
 
     apt-get install certbot
     certbot certonly --standalone
@@ -19,37 +33,18 @@ Puppet descend sur la machine le repo matrix automatiquement ainsi que son insta
     (Y)es/(N)o: N
     Please enter in your domain name(s) (comma and/or space separated)  (Enter 'c' to cancel): matrix.fdn.fr
 
-### Postgres
-
-Puppet descend sur la machine le repo Postgres et install Postgres 14. Il reste à créer le user et la table synapse:
-
-    su - postgres
-    createdb synapse
-    createuser --pwprompt synapse_user
-    psql
-      CREATE DATABASE synapse ENCODING 'UTF8' LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER synapse_user;
-	  \q
-
-Dans /etc/postgresql/14/main/pg_hba.conf ajout à la fin:
-
-    host    synapse         synapse_user    ::1/128                 md5
-
 ### Creation du dh
 
     mkdir /etc/ssl/dh
     openssl dhparam -out /etc/ssl/dh/matrix.fdn.fr.pem -5 4096
 
-### Demarage de synapse 
+### Pour federer: ajout des DNS (CNAME interdit) 
 
-    systemctl start matrix-synapse
+    matrix                 IN      A       80.67.169.98
+                           IN      AAAA    2001:910:800::98
+    _matrix._tcp.matrix    IN      SRV     10 0 443 matrix
 
-## Installation Bridge
-
-Nous sommes parti sur le bridge [matrix-appservice-irc](https://github.com/matrix-org/matrix-appservice-irc).
-
-### Installation paquet
-
-Pupper descend les paquets necessaires au bridge et l'installe. On va créer un user pour le bridge:
+## Finalisation conf bridge
 
     adduser --system  matrix-bridge-irc
     mkdir -p /usr/lib/node_modules/matrix-appservice-irc/bin/matrix-appservice-irc
@@ -65,72 +60,16 @@ Dans /etc/passwd ajouter à la fin
     npm install
     npm test
 
-### Postgres
-
-On crée le user et la table pour le bridge:
-
-    su - postgres
-    createuser --pwprompt irc_bridge_db_user
-    psql
-      CREATE DATABASE irc_bridge_db ENCODING 'UTF8'	LC_COLLATE='C' LC_CTYPE='C' template=template0 OWNER irc_bridge_db_user;
-      \q
-
-Dans /etc/postgresql/9.6/main/pg_hba.conf ajout à la fin:
-
-    host    irc_bridge_db   irc_bridge_db_user    ::1/128                 md5 
-
 ### IRC bridge log
 	mkdir /var/log/matrix-appservice-irc
 	chown matrix-bridge-irc:nogroup /var/log/matrix-appservice-irc
 
-### IRC systemd bridge service
-
-    vim/etc/systemd/system/matrix-appservice-irc.service
-
-    [Unit]
-    Description=Matrix AppService IRC
-    [Service]
-    WorkingDirectory=/usr/lib/node_modules/matrix-appservice-irc
-    ExecStart=node app.js -c /etc/matrix-appservice-irc/config.yaml -f /etc/matrix-appservice-irc/my_registration_file.yaml -p 9999
-    User=matrix-bridge-irc
-    [Install]
-    WantedBy=multi-user.target
-
-(à mettre dans Puppet ?)
-
-### Pour federer: ajout des DNS (CNAME interdit) 
-
-    matrix                 IN      A       80.67.169.98
-                           IN	   AAAA	   2001:910:800::98
-    _matrix._tcp.matrix    IN      SRV     10 0 443 matrix
-    
-### Reverse proxy nginx
-
-*Puppet descend l'install de nginx et son fichier de conf*
-
-Il faut néanmoins ajouter dans /srv/http/.well-known/synapse/
-
-* un fichier: client
-
-    {
-      "m.homeserver": {
-        "base_url": "https://matrix.fdn.fr"
-      }
-    }
-
-* un fichier: server
-
-    {
-      "m.server": "matrix.fdn.fr:443"
-    }
-
-
-### Generation du my_registration_file.yaml
+## Generation du my_registration_file.yaml
 
 Ce fichier "compile" la config du bridge pour la donner en lecture à synapse
  
 	node /usr/lib/node_modules/matrix-appservice-irc/app.js -r -f /etc/matrix-appservice-irc/my_registration_file.yaml -u "http://matrix.fdn.fr:9999" -c /etc/matrix-appservice-irc/config.yaml -l neo
 
-### restart
+## restart
 
 Redémarrer synapse puis le bridge
