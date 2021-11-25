@@ -70,6 +70,6 @@ Ce fichier "compile" la config du bridge pour la donner en lecture à synapse
  
 	node /usr/lib/node_modules/matrix-appservice-irc/app.js -r -f /etc/matrix-appservice-irc/my_registration_file.yaml -u "http://matrix.fdn.fr:9999" -c /etc/matrix-appservice-irc/config.yaml -l neo
 
-## restart
+## Restart
 
 Redémarrer synapse puis le bridge
