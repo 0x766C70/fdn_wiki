@@ -1,4 +1,3 @@
-
 # Request Tracker
 
 [Request Tracker](https://bestpractical.com/request-tracker/) est un outil (Perl) de suivi des demandes utilisateur, très modulable, pouvant être piloté via une interface web ou mail.
@@ -81,6 +80,13 @@ Les différents statuts qu'un ticket peut avoir sont :
 #### Commentaires
 
 Il est possible de n'envoyer un mail qu'aux autres AdminCC, sans que le demandeur n'ait de copie du mail, pour échanger entre nous si besoin. Pour cela, il suffit d'envoyer, dans le cas présent, un mail à **contact-comment@fdn.fr**.
+
+#### Astuces / Problèmes connus
+
+Si vous obtenez le message d'erreur suivant en voulant fusionner deux tickets :
+> An internal RT error has occurred. Your administrator can find more details in RT's log files.
+
+C'est que **services@fdn.fr** est en demandeur (*requestor*) sur le ticket, il suffit de le supprimer via l'onglet Personnes (*People*) avant de réessayer.
 
 ### Fonctionnement avancé
 
