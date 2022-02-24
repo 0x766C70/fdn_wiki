@@ -33,5 +33,5 @@
 | sebian            | -                               | -                              | Gitoyen <3                                    | n/a                                    |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
 | Cefin             | -                               | cefin@protonmail.com           | mutu                                          | mutu                                   |
-| hguilbert         | -                               | fdn@amenhotep.net              | neo                                           | mail, matrix                           |
+| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | neo                                           | mail, matrix                           |
 | pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | pad                                    |
