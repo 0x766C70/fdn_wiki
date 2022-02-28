@@ -34,4 +34,4 @@
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
 | Cefin             | -                               | cefin@protonmail.com           | mutu                                          | mutu                                   |
 | hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | neo                                           | mail, matrix                           |
-| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad          | pad                                    |
+| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad, neo, invidious, nitter, bibliogram          | pad                                    |
