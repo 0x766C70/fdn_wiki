@@ -11,6 +11,19 @@ Machine virtuelle pour le service [Nitter](https://github.com/zedeus/nitter) per
 - service : `systemctl [status|start|stop|restart] nitter.service`
 - logs : `/var/log/syslog`, `/var/log/apache2/nitter-[access|error].log`
 
+## Mise à jour
+
+1. créer un snapshot de la vm, ex. `commit_poiuyt`
+1. se connecter en SSH sur la vm
+1. `sudo su - nitter`
+1. `cd app`
+1. `git pull`
+1. `nimble build -d:release`
+1. `nimble scss`
+1. `nimble md`
+1. `exit`
+1. `sudo systemctl restart nitter.service` 
+
 # Buildbook
 
 Cf. doc [projet](https://github.com/zedeus/nitter/tree/a8d99cc6857f7f8e38023d9a5e8cf77333153291)
