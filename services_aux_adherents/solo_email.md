@@ -362,6 +362,6 @@ Et voilà, plus aucun mail pour mdugenou ne transite via FDN.
 Si d'aventure la suppression de l'email est liée au départ d'un adhérent, qu'il n'y a plus de signe de vie de lui et qu'il a récupéré ses données, il est possible de supprimer son compte unix :
 
 ```bash
-$ sudo userdel mdugenou
+$ sudo deluser --remove-home mdugenou
 ```
 
