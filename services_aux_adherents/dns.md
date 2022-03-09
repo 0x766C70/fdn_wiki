@@ -209,11 +209,28 @@ On retrouve le préfixe alloué à l'adhérent, `dig` a tout seul bien découpé
 
 ## Suppression d'un dépôt git d'un adhérent
 
-  * Supprimer le dépôt dans gitlab
-  * Sur *ns0.fdn.fr*, en tant que l'utilisateur bot-dns
-    * Supprimer le dossier ~/depots/<nom-du-depot>
-    * Lancer ~/depots/utils/update.sh
-    * Supprimer /var/cache/bind/<nom-du-depot>
+  * Supprimer le dépôt dans gitlab (gardons l'exemple du dépôt `mdugenou`) :
+    * aller sur la page du projet dns/mdugenou
+    * aller dans Settings -> General -> Advanced -> Expand -> Delete project et suivre la procédure
+
+  * Sur *nsa.fdn.fr* en tant que l'utilisateur `bot-dns` :
+
+    bot-dns$ rm -rf ~/depots/mdugenou
+    bot-dns$ rm -rf /var/cache/bind/mdugenou
+    bot-dns$ env SSH_ORIGINAL_COMMAND="master-bind" ~/depots/utils/update.sh
+
+  * Sur *gchq.fdn.fr* en tant que l'utilisateur `bot-dns` :
+
+    bot-dns$ rm -rf ~/depots/mdugenou
+    bot-dns$ rm -rf /var/cache/bind/mdugenou
+    bot-dns$ env SSH_ORIGINAL_COMMAND="master2-bind" ~/depots/utils/update.sh
+
+  * Sur *nsa.fdn.fr* et *gchq.fdn.fr*, faire un commit `etckeeper` :
+
+    # etckeeper vcs status
+    # etckeeper vcs diff
+    # etckeeper commit "Suppression du dépôt DNS mdugenou"
+
 
 ## Ancien fonctionnement
 
