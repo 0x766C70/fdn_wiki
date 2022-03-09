@@ -215,21 +215,27 @@ On retrouve le préfixe alloué à l'adhérent, `dig` a tout seul bien découpé
 
   * Sur *nsa.fdn.fr* en tant que l'utilisateur `bot-dns` :
 
+```
     bot-dns$ rm -rf ~/depots/mdugenou
     bot-dns$ rm -rf /var/cache/bind/mdugenou
     bot-dns$ env SSH_ORIGINAL_COMMAND="master-bind" ~/depots/utils/update.sh
+```
 
   * Sur *gchq.fdn.fr* en tant que l'utilisateur `bot-dns` :
 
+```
     bot-dns$ rm -rf ~/depots/mdugenou
     bot-dns$ rm -rf /var/cache/bind/mdugenou
     bot-dns$ env SSH_ORIGINAL_COMMAND="master2-bind" ~/depots/utils/update.sh
+```
 
   * Sur *nsa.fdn.fr* et *gchq.fdn.fr*, faire un commit `etckeeper` :
 
+```
     # etckeeper vcs status
     # etckeeper vcs diff
     # etckeeper commit "Suppression du dépôt DNS mdugenou"
+```
 
 
 ## Ancien fonctionnement
