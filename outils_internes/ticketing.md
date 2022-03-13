@@ -55,7 +55,7 @@ Pour celleux qui le souhaitent, il est tout à fait possible de gérer les ticke
 - Essentiel (*Basics*) : modification de l'intervenant, du statut, de la file, des champs personnalisés, etc. ;
 - Personnes (*People*) : modification des destinataires des mails (demandeur, personnes en copie) ;
 - Dates (*Dates*) : date de début, échéance, etc. ;
-- Relations (*Links*) : permet de lier des tickets entre eux ou de les fusionner ;
+- Relations (*Links*) : permet de lier des tickets entre eux ou de les fusionner (c'est la référence du ticket qui est manipulé qui disparaît) ;
 - Tout (*Jumbo*) : :-x ;
 - Rappels (*Reminders*) : possibilité de rajouter des rappels sur certains tickets, rappels qui apparaissent sur la page d'accueil ;
 - Actions (*Actions*) : utilisé pour envoyer des mails depuis l'IHM et modifier certains champs au même moment.
