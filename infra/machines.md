@@ -4,9 +4,11 @@
 - [lns11](./machines/lns11.md)
 - [lns22](./machines/lns22.md)
 
-#### Les droïdes (cluster Ganeti)
-- [r4p17](./machines/r4p17.md)
-- [c3px](./machines/c3px.md)
+#### Les droïdes (cluster Proxmox)
+- [tc14](./machines/tc14.md) (cluster de prod)
+- [r5d4](./machines/r5d4.md) (cluster de prod)
+- [r4p17](./machines/r4p17.md) (cluster de backup)
+- [c3px](./machines/c3px.md) (cluster de backup)
 - [r2d2](./machines/r2d2.md) (down)
 - [c3po](./machines/c3po.md) (down)
 
