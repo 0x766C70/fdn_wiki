@@ -714,9 +714,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.68"
-     inkscape:cx="893.10868"
-     inkscape:cy="508.49608"
+     inkscape:zoom="0.57848045"
+     inkscape:cx="867.09896"
+     inkscape:cy="678.21974"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -739,7 +739,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -1770,17 +1770,6 @@
          y="197.59294"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:4.45889235px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#ff2a2a;stroke:#ff5555;stroke-width:0.30401537"
          id="tspan2434-5-5">[3, 800-802]</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="12.815333"
-       y="10.154604"
-       id="text2711"><tspan
-         sodipodi:role="line"
-         id="tspan2709"
-         x="12.815333"
-         y="10.154604"
-         style="font-size:5.64444447px;stroke-width:0.26458332">06/10/2019</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:3.88055563px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:end;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:end;fill:#ff2a2a;fill-opacity:1;stroke:#ff5555;stroke-width:0.26458332"
