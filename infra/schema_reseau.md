@@ -1,21 +1,17 @@
-Le schéma et les informations ci-dessous date du 2017/05/20 (en cours de
-migration de la collecte Nérim vers Liazo).
 
 # Schéma high level du réseau FDN
 
-![img fdn_network.0.10.svg size=x800](./schema_reseau/fdn_network.0.10.svg)
+![img fdn_network_2022.svg size=x800](./schema_reseau/fdn_network_2022.svg)
 
 Ce schéma est une ébauche, il y a des choses à modifier, corriger, améliorer.
 
 # Explication du schéma
 
-_Retraduction des notes de blackmoor, il faut réorganiser , relire, corrigé, répondre aux '???'_
-
 
 ## Introduction
 
 L'infrastructure de FDN est actuellement répartie dans deux datacenters
-(nommée par la suite DC):
+(nommés par la suite DC):
 
 - Paris Bourse
 - TéléHouse2 (nommé ensuite TH2)
@@ -32,7 +28,7 @@ Comme on le voit sur le schéma, FDN possède une demi-baie
 
 ## Explications et détails du schéma
 
-Les LNS ont chacuns 2 liens 1GbE:
+Les LNS ont chacun 2 liens 1GbE:
 - un pour la collecte
 - un pour le transit et le réseau interne
 
@@ -59,21 +55,8 @@ réplication.
 
 - bgp: 'Border Gateway Protocol', permet de se connecter au monde
 - ganeti: gestionnaire de VMs, permet de créer, gérer, migrer les VMs
-- LNS: 'L2TP Network Server', machine débian, servant pour la collecte xDSL
+- LNS: 'L2TP Network Server', machine debian, servant pour la collecte xDSL
 
-
-## Pourquoi avons-nous certains choix d'architecture qui peuvent surprendre ?
-
-[à mettre à jour...]
-Dans un monde idéal, on sait de la redondance de services sur différents lieux,
-ici on voit que toute la collecte est à TH2.
-C'est historique: car Nérim n'était qu'à TH2 et le transit Gitoyen aussi.
-Aujourd'hui ce n'est plus le cas pour Gitoyen et FDN est en cours de
-changement de fournisseur de collecte (Liazo) qui se trouve sur les deux DC
-[???]
-
-Il serait donc possible de redonder sur les 2 sites, mais cela amène peut-être
-d'autres problèmes. [à étudier]
 
 
 # Informations complémentaires
@@ -83,19 +66,24 @@ nos services.
 
 À Paris Bourse, FDN héberge une machine physique pour les RMLL.
 
-Schéma de la vielle collecte et du routage chez FDN:
+Schéma de la vieille collecte et du routage chez FDN:
 [À l'époque avant Nérim](https://wiki-adh.fdn.fr/essaimage:ressources:schema_collecte_routage_fdn)]
 
 
 # Chantiers
 
-## Chantiers en cours
+## Chantiers achevés
 
-Les switch sont assez anciens. Ils sont en cours de changement.
-Il y avait 1G vers Gitoyen, cela va passer à 10G avec les nouveaux.
+Les switch sont passés à 10G.
+
+La redondance entre PBO et TH2 a été effectuée.
+
+Passage à un storage ZFS sur les deux nouveaux droïdes de prod (r5d4 et tc14) - pour l'historique, voir [ici](https://git.fdn.fr/adminsys/suivi/-/issues/156#note_6504)
+
 
 ## Chantiers potentiels
 
+[encore valable ?]
 Les HDD des droides [???] limitent actuellement la vitesse de réplication entre
 les droides (1G)
 
