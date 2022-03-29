@@ -4,3 +4,5 @@ Dans cette section, un état des lieux de l'infra système et réseau de FDN.
 - [réseaux](./reseaux.md)
 - [machines](./machines.md)
 - [schéma réseau](./schema_reseau.md)
+- [photos](./photos.md)
+
