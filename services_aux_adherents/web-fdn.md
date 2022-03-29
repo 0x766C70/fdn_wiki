@@ -1,3 +1,10 @@
+:warning: :warning: :warning:
+
+Cette documentation est datée et mériterait d'être reprise :sweat:
+
+Pour la mise à jour du site web de FDN, voir le [memo](/memo/maj_wordpress.md).
+
+:warning: :warning: :warning:
 
 # Web public de FDN
 
