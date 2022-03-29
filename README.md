@@ -24,6 +24,10 @@ Il s'agit de l'ensemble des [services](./services_aux_adherents) fournis aux mem
 
 Ces [outils](./outils_internes) nous servent à faire tourner la boutique !
 
-# Notre infra en temps réel
+# L'infra
+
+Dans [cette section](./infra/README.md), vous trouverez un état des lieux de l'infra système et réseau de FDN.
+
+Notre infra en temps réel : 
 
 ![Weather map](https://librenms.fdn.fr/plugins/Weathermap/output/fdn.png)
