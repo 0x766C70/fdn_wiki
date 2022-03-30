@@ -46,7 +46,7 @@ La rotation des logs est en place pour chaque utilisateur, voir `/etc/logrotate.
 
 Chaque utilisateur a accès aux logs de ses sites via `~/logs` qui est un lien symbolique vers le répertoire `/var/log/apache2/webusers/username`. Il n'a évidemment accès qu'en lecture.
 
-## Bases de données
+## Bases de données
 
 Actuellement seule une instance de MariaDB tourne, mais d'autres sont envisageables.
 
@@ -58,7 +58,7 @@ Pour l'instant, seuls les adminsys ont la possibilité de créer des bases de do
 
 # Mise en place d'un site
 
-Afin de gagner du temps en adminsys et d'éviter des erreurs de typo, des scripts ont été mis en place. Ils se trouvent dans avec un dépôt sur [gitlab](https://git.fdn.fr/adminsys/fdn-mutu/-/tree/master/scripts).
+Afin de gagner du temps en adminsys et d'éviter des erreurs de typo, des scripts ont été mis en place. Ils se trouvent dans un dépôt sur [gitlab](https://git.fdn.fr/adminsys/fdn-mutu/-/tree/master/scripts).
 
 > il faut être root (ou sudo) pour lancer les scripts
 
@@ -69,7 +69,7 @@ Avant de créer un utilisateur, vérifier qu'il n'existe pas déjà dans `/srv/w
 	cd /root/fdn-mutu/scripts
 	./create_user.sh
 
-Vérifier que le home de l'utilisateur a bien été créé.
+Vérifier que le *home* de l'utilisateur a bien été créé.
 
 ## Mise en place d'un site PHP
 
@@ -86,7 +86,7 @@ Si elle n'est pas installée :
 	cd /root/fdn-mutu/scripts
 	./install_php.sh
 
-> Note : ce script contient également la liste des modules PHP à installer, il faut donc la mettre à jour au fur et à mesure qu'on en rajoute et relancer l'install pour **toutes** les versions de PHP déjà installées
+> Note : ce script appelle également un autre script ([`install_php_modules.sh`](https://git.fdn.fr/adminsys/fdn-mutu/-/blob/master/scripts/install_php_modules.sh)) qui contient la liste des modules PHP à installer par défaut, il faut donc le mettre à jour au fur et à mesure qu'on en rajoute et relancer l'install pour **toutes** les versions de PHP déjà installées.
 
 ### Mettre en place un pool PHP pour l'utilisateur
 
@@ -108,7 +108,7 @@ Pour laisser la possibilité à l'utilisateur de modifier la version de PHP pour
 	cd /root/fdn-mutu/scripts
 	./configure_php_for_site.sh
 
-## Configuration Apache d'un site (statique ou avec PHP)
+## Configuration Apache d'un site (statique ou avec PHP)
 
 Pour mettre en place un nouveau site internet, vous avez besoin de : utilisateur, répertoire du site, adresse email, nom de domaine, TLS (oui/non).
 
