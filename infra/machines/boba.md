@@ -1,2 +1,1 @@
-
-La machine boba fait tourner le [[outils/librenms]].
+La machine boba fait tourner [librenms](outils_internes/supervision/librenms.md).
