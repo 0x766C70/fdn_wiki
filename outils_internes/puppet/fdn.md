@@ -142,6 +142,17 @@ Les modules fdn sont stockés dans le répertoire `modules`, dont par exemple **
 
 Idéalement chaque module a un **Readme** qui explique à quoi il peut bien servir, mais la vérité est dans le code :innocent: .
 
+### Les mots de passes et les variables
+
+Nous avons mis en place le module [eyaml](https://github.com/voxpupuli/hiera-eyaml) pour gérer les passwords et éviter de les afficher en clair dans les conf puppet..
+
+Pour obtenir le hash d'un passwd:depuis palpatine: `/srv/puppet/environments/production# eyaml encrypt -p` et tapez le password voulue. Vous obtiendrez en retour une chaine du type ENC[PKCS7,SUPERLONGTRUC]
+
+- Dans la classe du module utilisé, définir les variables qui contiendront les pass: `$db_user`, par exemple. Vous trouverez un cas concret sur le module matrix et sa [class bridge](https://git.fdn.fr/adminsys/puppet/-/blob/production/modules/matrix/manifests/bridge.pp)
+- Dans le template maintenu par le module, utilisez la variable choisie dans la classe à la place de votre passwd sous le format: `<%= @db_user %>`
+- Enfin dans le fichier hieradata qui sera du coup en .eyaml au lieu de .yaml, définissez la variable. Pour notre exemple: `matrix::bridge::db_user: irc_bridge_db_user` (ie: puppet va comprendre => dans le module matrix, la classe bridge: replacez db_user par la valeur irc_bridge_db_user) 
+- Si cette valeur est un passwd et doit être chiffrée, remplacez la valeur en claire par la chaine de char obtenue à la première étape.  
+
 ## FAQ
 
 ### Passer de l'agent du dépôt puppet vers l'agent de la distribution
