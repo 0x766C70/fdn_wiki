@@ -4,7 +4,7 @@
 
 Nous utilisons une configuration à base d'envionnement dynamique. C'est à dire que chaque branche du dépôt correspond à un environnement puppet et pourra être testée sur une machine spécifique. Lorsque l'on publie ou modifie une branche dans le dépôt principal l'environnement est automatiquement mis à jour. C'est à dire que lorsque l'on publie des modifications dans la branche production du dépôt principal, **toutes les machines seront mise à jour**.
 
-Documentation [officielle](memo/generate_hash.md)
+Documentation [officielle](https://puppet.com/docs/)
 
 ## Procédures
 
