@@ -13,6 +13,48 @@
 
 ## Administration
 
+### Premiers pas
+
+Installer **synadm** sur sa machine, suivre les instructions sur le Github officiel du logiciel :
+
+[https://github.com/JOJ0/synadm#installation](https://github.com/JOJ0/synadm#installation)
+
+À noter qu'il est aussi disponible dans le AUR si vous utilisez une distribution basée sur Arch :
+
+[https://aur.archlinux.org/packages/synadm-git](https://aur.archlinux.org/packages/synadm-git)
+
+Récupérer son token, par exemple dans Element :
+
+- Cliquer sur son avatar
+- Tous les paramètres
+- Aide et À propos
+- Dérouler tout en bas puis sur Jeton d’accès
+- À copier/conserver pour la suite
+
+Première connexion avec votre login habituel et configuration de synadm :
+
+    synadm matrix login @admin_username:matrix.fdn.fr
+
+Plusieurs questions vont être posées, répondre comme suit :
+
+    Synapse admin user name []: votre login habituel
+    Synapse admin user token []: votre token récupéré précédemment (Ctrl+Shift+v pour coller dans un terminal)
+    Synapse base URL [http://localhost:8008]: https://matrix.fdn.fr
+
+Répondre par défaut aux autres questions, faire un choix pour :
+
+    Default output format (yaml, json, human, pprint): (yaml est OK)
+
+À la fin taper votre mot de passe Matrix.  
+Détails des commandes disponibles :  
+[https://synadm.readthedocs.io/en/latest/index_cli_reference.html](https://synadm.readthedocs.io/en/latest/index_cli_reference.html)
+
+### Création d'un nouveau compte Matrix
+
+Crée le compte toto et demande le mot de passe associé
+
+    synadm user modify toto -p
+
 ### Modifier la config du bridge
 
     vim /etc/matrix-appservice-irc/config.yaml
