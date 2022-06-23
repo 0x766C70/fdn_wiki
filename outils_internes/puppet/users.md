@@ -4,16 +4,21 @@ Puppet nous permet de gérer les utilisateurs sur le parc FDN.
 
 Pour l'instant, seuls les comptes administrateurs (droit root) sont gérées.
 
-## Dépôt
+## Config
 
-Récupération du dépôt : `git clone palpatine.fdn.fr:/srv/puppet/users.git`
+### Depreciated
+*** Récupération du dépôt : `git clone palpatine.fdn.fr:/srv/puppet/users.git` ***
 
-## Structure du dépôt
+### Nouvelle gestion
+
+La gestion des users se fait dans le depot puppet principal à partir du répertoire: `/modules/users`
+
+## Structure des fichiers
 
 ```
- puppet-module-users/
+ modules/users/
 - data/              		Les utilisateurs
-  - users.yaml       		Les users fdn
+  - users.eyaml       		Les users fdn
   - roles.yaml			La définition des roles et serveurs associés
   - authorisations.yaml		Les autorisations : associations users/roles
   - ssh_keys			Les clés SSH des utilisateurs
@@ -29,6 +34,8 @@ Récupération du dépôt : `git clone palpatine.fdn.fr:/srv/puppet/users.git`
 
 Il suffit de l'ajouter dans le fichier `data/users.yaml`.
 
+Depuis peu, les info (gecis & hash) sont chiffré afin de rendre le module puppet public. Il faudra donc se référer à la [doc](https://git.fdn.fr/adminsys/wiki/-/blob/master/outils_internes/puppet/fdn.md#les-mots-de-passes-et-les-variables) 
+
 Exemple de déclaration d'un administrateur (c'est au format [YAML](http://fr.wikipedia.org/wiki/YAML) :
 
 * Penser à bien modifier tous les champs après le copié/collé !
@@ -36,8 +43,8 @@ Exemple de déclaration d'un administrateur (c'est au format [YAML](http://fr.wi
 * la clef est un hash du password (cf. [memo](memo/generate_hash.md))
 ```
     tom:
-    gecos: Thomas Parmelan
-    password: '$1$LbcnM6yX$uBTGQyJEG5SuMWR4LSXZ./'
+    gecos: Thomas Parmelan [donnée à chiffrer]
+    password: '$1$LbcnM6yX$uBTGQyJEG5SuMWR4LSXZ./' [donnée à chiffrer]
     uid: '2012'
 ```
 Pour ajouter ensuite la clefs ssh:
