@@ -2,7 +2,7 @@
 
 ## Généralités
 
-Historiquement, les serveurs de FDN faisant authorité étaient *[ns0.fdn.org - 80.67.169.12](./infra/machines/leia.md)* et *[ns1.fdn.org - 80.67.169.40](./infra/machines/vador.md)*.
+Historiquement, les serveurs de FDN faisant authorité étaient *[ns0.fdn.org - 80.67.169.12](./infra/machines/resolver0.md)* et *[ns1.fdn.org - 80.67.169.40](./infra/machines/resolver1.md)*.
 
 Depuis la mise en place des droïdes, les serveurs faisant autorité pour FDN sont *[nsa.fdn.fr](./infra/machines/nsa.md)* et *[gchq.fdn.fr](./infra/machines/gchq.md)*. Ces serveurs sont hébergés sur le cluster ganeti dans des VM éponymes.
 
@@ -18,11 +18,11 @@ La mise en place d'un domaine pour un adhérent passe, tout d'abord, par la cré
   * Se connecter en SSH sur *git.fdn.fr*
   * Obtenir le chemin vers le dépôt :
 
-        tom@coruscant:~$ echo $(echo "Project.find_by_full_path('dns/mdugenou').disk_path" | sudo gitlab-rails console | grep @hashed | tr -d \").git | xclip -i
+        tom@coruscant:~$ echo $(echo "Project.find_by_full_path('dns/mdugenou').disk_path" | sudo gitlab-rails console | grep @hashed | tr -d \").git
 
   * Utiliser `sudo -u git -i` pour se loger avec l'utilisateur `git`, et aller créer un lien symbolique des hooks nécessaires dans le dossier du dépôt :
 
-        git@coruscant:~$ HASHED_DIR=$(xclip -o)
+        git@coruscant:~$ HASHED_DIR=<@hashed_récupéré_précédement>
         git@coruscant:~$ cd git-data/repositories/${HASHED_DIR}
         git@coruscant:~/git-data/repositories/@hashed/........$ mkdir custom_hooks
         git@coruscant:~/git-data/repositories/@hashed/........$ cd custom_hooks
@@ -35,7 +35,7 @@ La mise en place d'un domaine pour un adhérent passe, tout d'abord, par la cré
 
   * Si l'adhérent souhaite pouvoir modifier lui même ses zones, lui créer un compte sur git.fdn.fr (dans l'interface d'administration de gitlab), lui donner accès à son dépot avec les permissions "Maintainer" ("Developer" ne permet pas de faire un push vers la branche master, il faut alors passer par des "merge requests", ce n'est pas du tout le but ici...), et lui indiquer que [dns/utils](./../../../../../dns/utils/) contient un Makefile et un pre-commit hook dans le dossier client permettant de valider les zones lors d'un commit.
 
-  * Créer un fichier de zone, nommé `db.le-nom-de-la-zone` (il **faut** que ce soit le vrai nom de la zone, sinon ça ne fonctionnera pas). Y mettre le contenu suivant :
+  * Créer un fichier de zone (sur l'interface Gitlab directement ou en SSH mais il faut pouvoir push, ce qu ne permettra pas l'utilisateur bot-dns), nommé `db.le-nom-de-la-zone` (il **faut** que ce soit le vrai nom de la zone, sinon ça ne fonctionnera pas). Y mettre le contenu suivant :
 
     ```
     $TTL 86400
@@ -244,16 +244,19 @@ On retrouve le préfixe alloué à l'adhérent, `dig` a tout seul bien découpé
 
 La mise en place d'un domaine pour un adhérent passe par le création d'une zone spécifique :
 
-  * Créer, sur *[[adminsys:serveurs:leia]]*, un fichier `/etc/bind/ladherent.conf` (en général pnom.conf)
+  * Créer, sur [leia](./infra/machines/leia.md), un fichier `/etc/bind/ladherent.conf` (en général pnom.conf)
   * Y insérer les directives pour son domaine, modèle :
 
+```
     zone "marcel-dugenou.net" {
         type master;
         file "/etc/bind/db.marcel-dugenou.net";
     };
+```
 
   * Créer le fichier de la zone, modèle :
 
+```
     $TTL 86400
     @       IN      SOA     ns0.fdn.org.    hostmaster.fdn.fr. (
                 2009121701      ; Serial number
@@ -267,17 +270,20 @@ La mise en place d'un domaine pour un adhérent passe par le création d'une zon
                 IN      MX 20   guinness.fdn.fr.
     @           IN      A       80.67.169.18    ; www.fdn.fr
     www         IN      A       80.67.169.18
+```
 
   * Insérer une ligne faisant référence à `ladherent.conf` dans `/etc/bind/named.conf`
   * Recharger la configuration : `rndc reconfig`
 
-  * Sur *[[adminsys:serveurs:vador]]*, un fichier `/etc/bind/ladherent.conf` pour la zone esclave, modèle :
+  * Sur [vador](./infra/machines/vador.md), un fichier `/etc/bind/ladherent.conf` pour la zone esclave, modèle :
 
+```
     zone "marcel-dugenou.net" {
         type slave;
         masters { 80.67.169.12; };
         file "/var/cache/bind/db/db.marcel-dugenou.net";
     };
+```
 
   * Insérer une ligne faisant référence à `ladherent.conf` dans `/etc/bind/named.conf`
   * Recharger la configuration : `rndc reconfig`
