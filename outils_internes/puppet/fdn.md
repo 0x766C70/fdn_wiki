@@ -42,7 +42,7 @@ Une branche ma_super_feature a été créé non seulement sur gitlab mais égale
     - `./bin/test machine`
 - depuis la machine concernée :
     - se connecter à la machine en SSH
-    - lancer `sudo puppet agent -t --environement ma_super_feature --noop`
+    - lancer `sudo puppet agent -t --environment ma_super_feature --noop`
 
 Aucune modification ne sera réellement effectuée. À la place puppet montrera ce qui ferait, s'il était lancé pour de vrai.
 
@@ -55,7 +55,7 @@ Aucune modification ne sera réellement effectuée. À la place puppet montrera 
     - `./bin/apply machine`
 - depuis la machine concernée :
     - se connecter à la machine en SSH
-    - lancer `sudo puppet agent -t --environement ma_super_feature`
+    - lancer `sudo puppet agent -t --environment ma_super_feature`
 
 :warning: la branche doit avoir été poussée au préalable !
 
