@@ -32,7 +32,7 @@ La gestion des users se fait dans le depot puppet principal à partir du répert
 
 ## Déclarer un utilisateur
 
-Il suffit de l'ajouter dans le fichier `data/users.yaml`.
+Il suffit de l'ajouter dans le fichier `data/users.eyaml`.
 
 Depuis peu, les info (gecis & hash) sont chiffré afin de rendre le module puppet public. Il faudra donc se référer à la [doc](https://git.fdn.fr/adminsys/wiki/-/blob/master/outils_internes/puppet/fdn.md#les-mots-de-passes-et-les-variables) 
 

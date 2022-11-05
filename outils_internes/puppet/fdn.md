@@ -90,14 +90,15 @@ Bien penser à ajouter le nom de la **machine.fdn.fr** dans `/etc/hosts` sinon m
 Update apt, installer les paquets `puppet` et `lsb-release` :
 ```
 apt-get update
-apt-get install -y puppet-agent lsb-release
+apt-get install -y puppet
 ```
 
-Ajouter ça au fichier /etc/puppetlabs/puppet/puppet.conf :
+Ajouter ça au fichier /etc/puppet/puppet.conf :
 ```
-cat >/etc/puppetlabs/puppet/puppet.conf <<EOF
+cat >/etc/puppet/puppet.conf <<EOF
 [main]
 server = palpatine.fdn.fr
+certificate_revocation = leaf
 EOF
 ```
 
@@ -108,21 +109,28 @@ puppet agent --test --waitforcert=5
 
 C'est tout pour le client, il faut maintenant aller accepter sur le server le certificat généré sur le client.
 
-> Note : normalement, sur les nouvelle vms installées dans PVE toutes ces étapes ont déjà été faites pour nous :)
-
 Une fois la première pass de puppet terminée, se déloguer, passer un coup d'etckeeper et relancer puppet agent pour terminer l'install : 
 ```
-sudo etckeeper commit
+etckeeper commit
 puppet agent --test --waitforcert=5
 ```
 
 #### Sur palpatine
 
-(Pour la suite, puppet doit être en train de tourner sur le client) :
+(À faire après que le client ait généré et proposé son certificat avec une première execution de l'agent):
 - vérifier qu'on a bien une demande de certificat : `puppetserver ca list`
 - la signer : `puppetserver ca sign --certname le-client.fdn.fr`
 
 Le nom du certificat devrait être le FQDN du client, sinon il y a un souci.
+
+Tant que les clients sont en puppet 5 (bullseye et antérieur), il faut ensuite réparer le certificat CA : le serveur puppet 7 a un CA avec certificat intermédiaire, et les clients ne récupèrent que l'un des deux, et refuse de marcher. À priori ça ne sera plus nécessaire à partir de puppet 7, inclus dans bookworm.  
+En attendant, on copie le CA à la main pour palier à ce problème :
+```
+scp /etc/puppetlabs/puppet/ssl/certs/ca.pem le-client:/var/lib/puppet/ssl/certs/ca.pem
+```
+
+
+(Note: en profiter pour ajouter la nouvelle machine à /etc/clustershell/groups.d/fdn.yaml sur palpatine!)
 
 ## Les services
 
@@ -153,6 +161,10 @@ Pour chiffrer une info: se mettre à la racine du repo `#eyaml encrypt -p` et ta
 - Dans le template maintenu par le module, utilisez la variable choisie dans la classe à la place de votre passwd sous le format: `<%= @db_user %>`
 - Enfin dans le fichier hieradata qui sera du coup en .eyaml au lieu de .yaml, définissez la variable. Pour notre exemple: `matrix::bridge::db_user: irc_bridge_db_user` (ie: puppet va comprendre => dans le module matrix, la classe bridge: replacez db_user par la valeur irc_bridge_db_user) 
 - Si cette valeur est un passwd et doit être chiffrée, remplacez la valeur en claire par la chaine de char obtenue à la première étape.  
+
+### Les utilisateurs
+
+Voir la page [users](users.md) pour le détail
 
 ## FAQ
 
