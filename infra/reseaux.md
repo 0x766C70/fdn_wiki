@@ -75,26 +75,54 @@ la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)
 
 #### Subnets adhérents:
 
-Subnets à la date du 2020-03-22:
+Subnets à la date du 2022-11-05:
 
 ```
 mysql> select UATTR_VALUE, UATTR_ID, UATTR.RADUSER_ID, RADUSER_LOGIN, LIGNE_ID, VPN_ID from UATTR left join RADUSER on UATTR.RADUSER_ID = RADUSER.RADUSER_ID where UATTR_ATTR = 'Framed-Route' order by UATTR_VALUE;
-+------------------+----------+------------+--------------------------------------------------------------+----------+--------+
-| UATTR_VALUE      | UATTR_ID | RADUSER_ID | RADUSER_LOGIN                                                | LIGNE_ID | VPN_ID |
-+------------------+----------+------------+--------------------------------------------------------------+----------+--------+
-| 80.67.160.104/30 |     4563 |       1688 | jean.charles.delepine@fdn.dslnet.fr                          |      917 |     -1 |
-| 80.67.160.112/29 |      548 |        167 | absolight@fdn.nerim                                          |      234 |     -1 |
-| 80.67.160.120/29 |      298 |         84 | philippe.le.brouster@fdn.fr                                  |      117 |     -1 |
-| 80.67.160.128/28 |     1156 |        278 | delphine.rignon@fdn.nerim                                    |      372 |     -1 |
-| 80.67.160.96/29  |      233 |         26 | vanhullebus.yvan@fdn.fr                                      |       42 |     -1 |
-| 80.67.168.112/29 |     5133 |       1917 | bournez.carine@fdn.dslnet.fr                                 |       14 |     -1 |
-| 80.67.168.128/29 |     5089 |       1716 | centre.dinititation.aux.energies.renouvelables@fdn.dslnet.fr |      612 |     -1 |
-| 80.67.168.136/29 |     5090 |       1871 | 0299090543@fdn.dslnet.fr                                     |      778 |     -1 |
-| 80.67.168.160/29 |     2121 |        527 | benjamin.duchenne@vpn.fdn.fr                                 |       -1 |     98 |
-| 80.67.168.168/29 |     4748 |        430 | arnaud.gomes-do-vale@vpn.fdn.fr                              |       -1 |     42 |
-+------------------+----------+------------+--------------------------------------------------------------+----------+--------+
-10 rows in set (0.00 sec)
++------------------+----------+------------+----------------------------------------+----------+--------+
+| UATTR_VALUE      | UATTR_ID | RADUSER_ID | RADUSER_LOGIN                          | LIGNE_ID | VPN_ID |
++------------------+----------+------------+----------------------------------------+----------+--------+
+| 80.67.160.104/29 |     4563 |       1688 | jean.charles.delepine@fdn.dslnet.fr    |      917 |     -1 |
+| 80.67.160.120/29 |      298 |         84 | philippe.le.brouster@fdn.fr            |       -1 |     28 |
+| 80.67.160.128/28 |     1156 |        278 | delphine.rignon@fdn.nerim              |      372 |     -1 |
+| 80.67.160.144/30 |     8503 |       2895 | feraud.dimitri@fdn.ilf.kosc            |     1287 |     -1 |
+| 80.67.160.160/27 |     8289 |       2244 | cier@vpn.fdn.fr                        |       -1 |    430 |
+| 80.67.160.96/29  |     7536 |       2672 | yvan.vanhullebus@vpn.fdn.fr            |       -1 |    545 |
+| 80.67.168.112/29 |     7968 |       2779 | carine.bournez@fdn.ilf.kosc            |     1208 |     -1 |
+| 80.67.168.136/29 |     5090 |       1871 | 0299090543@fdn.dslnet.fr               |      778 |     -1 |
+| 80.67.168.160/29 |     2121 |        527 | benjamin.duchenne@vpn.fdn.fr           |       -1 |     98 |
+| 80.67.168.168/29 |     4748 |        430 | arnaud.gomes-do-vale@vpn.fdn.fr        |       -1 |     42 |
+| 80.67.179.96/32  |     7897 |       2773 | association.libre.en.comm@fdn.ilf.kosc |     1206 |     -1 |
++------------------+----------+------------+----------------------------------------+----------+--------+
+11 rows in set (0.01 sec)
 ```
+
+Pour ajouter une telle route, il faut:
+ - Côté RADIUS FDN, ajouter un attribut Framed-Route avec dedans le subnet à router.  
+Aller dans le SI, trouver le membre (par son numéro de tel ou d'adhérent) puis sa ligne,
+(view-ligne.cgi?lid=<id>&do=yes) puis son compte radius (view-raduser.cgi?uid=<id>&do=yes)  
+De là on va pouvoir lui ajouter un bloc d'IP pour son compte:
+
+En face de "Attributs de l'utilisateur" cliquer sur "Ajouter" et remplir le formulaire comme suit :
+(page new-uattr.cgi?uid=<id>&from=raduser<id>)
+
+```
+Création/modification d'un attribut radius utilisateur
+
+Nom de l'attribut    Framed-Route
+Opérateur         =
+Valeur de l'attribut    80.67.160.96/29
+Type                    reply
+User id                (prérempli)
+```
+
+ATTENTION: Pour ajouter plusieurs attributs 'Framed-Route', les suivants (dans l'odre de `UATTR_ID`) doivent utiliser l'opérateur `+=`, et non pas `=`, faute de quoi le radius ne renvoit que la première route.
+
+
+- Côté routage, il n'y à à priori rien à faire chez FDN (vérifier que le nouveau subnet appartient bien à un subnet qu'on accepte déjà de router dans nos confs bird).  
+Chez Gitoyen, il faut qu'ils rajoutent le subnet aux prefixs autorisés à sortir de FDN si ce n'est pas déjà le cas.
+
+- Enfin, côté abonné, il n'y a plus qu'à utiliser les IP de ce subnet (simplement attribuer les IPs en static au routeur par exemple et gérer leurs forwarding directement, ou bien les faire router dans un sous-réseau interne)
 
 #### Historique:
 
