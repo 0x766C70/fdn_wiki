@@ -19,20 +19,82 @@ Grenode](https://www.grenode.net/Documentation_technique/SSL/).
 ## Mise en place Let's Encrypt sur une nouvelle machine
 
 L'installation d'une machine est prise en charge par puppet. Pour configurer
-une machine il faut lui appliquer la classe 'acme'. Exemple pour obiwan :
+une machine il faut lui appliquer la classe 'acme'. Exemple pour jira :
 
-    node "obiwan.fdn.fr" {
-      include base
-      include ntp
-      include acme
-      include users::admins
-      include apt_dater::host
-    }
+    hieradata/hosts/jira.fdn.fr.yaml
+      classes:
+        - acme
+
+Les variables suivantes sont de plus disponibles:
+ - `acme::mode: 'acmesh'` (ou `acmetiny` pour l'ancien mode)
+ - `acme::standalone: false` (pour mode webroot, mettre à true
+pour activer la redirection de port)
+ - `acme::services: ['apache2', 'nginx', 'lighttpd']` (pour les
+règles sudoer de l'user acme)
 
 La classe acme crée l'utilisateur et le groupe acme, installe les scripts
-nécessaires, install un cron.
+nécessaires, install une cron.
 
-## Installation d'un nouveau certificat
+## Installation d'un nouveau certificat avec acme.sh
+
+ 0. configuration
+
+   acme.sh tourne sous l'user 'acme'; utiliser sudo -u acme ou similaire comme dans les exemples.
+
+   Il faut s'enregistrer un compte pour utiliser acme avec zeroSSL, mais on préfère LE,
+   donc pas besoin de `acme.sh --register-acount` et on passe directement au certif
+
+ 1. Création de clé & demande de certif:
+
+   En mode webroot (à noter que la conf du serveur web n'est PAS automatique:
+   il faut créer un lien dans le vrai webroot vers /var/lib/acme/challenges/.well-known/acme
+   comme avant!)
+
+   ```
+   sudo -u acme acme.sh --issue \
+        --webroot /var/lib/acme/challenges \
+        --server https://acme-v02.api.letsencrypt.org/directory \
+        --renew-hook "sudo systemctl restart foo" \
+        --domain mamachine.fdn.fr \
+        [--domain alias...]
+   ```
+
+   pour le mode standalone (bien avoir mis acme::standalone à true dans puppet!)
+
+   ```
+   sudo -u acme acme.sh --issue \
+        --standalone --httpport 44380 \
+        --server https://acme-v02.api.letsencrypt.org/directory \
+        --renew-hook "sudo systemctl restart foo" \
+        --domain mamachine.fdn.fr \
+        [--domain alias...]
+   ```
+
+   pour ecc: ajouter `--keylength ec-384`
+
+   On peut tester avec https://acme-staging-v02.api.letsencrypt.org/directory en premier
+   dans le doute ; c'est particulièrement utile pour le mode webroot quand on n'est pas
+   certain de la conf parce que LE est radin en retry...
+
+ 2. Faire utiliser les nouveaux certifs/clés au service que l'on veut configurer.
+
+   La clé `/etc/acme/<domain>[_ecc]/<domain>.key` est en 600 donc il faut la passer en
+   640 + changer de groupe, ou bien simplement la copier pour le service elle ne devrait
+   pas être regénérée.
+
+   Le certif est lisible par tout le monde: faire un lien du service vers
+   `/etc/acme/<domain>[_ecc]/fullchain.cer` et laisser ça où c'est pour que le script
+   puisse rafraîchir le fichier.
+
+   https://ssl-config.mozilla.org a de bons exemples de configurations avec paramètres TLS
+   pour la partie config.
+
+ 3. Tester que le service marche bien.
+
+   Verifier que `sudo -u acme acme.sh --cron` retrouve bien ses petits ;
+   s'il y a un service à redémarrer rajouter `--force` pour tester le redémarrage du service.
+
+## Installation d'un nouveau certificat avec les anciens scripts acme_create (acmetiny)
 
  0. configuration
 
@@ -66,7 +128,7 @@ nécessaires, install un cron.
     ```
 
  1. Création des clés et demande de certification
-    
+
     On lance le script [[acme_create]] en tant que root en lui passant le fichier de conf concerné :
 
         sudo /usr/local/bin/acme_create --config /etc/acme/www.fdn.fr.conf
@@ -81,7 +143,7 @@ nécessaires, install un cron.
     les virtualhosts utilisent le même répertoire pour stocker les challenges,
     `/var/lib/acme/challenges/`.
 
-    Pour éviter de se répéter sur tous les vhosts, on crée un répertoire de conf partagée : 
+    Pour éviter de se répéter sur tous les vhosts, on crée un répertoire de conf partagée :
 
         mkdir /etc/apache2/include/
 
@@ -95,7 +157,7 @@ nécessaires, install un cron.
         </VirtualHost>
 
     Avec la config `acme-challenge` définie par : (**configuration pour apache 2.4**)
-     
+
         tee /etc/apache2/include/acme-challenge.conf  <<EOF
         Alias /.well-known/acme-challenge /var/lib/acme/challenges/.well-known/acme-challenge
         <Directory /var/lib/acme/challenges>
@@ -104,7 +166,7 @@ nécessaires, install un cron.
         EOF
 
     Ou la configuration pour apache 2.2 :
-     
+
         tee /etc/apache2/include/acme-challenge.conf  <<EOF
         Alias /.well-known/acme-challenge /var/lib/acme/challenges/.well-known/acme-challenge
         EOF
