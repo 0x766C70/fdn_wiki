@@ -7,6 +7,7 @@
 | blt               | Benoit Neviani                  | benoit@neviani.fr              | noyau                                         | supervision, vpn                       |
 | tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | noyau                                         | mail_solo, sympa, uucp, dns            |
 | vlp		    | Thomas Criscione	  	      | thomas@criscione.fr            | noyau                                         | mail, ldap, gitlab, matrix, botbot     |       
+| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad, neo, invidious, nitter, bibliogram          | pad                                    |
 
 
 ## Adminsys
@@ -34,4 +35,4 @@
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | solo, yoda, ackbar, bane                      | -                                      |
 | Cefin             | -                               | cefin@protonmail.com           | mutu                                          | mutu                                   |
 | hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | neo                                           | mail, matrix                           |
-| pandaroux         | -                               | -                              | isengard, cecinestpasleia, boba, pad, neo, invidious, nitter, bibliogram          | pad                                    |
+
