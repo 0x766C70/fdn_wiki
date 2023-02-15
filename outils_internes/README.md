@@ -7,7 +7,7 @@
 - [ntp](./ntp.md)
 - [Outils](./outils.md)
 - [oxidized](./oxidized.md)
-- [proxmox [new]](./proxmox.md)
+- [proxmox [new]](./proxmox/index.md)
 - [puppet](./puppet/index.md)
 - [secrets partagés](./secrets_partages.md)
 - [si](./si.md)
