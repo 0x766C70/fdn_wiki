@@ -70,7 +70,7 @@ PVE permet de gérer un firewall directement au niveau du cluster. FDN n'a pas c
 
 ### Création d'une vm
 
-Voir la [procédure](./proxmox_prod/ajout_vm.md) détaillée.
+Voir la [procédure](ajout_vm.md) détaillée.
 
 ### Bascules des VMs
 
