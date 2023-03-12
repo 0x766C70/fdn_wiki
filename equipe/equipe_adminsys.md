@@ -18,7 +18,7 @@
 | khrys             | Khrys                           | khrys@fdn.fr                   | solo, chewie, capsule, talk, invidious        | website, mailing                       |
 | mlrx              | -                               | -                              | taslin, katar, mutu, jyn, neo, resolver       | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | solo                                          | mailing                                |
-| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, palpatine, solo, lns                     | vpn                                    |
+| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, palpatine, si, lns                       | vpn                                    |
 
 ## Adminguest
 
