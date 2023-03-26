@@ -1,20 +1,22 @@
 
-- [Allocation et routage de prefixe](./allocation-et-routage-de-prefixe.md)
-- [Connexion à internet les méthodes](./connexionainternet-lesmethodes.md)
-- [dns](./dns.md)
-- [email](./email.md)
-- [gluster](./gluster.md)
+Dans ce répertoire :
+- [dns (hébergement de zones)](./dns.md)
+- [dns (serveurs de résolution)](./resolveurs_dns.md)
+- [email (ancienne infra)](./solo_email.md)
 - [jabber](./jabber.md)
-- [listes de discussion diffusion](./listesdediscussion-diffusion.md)
-- [Matrix](./matrix-neo.md)
+- [listes de discussion/diffusion](./mailing_lists/serveursympa.md)
+- [Matrix](./matrix/)
 - [Mumble](./mumble.md)
-- [new_mail](./new_mail.md)
-- [resolveurs dns](./resolveurs_dns.md)
-- [Services](./services.md)
-- [tracker bittorrent](./tracker-bittorrent.md)
-- [tunnel chiffre](./tunnel-chiffre.md)
 - [usenet](./usenet.md)
+- [vpn](./vpn.md)
 - [web fdn](./web-fdn.md)
-- [web mutu](./web-mutu.md)
-- [wiki adhérents](./wiki-adh.md)
+- [web mutu](./web-mutu/)
 - [xdsl](./xdsl.md)
+
+Liens externes :
+- [email (nouvelle infra)](https://git.fdn.fr/adminsys/new_mail_server)
+- [wiki public](https://git.fdn.fr/fdn-public/wiki)
+- [wiki adhérents](https://git.fdn.fr/fdn/wiki)
+
+Ménage à faire :
+- [Services (page à supprimer ??)](./services.md)
