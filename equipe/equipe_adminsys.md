@@ -1,4 +1,4 @@
-## Admincore
+## Admincore (noyau)
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
@@ -9,10 +9,11 @@
 | vlp               | Thomas Criscione                | thomas@criscione.fr            | mail, ldap, gitlab, matrix, botbot     |
 
 
-## Adminsys
+## Adminsys (root sur au moins une machine)
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
+| cat               | Catherine Guillard              | -                              | web-open, webmail                      |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad                          |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | mlrx              | -                               | -                              | mail                                   |
@@ -20,7 +21,7 @@
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn                                    |
 
 
-## Adminguest
+## Adminguest (les autres - liste probablement pas à jour)
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
