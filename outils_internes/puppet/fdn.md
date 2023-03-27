@@ -170,11 +170,9 @@ Voir la page [users](users.md) pour le détail
 
 ### Passer de l'agent du dépôt puppet vers l'agent de la distribution
 
-Pour des raison de facilitation d'administration nous préférons utiliser le client de la distribution plutôt que celui du dépôt puppet. Procédure à suivre pour la migration :
-- supprimer l'agent du dépôt de puppet : `apt purge puppet-agent`
-- retirer le dépot puppet sur la machine
-- retirer `base::puppet::puppetlabs_agent: true` du hiera de la machine (cf. `hieradata`) sur puppet et pousser
-- installer l'agent de la distribution : `apt install puppet`
-- déplacer les certificats TLS : `mv /opt/puppetlabs/puppet/ssl /var/lib/puppet/ssl`
-- ménage des binaires : `rm -rf /opt/puppetlabs`
-- vérifier que tout roule : `puppet agent -t [--noop]`
+Selon la phase de la lune on peut vouloir préférer le client puppet (agent) de la distribution plutôt que celui du dépôt puppet, ou l'inverse.
+
+La migration est gérée dans le module base::puppet de notre dépot puppet et se passait bien la dernière fois que ça a été testé donc a encore des chances de fonctionner. La seule chose à faire est de changer la valeur de `base::puppet::puppetlabs_agent` dans hiera, soit directement dans la configuration de la machine `hieradata/hosts/<machine>.yaml` soit au niveau de la distro pour appliquer plus globalement dans `hieradata/distros/Debian/<release>.yaml`.
+
+Une fois la modification faite, passer `puppet agent -t` pour appliquer, puis `hash -r` pour que bash puisse retrouver le nouveau binaire puppet qui n'est pas au même endroit et à nouveau `puppet agent -t` pour vérifier.  
+Le service devrait se relancer tout seul si la modification a été faite en background.
