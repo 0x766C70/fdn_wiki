@@ -30,7 +30,7 @@
         - faire le ménage dans *puppetdb* : `puppet node deactivate my_server.fdn.fr`
 
 [^1] sur skytop :
-1. supprimer `/etc/nagios/objects/hosts/<my_server>.conf` ;
+1. supprimer `/etc/nagios4/objects/hosts/<my_server>.conf` ;
 1. tester la configuration nagios : `sudo nagios4 -v /etc/nagios4/nagios.cfg` ;
 1. si OK, recharger nagios : `sudo systemctl reload nagios4`.
 
