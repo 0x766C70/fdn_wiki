@@ -63,4 +63,18 @@ Il y a une méthode pour utiliser de l'unicast, l'ordre des commandes est import
 *  `systemctl restart corosync` sur chaque node (`killall -9 corosync` si ça ne marche pas)
 *  enfin `/etc/init.d/pve-cluster restart` sur chaque node et Voilà
  
- 
+ ## Spécificités etckeeper
+
+ Cf. https://git.fdn.fr/adminsys/suivi/-/issues/139
+
+ pvecluster créé des fichiers au lancement du service dans /etc/pve et ils sont modifiés sans cesse ce qui fait crier etckeeper.
+Il faut exclure les repertoires utilisés par Proxmox d'etckeeper :
+```
+cd /etc
+vi .gitignore
+# add pve/* after '# end section managed by etckeeper de .gitignore'
+systemctl stop pve-cluster
+git rm --cached pve/*
+git commit -m "Remove pve/* files from git"
+systemctl start pve-cluster
+```
