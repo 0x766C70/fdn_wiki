@@ -124,9 +124,10 @@ puppet agent --test --waitforcert=5
 Le nom du certificat devrait être le FQDN du client, sinon il y a un souci.
 
 Tant que les clients sont en puppet 5 (bullseye et antérieur), il faut ensuite réparer le certificat CA : le serveur puppet 7 a un CA avec certificat intermédiaire, et les clients ne récupèrent que l'un des deux, et refuse de marcher. À priori ça ne sera plus nécessaire à partir de puppet 7, inclus dans bookworm.  
-En attendant, on copie le CA à la main pour palier à ce problème :
+En attendant, on copie le CA et la CRL à la main pour palier à ce problème :
 ```
-scp /etc/puppetlabs/puppet/ssl/certs/ca.pem le-client:/var/lib/puppet/ssl/certs/ca.pem
+scp /etc/puppetlabs/puppet/ssl/certs/ca.pem le-client:/var/lib/puppet/ssl/certs/
+scp /etc/puppetlabs/puppet/ssl/crl.pem le-client:/var/lib/puppet/ssl/
 ```
 
 
