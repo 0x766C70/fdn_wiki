@@ -68,7 +68,7 @@ la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)
 | --------------- | ------------------------------- |
 | 80.67.160.0/24  | subnets d'adhérents             |
 | 80.67.161.0/24  | /29 d'intercos                  |
-| 80.67.165.64/26 | vpn rsf                         |
+| 80.67.165.64/26 | vpn openbar                     |
 | 80.67.169.0/24  | infra                           |
 | 80.67.171.0/26  | vpn openbar                     |
 | 80.67.176.0/22  | /32 alloués par le SI (dsl/vpn) |
