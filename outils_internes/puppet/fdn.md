@@ -146,25 +146,30 @@ scp /etc/puppetlabs/puppet/ssl/certs/ca.pem le-client:/var/lib/puppet/ssl/certs/
 
 ## Les modules
 
-Les modules fdn sont stockés dans le répertoire `modules`, dont par exemple **base** qui est le module de base (comme son nom l'indique) qui devrait être inclus sur tous les noeuds.
+Les modules fdn sont stockés dans le répertoire `modules`, dont par exemple **base** qui est le module de base (comme son nom l'indique) qui devrait être inclus sur tous les nœuds.
 
 Idéalement chaque module a un **Readme** qui explique à quoi il peut bien servir, mais la vérité est dans le code :innocent: .
 
 ### Les mots de passes et les variables
 
-Nous avons mis en place le module [eyaml](https://github.com/voxpupuli/hiera-eyaml) pour gérer les passwords et éviter de les afficher en clair dans les conf puppet..
+Nous avons mis en place le module [eyaml](https://github.com/voxpupuli/hiera-eyaml) pour gérer les passwords et éviter de les afficher en clair dans les conf puppet.
 
-Pour chiffrer une info: se mettre à la racine du repo `#eyaml encrypt -p` et tapez le password voulue eyaml va s'appuyer sur la clef publique contenue dans /keys pour chiffrer l'information.. Vous obtiendrez en retour une chaine du type ENC[PKCS7,SUPERLONGTRUC]
+Pour chiffrer une info :
 
-#### Exemple de chiffrement d'info dans templates de module:
-- Dans la classe du module utilisé, définir les variables qui contiendront les pass: `$db_user`, par exemple. Vous trouverez un cas concret sur le module matrix et sa [class bridge](https://git.fdn.fr/adminsys/puppet/-/blob/production/modules/matrix/manifests/bridge.pp)
-- Dans le template maintenu par le module, utilisez la variable choisie dans la classe à la place de votre passwd sous le format: `<%= @db_user %>`
-- Enfin dans le fichier hieradata qui sera du coup en .eyaml au lieu de .yaml, définissez la variable. Pour notre exemple: `matrix::bridge::db_user: irc_bridge_db_user` (ie: puppet va comprendre => dans le module matrix, la classe bridge: replacez db_user par la valeur irc_bridge_db_user) 
-- Si cette valeur est un passwd et doit être chiffrée, remplacez la valeur en claire par la chaine de char obtenue à la première étape.  
+- déplacez-vous sur votre copie locale du dépôt puppet (vous devez avoir eyaml installé) ou si sur Palpatine dans `/root/fdn`
+-  exécuter `eyaml encrypt -p`
+- tapez l'information à chiffrer (tel qu'un mot de passe ou un gecos).
+Eyaml va s'appuyer sur la clef publique contenue dans `./keys` pour chiffrer l'information. Vous obtiendrez en retour une chaine du type ENC[PKCS7,SUPERLONGTRUC]
+
+#### Exemple de chiffrement d'info dans templates de module :
+- Dans la classe du module utilisé, définir les variables qui contiendront les pass : `$db_user`, par exemple. Vous trouverez un cas concret sur le module matrix et sa [class bridge](https://git.fdn.fr/adminsys/puppet/-/blob/production/modules/matrix/manifests/bridge.pp)
+- Dans le template maintenu par le module, utilisez la variable choisie dans la classe à la place de votre passwd sous le format : `<%= @db_user %>`
+- Enfin dans le fichier hieradata qui sera du coup en .eyaml au lieu de .yaml, définissez la variable. Pour notre exemple : `matrix::bridge::db_user: irc_bridge_db_user` (ie : puppet va comprendre => dans le module matrix, la classe bridge : replacez db_user par la valeur irc_bridge_db_user) 
+- Si cette valeur est un password et doit être chiffrée, remplacez la valeur en clair par la chaine de charactères obtenue à la première étape.
 
 ### Les utilisateurs
 
-Voir la page [users](users.md) pour le détail
+Voir la page [users](users.md) pour le détail.
 
 ## FAQ
 
