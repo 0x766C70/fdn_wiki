@@ -15,25 +15,24 @@ Pour que n'importe quel adminsys puisse voir la configuration et proposer des mo
 ### Démarrer sur son ordinateur
 
 Configuration des dépôts :
-- pour tous les adminsys :
+- pour les admins "normaux":
     - `git clone git@git.fdn.fr:adminsys/puppet.git`
-- pour les membres du noyau (à faire en plus) :
-    - `git remote add palpatine <user>@palpatine.fdn.fr:/srv/puppet/fdn.git`
-    - `git fetch palpatine`
-    - `git branch --track palpatine-production palpatine/production`
+- pour les membres du noyau (à faire à la place):
+    - `git clone <user>@palpatine.fdn.fr:/srv/puppet/fdn.git`
 
-### Écrire une nouvelle fonctionalité
+### Écrire une nouvelle fonctionnalité
 
 Pour tous :
 ```
-git checkout master
-git pull
-git checkout -b ma_super_feature production
+git fetch
+git checkout -b ma_super_feature origin/production
 # je fais mes commits
-git push
+git push origin ma_super_feature
 ```
 
-Une branche ma_super_feature a été créé non seulement sur gitlab mais également sur palpatine via un hook configuré sur gitlab.
+Une branche `ma_super_feature` a été créé à la fois sur gitlab et sur palpatine via hook de réplication.
+
+(La première fois qu'on pusse des modifications vers une nouvelle branche, la création de l'environnement puppet prend un peu de temps. C'est plus rapide les fois d'après.)
 
 ### Tester une fonctionnalité
 
@@ -59,17 +58,22 @@ Aucune modification ne sera réellement effectuée. À la place puppet montrera 
 
 :warning: la branche doit avoir été poussée au préalable !
 
-Une fois que vous êtes satisfait avec vos modifications, vous pouvez demander à un [admincore](/equipe/equipe_adminsys.md#admincore) de la valider et de la fusionnner. À partir de là à charge de l'admincore de :
-- fusionner dans **gitlab/production**, soit via gitlab, soit via le ligne de commande (idéalement en supprimant la branche associée pour éviter qu'elle ne traîne)
-- fusionnner dans **paltapine/production** en CLI :
-    - `git checkout production`
-    - `git pull --prune`
-    - `git checkout palpatine-production`
-    - `git pull`
-    - `git merge production`
-    - `git push palpatine HEAD:production`
+Une fois que vous êtes satisfait avec vos modifications, vous pouvez demander à un [admincore](/equipe/equipe_adminsys.md#admincore) de la valider et de la fusionner (merge request vers **production_gitlab**).  
+À partir de là à charge de l'admincore d'intégrer la modif:
+- soit accepter la MR sur gitlab dans **production_gitlab**, après quoi il pourra simplement repousser dans production sur palpatine (en CLI):
+    - `git fetch`
+    - `git push origin production_gitlab:production`
+- soit directement sur palpatine en CLI:
+    - `git fetch`
+    - mode merge:
+        - `git checkout -B production origin/production`
+        - `git merge origin/ma_super_feature`
+    - mode rebase:
+        - `git checkout -B production origin/ma_super_feature`
+        - `git rebase origin/production`
+    - `git push origin production`
 
-:warning: la procédure précédente n'est valable que si **gitlab/production** et **palpatine/production** sont au même commit, sinon il faut au préalable les resynchroniser :sweat:
+Dans les deux cas la branche peut être ensuite supprimée, soit via gitlab soit en CLI: `git push origin :ma_super_feature`
 
 ### Ajouter une nouvelle machine
 
@@ -109,7 +113,7 @@ puppet agent --test --waitforcert=5
 
 C'est tout pour le client, il faut maintenant aller accepter sur le server le certificat généré sur le client.
 
-Une fois la première pass de puppet terminée, se déloguer, passer un coup d'etckeeper et relancer puppet agent pour terminer l'install : 
+Une fois la première passe de puppet terminée, se dé-loguer, passer un coup d'etckeeper et relancer puppet agent pour terminer l'instalation : 
 ```
 etckeeper commit
 puppet agent --test --waitforcert=5
@@ -117,7 +121,7 @@ puppet agent --test --waitforcert=5
 
 #### Sur palpatine
 
-(À faire après que le client ait généré et proposé son certificat avec une première execution de l'agent):
+(À faire après que le client ait généré et proposé son certificat avec une première exécution de l'agent):
 - vérifier qu'on a bien une demande de certificat : `puppetserver ca list`
 - la signer : `puppetserver ca sign --certname le-client.fdn.fr`
 
@@ -137,7 +141,7 @@ scp /etc/puppetlabs/puppet/ssl/crl.pem le-client:/var/lib/puppet/ssl/
 
 ### Sur les serveurs (puppet-agent)
 
-- `systemctl status puppet.service` : [puppet-agent](https://puppet.com/docs/puppet/7/services_agent_unix.html), l'agent puppet, dont le role est de se connecter au serveur régulièrement (toutes les 30 min) et de vérifier que le serveur est conforme à son catalogue, sinon de corriger
+- `systemctl status puppet.service` : [puppet-agent](https://puppet.com/docs/puppet/7/services_agent_unix.html), l'agent puppet, dont le rôle est de se connecter au serveur régulièrement (toutes les 30 min) et de vérifier que le serveur est conforme à son catalogue, sinon de corriger
 
 ### Sur Palpatine (puppet-server)
 
@@ -182,3 +186,21 @@ La migration est gérée dans le module base::puppet de notre dépot puppet et s
 
 Une fois la modification faite, passer `puppet agent -t` pour appliquer, puis `hash -r` pour que bash puisse retrouver le nouveau binaire puppet qui n'est pas au même endroit et à nouveau `puppet agent -t` pour vérifier.  
 Le service devrait se relancer tout seul si la modification a été faite en background.
+
+### Explication des hooks des repos puppet
+
+Il y a double-synchro entre gitlab et palpatine pour le dépot puppet:
+- Tout ce qui est poussé sur gitlab sera poussé sur palpatine, sauf la branche `production` qui de toutes façons ne peut pas être modifiée depuis gitlab (branche protégée, seul palpatine peut la mettre à jour)
+- Tout ce qui est poussé sur palpatine est poussé sur gitlab, avec en plus la branche `production_gitlab` qui est remise à jour si `production` a été mise à jour
+
+Pour que ça se passe bien il y a quelques vérifications de plus:
+- les branches ne peuvent pas contenir de `-` donc c'est refusé (limitation de puppet sur les environnements)
+- sur palpatine, on ne peut pas pousser dans `production` si elle n'est pas à jour vis à vis de `production_gitlab`
+
+Enfin, toute mise à jour sur palpatine déclenche aussi un redéploiement de la configuration puppet sur le serveur (r10k)
+
+Pour les curieux, ça se passe dans les fichiers pre-receive et post-receivie des dossiers suivants:
+- sur palpatine, `/srv/puppet/fdn.git/hooks`
+- sur gitlab, `/var/opt/gitlab/git-data/repositories/@hashed/65/66/6566230e3a3ce3774c1bbc7c18b590ae0f457bbcd511e90e3e7dca2a02e7addc.git/custom_hooks`
+
+La protection de la branche `production` sur gitlab est faite en plus via les options du repo ( https://git.fdn.fr/adminsys/puppet/-/settings/repository "Protected branches" ), qui permettent de n'autoriser à pousser que par la clé de déploiement de palpatine.
