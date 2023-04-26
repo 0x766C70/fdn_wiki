@@ -2,7 +2,7 @@
 
 # openssl
 
-`openssl passwd -6 -salt xyz  yourpass`
+`openssl passwd -6 -salt your_salt  your_pass`
 
 # doveadm
 
@@ -24,4 +24,4 @@
 
 # Perl
 
-`perl -le 'print crypt "desiredPassword", "\$6\$customSalt\$"'`
+`perl -le 'print crypt "your_pass", "\$6\$your_salt\$"'`
