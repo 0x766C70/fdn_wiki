@@ -13,16 +13,22 @@ Machine virtuelle pour le service [Nitter](https://github.com/zedeus/nitter) per
 
 ## Mise à jour
 
-1. créer un snapshot de la vm, ex. `commit_poiuyt`
-1. se connecter en SSH sur la vm
+1. créer un snapshot de la VM (ex : `maj_nitter`)
+1. se connecter en SSH sur la VM
+1. `sudo systemctl stop redis-server` # Pour avoir de la RAM libre pour pouvoir compiler
 1. `sudo su - nitter`
 1. `cd app`
+1. `git stash` # On met de côté nos modifs locales¹
 1. `git pull`
+1. `git stash pop` # On applique nos modifs mises de côté
 1. `nimble build -d:release`
 1. `nimble scss`
 1. `nimble md`
 1. `exit`
-1. `sudo systemctl restart nitter.service` 
+1. `sudo systemctl restart nitter.service`
+1. `sudo systemctl start redis-server`
+
+[¹] Le fichier _/srv/nitter/app/src/views/general.nim_ a été modifié afin de pouvoir afficher un message personalisé sur chaque page (pour les demandes légales).
 
 # Buildbook
 
@@ -31,9 +37,8 @@ Cf. doc [projet](https://github.com/zedeus/nitter/tree/a8d99cc6857f7f8e38023d9a5
 Notes:
 
 - installation de [nim](https://nim-lang.org) via `apt`
-- le *home* de l'utilisateur nitter est dans `/srv`
+- le *home* de l'utilisateur nitter est dans `/srv/nitter`
 - le dépôt est cloné dans `/srv/nitter/app`
-- la conf spécifique pour fdn est dans la branche **fdn-custom**
 - TLS via acme_tiny
 - derrière un proxy Apache (port **8080**) : `/etc/apache2/sites-enabled/nitter.fdn.fr.conf`
 ```
