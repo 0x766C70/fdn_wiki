@@ -1,11 +1,11 @@
 # Service aux adhérents
 
-FDN fourni des resolveurs dns ouverts dont les adresses sont : 80.67.169.12 et 80.67.169.40.
+FDN fourni des resolveurs DNS ouverts dont les adresses sont : 80.67.169.12/80.67.169.40 et 2001:910:800::12/2001:910:800::40. La validation DNSSEC est activée ainsi que la QNAME minimisation. Aucune requête n'est logguée et ce ne sont pas des résolveurs DNS menteurs.
 
-DoT et DoH sont aussi disponibles:
+DoT et DoH sont [aussi disponibles](https://www.fdn.fr/ouverture-des-services-dot-doh/) :
 
-- DoT: ns0.fdn.fr et ns1.fdn.fr
-- DoH: https://ns0.fdn.fr/dns-query et https://ns1.fdn.fr/dns-query
+- DoT : ns0.fdn.fr et ns1.fdn.fr port TCP/853
+- DoH : https://ns0.fdn.fr/dns-query et https://ns1.fdn.fr/dns-query
 
 Le domaine 'resolver.fdn.fr' existe aussi est il est prévu d'en faire un round-robin sur les deux serveurs, mais la génération du certificat n'est pas en place donc le domaine ne sert que ns0 actuellement.
 
@@ -34,7 +34,7 @@ dnsdist permet d'obtenir un certain nombres de statistiques, soit dans une inter
 
 ### Interface web
 
-L'interface web écoute sur localhost, il faut monter un tunnel ssh:
+L'interface web écoute sur localhost, il faut monter un tunnel SSH :
 
 ```
 ssh -L 8082:127.0.0.1:8082 ns0.fdn.fr
@@ -44,13 +44,13 @@ Puis se connecter à localhost:8082 sur sa machine, avec n'importe quel user et 
 
 ### Interface console
 
-On peut se connecter à la console avec la commande suivante (oui, il faut spécifier le chemin vers la conf...):
+On peut se connecter à la console avec la commande suivante (oui, il faut spécifier le chemin vers la conf...) :
 
 ```
 dnsdist -C /etc/dnsdist/dnsdist.conf -c
 ```
 
-De là on peut interroger pas mal de choses, on a accès à tout ce qui est visible de l'interpreteur lua de dnsdist. Par exemple:
+De là on peut interroger pas mal de choses, on a accès à tout ce qui est visible de l'interpreteur lua de dnsdist. Par exemple :
 
 ```
 > dumpStats()
