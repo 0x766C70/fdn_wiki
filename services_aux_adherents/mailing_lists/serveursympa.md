@@ -1,7 +1,6 @@
-
 # Préambule
 
-Quelques informations historiques sont disponibles [ici](./archives/archives_dokuwiki/listmaster.md) ou dans les [archives](https://adminsys.fdn.fr/archives_dokuwiki/listmaster/) de l'ancien wiki adminsys.
+Quelques informations historiques sont disponibles [ici](./archives/archives_dokuwiki/listmaster.md).
 
 # Adminsys
 
