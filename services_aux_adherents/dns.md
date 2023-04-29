@@ -4,11 +4,11 @@
 
 Historiquement, les serveurs de FDN faisant authorité étaient *[ns0.fdn.org - 80.67.169.12](./infra/machines/resolver0.md)* et *[ns1.fdn.org - 80.67.169.40](./infra/machines/resolver1.md)*.
 
-Depuis la mise en place des droïdes, les serveurs faisant autorité pour FDN sont *[nsa.fdn.fr](./infra/machines/nsa.md)* et *[gchq.fdn.fr](./infra/machines/gchq.md)*. Ces serveurs sont hébergés sur le cluster ganeti dans des VM éponymes.
+Depuis la mise en place des droïdes, les serveurs faisant autorité pour FDN sont *[nsa.fdn.fr](./infra/machines/nsa.md)* et *[gchq.fdn.fr](./infra/machines/gchq.md)*. Ces serveurs sont hébergés sur le cluster Proxmox dans des VM éponymes.
 
 Les zones DNS sont gérées dans [git](https://git.fdn.fr/), dans le groupe *dns*. Pour les modifier, cloner le dépôt concerné, modifier les zones, committer, et les pousser : le système va valider les zones, incrémenter le serial de celles modifiées, et recharger le serveur DNS.
 
-Les outils utilisés sont dans le dépôt [dns/utils](./../../../../../dns/utils/), le Makefile peut être utilisé en local pour valider les zones, le hook client/pre-commit peut être utilisé pour valider les zones au commit.
+Les outils utilisés sont dans le dépôt [dns/utils](./../../../../../dns/utils/) (l'accès est restreint aux membres du groupe dns), le Makefile peut être utilisé en local pour valider les zones, le hook client/pre-commit peut être utilisé pour valider les zones au commit.
 
 ## Hébergement de domaine
 
@@ -122,9 +122,9 @@ Un exemple pour configurer des MX pour le sous-domaine exemple.fdn.fr et un hôt
 
     ; adhérent, numéro et email
     exemple          IN      A       192.0.2.3
-                     IN      MX 10   exemple
-                     IN      MX 20   mail
-    www.exemple      IN      CNAME   exemple
+                     IN      MX 10   mx.fdn.fr.
+                     IN      MX 20   mail.example.org.
+    www.exemple      IN      CNAME   exemple.fdn.fr.
 
 En fait "www" n'est qu'un sous-sous-domaine de fdn.fr...
 
