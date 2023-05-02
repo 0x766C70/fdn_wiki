@@ -60,18 +60,19 @@ Aucune modification ne sera réellement effectuée. À la place puppet montrera 
 
 Une fois que vous êtes satisfait avec vos modifications, vous pouvez demander à un [admincore](/equipe/equipe_adminsys.md#admincore) de la valider et de la fusionner (merge request vers **production_gitlab**).  
 À partir de là à charge de l'admincore d'intégrer la modif:
-- soit accepter la MR sur gitlab dans **production_gitlab**, après quoi il pourra simplement repousser dans production sur palpatine (en CLI):
-    - `git fetch`
-    - `git push origin production_gitlab:production`
-- soit directement sur palpatine en CLI:
-    - `git fetch`
+- soit accepter la MR sur gitlab dans **production_gitlab**, après quoi il pourra simplement repousser dans production de palpatine (en CLI):
+    - `git checkout production && git pull --ff-only` (on se remet à jour)
+    - `git pull --ff-only origin production_gitlab` (pour intégrer les modifs de gitlab)
+    - `git push origin production` (pour repousser sur la branche production de palpatine)
+- soit directement de palpatine en CLI:
+    - `git checkout production && git pull --ff-only` (on se remet à jour)
     - mode merge:
-        - `git checkout -B production origin/production`
-        - `git merge origin/ma_super_feature`
-    - mode rebase:
-        - `git checkout -B production origin/ma_super_feature`
-        - `git rebase origin/production`
-    - `git push origin production`
+        - `git pull origin ma_super_feature` (va faire un commit de merge si besoin)
+    - mode rebase: (attention, git pull --rebase ne fait pas ce qu'on veut ici!)
+        - `git fetch` (pour mettre à jour les autres branches)
+        - `git checkout -B production origin/ma_super_feature` (pour nous placer sur la feature)
+        - `git rebase origin/production` (pour réappliquer les commits de la feature sur production)
+    - `git push origin production` (pour repousser sur la branche production de palpatine)
 
 Dans les deux cas la branche peut être ensuite supprimée, soit via gitlab soit en CLI: `git push origin :ma_super_feature`
 
