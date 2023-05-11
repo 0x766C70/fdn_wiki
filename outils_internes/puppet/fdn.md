@@ -102,6 +102,7 @@ Ajouter ça au fichier /etc/puppet/puppet.conf :
 ```
 cat >/etc/puppet/puppet.conf <<EOF
 [main]
+ssldir = /var/lib/puppet/ssl
 server = palpatine.fdn.fr
 certificate_revocation = leaf
 EOF
