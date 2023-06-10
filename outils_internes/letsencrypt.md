@@ -74,7 +74,7 @@ nécessaires, install une cron.
         [--domain alias...]
    ```
 
-   pour ecc : ajouter `--keylength ec-384`
+   Options pour la taille : acme.sh est passé en ec-256 par défaut (MAJ 2023/06/09). Utiliser `--keylength ec-384` pour une clé plus longue, ou `--keylength 2048` pour une clé en RSA.
 
    On peut tester avec https://acme-staging-v02.api.letsencrypt.org/directory en premier
    dans le doute ; c'est particulièrement utile pour le mode webroot quand on n'est pas
