@@ -14,6 +14,12 @@ Pour ce qui suit, il faut faire partie du groupe **web-admin** de chewie.
 
 ### 3 - Mise à jour de Wordpress
 
+Avant tout, mettre à jour le repo git local :
+
+* sudo -u web-admin -g www-prod -i
+* cd /srv/web/www-prod/repo
+* git pull
+
 #### 3.a - Mise à jour en direct
 
 Taper dans cet ordre les commandes suivantes :
