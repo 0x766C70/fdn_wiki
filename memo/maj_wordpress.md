@@ -14,13 +14,15 @@ Pour ce qui suit, il faut faire partie du groupe **web-admin** de chewie.
 
 ### 3 - Mise à jour de Wordpress
 
-Avant tout, mettre à jour le repo git local :
+Soit réaliser la MAJ directement sur www-prod, soit mettre à jour www-devel puis pousser vers www-prod ensuite
 
+#### 3.a - Mise à jour en direct (www-prod)
+
+Avant tout, mettre à jour le repo git local :
 * sudo -u web-admin -g www-prod -i
 * cd /srv/web/www-prod/repo
+* git status
 * git pull
-
-#### 3.a - Mise à jour en direct
 
 Taper dans cet ordre les commandes suivantes :
 * wp-prod core check-update
@@ -36,20 +38,22 @@ Taper dans cet ordre les commandes suivantes :
 * wp-prod cli version
 * wp-prod cli update
 
-Si après ça, le site n'est plus opérationnel, retourner dans proxmox, cliquer sur le snapshot précédemment effectué puis sur le bouton "Rollback" et relancer la vm (bouton "Start" en haut à droite) ;-) 
+Vérifier que tout va bien sur www.fdn.fr
 
-Si le site est fonctionnel on peut repousser sur gitlab dans la branche "master" sur https://git.fdn.fr/communication/www :
+* Si le site n'est plus opérationnel, retourner dans proxmox, cliquer sur le snapshot précédemment effectué puis sur le bouton "Rollback" et relancer la vm (bouton "Start" en haut à droite) ;-) 
 
-* sudo -u web-admin -g www-prod -i
-* cd /srv/web/www-prod/repo
-* git add . && git commit -m 'MAJ repo gitlab www depuis www-prod' && git push origin
+* Si le site est fonctionnel on peut repousser sur gitlab dans la branche "master" sur https://git.fdn.fr/communication/www :
+    * sudo -u web-admin -g www-prod -i
+    * cd /srv/web/www-prod/repo
+    * git add . && git commit -m 'MAJ repo gitlab www depuis www-prod' && git push origin
+    * git status
 
-#### 3.b - Mise à jour via devel
+#### 3.b - Mise à jour via www-devel
 
-Resynchroniser devel sur la branche de prod:
+Resynchroniser WP devel depuis WP prod (mysql, wp-content et git) :
 * prod2devel
 
-Faire la mise à jour wordpress:
+Taper dans cet ordre les commandes suivantes :
 * wp-devel core check-update
 * wp-devel core version
 * wp-devel core update
@@ -65,15 +69,18 @@ Faire la mise à jour wordpress:
 
 Vérifier que tout va bien sur www-devel.fdn.fr
 
-Pousser sur la branche 'master' de gitlab:
-* sudo -u web-admin -g www-devel -i
-* cd /srv/web/www-devel/repo
-* git add . && git commit -m "MAJ repo gitlab www depuis www-devel" && git push origin HEAD:master
+* Si le site n'est plus opérationnel, retourner dans proxmox, cliquer sur le snapshot précédemment effectué puis sur le bouton "Rollback" et relancer la vm (bouton "Start" en haut à droite) ;-) 
+
+* Si le site est fonctionnel pousser sur la branche 'master' de gitlab:
+    * sudo -u web-admin -g www-devel -i
+    * cd /srv/web/www-devel/repo
+    * git add . && git commit -m "MAJ repo gitlab www depuis www-devel" && git push origin HEAD:master
+    * git status
 
 Mettre à jour prod avec:
 * upgrade-prod
 
-Vérifier que tout va bien sur www.fdn.fr à nouveau
+Vérifier que tout va bien sur www.fdn.fr
 
 ### 4 - Mise à jour du thème FDN
 
