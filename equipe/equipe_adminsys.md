@@ -30,6 +30,7 @@
 | Cefin             | -                               | cefin@protonmail.com           | mutu                                   |
 | cyril             |                                 |                                | mail                                   |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | dns                                    |
+| eric              | Eric                            | eric@fdn.fr                    | website                                |
 | gal_bolle         | -                               | -                              | -                                      |
 | hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, matrix                           |
 | jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | sympa                                  |
@@ -38,4 +39,3 @@
 | perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr          | -                                      |
 | sebian            | -                               | -                              | n/a                                    |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | -                                      |
-
