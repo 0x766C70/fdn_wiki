@@ -14,8 +14,9 @@
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
 | cat               | Catherine Guillard              | -                              | web-open, webmail                      |
-| damfle            | Damien Flety                    | damfle@fdn.fr                  | machines debian             
+| damfle            | Damien Flety                    | damfle@fdn.fr                  | machines debian                        |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad                          |
+| ewen              | Ewen BARA                       | ewen.bara@gmail.com,ewen@aneirin.net| DNS authoritaire                  |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | mlrx              | -                               | -                              | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | mailing                                |
