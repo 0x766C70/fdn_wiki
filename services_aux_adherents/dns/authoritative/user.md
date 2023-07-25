@@ -1,6 +1,6 @@
 # Utilisation du service
 
-[[TOC]]
+[[_TOC_]]
 
 ## Zone primaire
 
