@@ -1,4 +1,4 @@
-# DNS autoritaire
+# DNS faisant autorité
 
 Pour en savoir plus :
 - [Utilisation](./user.md) : à destination des utilisateurs (présentation, description, utilisation, FAQ) ;

@@ -2,7 +2,7 @@
 
 [[_TOC_]]
 
-Avant toutes choses, pour pouvoir bénificier du service DNS autoritaire de FDN, il faut faire une demande de création de dépôt Gitlab qui servira dans le reste de ce document (que vous pouvez lire avant).
+Avant toutes choses, pour pouvoir bénificier du service d'hébergement de zone DNS, il faut faire une demande de création de dépôt Gitlab qui servira dans le reste de ce document (que vous pouvez lire avant).
 
 ## Zone primaire
 
