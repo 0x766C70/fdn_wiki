@@ -74,7 +74,7 @@ Vérifier que tout va bien sur www-devel.fdn.fr
 * Si le site est fonctionnel pousser sur la branche 'master' de gitlab:
     * sudo -u web-admin -g www-devel -i
     * cd /srv/web/www-devel/repo
-    * git add . && git commit -m "MAJ repo gitlab www depuis www-devel" && git push origin HEAD:master
+    * git add . && git commit -m "MAJ repo gitlab www depuis www-devel" && git push origin HEAD:master && git push origin
     * git status
 
 Mettre à jour prod avec:
