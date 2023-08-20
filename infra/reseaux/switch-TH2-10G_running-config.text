@@ -1,0 +1,553 @@
+!Command: show running-config
+!Time: Sat Aug 19 20:42:49 2023
+
+version 6.0(2)U6(9)
+hostname SW-TH2-10G
+
+no feature telnet
+feature interface-vlan
+feature lldp
+
+username admin password 5 $5$MevGDUjo$YUrrYZHszJydHMLL2Mfbw3X2Ta4LaD.BU./WP/EQpFD  role network-admin
+ssh key rsa 2048 
+ip domain-lookup
+system default switchport shutdown
+service unsupported-transceiver
+ip access-list copp-system-acl-eigrp
+  10 permit eigrp any 224.0.0.10/32
+ipv6 access-list copp-system-acl-eigrp6
+  10 permit 88 any ff02::000a/128
+ip access-list copp-system-acl-icmp
+  10 permit icmp any any
+ip access-list copp-system-acl-igmp
+  10 permit igmp any any
+ip access-list copp-system-acl-ntp
+  10 permit udp any any eq ntp
+  20 permit udp any eq ntp any
+ip access-list copp-system-acl-pimreg
+  10 permit pim any any
+ip access-list copp-system-acl-ping
+  10 permit icmp any any echo
+  20 permit icmp any any echo-reply
+ip access-list copp-system-acl-routingproto1
+  10 permit tcp any gt 1024 any eq bgp
+  20 permit tcp any eq bgp any gt 1024
+  30 permit udp any 224.0.0.0/24 eq rip
+  40 permit tcp any gt 1024 any eq 639
+  50 permit tcp any eq 639 any gt 1024
+  70 permit ospf any any
+  80 permit ospf any 224.0.0.5/32
+  90 permit ospf any 224.0.0.6/32
+ip access-list copp-system-acl-routingproto2
+  10 permit udp any 224.0.0.0/24 eq 1985
+  20 permit 112 any 224.0.0.0/24
+ip access-list copp-system-acl-snmp
+  10 permit udp any any eq snmp
+  20 permit udp any any eq snmptrap
+ip access-list copp-system-acl-ssh
+  10 permit tcp any any eq 22
+  20 permit tcp any eq 22 any
+ip access-list copp-system-acl-stftp
+  10 permit udp any any eq tftp
+  20 permit udp any any eq 1758
+  30 permit udp any eq tftp any
+  40 permit udp any eq 1758 any
+  50 permit tcp any any eq 115
+  60 permit tcp any eq 115 any
+ip access-list copp-system-acl-tacacsradius
+  10 permit tcp any any eq tacacs
+  20 permit tcp any eq tacacs any
+  30 permit udp any any eq 1812
+  40 permit udp any any eq 1813
+  50 permit udp any any eq 1645
+  60 permit udp any any eq 1646
+  70 permit udp any eq 1812 any
+  80 permit udp any eq 1813 any
+  90 permit udp any eq 1645 any
+  100 permit udp any eq 1646 any
+ip access-list copp-system-acl-telnet
+  10 permit tcp any any eq telnet
+  20 permit tcp any any eq 107
+  30 permit tcp any eq telnet any
+  40 permit tcp any eq 107 any
+ipv6 access-list copp-system-acl-v6routingProto2
+  10 permit udp any ff02::0066/128 eq 2029
+  20 permit udp any ff02::00fb/128 eq 5353
+  30 permit 112 any ff02::0012/128
+ipv6 access-list copp-system-acl-v6routingproto1
+  10 permit 89 any ff02::0005/128
+  20 permit 89 any ff02::0006/128
+  30 permit udp any ff02::0009/128 eq 521
+ip access-list copp-system-dhcp-relay
+  10 permit udp any eq bootps any eq bootps
+policy-map type network-qos jumbo
+  class type network-qos class-default
+    mtu 9216
+system qos
+  service-policy type network-qos jumbo
+class-map type control-plane match-any copp-icmp
+  match access-group name copp-system-acl-icmp
+class-map type control-plane match-any copp-ntp
+  match access-group name copp-system-acl-ntp
+class-map type control-plane match-any copp-s-arp
+class-map type control-plane match-any copp-s-bfd
+class-map type control-plane match-any copp-s-bpdu
+class-map type control-plane match-any copp-s-dai
+class-map type control-plane match-any copp-s-default
+class-map type control-plane match-any copp-s-dhcpreq
+class-map type control-plane match-any copp-s-dhcpresp
+  match access-group name copp-system-dhcp-relay
+class-map type control-plane match-any copp-s-dpss
+class-map type control-plane match-any copp-s-eigrp
+  match access-group name copp-system-acl-eigrp
+  match access-group name copp-system-acl-eigrp6
+class-map type control-plane match-any copp-s-glean
+class-map type control-plane match-any copp-s-igmp
+  match access-group name copp-system-acl-igmp
+class-map type control-plane match-any copp-s-ipmcmiss
+class-map type control-plane match-any copp-s-l2switched
+class-map type control-plane match-any copp-s-l3destmiss
+class-map type control-plane match-any copp-s-l3mtufail
+class-map type control-plane match-any copp-s-l3slowpath
+class-map type control-plane match-any copp-s-mpls
+class-map type control-plane match-any copp-s-pimautorp
+class-map type control-plane match-any copp-s-pimreg
+  match access-group name copp-system-acl-pimreg
+class-map type control-plane match-any copp-s-ping
+  match access-group name copp-system-acl-ping
+class-map type control-plane match-any copp-s-ptp
+class-map type control-plane match-any copp-s-routingProto1
+  match access-group name copp-system-acl-routingproto1
+  match access-group name copp-system-acl-v6routingproto1
+class-map type control-plane match-any copp-s-routingProto2
+  match access-group name copp-system-acl-routingproto2
+class-map type control-plane match-any copp-s-selfIp
+class-map type control-plane match-any copp-s-ttl1
+class-map type control-plane match-any copp-s-v6routingProto2
+  match access-group name copp-system-acl-v6routingProto2
+class-map type control-plane match-any copp-s-vxlan
+class-map type control-plane match-any copp-snmp
+  match access-group name copp-system-acl-snmp
+class-map type control-plane match-any copp-ssh
+  match access-group name copp-system-acl-ssh
+class-map type control-plane match-any copp-stftp
+  match access-group name copp-system-acl-stftp
+class-map type control-plane match-any copp-tacacsradius
+  match access-group name copp-system-acl-tacacsradius
+class-map type control-plane match-any copp-telnet
+  match access-group name copp-system-acl-telnet
+policy-map type control-plane copp-system-policy 
+  class copp-s-selfIp
+    police pps 500 
+  class copp-s-default
+    police pps 400 
+  class copp-s-l2switched
+    police pps 900 
+  class copp-s-ping
+    police pps 100 
+  class copp-s-l3destmiss
+    police pps 100 
+  class copp-s-glean
+    police pps 500 
+  class copp-s-l3mtufail
+    police pps 100 
+  class copp-s-ttl1
+    police pps 100 
+  class copp-s-ipmcmiss
+    police pps 400 
+  class copp-s-l3slowpath
+    police pps 100 
+  class copp-s-dhcpreq
+    police pps 300 
+  class copp-s-dhcpresp
+    police pps 300 
+  class copp-s-dai
+    police pps 300 
+  class copp-s-igmp
+    police pps 400 
+  class copp-s-eigrp
+    police pps 200 
+  class copp-s-pimreg
+    police pps 200 
+  class copp-s-pimautorp
+    police pps 200 
+  class copp-s-routingProto2
+    police pps 1300 
+  class copp-s-v6routingProto2
+    police pps 1300 
+  class copp-s-routingProto1
+    police pps 1000 
+  class copp-s-arp
+    police pps 6000 
+  class copp-s-ptp
+    police pps 1000 
+  class copp-s-vxlan
+    police pps 1000 
+  class copp-s-bfd
+    police pps 350 
+  class copp-s-bpdu
+    police pps 12000 
+  class copp-s-dpss
+    police pps 1000 
+  class copp-s-mpls
+    police pps 100 
+  class copp-icmp
+    police pps 200 
+  class copp-telnet
+    police pps 500 
+  class copp-ssh
+    police pps 500 
+  class copp-snmp
+    police pps 500 
+  class copp-ntp
+    police pps 100 
+  class copp-tacacsradius
+    police pps 400 
+  class copp-stftp
+    police pps 400 
+control-plane
+  service-policy input copp-system-policy 
+hardware profile portmode 64x10G
+
+snmp-server contact adminsys@fdn.fr
+snmp-server location  TH2
+snmp-server user admin network-admin auth md5 0x494834ed3601a18184942c607e23fc94 priv 0x494834ed3601a18184942c607e23fc94 localizedkey
+snmp-server community nf8K3iTOtdVO group network-operator
+ntp server 10.0.0.35 prefer
+ntp server 10.0.0.36
+
+vlan configuration 14
+  ip igmp snooping querier 172.20.52.50
+vlan configuration 504
+vlan 1
+vlan 3
+  name fdn-infra
+vlan 11
+vlan 14
+  name fdn-lns-radius
+vlan 16
+  name nerim-dsl
+vlan 17
+  name nerim-dsl-pppoe
+vlan 20
+  name tetaneutral-collecte
+vlan 21
+  name grenode-collecte
+vlan 22
+  name sames-collecte
+vlan 119
+  name gitoyen-grand-ternet
+vlan 126
+  name liazo-radius
+vlan 127
+  name liazo-best-effort
+vlan 128
+  name liazo-premium
+vlan 129
+  name liazo-ffth
+vlan 504
+  name aquilenet-collecte
+vlan 530
+  name Liazo2-radius
+vlan 531
+  name Liazo2-BestEffort
+vlan 532
+  name Liazo2-Premium
+vlan 533
+  name Liazo2-ftth
+vlan 800
+vlan 801
+  name fdn-admin
+vlan 802
+  name fdn-replication
+vlan 2019
+  name franciliens-collecte
+vlan 2052
+  name pclight-collecte
+spanning-tree vlan 2-4,11,14,16-17,20-22,119,126-128,800-801,2019,2052 priority 0
+vrf context management
+
+
+interface Vlan1
+
+interface Vlan3
+  no shutdown
+
+interface Vlan11
+  no shutdown
+
+interface Vlan14
+  no shutdown
+
+interface Vlan16
+  no shutdown
+
+interface Vlan17
+  no shutdown
+
+interface Vlan20
+  no shutdown
+
+interface Vlan21
+  no shutdown
+
+interface Vlan22
+  no shutdown
+
+interface Vlan119
+  no shutdown
+
+interface Vlan126
+  no shutdown
+
+interface Vlan127
+  no shutdown
+
+interface Vlan128
+  no shutdown
+
+interface Vlan530
+  no shutdown
+
+interface Vlan531
+  no shutdown
+
+interface Vlan532
+  no shutdown
+
+interface Vlan801
+  description fdn-admin
+  no shutdown
+  management
+  ip address 10.0.0.50/24
+
+interface Vlan802
+  no shutdown
+
+interface Vlan2019
+  no shutdown
+
+interface Vlan2052
+  no shutdown
+
+interface Ethernet1/1
+  speed 100
+  no shutdown
+
+interface Ethernet1/2
+
+interface Ethernet1/3
+
+interface Ethernet1/4
+
+interface Ethernet1/5
+  description FREE
+
+interface Ethernet1/6
+
+interface Ethernet1/7
+  description tc14 vlans
+  switchport mode trunk
+  switchport trunk allowed vlan 2-4,119,800-801
+  no shutdown
+
+interface Ethernet1/8
+  description tc14 replication
+  switchport mode trunk
+  switchport trunk allowed vlan 802
+  no shutdown
+
+interface Ethernet1/9
+
+interface Ethernet1/10
+
+interface Ethernet1/11
+  speed 1000
+  description lns11 - eth0
+  switchport mode trunk
+  switchport trunk allowed vlan 2-4,11,14,16-17,20-22,126-129,504,800-801,2019,2052
+  no shutdown
+
+interface Ethernet1/12
+  speed 100
+  description nanopi-th2-admin
+  switchport access vlan 801
+  duplex full
+  no shutdown
+
+interface Ethernet1/13
+  speed 1000
+  description r4p17 replication
+  switchport mode trunk
+  switchport trunk allowed vlan 802
+  no shutdown
+
+interface Ethernet1/14
+  speed 1000
+  description r4p17 vlans
+  switchport mode trunk
+  switchport trunk allowed vlan 2-4,800-801
+  no shutdown
+
+interface Ethernet1/15
+
+interface Ethernet1/16
+  speed 1000
+  description "Acces pour intervention" 
+  switchport access vlan 801
+  no shutdown
+
+interface Ethernet1/17
+
+interface Ethernet1/18
+
+interface Ethernet1/19
+  speed 100
+  description R4P17 IPMI
+  switchport access vlan 801
+  duplex full
+  no shutdown
+
+interface Ethernet1/20
+
+interface Ethernet1/21
+  speed 100
+  description lns11 IPMI
+  switchport access vlan 801
+  no shutdown
+
+interface Ethernet1/22
+  speed 1000
+  description tc14 IPMI
+  switchport access vlan 801
+  no shutdown
+
+interface Ethernet1/23
+
+interface Ethernet1/24
+  speed 1000
+  description Acces intervention Internet
+  switchport access vlan 3
+  no shutdown
+
+interface Ethernet1/25
+
+interface Ethernet1/26
+
+interface Ethernet1/27
+
+interface Ethernet1/28
+
+interface Ethernet1/29
+
+interface Ethernet1/30
+
+interface Ethernet1/31
+
+interface Ethernet1/32
+
+interface Ethernet1/33
+  speed 1000
+  description Interco_collete_xDSL_Nerim
+  switchport access vlan 16
+  no shutdown
+
+interface Ethernet1/34
+  description FREE
+
+interface Ethernet1/35
+  speed 1000
+  description sames via gixe
+  switchport mode trunk
+  switchport trunk allowed vlan 22
+  no shutdown
+
+interface Ethernet1/36
+  speed 1000
+  description Interco_collete_xDSL_Ielo_LIA-15323
+  switchport mode trunk
+  switchport trunk allowed vlan 126-128
+  no shutdown
+
+interface Ethernet1/37
+  description Interco_collete_FTTH_Ielo_LIA-15323
+  switchport mode trunk
+  switchport trunk allowed vlan 129
+  no shutdown
+
+interface Ethernet1/38
+  description vers gitoyen-n3k-3064-11a4-th2-par Q-in-Q
+  switchport mode trunk
+  switchport trunk allowed vlan 3,14,16-17,800-802
+  spanning-tree port type normal
+  spanning-tree bpduguard disable
+  spanning-tree bpdufilter disable
+  no shutdown
+
+interface Ethernet1/39
+
+interface Ethernet1/40
+
+interface Ethernet1/41
+
+interface Ethernet1/42
+
+interface Ethernet1/43
+
+interface Ethernet1/44
+
+interface Ethernet1/45
+
+interface Ethernet1/46
+
+interface Ethernet1/47
+
+interface Ethernet1/48
+  description upstream-gitoyen
+  switchport mode trunk
+  switchport trunk allowed vlan 21,119,504,2019,2052
+  spanning-tree port type normal
+  spanning-tree bpduguard disable
+  spanning-tree bpdufilter disable
+  no shutdown
+
+interface Ethernet1/49/1
+
+interface Ethernet1/49/2
+
+interface Ethernet1/49/3
+
+interface Ethernet1/49/4
+
+interface Ethernet1/50/1
+
+interface Ethernet1/50/2
+
+interface Ethernet1/50/3
+
+interface Ethernet1/50/4
+
+interface Ethernet1/51/1
+
+interface Ethernet1/51/2
+
+interface Ethernet1/51/3
+
+interface Ethernet1/51/4
+
+interface Ethernet1/52/1
+
+interface Ethernet1/52/2
+
+interface Ethernet1/52/3
+
+interface Ethernet1/52/4
+
+interface mgmt0
+  vrf member management
+  ip address 10.0.0.40/24
+line console
+line vty
+boot kickstart bootflash:/n3000-uk9-kickstart.6.0.2.U6.9.bin 
+boot system bootflash:/n3000-uk9.6.0.2.U6.9.bin 
+
