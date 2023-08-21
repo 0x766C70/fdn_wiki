@@ -15,7 +15,7 @@ chaque baie :
 
 Sommaire :
 
-_TOC_
+[[_TOC_]]
 
 ## Spare
 
