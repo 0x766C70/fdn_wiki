@@ -15,14 +15,16 @@ chaque baie :
 
 Sommaire :
 
+_TOC_
+
 ## Spare
 
-1x SFP 10GbE Eth1/1 @ switch-n3k-3064-th2
-1x 3560G @ PA3
+- 1x SFP 10GbE Eth1/1 @ switch-n3k-3064-th2
+- 1x 3560G @ PA3
 
 ## Les VLAN / subnets
 
-VLANs vus par les switches FDN :
+VLANs vus par les switches FDN (à date du 2023-08-21) :
 
 | VLAN | Usage                          | Adresses IPv4     | Adresses IPv6        |
 | ---- | ------------------------------ | ----------------- | -------------------- |
@@ -64,9 +66,9 @@ Autre (niveau 2 fourni par Gitoyen, livré à FDN en mode access, pour l'OOB) :
 
 ### IPv4
 
-2 sources d'infos : /etc/bird.conf sur les lns/vpn, et conf radius (mysql sur lns ou si)
+2 sources d'infos : /etc/bird.conf sur les LNS/VPN, et conf radius (MySQL sur LNS ou le SI).
 
-la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)
+La page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/).
 
 #### Récap
 
@@ -79,42 +81,40 @@ la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)
 | 80.67.171.0/26  | vpn openbar                     |
 | 80.67.176.0/22  | /32 alloués par le SI (xDSL/FTTH/VPN) |
 
-#### Subnets adhérents:
+#### Subnets adhérents
 
-Subnets à la date du 2022-11-05:
+Subnets à la date du 2023-08-22 :
 
 ```
 mysql> select UATTR_VALUE, UATTR_ID, UATTR.RADUSER_ID, RADUSER_LOGIN, LIGNE_ID, VPN_ID from UATTR left join RADUSER on UATTR.RADUSER_ID = RADUSER.RADUSER_ID where UATTR_ATTR = 'Framed-Route' order by UATTR_VALUE;
 +------------------+----------+------------+----------------------------------------+----------+--------+
 | UATTR_VALUE      | UATTR_ID | RADUSER_ID | RADUSER_LOGIN                          | LIGNE_ID | VPN_ID |
 +------------------+----------+------------+----------------------------------------+----------+--------+
-| 80.67.160.104/29 |     4563 |       1688 | jean.charles.delepine@fdn.dslnet.fr    |      917 |     -1 |
+| 80.67.160.104/29 |     8717 |        363 | jean.charles.delepine.1@vpn.fdn.fr     |       -1 |     13 |
 | 80.67.160.120/29 |      298 |         84 | philippe.le.brouster@fdn.fr            |       -1 |     28 |
 | 80.67.160.128/28 |     1156 |        278 | delphine.rignon@fdn.nerim              |      372 |     -1 |
-| 80.67.160.144/30 |     8503 |       2895 | feraud.dimitri@fdn.ilf.kosc            |     1287 |     -1 |
 | 80.67.160.160/27 |     8289 |       2244 | cier@vpn.fdn.fr                        |       -1 |    430 |
 | 80.67.160.96/29  |     7536 |       2672 | yvan.vanhullebus@vpn.fdn.fr            |       -1 |    545 |
 | 80.67.168.112/29 |     7968 |       2779 | carine.bournez@fdn.ilf.kosc            |     1208 |     -1 |
 | 80.67.168.136/29 |     5090 |       1871 | 0299090543@fdn.dslnet.fr               |      778 |     -1 |
 | 80.67.168.160/29 |     2121 |        527 | benjamin.duchenne@vpn.fdn.fr           |       -1 |     98 |
 | 80.67.168.168/29 |     4748 |        430 | arnaud.gomes-do-vale@vpn.fdn.fr        |       -1 |     42 |
-| 80.67.179.96/32  |     7897 |       2773 | association.libre.en.comm@fdn.ilf.kosc |     1206 |     -1 |
+| 80.67.179.96/32  |     7897 |       2773 | association.libre.en.comm@fdn.ilf.kosc |     1334 |     -1 |
 +------------------+----------+------------+----------------------------------------+----------+--------+
-11 rows in set (0.01 sec)
+10 rows in set (0.009 sec)
 ```
 
-Pour ajouter une telle route, il faut:
- - Côté RADIUS FDN, ajouter un attribut Framed-Route avec dedans le subnet à router.  
+Pour ajouter une telle route, il faut :
+ - Côté RADIUS FDN, ajouter un attribut ''Framed-Route'' avec dedans le subnet à router.  
 Aller dans le SI, trouver le membre (par son numéro de tel ou d'adhérent) puis sa ligne,
-(view-ligne.cgi?lid=<id>&do=yes) puis son compte radius (view-raduser.cgi?uid=<id>&do=yes)  
-De là on va pouvoir lui ajouter un bloc d'IP pour son compte:
+(''view-ligne.cgi?lid=<id>&do=yes'') puis son compte radius (''view-raduser.cgi?uid=<id>&do=yes'')
+De là on va pouvoir lui ajouter un bloc d'IP pour son compte :
 
 En face de "Attributs de l'utilisateur" cliquer sur "Ajouter" et remplir le formulaire comme suit :
-(page new-uattr.cgi?uid=<id>&from=raduser<id>)
+(page ''new-uattr.cgi?uid=<id>&from=raduser<id>'')
 
+Création/modification d'un attribut radius utilisateur :
 ```
-Création/modification d'un attribut radius utilisateur
-
 Nom de l'attribut    Framed-Route
 Opérateur         =
 Valeur de l'attribut    80.67.160.96/29
@@ -189,8 +189,10 @@ Empty set (0.01 sec)
 
 ## Ports Cisco Nexus 3064 à TH2
 
-| Port      | Name              | Status    | Vlan     | Duplex  | Speed   Type
-| -------   | -----             | -------   | -----    | ------  | ------  -----
+À date du 2023-08-21 :
+
+| Port      | Name              | Status    | Vlan     | Duplex  | Speed   | Type
+| -------   | -----             | -------   | -----    | ------  | ------  | -----
 | Eth1/1    | --                | sfpInvali | 1        | auto    | 100     | 10Gbase-LR            
 | Eth1/2    | --                | sfpAbsent | 1        | full    | 10G     | --                    
 | Eth1/3    | --                | sfpAbsent | 1        | full    | 10G     | --                    
@@ -261,6 +263,8 @@ Empty set (0.01 sec)
 * [dump de la conf du switch PA3 10G](./reseaux/switch-PA3-10G-running-config.text)
 
 ## Ports Cisco Nexus 3064 à PA3
+
+À date du 2023-08-21 :
 
 | Port      | Name              | Status    | Vlan     | Duplex  | Speed  | Type
 | -------   | -----             | -------   | -----    | ------  | ------ | -----
