@@ -5,7 +5,7 @@ La baie 11A4 est gérée par Gitoyen. On y intervient en accord avec leur équip
 avec eux quand c'est possible. En cas d'urgence réelle, FDN peut accéder à la
 baie en autonomie.
 
-TH2 est situé au 137, boulevard Voltaire, Paris 11ème. C'est accessible sur la
+TH2 est situé au 137, boulevard Voltaire, 75011 Paris (11ème). C'est accessible sur la
 ligne 9 de métro (station Charonne), et sur la ligne 56 de bus (arrêt Gymnase
 Jappy). 
 
@@ -46,36 +46,26 @@ Un accès réseau est disponible au fond de la baie :
     IP : 80.67.168.30 /27
     GW : 80.67.168.1
 
-# Paris Bourse
+# Equinix PA3
 
-À bourse, FDN dispose d'une demi-baie en propre. Les personnes y aillant accès
-sont les membres du bureau en préfecture, et le noyau de l'équipe adminsys.
+FDN loue en direct auprès de Ielo une demi-baie (22 U).
+Les personnes y ayant accès sont les personnes ayant soit un badge permanent, soit un accès temporaire après demande préalable auprès de Ielo.
 
-Pour un accès en autonomie, il faut aussi avoir enregistré ses circuits veineux
-dans le système biométrique. Pour ça, il faut y aller en semaine, et demander à
-se faire enregistrer.
+Infos : https://docs.equinix.com/en-us/Content/ECPortal/ecp-entering-exiting-ibxs.htm
 
-Le datacenter est situé au 35 rue des Jeûneurs, Paris 2. C'est un immeuble
-assez classique. Il y a un digicode (cf. Password Store) pour rentrer dans
-l'immeuble, puis il faut monter au (?) étage. 
+Dans tous les cas il sera nécessaire de posséder un compte Equinix ou de se présenter au guichet pour s'enregistrer.
+La présentation d'une carte d'identité avec photo sera demandée.
+Le formulaire d'accès à l'IBX doit avoir été signé au kiosque ou au guichet de sécurité ou via leur application mobile.
+Un scan biométrique de la main sera requis.
+La présentation de votre QR Code sera requise au guichet de sécurité.
 
-Deux cas de figure :
+Le datacenter est situé au 114 Rue Ambroise Croizat, 93200 Saint-Denis.
 
-  - En heures de bureau (semaine, ~8h-18h), il suffit de sonner à la porte, on
-    vient vous ouvrir.
-  -  En dehors, il faut demander l'ouverture à Liazo (l'entreprise qui exploite le DC) :
-    - prévenir par mail le plus à l'avance possible de l'intervention ;
-    - téléphoner au numéro d'astreinte pour demander l'ouverture de la porte par SSH.
+Une fois rentré dans le DC, la carte d'identité présenté au guichet sécurité, le QR Code scanné, l'accès à la cage 14 OG S72 du DH3 (Data Hall 3) devient enfin possible !
 
-Une fois rentré dans le DC, il y a un accès aux sales par contrôle biométrique.
-C'est la salle de gauche, notre baie est située au fond à droite, dans le
-couloir froid.
-
-La baie s'ouvre avec un code, qui est stocké dans le Password Store. 
+La baie 114 s'ouvre avec un code, qui est stocké dans le Password Store.
 
 Un accès réseau est disponible au fond de la baie :
 
     IP : ?
     GW : ?
-
-

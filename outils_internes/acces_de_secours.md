@@ -38,7 +38,7 @@ Host endor
 On peut également utiliser endor pour accèder à l'ipmi des machines:
 
 - Par exemple: `conman tc14`
-- il y a aussi les switchs, e.g. `conman switch-pbo`, via les nanopi
+- il y a aussi les switchs, e.g. `conman switch-pa3`, via les nanopi
 - Le charactère de controle est '&'
   - &? pour l'aide
   - &. pour sortir

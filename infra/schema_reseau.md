@@ -10,7 +10,7 @@
 L'infrastructure de FDN est actuellement répartie dans deux datacenters
 (nommés par la suite DC) :
 
-- Equinix PA3
+- Equinix PA3 (nommé ensuite PA3)
 - TéléHouse2 (nommé ensuite TH2)
 
 Ils sont tous deux situés sur Paris.

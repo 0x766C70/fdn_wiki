@@ -1,23 +1,24 @@
 FDN dispose de deux POP (voir [points de presence](./points_de_presence.md)), avec un switch dans
 chaque baie :
 
-  * Un Cisco c2970 en ''11A4'' au Telehouse 2
+  * Un Cisco Nexus 3064 en ''11A4'' au Telehouse 2 (TH2)
 
-    - Il s'appelle ''switch-th2-11a4.fdn.fr''
-    - Sa référence exacte est WS-C2970G-24TS-E
-    - 10.0.0.39, joignable sur le VLAN 801
+    - Il se nomme ''SW-TH2-10G'' et étiquetté ''n3k-3064-th2''
+    - Sa référence exacte est : cisco Nexus3064 Chassis ("48x10GE + 16x10G/4x40G Supervisor")
+    - 10.0.0.50, joignable sur le VLAN 801
 
-  * Un Cisco c3560 en ''Z1A11'' à Paris Bourse (pbo)
+  * Un Cisco Nexus 3064 en ''114'' à Equinix PA3
 
-    - Il s'appelle ''cisco.fdn.fr''
-    - 10.0.0.38, joignable sur le VLAN 801
+    - Il se nomme ''SW-PA3-10G'' et étiquetté ''n3k-3064-pbo''
+    - Sa référence exacte est : cisco Nexus3064 Chassis ("48x10GE + 16x10G/4x40G Supervisor")
+    - 10.0.0.51, joignable sur le VLAN 801
 
 Sommaire :
-
 
 ## Spare
 
 1x SFP 10GbE Eth1/1 @ switch-n3k-3064-th2
+1x 3560G @ PA3
 
 ## Les VLAN / subnets
 
@@ -27,7 +28,7 @@ VLANs vus par les switches FDN :
 | ---- | ------------------------------ | ----------------- | -------------------- |
 | 1    | -                              | -                 | -                    |
 | 3    | FDN - infra                    | 80.67.169.0/25    | 2001:910:800::/64    |
-| 11   | ????                           |                   |                      |
+| 11   | ???? LNS11 eth0 TH2 (inutilisé)|                   |                      |
 | 14   | FDN - LNS & RADIUS             | 80.67.161.120/29  |                      |
 |      |                                | 80.67.161.128/25  |                      |
 | 16   | Nerim - Livraison DSL          | 80.67.161.112/29  |                      |
@@ -36,13 +37,15 @@ VLANs vus par les switches FDN :
 | 21   | Grenode - Collecte DSL         | 80.67.161.40/29   | 2001:910:801:21::/64 |
 | 22   | Sames - Collecte DSL           | 80.67.161.48/29   |                      |
 | 119  | Gitoyen - Grand ternet         | 80.67.161.208/29  | 2001:910:0:800::/64  |
-| 126  | Liazo - Interco radius         | 185.96.184.130/31 |                      |
-| 127  | Liazo - Interco BestEffort     | 185.96.184.132/31 |                      |
-| 128  | Liazo - Interco Premium        | 185.96.184.134/31 |                      |
+| 126  | Liazo - Interco radius TH2     | 185.96.184.130/31 |                      |
+| 127  | Liazo - Interco BestEffort TH2 | 185.96.184.132/31 |                      |
+| 128  | Liazo - Interco Premium TH2    | 185.96.184.134/31 |                      |
+| 129  | Liazo - Interco FTTH TH2       | 185.96.185.93/31  |                      |
 | 504  | Aquilenet - Collecte FTTH      | 80.67.161.56/29   |                      |
-| 530  | Liazo2 - Interco Radius        | 185.96.184.162/31 |                      |
-| 531  | Liazo2 - Interco BestEffort    | 185.96.184.164/31 |                      |
-| 532  | Liazo2 - Interco Premium       | 185.96.184.166/31 |                      |
+| 530  | Liazo2 - Interco Radius PA3    | 185.96.184.162/31 |                      |
+| 531  | Liazo2 - Interco BestEffort PA3| 185.96.184.164/31 |                      |
+| 532  | Liazo2 - Interco Premium PA3   | 185.96.184.166/31 |                      |
+| 533  | Liazo2 - Interco FTTH PA3	| 185.96.185.91/31  |                      |
 | 800  | FDN - intra                    | 10.2.0.0/25       |                      |
 | 801  | FDN - admin                    | 10.0.0.0/24       |                      |
 | 802  | FDN - replication              | 10.0.2.0/24       |                      |
@@ -51,7 +54,10 @@ VLANs vus par les switches FDN :
 
 Autre (niveau 2 fourni par Gitoyen, livré à FDN en mode access, pour l'OOB) :
 
-|      | FDN - OOB (consoles switches)  | 10.0.3.0/24       |                      |
+
+| VLAN | Usage                          | Adresses IPv4     | Adresses IPv6        |
+| ---- | ------------------------------ | ----------------- | -------------------- |
+|      | FDN - OOB (consoles switchs)   | 10.0.3.0/24       |                      |
 
 
 ## Les préfixes actuellement utilisés à FDN
@@ -71,7 +77,7 @@ la page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/)
 | 80.67.165.64/26 | vpn openbar                     |
 | 80.67.169.0/24  | infra                           |
 | 80.67.171.0/26  | vpn openbar                     |
-| 80.67.176.0/22  | /32 alloués par le SI (dsl/vpn) |
+| 80.67.176.0/22  | /32 alloués par le SI (xDSL/FTTH/VPN) |
 
 #### Subnets adhérents:
 
@@ -181,72 +187,145 @@ mysql>  select * from UATTR where UATTR_ATTR like 'Framed-IPv6-Route' and not UA
 Empty set (0.01 sec)
 ```
 
-## Ports Cisco c2970 - à TH2
+## Ports Cisco Nexus 3064 à TH2
 
-| Port | Description                | Mode   | Vlans                     |
-| ---- | -------------------------- | ------ | ------------------------- |
-| 01   | interv admin               | access | 801                       |
-| 02   | lns11 - eth1               | trunk  | -                         |
-| 03   | -                          |        |                           |
-| 04   | lns22 - eth1               | trunk  | -                         |
-| 05   | -                          |        |                           |
-| 06   | nerim - PPPoE (down)       |        |                           |
-| 07   | lns11 - ipmi               | access | 801                       |
-| 08   | lns11 - ipmi               | access | 801                       |
-| 09   | lns11 - eth0               | trunk  | *                         |
-| 10   | lns22 - eth0               | trunk  | *                         |
-| 11   | -                          |        |                           |
-| 12   | -                          |        |                           |
-| 13   | -                          |        |                           |
-| 14   | -                          |        |                           |
-| 15   | -                          |        |                           |
-| 16   | Gitoyen 1/0/5 3750         | trunk  | 3,20-22,119,801,2019,2052 |
-| 17   | -                          |        |                           |
-| 18   | nerim - livraison adsl 1G  | access | 16                        |
-| 19   | -                          |        |                           |
-| 20   | -                          |        |                           |
-| 21   | -                          |        |                           |
-| 22   | -                          |        |                           |
-| 23   | -                          |        |                           |
-| 24   | interv internet            | access | 3                         |
-| 25   | sames via gixe (sfp lc sx) | trunk  | 22                        |
-| 26   | liazo (sfp gx)             | trunk  | 126-128 530-532           |
-| 27   | -                          |        |                           |
-| 28   | -                          |        |                           |
+| Port      | Name              | Status    | Vlan     | Duplex  | Speed   Type
+| -------   | -----             | -------   | -----    | ------  | ------  -----
+| Eth1/1    | --                | sfpInvali | 1        | auto    | 100     | 10Gbase-LR            
+| Eth1/2    | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/3    | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/4    | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/5    | FREE              | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/6    | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/7    | tc14 vlans        | connected | trunk    | full    | 10G     | SFP-H10GB-CU1.255M    
+| Eth1/8    | tc14 replication  | connected | trunk    | full    | 10G     | SFP-H10GB-CU1.255M    
+| Eth1/9    | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/10   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/11   | lns11 - eth0      | connected | trunk    | full    | 1000    | 1000base-T            
+| Eth1/12   | nanopi-th2-admin  | connected | 801      | full    | 100     | 1000base-T            
+| Eth1/13   | r4p17 replication | connected | trunk    | full    | 1000    | 1000base-T            
+| Eth1/14   | r4p17 vlans       | connected | trunk    | full    | 1000    | 1000base-T            
+| Eth1/15   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/16   | "Acces pour intervention"| notconnec | 801      | full    | 1000    | 1000base-T            
+| Eth1/17   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/18   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/19   | R4P17 IPMI        | connected | 801      | full    | 100     | 1000base-T            
+| Eth1/20   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/21   | lns11 IPMI        | connected | 801      | full    | 100     | 1000base-T            
+| Eth1/22   | tc14 IPMI         | connected | 801      | full    | 1000    | 1000base-T            
+| Eth1/23   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/24   | Acces intervention Internet| sfpAbsent | 3        | full    | 1000    | --                    
+| Eth1/25   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/26   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/27   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/28   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/29   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/30   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/31   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/32   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/33   | Interco_collete_xDSL_Nerim| connected | 16       | full    | 1000    | 1000base-T            
+| Eth1/34   | FREE              | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/35   | sames via gixe    | connected | trunk    | full    | 1000    | 1000base-SX           
+| Eth1/36   | Interco_collete_xDSL_Ielo_LIA-15323| connected | trunk    | full    | 1000    | SFP-1000BX-10-U       
+| Eth1/37   | Interco_collete_FTTH_Ielo_LIA-15323| connected | trunk    | full    | 10G     | 10Gbase-LR            
+| Eth1/38   | vers gitoyen-n3k-3064-11a4-th2-par Q-in-Q| connected | trunk    | full    | 10G     | 10Gbase-LR            
+| Eth1/39   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/40   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/41   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/42   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/43   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/44   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/45   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/46   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/47   | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/48   | upstream-gitoyen  | connected | trunk    | full    | 10G     | SFP-H10GB-CU2.255M    
+| Eth1/49/1 |  --               | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/49/2 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/49/3 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/49/4 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/50/1 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/50/2 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/50/3 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/50/4 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/51/1 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/51/2 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/51/3 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/51/4 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/52/1 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/52/2 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/52/3 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| Eth1/52/4 | --                | sfpAbsent | 1        | full    | 10G     | --                    
+| mgmt0     | --                | notconnec | routed   | auto    | auto    | --                    
 
-* [dump de la conf du switch TH2 du 20160925](./reseaux/switch-fdn-th2-11a4-config-20160925.text)
-* [dump de la conf du switch TH2 10G du 20171014](./reseaux/switch-fdn-th2-10g-config-20171014.text)
-* [dump de la conf du switch PBO 10G du 20171014](./reseaux/switch-fdn-bourse-10g-config-20171014.text)
+* [dump de la conf du switch TH2 10G](./reseaux/switch-TH2-10G-running-config.text)
+* [dump de la conf du switch PA3 10G](./reseaux/switch-PA3-10G-running-config.text)
 
-## Ports c3560-brs - à PBO
+## Ports Cisco Nexus 3064 à PA3
 
-| Port | Mode | Description              |
-| ---- | ---- | ------------------------ |
-| 1    | On   | C3PO admin               |
-| 2    | On   | C3PO vlans               |
-| 3    | On   | R2D2 admin               |
-| 4    | On   | R2D2 vlans               |
-| 5    | On   | C3PX admin               |
-| 6    | On   | C3PX vlans               |
-| 7    | On   | R4P17 admin              |
-| 8    | On   | R4P17 vlans              |
-| 9    | On   | RMLL                     |
-| 10   | On   |                          |
-| 11   | On   |                          |
-| 12   | On   |                          |
-| 13   | On   | R2D2 ipmi                |
-| 14   | On   | C3PO ipmi                |
-| 15   | On   |                          |
-| 16   | On   |                          |
-| 17   | On   |                          |
-| 18   | On   |                          |
-| 19   | On   |                          |
-| 20   | On   |                          |
-| 21   | On   |                          |
-| 22   | On   |                          |
-| 23   | On   |                          |
-| 24   | On   | Accès pour interventions |
-| 25   | On   | Lien Gitoyen Z1B09 fibre |
-| 26   | On   |                          |
-| 27   | On   |                          |  
-| 28   | On   |                          |
+| Port      | Name              | Status    | Vlan     | Duplex  | Speed  | Type
+| -------   | -----             | -------   | -----    | ------  | ------ | -----
+| Eth1/1    | c3po-replication  | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/2    | c3po-vlans        | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/3    | r2d2-replication  | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/4    | r2d2-vlans        | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/5    | c3px replication  | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/6    | c3px vlans        | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/7    | --                | sfpAbsent | 1        | full    | 1000   | --                    
+| Eth1/8    | --                | sfpAbsent | 1        | full    | 1000   | --                    
+| Eth1/9    | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/10   | FREE              | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/11   | r5d4 vlans        | connected | trunk    | full    | 10G    | SFP-H10GB-CU1.255M    
+| Eth1/12   | r5d4 replication  | connected | trunk    | full    | 10G    | SFP-H10GB-CU1.255M    
+| Eth1/13   | lns22 - eth0      | connected | trunk    | full    | 1000   | 1000base-T            
+| Eth1/14   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/15   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/16   | "Acces pour intervention"     | notconnec| 3       | full   | 1000    1000base-T            
+| Eth1/17   | R2D2 IPMI         | connected 801        | full    | 100    | 1000base-T            
+| Eth1/18   | C3PO IPMI         | connected 801        | full    | 100    | 1000base-T            
+| Eth1/19   | C3PX IPMI         | connected 801        | full    | 100    | 1000base-T            
+| Eth1/20   | --                | sfpAbsent | 1        | full    | 1000   | --                    
+| Eth1/21   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/22   | r5d4 IPMI         | connected 801        | full    | 1000   | 1000base-T            
+| Eth1/23   | LNS22 IPMI        | connected 801        | full    | 100    | 1000base-T            
+| Eth1/24   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/25   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/26   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/27   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/28   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/29   | nanopi-pa3-admin  | connected 801        | full    | 100    | 1000base-T            
+| Eth1/30   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/31   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/32   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/33   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/34   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/35   | FREE              | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/36   | FREE              | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/37   | Interco_collecte_xDSL-FTTH_Ielo_LIA-15323| connected | trunk    | full    | 10G    | 10Gbase-LR            
+| Eth1/38   | vers_gitoyen-n3k-3064-baie114-PA3-Q-In-Q| connected | trunk    | full    | 10G    | 10Gbase-LR            
+| Eth1/39   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/40   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/41   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/42   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/43   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/44   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/45   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/46   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/47   | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/48   | upstream-gitoyen  | connected | trunk    | full    | 10G    | 10Gbase-LR            
+| Eth1/49/1 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/49/2 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/49/3 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/49/4 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/50/1 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/50/2 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/50/3 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/50/4 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/51/1 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/51/2 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/51/3 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/51/4 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/52/1 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/52/2 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/52/3 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| Eth1/52/4 | --                | sfpAbsent | 1        | full    | 10G    | --                    
+| mgmt0     | --                | notconnec | routed   | auto    | auto   | --
