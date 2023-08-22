@@ -1,3 +1,4 @@
+:warning: cette page n'est plus d'actualité
 
 FDN maintient un cluster de machines virtuelles pour ses propres besoin. Il est
 question de faire un cluster de vm pour ses membres mais c'est pas encore le

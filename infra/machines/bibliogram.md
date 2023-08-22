@@ -1,3 +1,5 @@
+:warning: cette page n'est plus d'actualité
+
 Machine virtuelle pour le service [Bibliogram](https://git.sr.ht/~cadence/bibliogram) permettant d'accéder à Instagram.
 
 

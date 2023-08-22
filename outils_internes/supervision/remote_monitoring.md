@@ -1,13 +1,13 @@
-
 # Généralités
 
-Nous disposons de deux nagios chez FDN. Un premier hébergé en interne (sur leia, voir [page dédiée](/outils/supervision/intra_monitoring)) et un second gentiment hébergé à l'extérieur de l'infra de FDN sur isengard, une VM hébergée chez LDN (merci LDN, merci sebian).
+Nous disposons de deux nagios chez FDN.
+Un premier non maintenu (voir le ticket [#5 de monitoring2.0](https://git.fdn.fr/adminsys/monitoring2.0/-/issues/5)) hébergé en interne (sur cecinestpasleia, voir [page dédiée](./outils_internes/supervision/intra_monitoring.md)) et un second gentiment hébergé à l'extérieur de l'infra de FDN sur skytop, une VM hébergée chez Grenode.
 
-Cette VM fait tourner un [Nagios](https://www.nagios.org/) couplé à un [Cachet](https://cachethq.io/) 
+Cette VM fait tourner un [Nagios](https://www.nagios.org/) couplé à un [Cachet](https://cachethq.io/)
 afin de présenter une mire de l'état de nos services depuis l'extérieur.
 
-Cachet est accessible sur [https://isengard.fdn.fr/](https://isengard.fdn.fr/).
-Nagios pour les checks remote est accessible sur [https://isengard.fdn.fr/nagios](https://isengard.fdn.fr/nagios).
+Cachet est accessible sur [https://skytop.fdn.fr/](https://skytop.fdn.fr/).
+Nagios pour les checks remote est accessible sur [https://skytop.fdn.fr/nagios4](https://skytop.fdn.fr/nagios4).
 
 # Sensors
 
@@ -21,70 +21,18 @@ Pour commencer nous choisissons de monitorer :
 
 # Préliminaires
 
-* machine sous debian jessie
-* fournir les clefs publiques du groupe noyau pour le proxy serial (en cas d'accès console sur la machine)
+* machine sous debian Bullseye
 * module puppet afin de passer les modules de bases de FDN
 
 # Connexions
 
-* ssh root@fdn.vps.ldn-fai.net (recovery)
-* ssh serialproxy@services.ldn-fai.net (recovery serial)
-* ssh isengard.fdn.fr
+* ssh skytop.fdn.fr
 
-# Installation de Nagios 4 (seule la version 3 est disponible dans les dépôts)
+# Installation de Nagios 4
 
 ## Installation des dépendances
 
-    apt-get install postfix build-essential libgd2-xpm-dev openssl libssl-dev xinetd apache2-utils apache2 unzip php5
-
-## Utilsateur / droits
-
-    useradd nagios
-    groupadd nagcmd
-    usermod -a -G nagcmd nagios
-
-## Source & compilation
-
-    cd /opt/
-    wget https://assets.nagios.com/downloads/nagioscore/releases/nagios-4.3.1.tar.gz
-    tar xzvf nagios-4.3.1.tar.gz
-    cd nagios-4.3.1
-    ./configure --with-nagios-group=nagios --with-command-group=nagcmd --with-httpd-conf=/etc/apache2/conf-available
-    make all 
-    make install
-    make install-commandmode
-    make install-init
-    make install-config
-    /usr/bin/install -c -m 644 sample-config/httpd.conf /etc/apache2/sites-available/nagios.conf
-    usermod -G nagcmd www-data
-    ln -s /etc/init.d/nagios /etc/rcS.d/S99nagios
-
-## Installation des plugins
-
-    wget https://nagios-plugins.org/download/nagios-plugins-2.1.4.tar.gz
-    tar xvf nagios-plugins-2.1.4
-    cd nagios-plugins-2.1.4
-    ./configure --with-nagios-user=nagios --with-nagios-group=nagios
-    make
-    make install
-
-## Configuration de Postfix pour envoyer des mails mais ne pas devenir un relay SPAM 
-
-    smtpd_relay_restrictions = permit_mynetworks permit_sasl_authenticated 
-    defer_unauth_destination
-    myhostname = isengard.fdn.fr
-    alias_maps = hash:/etc/aliases
-    alias_database = hash:/etc/aliases
-    myorigin = /etc/mailname
-    mydestination = isengard.fdn.fr, localhost.fdn.fr, localhost
-    relayhost =
-    mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
-    mailbox_command = procmail -a "$EXTENSION"
-    mailbox_size_limit = 0
-    recipient_delimiter = +
-    inet_interfaces = localhost
-    default_transport = smtp
-    relay_transport = error
+    apt install apache2 nagios4-common nagios4-cgi nagios-nrpe-plugin nagios-plugins nagios-plugins-basic nagios-plugins-contrib nagios-plugins-standard php-gd mariadb-server php-curl php-apcu curl php-simplexml php-mbstring php-mysql
 
 ## Ajout d'une email dans contacts
 
@@ -105,92 +53,138 @@ Pour commencer nous choisissons de monitorer :
 
 ## Configuration d'Apache
 
-    a2enmod rewrite
-    a2enmod cgi
-    htpasswd -c /usr/local/nagios/etc/htpasswd.users nagiosadmin
-    a2ensite nagios
+    /etc/apache2/sites-available/cachet.conf
 
-On redémarre (c'est bien mieux!)
+    <VirtualHost *:80>
+        DocumentRoot "/var/www/"
+        ServerName skytop.fdn.fr
+        ServerAlias	status.fdn.fr statut.fdn.fr isengard.fdn.fr isengard.fdn.org status.fdn.org statut.fdn.org skytop.fdn.org
+        LogLevel warn
+        Include /etc/apache2/include/acme-challenge.conf
+        Include /etc/apache2/include/redirect-to-https.conf
 
-    service nagios start
-    service apache2 reload
+    <Directory "/var/www/Cachet/public">
+        Require all granted 
+        Options Indexes FollowSymLinks
+        AllowOverride All
+    </Directory>
+
+    <Directory "/var/www/vpn/">
+    	Require ip 80.67.0.0/16
+    	Require ip 2001:910::/32
+        DirectoryIndex index.html
+    </Directory>
+
+    <Directory "/.well-known/acme-challenge/">
+        Require all granted
+    </Directory>
+    </VirtualHost>
+
+    <VirtualHost *:443>
+      ServerName skytop.fdn.fr
+      ServerAlias	status.fdn.fr statut.fdn.fr isengard.fdn.fr isengard.fdn.org status.fdn.org statut.fdn.org skytop.fdn.org
+      DocumentRoot "/var/www/Cachet/public"
+      SSLEngine on
+      SSLCertificateFile      /etc/apache2/ssl/isengard.fdn.fr/isengard.fdn.fr.chained
+      SSLCertificateChainFile /etc/apache2/ssl/isengard.fdn.fr/isengard.fdn.fr.chained
+      SSLCertificateKeyFile   /etc/apache2/ssl/isengard.fdn.fr/isengard.fdn.fr.key
+
+    <Directory "/var/www/Cachet/public">
+        Require all granted 
+        Options Indexes FollowSymLinks
+        AllowOverride All
+    </Directory>
+    </VirtualHost>
+
+    sudo a2enmod rewrite auth_digest authz_groupfile ssl
+
+On redémarre (c'est bien mieux !)
+
+    systemctl start nagios
+    systemctl reload apache2
+
+Configuration pour ACME
+
+    mkdir /etc/apache2/include
+
+    Dans /etc/apache2/include/acme-challenge.conf
+    Alias /.well-known/acme-challenge /var/lib/acme/challenges/.well-known/acme-challenge
+    <Directory /var/lib/acme/challenges>
+      Require all granted
+    </Directory>
+
+    Dans /etc/apache2/include/redirect-to-https.conf :
+    <ifmodule mod_rewrite.c>
+        RewriteEngine On
+        RewriteCond %{REQUEST_URI} !^/\.well\-known/acme\-challenge/
+	RewriteCond %{REQUEST_URI} !vpn/?$
+        RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+    </ifmodule>
 
 ## Configuration des machines FDN pour le monitoring
 
-Copier les fichiers fdn.cfg,fdn_group.cfg,fdn_services.cfg dans /usr/local/nagios/etc/objects.
+Ajouter à /etc/nagios4/nagios.cfg :
 
-Puis, ajouter à /usr/local/nagios/etc/nagios.cfg
+    cfg_dir=/etc/nagios4/objects/hosts
+    cfg_dir=/etc/nagios4/objects/groups
 
-    cfg_file=/usr/local/nagios/etc/objects/fdn.cfg
-    cfg_file=/usr/local/nagios/etc/objects/fdn_group.cfg
-    cfg_file=/usr/local/nagios/etc/objects/fdn_services.cfg
-
-Ajouter à /usr/local/nagios/etc/objects/commands.cfg
+Ajouter à /etc/nagios4/objects/commands.cfg :
 
     define command {
-        command_name    cachet_notify
-        command_line    /usr/local/nagios/plugins/nagios-eventhandler-cachet/cachet_notify "$HOSTNAME$" "$SERVICEDESC$" "$SERVICESTATE$" "$SERVICESTATETYPE$" "$SERVICEOUTPUT$" -m=true
+        command_name    irc_cachet_notify
+	command_line	$USER2$/cagios/ircbot_cachet.sh "$HOSTNAME$" "$SERVICEDESC$" "$SERVICESTATE$" "$SERVICESTATETYPE$"
     }
 
 Puis on reload
 
-    service nagios reload
+    systemctl reload nagios
 
-Pour références, les fichiers de configuration utilisés sont ici:
+Pour références, les fichiers de configuration utilisés sont ici :
 
-* [[nagios/commands.cfg]]
-
-* [[nagios/contacts.cfg]]
-
-* [[nagios/templates.cfg]]
-
-* [[nagios/fdn.cfg]]
-
-* [[nagios/fdn_group.cfg]]
-
-* [[nagios/fdn_services.cfg]]
+* [[./nagios/commands.cfg]]
+* [[./nagios/contacts.cfg]]
+* [[./nagios/templates.cfg]]
 
 # Installation de Cachet
 
-## Dépendances
+Voir https://docs.cachethq.io/docs/installing-cachet
 
-* PHP 5.5.9 (ok)
+    cd /var/www
+    git clone https://github.com/cachethq/Cachet.git
+    cd Cachet
 
-* extention gd de php
+## Configuration
 
-<!-- code --> 
+    cp -a .env.example .env
+    editor .env
 
-    apt-get install php5-gd
+    curl -sS https://getcomposer.org/installer -o composer.installer
+    php composer.installer --install-dir=/usr/local/bin --filename=composer
+    chown -R www-data: /var/www/Cachet
+    sudo -u www-data composer install --no-dev -o --no-scripts
+    sudo -u www-data php artisan key:generate
+    mysql_secure_installation
+    sudo -u www-data php artisan route:cache
 
-* Composer
+Contournement non support > PHP5.6 :
 
-<!-- code -->
+    cat <<EOF | sudo tee -a bootstrap/cache/routes.php
+    // Workaround, see https://github.com/CachetHQ/Cachet/issues/4132
+    if(version_compare(PHP_VERSION, '7.0.0', '>=')) {
+        error_reporting(E_ALL ^ E_NOTICE ^ E_WARNING);
+    }
+    EOF
 
-    php -r "readfile('https://getcomposer.org/installer');" > composer-setup.php
 
-    php -r "if (hash_file('SHA384', 'composer-setup.php') === '7228c001f88bee97506740ef0888240bd8a760b046ee16db8f4095c0d8d525f2367663f22a46b48d072c816e7fe19959') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-
-    php composer-setup.php
-
-    php -r "unlink('composer-setup.php');"
-
-Pour que composer soit disponible globalement sur le système:
-
-    mv composer.phar /usr/local/bin/composer    
-
-* Installation de APCU pour le cache.
-
-<!-- code -->
-
-    apt-get install php5-apcu php5-mysql
-
-* Installation de Base de données My-SQL
-
-<!-- code -->
-
-    apt-get install mysql-server
-
-* Git (ok)
+Se connecter sur https://skytop.fdn.fr/
+Suivre l'intallateur
+cd /var/www/Cachet
+sudo -u www-data php artisan down
+sudo -u www-data php artisan config:cache
+sudo -u www-data php artisan app:update
+sudo -u www-data php artisan optimize
+sudo rm -rf /var/www/Cachet/bootstrap/cache/*
+sudo -u www-data php artisan up
 
 ## Création et Configuration de la base de données
 
@@ -204,23 +198,13 @@ Pour que composer soit disponible globalement sur le système:
     mysql> use cachet;
     mysql> truncate incidents;
 
-## Copie des sources de Cachet
-
-    cd /var/www
-    git clone https://github.com/cachethq/Cachet.git
-    cd Cachet
-    git tag -l
-    git checkout v2.2.1
-    cd /var/www/Cachet
-    cp /var/www/Cachet/.env.example /var/www/Cachet/.env
-
 ## Configuration de Cachet 
 
     /var/www/Cachet/.env
 
     APP_ENV=production
     APP_DEBUG=false
-    APP_URL=http://isengard.fdn.fr
+    APP_URL=http://skytop.fdn.fr
     APP_KEY=**************
 
     DB_DRIVER=mysql
@@ -260,23 +244,6 @@ Pour que composer soit disponible globalement sur le système:
     chown -R www-data:www-data /var/www/Cachet
     chmod -R guo+w /var/www/Cachet/storage/
 
-## Intégration avec apache
-
-    /etc/apache2/sites-enabled/000-default.conf
-
-    <VirtualHost *:80>
-        ServerName cachet.dev # Or whatever you want to use
-        ServerAlias cachet.dev # Make this the same as ServerName
-        DocumentRoot "/var/www/Cachet/public"
-        <Directory "/var/www/Cachet/public">
-            Require all granted # Used by Apache 2.4
-            Options Indexes FollowSymLinks
-            AllowOverride All
-            Order allow,deny
-            Allow from all
-        </Directory>
-    </VirtualHost>
-    
 ## Mise à jour de Cachet
 
 Mettre cachet en mode maintenance
@@ -301,65 +268,32 @@ Redémarrage de Cachet
 
     php artisan up
 
+Les logs Cachet Laravel sont ici : /var/www/Cachet/storage/logs/laravel.log
+
 ## Eviter les liens externes vers Google et Cloudflare
 
 La dernière version de Cachet permet de désactiver les dépendances externes (Google Fonts, Trackers..) depuis 
-l'interface d'administration, il suffit de décocher:
+l'interface d'administration, il suffit de décocher :
 
     Enable Third Party Dependencies (Google Fonts, Trackers, etc...) 
 
-Pour Cloudflare:
-    
-    wget 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js' -O /var/www/Cachet/public/codemirror.min.js
-    wget 'https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.js' -O /var/www/Cachet/public/codemirror.js
-    wget https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/2.0.2/zxcvbn.min.js -O /var/www/Cachet/public/zxcvbn.min.js
-    sed -i 's|https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.css|codemirror.css|g' /var/www/Cachet/resources/views/dashboard/templates/*.php
-    sed -i 's|https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/mode/twig/twig.min.js|twig.min.js|g'  /var/www/Cachet/resources/views/dashboard/templates/*.php
-    sed -i 's|https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js|codemirror.min.js|g' /var/www/Cachet/resources/views/dashboard/templates/*.php
-    sed -i 's|https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/2.0.2/zxcvbn.min.js|zxcvbn.min.js|g' Cachet/public/build/dist/js/*.js
-    sed -i 's|https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/2.0.2/zxcvbn.min.js|zxcvbn.min.js|g' Cachet/resources/assets/js/*.js
-
-Ne pas oublier de refaire l'opération après une mise à jour de Cachet.
-
 ## Cachet & Nagios together
 
-L'objectif est d'alimenter les Incidents Cachet via les alertes Nagios pour permettre un affichage user-friendly pour les utilisateurs, pour une 
+L'objectif est d'alimenter les incidents Cachet via les alertes Nagios pour permettre un affichage user-friendly pour les utilisateurs, pour une 
 vision bien plus claire de l'historique des incidents envoyés par Nagios et pour la suite d'utiliser les alertes mail de 
 Cachet.
 
-Utilisation du plugin [nagios-eventhandler-cachet](https://github.com/mpellegrin/nagios-eventhandler-cachet)
-
-Créer un utilisateur dans [Cachet dashboard](http://isengard.fdn.fr/dashboard), se connecter avec l'utilisateur et récupérer la clef API
-
-Cloner le plugin et copier cachet_notify dans /usr/local/nagios/plugins
-
-    git clone https://github.com/mpellegrin/nagios-eventhandler-cachet.git
-
-Le script est cassé, plusieurs typos et erreurs voici le script modifié pour réference: [[cachet/cachet_notify]]
-
-Modifier l'url et l'API dans cachet_notify
-
-    $cachet_url = 'https://isengard.fdn.fr/api/v1/';
-    $api_key = '*****************';
+Créer un utilisateur dans [Cachet dashboard](https://skytop.fdn.fr/dashboard), se connecter avec l'utilisateur et récupérer la clef API
 
 Pour tester le script
 
-Simuler un incident
+Simuler un incident (l'hôte doit déjà exister sur Cachet)
 
-    ./cachet_notify 'neviani.fr' 'disponibilite' FAILED HARD 'test service casse' -m=true
+    ./usr/lib/nagios/plugins/cagios/ircbot_cachet.sh 'neviani.fr' 'disponibilite' FAILED HARD 'test service casse'
 
 Simuler une reprise à la normale
 
-    ./cachet_notify 'neviani.fr' 'disponibilite' OK HARD 'test service casse' -m=true
-
-
-Ajouter une fonction auto-refresh pour la page de Status des services FDN afin de mettre à jout automatiquement la page en cas d'incident.
-
-Ajouter
-
-     <meta http-equiv="refresh" content="120">
-
-dans [Custom Footer HTML](http://isengard.fdn.fr/dashboard/settings/customization)
+    ./usr/lib/nagios/plugins/cagios/ircbot_cachet.sh 'neviani.fr' 'disponibilite' OK HARD 'test service casse'
 
 # Tests effectués
 
@@ -375,7 +309,6 @@ dans [Custom Footer HTML](http://isengard.fdn.fr/dashboard/settings/customizatio
   - [PASS] test icmp_ipv6: KO PARTIAL -> KO CRITICAL
   - [PASS] test icmp_ipv6: KO PARTIAL -> OK
   - [PASS] test icmp_ipv6: KO CRITICAL -> OK
-  - **[FAIL] test icmp_ipv6: open.fdn.fr,vpn1-rw.fdn.fr et vpn2-rw.fdn.fr (MAJ kernel pour support DNAT IPv6)**
 
 * TCP Sockets ICMPv4 & ICMPv6
   - [PASS] test web_ipv4: TCP 80 
@@ -385,7 +318,6 @@ dans [Custom Footer HTML](http://isengard.fdn.fr/dashboard/settings/customizatio
   - [PASS] test jabber_ipv4: TCP 5222
   - [PASS] test jabber_ipv6: TCP 5222
   - [PASS] test jabber_ipv4: TCP 5223
-  - **[FAIL] test jabber_ipv6: TCP 5223 (à discuter)**      
   - [PASS] test mail_ipv4: TCP 25
   - [PASS] test mail_ipv6: TCP 25
   - [PASS] test mail_ipv4: TCP 587 
@@ -394,8 +326,6 @@ dans [Custom Footer HTML](http://isengard.fdn.fr/dashboard/settings/customizatio
 * Test DNS par nos résolveurs
   - [PASS] test dns_ipv4: www.gnu.org!208.118.235.148 (IPv4 depuis DNSv4)
   - [PASS] test dns_ipv6: www.gnu.org!208.118.235.148 (IPv4 depuis DNSv6)
-  - **[FAIL] test dns_ipv6: (IPv6 depuis DNSv6) [attente MAJ 
-plugin](https://github.com/nagios-plugins/nagios-plugins/issues/154)**
 
 * Test SMTP
   - [PASS] test st25_ipv4: 220 Service ready
@@ -418,8 +348,6 @@ plugin](https://github.com/nagios-plugins/nagios-plugins/issues/154)**
   - [PASS] test ssh_ipv6: 2001:910:800::40 protocol 2.0
   - [PASS] test ssh_ipv4: fdn.fr protocol 2.0
   - [PASS] test ssh_ipv6: fdn.fr protocol 2.0
-  - [PASS] test ssh_ipv4: adminsys.fdn.fr protocol 2.0
-  - [PASS] test ssh_ipv6: adminsys.fdn.fr protocol 2.0
   - [PASS] test ssh_ipv4: lists.fdn.fr protocol 2.0
   - [PASS] test ssh_ipv6: lists.fdn.fr protocol 2.0
   - [PASS] test ssh_ipv4: webmail.fdn.fr protocol 2.0
@@ -432,8 +360,6 @@ plugin](https://github.com/nagios-plugins/nagios-plugins/issues/154)**
   - **[FAIL] test ssh_ipv6: smtp.fdn.fr protocol 2.0**
   - [PASS] test ssh_ipv4: jabber.fdn.fr protocol 2.0
   - [PASS] test ssh_ipv6: jabber.fdn.fr protocol 2.0
-  - [PASS] test ssh_ipv4: rsf.fdn.fr protocol 2.0
-  - [PASS] test ssh_ipv6: rsf.fdn.fr protocol 2.0
 
 * Test HTTPS
   - [PASS] test web_ipv4: fdn.fr 301 -> 200 OK
@@ -442,14 +368,10 @@ plugin](https://github.com/nagios-plugins/nagios-plugins/issues/154)**
   - [PASS] test web_ipv6: adminsys.fdn.fr 401 Unauthorized
   - [PASS] test web_ipv4: lists.fdn.fr 302 Found -> 200 OK
   - [PASS] test web_ipv6: lists.fdn.fr 302 Found -> 200 OK
-  - **[FAIL] test web_ipv4: webmail.fdn.fr certifcat lists.fdn.fr (à discuter)**
-  - **[FAIL] test web_ipv6: webmail.fdn.fr certificat lists.fdn.fr (à discuter)**
   - [PASS] test web_ipv4: git.fdn.fr 302 Found -> 200 OK
   - [PASS] test web_ipv6: git.fdn.fr 302 Found -> 200 OK
 
 * Test validité certificats X.509
-**  - [FAIL] test certificats: fdn.fr KO Certificate 'blog-devel.fdn.fr' expired on 2016-06-18 (à discuter)**
-  - [PASS] test certificats: adminsys.fdn.fr OK < 30 days  
   - [PASS] test certificats: lists.fdn.fr OK < 30 days
   - [PASS] test certificats: webmail.fdn.fr OK < 30 days
   - [PASS] test certificats: git.fdn.fr OK < 30 days
@@ -545,7 +467,6 @@ plugin](https://github.com/nagios-plugins/nagios-plugins/issues/154)**
 * Alertes par mail
 * Let's encrypt
 
-## Version en service
 ### Version 1.8
 
 * ICMPv4
@@ -560,7 +481,23 @@ plugin](https://github.com/nagios-plugins/nagios-plugins/issues/154)**
 * Let's encrypt
 * Test de montée de tunnels OpenVPN
 
+## Version en service
+### Version 1.9
+
+* ICMPv4
+* ICMPv6
+* TCP Sockets IPv4 & IPv6
+* Test DNS par nos résolveurs
+* Test SMTP
+* Test SSH
+* Test HTTPS
+* Test validité certificats X.509
+* Alertes par mail
+* Let's encrypt
+* Test de montée de tunnels OpenVPN
+* Migration de LDN (Isengard) vers Skytop (Grenode)
+* Passage en Debian 11 Bullseye
+
 ## Roadmap / Investigation
 
 * Test pppoe: écrire un plugin (ça n'a pas l'air d'exister) et demander credential et étudier faisabilité car LNS écoutent sur des interfaces particulières
-* mettre un nom plus parlant pour nos adhérents, statut.fdn.fr?

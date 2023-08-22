@@ -1,3 +1,4 @@
+:warning: cette page n'est plus d'actualité
 
 [https://github.com/ytti/oxidized](https://github.com/ytti/oxidized)
 

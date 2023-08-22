@@ -1,3 +1,4 @@
+:warning: cette page n'est plus d'actualité
 
 gluster est une solution de stockage distribué (en concurrence avec CEPH)
 CEPH a besoin d'un multiple de trois nœuds pour fonctionner donc nous sommes parti sur gluster qui autorise une configuration plus risquée à 2 nœuds.

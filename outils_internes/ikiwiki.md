@@ -1,3 +1,5 @@
+:warning: cette page n'est plus d'actualité
+
 *Remarque:* Il faudrait diviser cette page en plusieurs dans le dossier `ikiwiki` pour plus de lisibilité.
 Le wiki adminsys est hébergé sur la machine [[infra/machines/obiwan]]. Tous les
 membres de FDN peuvent lire ce wiki, en revanche, seulement l'équipe adminsys

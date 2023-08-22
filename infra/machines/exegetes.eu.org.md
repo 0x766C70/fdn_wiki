@@ -1,5 +1,5 @@
-[[!tag ext]]
+:warning: cette page n'est plus d'actualité
 
 Machine virtuelle pour les éxégètes non administrée par FDN.
  
-Concact : les exégètes amateurs - `contact@exegetes.eu.org`
+Contact : les exégètes amateurs - `contact@exegetes.eu.org`
