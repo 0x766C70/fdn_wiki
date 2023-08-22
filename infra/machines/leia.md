@@ -1,4 +1,4 @@
 
-Machine foure-tout en cours de demembrement
+Machine foure-tout en cours de démembrement.
 
-On y retrouve, entre autres, [nagios](/outils/supervision/intra_monitoring/)
+On y retrouve, entre autres, [nagios](/outils_internes/supervision/intra_monitoring.md).
