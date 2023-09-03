@@ -2,16 +2,16 @@
 
 ## Utilité
 
-Le service de Pad de FDN est basé sur le logiciel libre Etherpad et s’inscrit dans le cadre des services de FDN afin proposer un ensemble d'applications autour du logiciel libre.
+Le service de Pad de FDN est basé sur le logiciel libre Etherpad Lite et s’inscrit dans le cadre des services de FDN afin proposer un ensemble d'applications autour du logiciel libre.
 
-Etherpad est un éditeur de texte libre en ligne fonctionnant en mode collaboratif et en temps réel.
+Etherpad Lite est un éditeur de texte libre en ligne fonctionnant en mode collaboratif et en temps réel.
 
 Il permet à plusieurs personnes de partager l'élaboration simultanée d'un texte, et d'en discuter en parallèle, via une messagerie instantanée.
 
 Il peut avoir des usages pédagogiques, notamment pour l'apprentissage collaboratif. 
 
 Sources :
-- [Etherpad sur Github](https://github.com/ether/etherpad-lite)
+- [Etherpad Lite sur Github](https://github.com/ether/etherpad-lite)
 - [Etherpad sur Wikipedia](https://fr.wikipedia.org/wiki/Etherpad)
 
 ## Principe de fonctionnement
