@@ -7,6 +7,7 @@ Dans ce répertoire :
 - [listes de discussion/diffusion](./mailing_lists/serveursympa.md)
 - [Matrix](./matrix/)
 - [Mumble](./mumble.md)
+- [Pad](./pad/)
 - [usenet](./usenet.md)
 - [vpn](./vpn.md)
 - [web fdn](./web-fdn.md)
