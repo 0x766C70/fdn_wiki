@@ -9,11 +9,11 @@ La création d'un dépôt pour gérer une ou plusieurs zones DNS est soumis à u
 Pour commencer, créez un dépôt vierge dans le groupe [dns](https://git.fdn.fr/dns).
 
 Allez ensuite dans les paramètres généraux du dépôt et désactivez toutes les fonctionnalités à l'exception des suivantes:
-  - Repository
-    - CI/CD
-  - Environments
+  - Repository (Dépôt)
+    - CI/CD (CI/CD)
+  - Environments (Environnements)
 
-Dans les paramètres CI/CD, dans la catégorie « General pipelines », changez le paramètre « CI/CD configuration file », qui est normalement vide, par `compile.gitlab-ci.yml@dns/utils`.
+Dans les paramètres CI/CD, dans la catégorie « General pipelines » (Pipelines généraux), changez le paramètre « CI/CD configuration file » (Fichier de configuration CI/CD), qui est normalement vide, par `compile.gitlab-ci.yml@dns/utils`.
 
 ~~Dans les paramètre CI/CD du dépôt [dns/utils](https://git.fdn.fr/dns/utils/-/settings/ci_cd#js-token-access)~~
 
