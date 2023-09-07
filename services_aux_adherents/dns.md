@@ -1,5 +1,7 @@
 [[_TOC_]]
 
+<font color="red">**La documentation à jour se trouve [ici](dns/authoritative/index.md).**</font>
+
 ## Généralités
 
 Historiquement, les serveurs de FDN faisant authorité étaient *[ns0.fdn.org - 80.67.169.12](./infra/machines/resolver0.md)* et *[ns1.fdn.org - 80.67.169.40](./infra/machines/resolver1.md)*.
@@ -78,7 +80,7 @@ faire les manipulations suivantes pour positionner les *hooks* qui vont bien :
 
         $ git commit -a -m "modif"
         pre-commit: Validation des modification.....................!
-      
+
         Erreurs:
         ----------------------------
         dns_master_load: db.ffdn.org:50: unexpected end of line
