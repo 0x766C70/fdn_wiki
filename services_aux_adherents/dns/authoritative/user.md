@@ -35,4 +35,10 @@ Fonctionnalité à developper.
 
 Pour le moment, la configuration du transfert de zone doit se faire manuellement par un admin DNS.
 
+## Gestion du DNSSEC
+
+### Commencer à signer une zone
+
+### Arrêter de signer une zone
+
 ## FAQ
