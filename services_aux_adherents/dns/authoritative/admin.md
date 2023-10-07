@@ -18,7 +18,7 @@ Dans les paramètres CI/CD, dans la catégorie « General pipelines » (Pipeline
 ~~Dans les paramètre CI/CD du dépôt [dns/utils](https://git.fdn.fr/dns/utils/-/settings/ci_cd#js-token-access)~~
 
 Pour permettre un accès suffisamment fonctionnel mais sécurisé, il faut donner à l'adhérent les rôles suivants:
-  - `Reporter` sur le dépôt [dns/utils](https://git.fdn.fr/dns/utils/-/project_members)
+  - `Guest` sur le dépôt [dns/utils](https://git.fdn.fr/dns/utils/-/project_members)
   - `Developer` sur le dépôt nouvellement créé
 
 <font color="red">**Attention** Accorder des droits supplémentaires reviendrai à donner les mêmes capacités que ceux possédés par les admins DNS</font>
