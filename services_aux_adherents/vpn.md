@@ -1,5 +1,4 @@
-
-FDN fournit à la fois des VPNs authentifiés pour nos adhérents, des VPNs openbar, et des VPNs authentifiés pour des adhérents de partenaires.
+FDN fournit à la fois des VPN authentifiés pour nos adhérents (dit standard), un VPN public (ex-openbar), et des VPN authentifiés pour des adhérents de partenaires. Cf. la [documentation VPN](https://git.fdn.fr/fdn-public/wiki/-/tree/master/vpn) sur le wiki public de FDN.
 
 Dans tous les cas, on utilise actuellement openvpn. Trois exemplaires ,un pour servir en udp, l'autre pour servir en tcp, l'autre (rw) pour servir sur tous les ports.
 
@@ -44,7 +43,7 @@ Dans tous les cas, on utilise actuellement openvpn. Trois exemplaires ,un pour s
     /usr/local/nagios/etc/objects/{fdn_group.cfg,fdn.cfg}, relancer nagios:
     systemctl restart nagios.
 
-# VPN authentifiés
+# VPN authentifiés (VPN standard)
 
 Dans ce cas, on utilise openvpn-auth-radius pour récupérer l'authentification et l'autorisation depuis le serveur RADIUS.
 
@@ -55,9 +54,7 @@ Modules puppet:
 
 ## Détails IP pour VPN authentifiés
 
-Les IPs sont actuellement piochées dans 80.67.179.0/24 et
-2001:910:1300::/48. C'est dans le SI qu'est fait le choix des IPs, qui sont
-remontées via RADIUS, par exemple:
+Les IPs sont actuellement piochées dans 80.67.179.0/24 et 2001:910:1300::/48. C'est dans le SI qu'est fait le choix des IPs, qui sont remontées via RADIUS, par exemple:
 
   * Framed-IP-Address 	= 	80.67.179.7
   * Framed-IP-Netmask 	= 	255.255.255.255
@@ -65,10 +62,9 @@ remontées via RADIUS, par exemple:
   * Framed-IPv6-Address	= 	2001:910:1307:ffff::1
 
 À noter qu'en IPv6 on attribue systématiquement un préfixe /48 entier, mais
-on remonte aussi une IPv6 (2001:910:1307:ffff::1) à l'intérieur de ce préfixe,
-pour qu'openvpn la configure automatiquement du côté client du tunnel.
+on remonte aussi une IPv6 (2001:910:1307:ffff::1) à l'intérieur de ce préfixe, pour qu'openvpn la configure automatiquement du côté client du tunnel.
 
-# VPN openbar
+# VPN public (ex-openbar)
 
 Dans ce cas, le script d'authentification c'est `/bin/true` :)
 
@@ -77,64 +73,49 @@ Modules: puppet:
   * vpn-open
   * vpn-rw
 
-## Détails IP pour VPN openbar
+## Détails IP pour VPN public
 
-Les IPs sont actuellement piochées dans 80.67.171.0/26 et 2001:910:802::/48. Ce
-sont les serveurs openvpn lui-même qui gèrent chacun leur pool, avec ce
-découpage:
+Les IPs sont actuellement piochées dans 80.67.171.0/26 et 2001:910:802::/48. Ce sont les serveurs openvpn lui-même qui gèrent chacun leur pool, avec ce découpage:
 
   * vpn-open1 udp: 80.67.171.0/27 et 2001:910:802:1::/64
   * vpn-open1 tcp: 80.67.171.32/27 et 2001:910:802:2::/64
 
 ## Bande passante
 
-On applique par contre une limitation de bande passante pour
-maîtriser le coût. Les [détails de la limitation de bande
-passante](https://wiki-adh.fdn.fr/wiki/travaux:vpn_misc:bw) sont techniques,
-mais ça se résume au fichier de configuration `/etc/default/bw-limit` et au
-script `/etc/init.d/bw-limit restart`
+On applique par contre une limitation de bande passante pour maîtriser le coût. Les [détails de la limitation de bande passante](https://wiki-adh.fdn.fr/wiki/travaux:vpn_misc:bw) sont techniques, mais ça se résume au fichier de configuration `/etc/default/bw-limit` et au script `/etc/init.d/bw-limit restart`
 
-# RSF
+# VPN RSF
 
-Dans ce cas, le script d'authentification `/etc/openvpn/checkpass` va lire
-`/etc/openvpn/password`, et on laisse le serveur openvpn piocher des IPs parmi:
+Dans ce cas, le script d'authentification `/etc/openvpn/checkpass` va lire `/etc/openvpn/password`, et on laisse le serveur openvpn piocher des IPs parmi:
 
   * rsf udp: 80.67.165.96/27
   * rsf tcp: 80.67.165.64/27
 
 # Renouvellement clés
 
-Jusqu'en décembre 2017 on utilise le wildcard signé par CAcert. Depuis
-mi-novembre 2017, on ajoute un certificat auto-signé FDN dans les configs
-client. En décembre 2017, on bascule sur des certificats signés par ce
-certificat auto-signé.  Cela permet de mettre à jour les clés pour éviter
-d'utiliser une crypto trop faible: tantôt on change la clé du certificat non
-auto-signé, tantôt on change la clé du certificat auto-signé.
+Jusqu'en décembre 2017 on utilise le wildcard signé par CAcert. Depuis mi-novembre 2017, on ajoute un certificat auto-signé FDN dans les configs client. En décembre 2017, on bascule sur des certificats signés par ce certificat auto-signé.  Cela permet de mettre à jour les clés pour éviter d'utiliser une crypto trop faible: tantôt on change la clé du certificat non auto-signé, tantôt on change la clé du certificat auto-signé.
 
 ### Renouvellement certificat auto-signé
 
-Le certificat auto-signé fait 4096 bits. Si on veut le renforcer il faut
-refaire le tout:
+Le certificat auto-signé fait 4096 bits. Si on veut le renforcer il faut refaire le tout:
 
     certtool --bits 4096 --generate-privkey --outfile ca-fdn-20xx.key
     certtool --generate-self-signed --load-privkey ca-fdn-20xx.key --outfile ca-fdn-20xx.crt
 
-Parmi les réponses à donner, ce qui est important est la durée de validité,
-donner par exemple 7000 jours (20 ans), que c'est une autorité, et que le
-certificat en signera d'autres. Le reste peut rester par défaut.
+Parmi les réponses à donner, ce qui est important est la durée de validité, donner par exemple 7000 jours (20 ans), que c'est une autorité, et que le certificat en signera d'autres. Le reste peut rester par défaut.
 
 Il faut alors resigner tous les certificats avec la nouvelle autorité.
 
-Il faut alors coller le contenu de ce certificat .crt en plus des autres dans
-les configs vpn chez les abonnés:
+Il faut alors coller le contenu de ce certificat .crt en plus des autres dans les configs vpn chez les abonnés:
+  * [Config VPN standard](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/configv2.md)
+  * [Certificat VPN standard](http://www.fdn.fr/ca-vpn-fdn.crt)
 
-  * [Config VPN](https://wiki.fdn.fr/travaux:vpn_misc:doc:openvpn:config)
-  * [Certificat](http://www.fdn.fr/ca-vpn-fdn.crt)
+  * [Config VPN public](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/config-fdn-open.md)
+  * [Certificat VPN public](http://www.fdn.fr/ca-vpn-fdn-open.crt)
+
   * dans le SI dans `cgi/adh/print-vpncube.cgi`
 
-quand on est raisonnablement sûr que les abonnés ont migré, on peut basculer
-sur le nouveau certificat auto-signé, et faire enlever l'ancien certificat chez
-les abonnés.
+quand on est raisonnablement sûr que les abonnés ont migré, on peut basculer sur le nouveau certificat auto-signé, et faire enlever l'ancien certificat chez les abonnés.
 
 ### Renouvellement certificat serveur
 
@@ -151,13 +132,10 @@ Il faut transférer le .csr sur le serveur qui a le certificat auto-signé, et l
 
     certtool --generate-certificate --load-request /tmp/star.fdn_20xx.csr --load-ca-privkey ca-fdn-20xx.key --load-ca-certificate ca-fdn-20xx.crt --outfile /tmp/star.fdn_20xx.crt
 
-Parmi les réponses à donner, ce qui est important est la durée de validité,
-donner par exemple 7000 jours (20 ans), que le common name est `*.fdn.fr`, et
-que l'on va l'utiliser pour signer et chiffrer.
+Parmi les réponses à donner, ce qui est important est la durée de validité, donner par exemple 7000 jours (20 ans), que le common name est `*.fdn.fr`, et que l'on va l'utiliser pour signer et chiffrer.
 Le reste peut rester par défaut.
 
-On peut coller le contenu du certificat ca-fdn-20xx.crt à la suite dans le
-fichier .crt et le retransférer sur le serveur.
+On peut coller le contenu du certificat ca-fdn-20xx.crt à la suite dans le fichier .crt et le retransférer sur le serveur.
 
 # Patchs
 
@@ -189,23 +167,17 @@ vers les lns01 et lns02.
 
 # vpn-rw
 
-Pour que le client openvpn puisse se connecter depuis des réseaux hostiles,
-pour chaque serveur VPN on a une IP dont *tous* les ports sont redirigés vers
-openvpn.
+Pour que le client openvpn puisse se connecter depuis des réseaux hostiles, pour chaque serveur VPN on a une IP dont *tous* les ports sont redirigés vers openvpn.
 
-Le module puppet vpn-rw met en place les règles iptables pour cela. Avant de le
-déployer il faut le configurer pour définir les IPs à utiliser.
+Le module puppet vpn-rw met en place les règles iptables pour cela. Avant de le déployer il faut le configurer pour définir les IPs à utiliser.
 
 # fail2ban
 
-Pour éviter de remplir les disques durs avec les logs d'échecs d'intrus, on
-utilise fail2ban, automatiquement configuré par les modules puppet vpn et
-vpn-open.
+Pour éviter de remplir les disques durs avec les logs d'échecs d'intrus, on utilise fail2ban, automatiquement configuré par les modules puppet vpn et vpn-open.
 
 # Performances CPU
 
-Le chiffrement est une grosse part du coût CPU des VPNs, mais aussi le passage
-de paquets entre openvpn et le noyau.
+Le chiffrement est une grosse part du coût CPU des VPNs, mais aussi le passage de paquets entre openvpn et le noyau.
 
 ## support CPU
 
@@ -217,8 +189,7 @@ Ne pas oublier de re-démarrer la VM via ganeti pour que les options soient pris
 
 ## parallélisme
 
-Malheureusement openvpn n'est pas parallèle, mais on a deux serveurs (un UDP,
-l'autre TCP), donc on met deux processeurs sur les VMs pour en profiter.
+Malheureusement openvpn n'est pas parallèle, mais on a deux serveurs (un UDP, l'autre TCP), donc on met deux processeurs sur les VMs pour en profiter.
 
 # Offuscation
 
