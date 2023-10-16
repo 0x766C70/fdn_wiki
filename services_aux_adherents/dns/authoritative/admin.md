@@ -15,8 +15,6 @@ Allez ensuite dans les paramètres généraux du dépôt et désactivez toutes l
 
 Dans les paramètres CI/CD, dans la catégorie « General pipelines » (Pipelines généraux), changez le paramètre « CI/CD configuration file » (Fichier de configuration CI/CD), qui est normalement vide, par `compile.gitlab-ci.yml@dns/utils`.
 
-~~Dans les paramètre CI/CD du dépôt [dns/utils](https://git.fdn.fr/dns/utils/-/settings/ci_cd#js-token-access)~~
-
 Pour permettre un accès suffisamment fonctionnel mais sécurisé, il faut donner à l'adhérent les rôles suivants:
   - `Guest` sur le dépôt [dns/utils](https://git.fdn.fr/dns/utils/-/project_members)
   - `Developer` sur le dépôt nouvellement créé
