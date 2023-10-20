@@ -7,7 +7,7 @@
 | pandaroux         | -                               | pandaroux@cdwebplace.fr        | pad, webmutu                           |
 | tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | mail_solo, sympa, uucp, dns            |
 | vlp               | Thomas Criscione                | thomas@criscione.fr            | mail, ldap, gitlab, matrix, botbot     |
-
+| ewen              | Ewen BARA                       | ewen@aneirin.net               | DNS faisant autorité                   |
 
 ## Adminsys (root sur au moins une machine)
 
@@ -16,7 +16,6 @@
 | cat               | Catherine Guillard              | -                              | web-open, webmail                      |
 | damfle            | Damien Flety                    | damfle@fdn.fr                  | machines debian                        |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad                          |
-| ewen              | Ewen BARA                       | ewen@aneirin.net               | DNS faisant autorité                   |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | mlrx              | -                               | -                              | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | mailing                                |
