@@ -25,7 +25,10 @@ TTL 1D
 
 ## Zone secondaire
 
-La gestion des zones seondaires n'est pas possible de façon autonome, il faut en faire les demandes de changement à un admin dns.
+La gestion des zones secondaires n'est pas possible de façon autonome.
+Il faut faire les demandes de changement à un admin dns en envoyant un mail à services [at] fdn.fr en précisant les informations suivantes:
+- le nom de la zone concernée
+- la ou les adresses IP des serveurs primaires pouvant fournir la zone
 
 ## Délégation interne de zone
 
