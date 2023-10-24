@@ -21,7 +21,7 @@ TTL 1D
 	IN	NS	nsa.fdn.org.
 	IN	NS	gchq.fdn.org.
 ```
-<span style="color:orange">Attention: la valeur du sérial sera ignoré dans le processus de déploiement mais il **doit** être présent.</span>
+:warning: Attention: la valeur du sérial sera ignoré dans le processus de déploiement mais il **doit** être présent.
 
 ## Zone secondaire
 

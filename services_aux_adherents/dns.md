@@ -1,6 +1,6 @@
 [[_TOC_]]
 
-<font color="red">**La documentation à jour se trouve [ici](dns/authoritative/index.md).**</font>
+**:warning:  La documentation à jour se trouve [ici](dns/authoritative/index.md).**
 
 ## Généralités
 
