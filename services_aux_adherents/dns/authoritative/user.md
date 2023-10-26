@@ -2,11 +2,11 @@
 
 [[_TOC_]]
 
-Avant toutes choses, pour pouvoir bénificier du service d'hébergement de zone DNS, il faut faire une demande de création de dépôt Gitlab qui servira dans le reste de ce document (que vous pouvez lire avant).
+Avant toutes choses, pour pouvoir bénéficier du service d'hébergement de zone DNS, il faut faire une demande de création de dépôt Gitlab qui servira dans le reste de ce document (que vous pouvez lire avant).
 
 ## Zone primaire
 
-Dans votre dépôt, chaque zone est représenté par un fichier nommé avec le nomencalture suivante: `db.<zone>`
+Dans votre dépôt, chaque zone est représenté par un fichier nommé avec le nomenclature suivante: `db.<zone>`
 
 Le contenu doit ressembler à cela:
 ```dns
@@ -21,12 +21,12 @@ TTL 1D
 	IN	NS	nsa.fdn.org.
 	IN	NS	gchq.fdn.org.
 ```
-:warning: Attention: la valeur du sérial sera ignoré dans le processus de déploiement mais il **doit** être présent.
+:warning: Attention: la valeur du `serial` sera ignoré dans le processus de déploiement mais il **doit** être présent.
 
 ## Zone secondaire
 
 La gestion des zones secondaires n'est pas possible de façon autonome.
-Il faut faire les demandes de changement à un admin dns en envoyant un mail à services [at] fdn.fr en précisant les informations suivantes:
+Il faut faire les demandes de changement à un admin DNS en envoyant un mail à services [at] fdn.fr en précisant les informations suivantes:
 - le nom de la zone concernée
 - la ou les adresses IP des serveurs primaires pouvant fournir la zone
 
@@ -42,7 +42,7 @@ Pour le moment, la configuration du transfert de zone doit se faire manuellement
 
 ### Commencer à signer une zone
 
-Pour commencer à signer votre zone, l'entrée DS ne doit pas être publié dans le registre. Dans le cas contraire n'hésitéz pas à demander conseil sur IRC/Matrix.
+Pour commencer à signer votre zone, l'entrée DS ne doit pas être publié dans le registre. Dans le cas contraire n'hésitez pas à demander conseil sur IRC/Matrix.
 
 Pour demander la signature de la zone, vous devez créer le fichier `2bsigned` à la racine de votre dépôt.
 Dans ce dernier, ajoutez une ligne qui sera le nom de votre zone (une zone par ligne, sensible à la casse).
