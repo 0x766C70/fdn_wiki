@@ -36,7 +36,7 @@ Lorsque cela est fait le dépôt peut être supprimer sans problème.
 
 L'ajout d'une zone secondaire n'est pour le moment faisable que par la modification manuelle de la zone catalogue.
 
-## Supression d'une zone secondaire
+## Suppression d'une zone secondaire
 
 La suppression d'une zone secondaire n'est pour le moment faisable que par la modification manuelle de la zone catalogue.
 

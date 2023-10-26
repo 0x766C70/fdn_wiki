@@ -52,7 +52,7 @@ La configuration du service DNS se fait via Puppet, un [module](https://git.fdn.
 La gestion des zones utilise les outils suivant:
   - Gitlab pour héberger les zones.
   - Gitlab-CI se lancera lors d'une modification sur la branche principale d'un dépôt pouvant contenir des zones afin de déployer de façon asynchrone les changements.
-  - les [dns/utils](https://git.fdn.fr/dns/utils) regoupant des scripts exécutés par le gitlab-runner ou outils pour les actions manuelles à réaliser par un admin DNS.
+  - les [dns/utils](https://git.fdn.fr/dns/utils) regroupant des scripts exécutés par le gitlab-runner ou outils pour les actions manuelles à réaliser par un admin DNS.
 
 ## FAQ
 
