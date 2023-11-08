@@ -5,7 +5,7 @@ l'utilitaire *pass* permet d'opérer dessus.
 
 # Installation du client
 
-Les mots de passe sont stockés dans le dépôt Git [passwords](./../../passwords)
+Les mots de passe sont stockés dans le dépôt Git [passwords](https://git.fdn.fr/adminsys/passwords).
 
 Les clés GPG utilisées sont stockées dans le keyring ``password/.gnupg``
 
