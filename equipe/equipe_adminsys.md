@@ -27,7 +27,6 @@
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
 | blt               | Benoit Neviani                  | benoit@neviani.fr              | supervision, vpn                       |
-| Cefin             | -                               | cefin@protonmail.com           | mutu                                   |
 | cyril             |                                 |                                | mail                                   |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | dns                                    |
 | eric              | Eric                            | eric@fdn.fr                    | website                                |
