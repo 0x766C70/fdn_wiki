@@ -1,9 +1,10 @@
-
 FDN fournit à ses membres de l'hébergement de site web.
 
-Historiquement, les sites étaient hébergés sur [yoda](./infra/machines/yoda.md) mais ils seront à terme hébergés sur [rey](./infra/machines/rey.md).
+Historiquement, les sites étaient hébergés sur [yoda](./infra/machines/yoda.md), ils sont désormais hébergés sur [rey](./infra/machines/rey.md).
 
-Les procédures ayant évoluées, il faudra le temps de la migration gérer les deux serveurs via les procédures suivantes :
+Les procédures ayant évoluées, il faut désormais suivre celle pour Rey :
 
-- sur [yoda](./yoda.md) (sites en **web.fdn.fr**)
-- sur [rey](./rey.md) (sites en **mutu.fdn.fr**)
+- [rey](./rey.md) (sites en **mutu.fdn.fr**)
+
+Pour historique (Yoda coupé le 2023-03-25) :
+- [yoda](./yoda.md) (sites en **web.fdn.fr**)
