@@ -44,7 +44,7 @@ VLANs vus par les switches FDN (à date du 2023-08-21) :
 | 127  | Liazo - Interco BestEffort TH2 | 185.96.184.132/31 |                      |
 | 128  | Liazo - Interco Premium TH2    | 185.96.184.134/31 |                      |
 | 129  | Liazo - Interco FTTH TH2       | 185.96.185.93/31  |                      |
-| 504  | Aquilenet - Collecte FTTH      | 80.67.161.56/29   |                      |
+| 504  | Aquilenet - Collecte FTTH      | 46.231.241.248/29   |                      |
 | 530  | Liazo2 - Interco Radius PA3    | 185.96.184.162/31 |                      |
 | 531  | Liazo2 - Interco BestEffort PA3| 185.96.184.164/31 |                      |
 | 532  | Liazo2 - Interco Premium PA3   | 185.96.184.166/31 |                      |
