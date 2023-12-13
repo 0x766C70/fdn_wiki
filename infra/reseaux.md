@@ -53,7 +53,7 @@ VLANs vus par les switches FDN (à date du 2023-08-21) :
 | 801  | FDN - admin                    | 10.0.0.0/24       |                      |
 | 802  | FDN - replication              | 10.0.2.0/24       |                      |
 | 2019 | Franciliens.net - Collecte DSL | 79.143.245.128/29 |                      |
-| 2052 | PCLight - Collecte DSL         | 79.143.245.144/29 |                      |
+| 2052 | TODO: supprimer le vlan PCLight - Collecte DSL         |                   |                      |
 
 Autre (niveau 2 fourni par Gitoyen, livré à FDN en mode access, pour l'OOB) :
 
