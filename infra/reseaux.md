@@ -34,7 +34,7 @@ VLANs vus par les switches FDN (à date du 2023-08-21) :
 | 14   | FDN - LNS & RADIUS             | 80.67.161.120/29  |                      |
 |      |                                | 80.67.161.128/25  |                      |
 |      |                                | 10.0.4.0/24       |                      |
-| 16   | Nerim - Livraison DSL          | 80.67.161.112/29  |                      |
+| 16   | TODO: supprimer le vlan Nerim - Livraison DSL          |                   |                      |
 | 17   | TODO: supprimer le vlan Nerim - Livraison DSL (pppoe) (ne sert plus) |                   |                      |
 | 20   | TODO: supprimer le vlan tetaneutral.net - Collecte DSL |                   |                      |
 | 21   | TODO: supprimer le vlan Grenode - Collecte DSL         |                   |                      |
