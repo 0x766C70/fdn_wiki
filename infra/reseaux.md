@@ -37,7 +37,7 @@ VLANs vus par les switches FDN (à date du 2023-08-21) :
 | 16   | Nerim - Livraison DSL          | 80.67.161.112/29  |                      |
 | 17   | TODO: supprimer le vlan Nerim - Livraison DSL (pppoe) (ne sert plus) |                   |                      |
 | 20   | TODO: supprimer le vlan tetaneutral.net - Collecte DSL |                   |                      |
-| 21   | Grenode - Collecte DSL         | 80.67.161.40/29   | 2001:910:801:21::/64 |
+| 21   | TODO: supprimer le vlan Grenode - Collecte DSL         |                   |                      |
 | 22   | TODO: supprimer le vlan Sames - Collecte DSL           |                   |                      |
 | 119  | Gitoyen - Grand ternet         | 80.67.161.208/29  | 2001:910:0:800::/64  |
 | 126  | Liazo - Interco radius TH2     | 185.96.184.130/31 |                      |
