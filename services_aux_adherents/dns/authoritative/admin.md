@@ -50,7 +50,7 @@ $ sha1sum <<<"example.com" | cut -d' ' -f1
 Voici maintenant les entrées à ajouter au catalogue à adapter en fonction des informations de la zone:
 
 ```bind
-97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	PTR	example.com. ;Ne pas boulier le point final ici
+97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	PTR	example.com. ; Ne pas oublier le point final ici
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.1
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.2
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	AAAA	::1
