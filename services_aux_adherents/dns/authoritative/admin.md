@@ -34,7 +34,29 @@ Lorsque cela est fait le dépôt peut être supprimer sans problème.
 
 ## Ajout d'une zone secondaire
 
-L'ajout d'une zone secondaire n'est pour le moment faisable que par la modification manuelle de la zone catalogue.
+Pour ajouter une nouvelle zone secondaire, il faut ajouter les entrées DNS nécessaire dans le catalogue.
+
+Pour ce faire, il faut avoir les informations suivantes:
+- Le nom de la zone
+- La liste des serveurs primaires en IPv4 et/ou en IPv6
+
+Chaque zone du catalogue a un identifiant unique. Pour faire simple, nous allons le générer en se basant sur le nom de la zone **sans** le point final en utilisant l'algorithme SHA1. Voici un exemple avec la zone `example.com`:
+
+```console
+$ sha1sum <<<"example.com" | cut -d' ' -f1
+97612fdad3f6b17f61d6912994b66ea7b7bacc99
+```
+
+Voici maintenant les entrées à ajouter au catalogue à adapter en fonction des informations de la zone:
+
+```bind
+97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	PTR	example.com. ;Ne pas boulier le point final ici
+primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.1
+primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.2
+primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	AAAA	::1
+```
+
+:information: Un script sera écrit afin de faciliter cette manipulation.
 
 ## Suppression d'une zone secondaire
 
