@@ -47,13 +47,21 @@ $ sha1sum <<<"example.com" | cut -d' ' -f1
 97612fdad3f6b17f61d6912994b66ea7b7bacc99
 ```
 
-Voici maintenant les entrées à ajouter au catalogue à adapter en fonction des informations de la zone:
+Voici maintenant les entrées à ajouter au catalogue qui se trouve dans le fichier `/var/cache/bind/db.fdn.catalog` du serveur `dgsi.fdn.fr` à adapter en fonction des informations de la zone:
 
 ```bind
 97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	PTR	example.com. ; Ne pas oublier le point final ici
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.1
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.2
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	AAAA	::1
+```
+
+:warning: Il faut bien penser à incrémenter le `serial` de la zone
+
+Lorsque les modification ont été fait lancez les commande suivante pour la prise en compte des modifications et vérifier l'état du catalogue:
+```
+# rndc reload fdn.catalog
+# rndc zonestatus fdn.catalog
 ```
 
 :information: Un script sera écrit afin de faciliter cette manipulation.
