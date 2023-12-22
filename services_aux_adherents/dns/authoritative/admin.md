@@ -56,7 +56,7 @@ primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	A	127.0.0.2
 primaries.ext.97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	AAAA	::1
 ```
 
-:warning: Il faut bien penser à incrémenter le `serial` de la zone
+:warning: Il faut bien penser à incrémenter le `serial` du catalogue.
 
 Lorsque les modification ont été fait lancez les commande suivante pour la prise en compte des modifications et vérifier l'état du catalogue:
 ```
