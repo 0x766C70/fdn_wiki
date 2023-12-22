@@ -21,4 +21,4 @@ Host *
   ControlPersist 10
 ```
 
-:warning: Cette configuration renforcé peut empêcher la connexion sur d'ancienne machine ne supportant pas les ciphers renforcés. Il est possible de modifier la configuration pour un host sécifique.
+:warning: Cette configuration renforcée peut empêcher la connexion sur d'ancienne machine ne supportant pas les ciphers renforcés. Il est possible de modifier la configuration pour un host sécifique.
