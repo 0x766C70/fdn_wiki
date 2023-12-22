@@ -15,6 +15,7 @@
 # Les machines virtuelles
 
 #### Les serveurs de nom :
+- [dgsi](./machines/dgsi.md)
 - [nsa](./machines/nsa.md)
 - [gchq](./machines/gchq.md)
 
@@ -87,4 +88,3 @@
 
 
 # Archives des machines
-
