@@ -18,7 +18,7 @@ Dans les paramètres de la fonctionnalité « Repository » (Dépôt), il faut s
 Dans les paramètres CI/CD, dans la catégorie « General pipelines » (Pipelines généraux), s'assurer que toutes les cases sont cochées et changez le paramètre « CI/CD configuration file » (Fichier de configuration CI/CD), qui est normalement vide, par `compile.gitlab-ci.yml@dns/utils`.
 
 Pour permettre un accès suffisamment fonctionnel mais sécurisé, il faut donner à l'adhérent les rôles suivants:
-  - `Guest` sur le projet [dns/utils](https://git.fdn.fr/dns/utils/-/project_members)
+  - `Reporter` sur le projet [dns/utils](https://git.fdn.fr/dns/utils/-/project_members). Le rôle `guest` aurait pu suffir si le dépôt avait été public ou interne.
   - `Developer` sur le projet nouvellement créé
 
 <font color="red">**Attention** Accorder des droits supplémentaires reviendrai à donner les mêmes capacités que ceux possédés par les admins DNS</font>
