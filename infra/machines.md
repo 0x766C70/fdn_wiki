@@ -59,9 +59,6 @@
 #### Ticketing :
 - [jira](./machines/jira.md)
 
-#### Système d'information de FDN2 :
-- [fdn2](./machines/fdn2.md)
-
 #### Services offuscation HTTP :
 - [invidious](https://invidious.fdn.fr/) (accès Youtube)
 - [nitter](https://nitter.fdn.fr/) (accès Twitter)
