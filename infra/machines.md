@@ -42,7 +42,6 @@
 - [korr](./machines/korr.md) (mail bac à sable)
 - [neo](./machines/neo.md) (matrix + mumble)
 - [taslin](./machines/taslin.md) (nouvelle infra mail)
-- [katarn](./machines/katarn.md) (new webmail + postfixadmin)
 
 #### Outils internes :
 - [kylo](./machines/kylo.md) (pour les bénévoles : wiki adhérent, flyspray...)
