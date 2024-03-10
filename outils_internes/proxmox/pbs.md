@@ -55,7 +55,7 @@ Il existe deux modes principaux de sauvegarde :
 - mode *snapshot* : les vm ne sont pas éteintes, ie sauvegarde *à chaud* ;
 - mode *stop* : les vms sont éteintes, sauvegardées puis redémarrées, ie sauvegarde *à froid*.
 
-Il est à noter que certaines vielles vm, comme **yoda** et **ackbar**, ne peuvent être sauvegardées en mode *snapshot*, parce que les OS ne comprennent pas les commandes `qemu` envoyées par PVE. À la mise en place des sauvegardes une première sauvegarde à froid a été effectuée et est disponible sur PBS. Si on veut sauvegarder de nouveau ces vm il suffit de les arrêter, lancer la sauvegarde manuellement puis les relancer.
+Il est à noter que certaines vielles vm, comme **ackbar**, ne peuvent être sauvegardées en mode *snapshot*, parce que les OS ne comprennent pas les commandes `qemu` envoyées par PVE. À la mise en place des sauvegardes une première sauvegarde à froid a été effectuée et est disponible sur PBS. Si on veut sauvegarder de nouveau ces vm il suffit de les arrêter, lancer la sauvegarde manuellement puis les relancer.
 
 Pour connaître le statut de sauvegarde d'une vm, voir *vm > Backup* : y réside la liste des sauvegardes pour ces vms ainsi que leur état de vérification. En général la dernière sauvegarde n'a pas été vérifiée et c'est normal vue la configuration de PBS (voir plus haut).
 

@@ -11,7 +11,7 @@ Dans ce répertoire :
 - [usenet](./usenet.md)
 - [vpn](./vpn.md)
 - [web fdn](./web-fdn.md)
-- [web mutu](./web-mutu/)
+- [web mutu](./web-mutu.md)
 - [xdsl](./xdsl.md)
 
 Liens externes :

@@ -28,7 +28,6 @@
 - [vpn-open1](./machines/vpn-open1.md)
 
 #### Web & contenu :
-- [yoda](./machines/yoda.md) (web mutualisé)
 - [rey](./machines/rey.md) (web mutualisé *reloaded*)
 - [chewie](./machines/chewie.md) (web pour fdn)
 - [ackbar](./machines/ackbar.md) [(tracker torrent + media.fdn.fr)](https://ackbar.fdn.fr/)

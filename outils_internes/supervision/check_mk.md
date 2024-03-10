@@ -97,7 +97,6 @@ gérées par le Master dans /etc/check_mk/main.mk**
   	"vpn.fdn.fr",
   	"vpn1.fdn.fr",
   	"vpn2.fdn.fr",
-  	"yoda.fdn.fr",
 	]
 
 Afin de charger la nouvelle machine fraichement ajoutée dans le main.mk:

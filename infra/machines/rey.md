@@ -1,4 +1,4 @@
-Machine virtuelle pour l'hébergement mutualisé de sites web des adhérents. Remplacera à terme [yoda](./infra/machines/yoda.md).
+Machine virtuelle pour l'hébergement mutualisé de sites web des adhérents.
 
 [[_TOC_]]
 
