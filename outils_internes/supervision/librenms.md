@@ -13,8 +13,3 @@ librenms utilise les alias des interfaces pour les catégoriser : https://docs.l
 ## Alias sur les intefaces statiques
 
 Dans le fichier `/etc/network/interfaces`, on rajoute par exemple la ligne `up ip link set $IFACE alias "Cust: Resolveurs DNS (resolver0.fdn.fr)"`.
-
-## Alias des interfaces sur les hyperviseurs
-
-Le script /etc/ganeti/kvm-vif-bridge a été modifié pour rajouter des alias aux interfaces tap créées par ganeti.
-

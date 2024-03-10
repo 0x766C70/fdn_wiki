@@ -51,7 +51,7 @@ Matériel de FDN :
  - 1 ancien switch cisco 3560G 24 ports 1G
  - 1 droïdes [r5d4](./machines/r5d4.md)
  - 1 ancien droïdes [c3px](./machines/c3px.md)
- - 2 anciens anciens droïdes [r2d2](./machines/r2d2.md) / [c3po](./machines/c3po.md) (éteints)
+ - 2 anciens anciens droïdes r2d2 / c3po (éteints)
  - 1 LNS [lns22](./machines/lns22.md)
  - 1 NanoPi pour l'[OOB](../../outils_internes/acces_de_secours.md)
 

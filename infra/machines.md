@@ -7,10 +7,10 @@
 #### Les droïdes (cluster Proxmox)
 - [tc14](./machines/tc14.md) (cluster de prod)
 - [r5d4](./machines/r5d4.md) (cluster de prod)
-- [r4p17](./machines/r4p17.md) (cluster de backup)
-- [c3px](./machines/c3px.md) (cluster de backup)
-- [r2d2](./machines/r2d2.md) (down)
-- [c3po](./machines/c3po.md) (down)
+- r4p17 : noeud du cluster proxmox de sauvegardes (PBS)
+- c3px : noeud du cluster proxmox de sauvegardes (PBS)
+- r2d2 : arrêté, à PA3
+- c3po : arrêté, à PA3
 
 # Les machines virtuelles
 

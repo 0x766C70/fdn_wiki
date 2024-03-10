@@ -174,14 +174,6 @@ Pour éviter de remplir les disques durs avec les logs d'échecs d'intrus, on ut
 
 Le chiffrement est une grosse part du coût CPU des VPNs, mais aussi le passage de paquets entre openvpn et le noyau.
 
-## support CPU
-
-Pour avoir de l'accélération matérielle pour le chiffrement, on active les instructions matérielles disponibles sur tous les processeurs récents:
-
-`gnt-instance modify -H cpu_type='qemu64\,+pclmulqdq\,+sse3\,+sse4_1\,+sse4_2\,+aes\,+avx\,+xsave' vpn1.fdn.fr`
-
-Ne pas oublier de re-démarrer la VM via ganeti pour que les options soient prises en compte.
-
 ## parallélisme
 
 Malheureusement openvpn n'est pas parallèle, mais on a deux serveurs (un UDP, l'autre TCP), donc on met deux processeurs sur les VMs pour en profiter.

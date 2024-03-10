@@ -1,7 +1,6 @@
 - [Accès de secours](./acces_de_secours.md)
 - [Backup](./backup.md)
 - [etckeeper](./etckeeper.md)
-- [ganeti [old]](./ganeti.md)
 - [ikiwiki](./ikiwiki.md)
 - [letsencrypt](./letsencrypt.md)
 - [ntp](./ntp.md)

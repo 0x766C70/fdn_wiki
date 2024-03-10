@@ -45,7 +45,6 @@ réplication.
 ## Vocabulaires
 
 - BGP : 'Border Gateway Protocol', permet de se connecter au monde
-- ganeti : ancien gestionnaire de VMs, permet de créer, gérer, migrer les VMs
 - LNS : 'L2TP Network Server', machine debian, servant pour la collecte xDSL/FTTH
 
 
