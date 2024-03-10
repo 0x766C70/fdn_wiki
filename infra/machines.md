@@ -65,7 +65,6 @@
 #### Services offuscation HTTP :
 - [invidious](https://invidious.fdn.fr/) (accès Youtube)
 - [nitter](https://nitter.fdn.fr/) (accès Twitter)
-- [bibliogram](https://bibliogram.fdn.fr/) (accès Instagram)
 
 # Les machines virtuelles non gérées par FDN
 - [exegetes.eu.org] : les exégètes amateurs (contact@exegetes.eu.org)
