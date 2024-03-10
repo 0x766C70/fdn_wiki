@@ -91,7 +91,6 @@ gérées par le Master dans /etc/check_mk/main.mk**
   	"r4p17.fdn.fr",
   	"resolver0.fdn.fr",
   	"resolver1.fdn.fr",
-  	"rsf.fdn.fr",
   	"si.fdn.fr",
   	"solo.fdn.fr",
   	"vador.fdn.fr",

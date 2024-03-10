@@ -14,7 +14,6 @@ Dans tous les cas, on utilise actuellement openvpn. Trois exemplaires ,un pour s
   * vpn9
   * vpn10
   * vpn-open1
-  * rsf
 
 # Installation nouvelle VM
 
@@ -83,13 +82,6 @@ Les IPs sont actuellement piochées dans 80.67.171.0/26 et 2001:910:802::/48. Ce
 ## Bande passante
 
 On applique par contre une limitation de bande passante pour maîtriser le coût. Les [détails de la limitation de bande passante](hhttps://git.fdn.fr/fdn/wiki/-/blob/master/pages/travaux/vpn_misc/bw.md) sont techniques, mais ça se résume au fichier de configuration `/etc/default/bw-limit` et au script `/etc/init.d/bw-limit restart`
-
-# VPN RSF
-
-Dans ce cas, le script d'authentification `/etc/openvpn/checkpass` va lire `/etc/openvpn/password`, et on laisse le serveur openvpn piocher des IPs parmi:
-
-  * rsf udp: 80.67.165.96/27
-  * rsf tcp: 80.67.165.64/27
 
 # Renouvellement clés
 

@@ -26,7 +26,6 @@
 #### Tunnels chiffrés (OpenVPN) :
 - [vpns](./machines/vpns.md) vpn[1-5][-rw]
 - [vpn-open1](./machines/vpn-open1.md)
-- [rsf](./machines/rsf.md)
 
 #### Web & contenu :
 - [yoda](./machines/yoda.md) (web mutualisé)
