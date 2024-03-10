@@ -1,5 +1,5 @@
 !Command: show running-config
-!Time: Sat Aug 19 20:37:22 2023
+!Time: Sun Mar 10 18:56:29 2024
 
 version 6.0(2)U6(9)
 hostname SW-PA3-10G
@@ -225,26 +225,16 @@ vlan 3
   name fdn-infra
 vlan 14
   name fdn-lns-radius
-vlan 16
-  name nerim-dsl
-vlan 17
-  name nerim-dsl-pppoe
-vlan 20
-  name tetaneutral-collecte
-vlan 21
-  name grenode-collecte
-vlan 22
-  name sames-collecte
-vlan 119
-  name gitoyen-grand-ternet
+vlan 120
+  name gitoyen-internet-pa3
 vlan 126
-  name liazo-radius
+  name liazo-radius-th2
 vlan 127
-  name liazo-best-effort
+  name liazo-best-effort-th2
 vlan 128
-  name liazo-premium
+  name liazo-premium-th2
 vlan 129
-  name liazo-ftth
+  name liazo-ftth-th2
 vlan 504
   name aquilenet-collecte
 vlan 530
@@ -256,14 +246,13 @@ vlan 532
 vlan 533
   name Liazo2-ftth
 vlan 800
+  name fdn-intra
 vlan 801
   name fdn-admin
 vlan 802
   name fdn-replication
 vlan 2019
   name franciliens-collecte
-vlan 2052
-  name pclight-collecte
 spanning-tree vlan 2-4,11,14,16-17,20-22,119,126-128,800-801,2019,2052 priority 4096
 vrf context management
 
@@ -373,7 +362,7 @@ interface Ethernet1/10
 interface Ethernet1/11
   description r5d4 vlans
   switchport mode trunk
-  switchport trunk allowed vlan 2-4,119,800-801
+  switchport trunk allowed vlan 2-4,14,16,120,504,530-533,800-801,2019
   no shutdown
 
 interface Ethernet1/12
@@ -477,7 +466,7 @@ interface Ethernet1/37
 interface Ethernet1/38
   description vers_gitoyen-n3k-3064-baie114-PA3-Q-In-Q
   switchport mode trunk
-  switchport trunk allowed vlan 3,14,16-17,800-802
+  switchport trunk allowed vlan 3,14,800-802
   spanning-tree port type normal
   spanning-tree bpduguard disable
   spanning-tree bpdufilter disable
@@ -504,7 +493,7 @@ interface Ethernet1/47
 interface Ethernet1/48
   description upstream-gitoyen
   switchport mode trunk
-  switchport trunk allowed vlan 21,119,504,2019,2052
+  switchport trunk allowed vlan 120,504,2019
   spanning-tree port type normal
   spanning-tree bpduguard disable
   spanning-tree bpdufilter disable
@@ -548,5 +537,4 @@ interface mgmt0
 line console
 line vty
 boot kickstart bootflash:/n3000-uk9-kickstart.6.0.2.U6.9.bin 
-boot system bootflash:/n3000-uk9.6.0.2.U6.9.bin 
-
+boot system bootflash:/n3000-uk9.6.0.2.U6.9.bin

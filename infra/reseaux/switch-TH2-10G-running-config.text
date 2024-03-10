@@ -1,5 +1,5 @@
 !Command: show running-config
-!Time: Sat Aug 19 20:42:49 2023
+!Time: Sun Mar 10 19:12:36 2024
 
 version 6.0(2)U6(9)
 hostname SW-TH2-10G
@@ -222,21 +222,10 @@ vlan configuration 504
 vlan 1
 vlan 3
   name fdn-infra
-vlan 11
 vlan 14
   name fdn-lns-radius
-vlan 16
-  name nerim-dsl
-vlan 17
-  name nerim-dsl-pppoe
-vlan 20
-  name tetaneutral-collecte
-vlan 21
-  name grenode-collecte
-vlan 22
-  name sames-collecte
-vlan 119
-  name gitoyen-grand-ternet
+vlan 121
+  name gitoyen-internet-th2
 vlan 126
   name liazo-radius
 vlan 127
@@ -248,22 +237,21 @@ vlan 129
 vlan 504
   name aquilenet-collecte
 vlan 530
-  name Liazo2-radius
+  name liazo-radius-pa3
 vlan 531
-  name Liazo2-BestEffort
+  name Liazo2-BestEffort-pa3
 vlan 532
-  name Liazo2-Premium
+  name Liazo2-Premium-pa3
 vlan 533
-  name Liazo2-ftth
+  name Liazo2-ftth-pa3
 vlan 800
+  name fdn-intra
 vlan 801
   name fdn-admin
 vlan 802
   name fdn-replication
 vlan 2019
   name franciliens-collecte
-vlan 2052
-  name pclight-collecte
 spanning-tree vlan 2-4,11,14,16-17,20-22,119,126-128,800-801,2019,2052 priority 0
 vrf context management
 
@@ -348,7 +336,7 @@ interface Ethernet1/6
 interface Ethernet1/7
   description tc14 vlans
   switchport mode trunk
-  switchport trunk allowed vlan 2-4,119,800-801
+  switchport trunk allowed vlan 2-4,14,16,121,126-129,504,800-801,2019
   no shutdown
 
 interface Ethernet1/8
@@ -448,7 +436,7 @@ interface Ethernet1/32
 
 interface Ethernet1/33
   speed 1000
-  description Interco_collete_xDSL_Nerim
+  description Interco_collecte_xDSL_Nerim
   switchport access vlan 16
   no shutdown
 
@@ -457,28 +445,25 @@ interface Ethernet1/34
 
 interface Ethernet1/35
   speed 1000
-  description sames via gixe
-  switchport mode trunk
-  switchport trunk allowed vlan 22
-  no shutdown
+  description OLD_TO_REMOVE_sames via gixe
 
 interface Ethernet1/36
   speed 1000
-  description Interco_collete_xDSL_Ielo_LIA-15323
+  description Interco_collecte_xDSL_Ielo_LIA-15323
   switchport mode trunk
   switchport trunk allowed vlan 126-128
   no shutdown
 
 interface Ethernet1/37
-  description Interco_collete_FTTH_Ielo_LIA-15323
+  description Interco_collecte_FTTH_Ielo_LIA-15323
   switchport mode trunk
-  switchport trunk allowed vlan 129
+  switchport trunk allowed vlan 126-129
   no shutdown
 
 interface Ethernet1/38
   description vers gitoyen-n3k-3064-11a4-th2-par Q-in-Q
   switchport mode trunk
-  switchport trunk allowed vlan 3,14,16-17,800-802
+  switchport trunk allowed vlan 3,14,800-802
   spanning-tree port type normal
   spanning-tree bpduguard disable
   spanning-tree bpdufilter disable
@@ -505,7 +490,7 @@ interface Ethernet1/47
 interface Ethernet1/48
   description upstream-gitoyen
   switchport mode trunk
-  switchport trunk allowed vlan 21,119,504,2019,2052
+  switchport trunk allowed vlan 121,504,2019
   spanning-tree port type normal
   spanning-tree bpduguard disable
   spanning-tree bpdufilter disable
@@ -549,5 +534,4 @@ interface mgmt0
 line console
 line vty
 boot kickstart bootflash:/n3000-uk9-kickstart.6.0.2.U6.9.bin 
-boot system bootflash:/n3000-uk9.6.0.2.U6.9.bin 
-
+boot system bootflash:/n3000-uk9.6.0.2.U6.9.bin

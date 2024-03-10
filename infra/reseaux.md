@@ -30,16 +30,11 @@ VLANs vus par les switches FDN (à date du 2023-08-21) :
 | ---- | ------------------------------ | ----------------- | -------------------- |
 | 1    | -                              | -                 | -                    |
 | 3    | FDN - infra                    | 80.67.169.0/25    | 2001:910:800::/64    |
-| 11   | ???? LNS11 eth0 TH2 (inutilisé)|                   |                      |
 | 14   | FDN - LNS & RADIUS             | 10.0.4.0/24       |                      |
 |      |                                | 80.67.161.128/25  |                      |
 |      |                                | 10.0.4.0/24       |                      |
-| 16   | TODO: supprimer le vlan Nerim - Livraison DSL          |                   |                      |
-| 17   | TODO: supprimer le vlan Nerim - Livraison DSL (pppoe) (ne sert plus) |                   |                      |
-| 20   | TODO: supprimer le vlan tetaneutral.net - Collecte DSL |                   |                      |
-| 21   | TODO: supprimer le vlan Grenode - Collecte DSL         |                   |                      |
-| 22   | TODO: supprimer le vlan Sames - Collecte DSL           |                   |                      |
-| 119  | Gitoyen - Grand ternet         | 80.67.161.208/29  | 2001:910:0:800::/64  |
+| 120  | Gitoyen - Grand ternet PA3     | 80.67.168.145/31  | 2001:910:0:120::145/64 |
+| 121  | Gitoyen - Grand ternet TH2     | 80.67.168.147/31  | 2001:910:0:121::147/64 |
 | 126  | Liazo - Interco radius TH2     | 185.96.184.130/31 |                      |
 | 127  | Liazo - Interco BestEffort TH2 | 185.96.184.132/31 |                      |
 | 128  | Liazo - Interco Premium TH2    | 185.96.184.134/31 |                      |
@@ -53,7 +48,6 @@ VLANs vus par les switches FDN (à date du 2023-08-21) :
 | 801  | FDN - admin                    | 10.0.0.0/24       |                      |
 | 802  | FDN - replication              | 10.0.2.0/24       |                      |
 | 2019 | Franciliens.net - Collecte DSL | 79.143.245.128/29 |                      |
-| 2052 | TODO: supprimer le vlan PCLight - Collecte DSL         |                   |                      |
 
 Autre (niveau 2 fourni par Gitoyen, livré à FDN en mode access, pour l'OOB) :
 
@@ -77,9 +71,9 @@ La page correspondante [gitoyen](https://doc.gitoyen.net/lir/ra/).
 | --------------- | ------------------------------- |
 | 80.67.160.0/24  | subnets d'adhérents             |
 | 80.67.161.0/24  | /29 d'intercos                  |
-| 80.67.165.64/26 | vpn openbar                     |
+| 80.67.165.64/26 | vpn public                     |
 | 80.67.169.0/24  | infra                           |
-| 80.67.171.0/26  | vpn openbar                     |
+| 80.67.171.0/26  | vpn public                     |
 | 80.67.176.0/22  | /32 alloués par le SI (xDSL/FTTH/VPN) |
 
 #### Subnets adhérents
@@ -190,7 +184,7 @@ Empty set (0.01 sec)
 
 ## Ports Cisco Nexus 3064 à TH2
 
-À date du 2023-08-21 :
+À date du 2024-03-10 :
 
 | Port      | Name              | Status    | Vlan     | Duplex  | Speed   | Type
 | -------   | -----             | -------   | -----    | ------  | ------  | -----
@@ -228,7 +222,7 @@ Empty set (0.01 sec)
 | Eth1/32   | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/33   | Interco_collete_xDSL_Nerim| connected | 16       | full    | 1000    | 1000base-T
 | Eth1/34   | FREE              | sfpAbsent | 1        | full    | 10G     | --
-| Eth1/35   | sames via gixe    | connected | trunk    | full    | 1000    | 1000base-SX
+| Eth1/35   | OLD_TO_REMOVE_sames via gixe    | disabled | 1    | full    | 1000    | 1000base-SX
 | Eth1/36   | Interco_collete_xDSL_Ielo_LIA-15323| connected | trunk    | full    | 1000    | SFP-1000BX-10-U
 | Eth1/37   | Interco_collete_FTTH_Ielo_LIA-15323| connected | trunk    | full    | 10G     | 10Gbase-LR
 | Eth1/38   | vers gitoyen-n3k-3064-11a4-th2-par Q-in-Q| connected | trunk    | full    | 10G     | 10Gbase-LR
@@ -265,7 +259,7 @@ Empty set (0.01 sec)
 
 ## Ports Cisco Nexus 3064 à PA3
 
-À date du 2023-08-21 :
+À date du 2024-03-10 :
 
 | Port      | Name              | Status    | Vlan     | Duplex  | Speed  | Type
 | -------   | -----             | -------   | -----    | ------  | ------ | -----
