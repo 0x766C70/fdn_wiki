@@ -1,7 +1,0 @@
-AuthType basic
-AuthName "restricted"
-AuthUserFile /home/<login>/public_html/grenode/htpasswd
-Require valid-user
-
-Options +ExecCGI
-AddHandler cgi-script .cgi

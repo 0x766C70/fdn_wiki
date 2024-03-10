@@ -12,10 +12,6 @@ faut se situer dans un dossier ou sous dossier du dépôt, et bien sûr faire to
 
     git clone login@machine:chemin/de/repo/nomdurepo.git nomdurepo_en-local
 
-Exemple du clone du dépôt du wiki adminsys:
-
-    git clone login@obiwan.fdn.fr:/srv/repositories/adminsys.git fdn-adminsys
-
 ### Configurer son nom et son mail pour les commits
 
 Avant de pusher pour la première fois, on peut éventuellement configurer son

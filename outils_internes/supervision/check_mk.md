@@ -87,7 +87,6 @@ gérées par le Master dans /etc/check_mk/main.mk**
  	 "lns11.fdn.fr",
  	 "lns22.fdn.fr",
  	 "nsa.fdn.fr",
-  	"obiwan.fdn.fr",
   	"r4p17.fdn.fr",
   	"resolver0.fdn.fr",
   	"resolver1.fdn.fr",
