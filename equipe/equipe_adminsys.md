@@ -19,7 +19,7 @@
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | mlrx              | -                               | -                              | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | mailing                                |
-| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn                                    |
+| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, lns, si                           |
 
 
 ## Adminguest (les autres - liste probablement pas à jour)
