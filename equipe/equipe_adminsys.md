@@ -2,7 +2,7 @@
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
-| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | webmutu, RT, gitlab                    |
+| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | webmutu, RT, gitlab, PVE, PBS          |
 | asmadeus          | Dominique Martinet              | asmadeus@codewreck.org         | debug collecte, RT                     |
 | pandaroux         | -                               | pandaroux@cdwebplace.fr        | pad, webmutu                           |
 | tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | mail_solo, sympa, uucp, dns            |
