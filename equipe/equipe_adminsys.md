@@ -31,7 +31,7 @@
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | dns                                    |
 | eric              | Eric                            | eric@fdn.fr                    | website                                |
 | gal_bolle         | -                               | -                              | -                                      |
-| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, matrix                           |
+| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, matrix, dns                      |
 | jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | sympa                                  |
 | Neox              | Adrien Bourmault                | -                              | xmpp                                   |
 | nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | mail                                   |
