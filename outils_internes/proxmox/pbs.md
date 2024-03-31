@@ -22,7 +22,10 @@ Seuls les admincore ont actuellement accès à PBS :
 
 Pour configurer les accès : *Configuration > Access Control*
 
-Il existe un utilisateur spécial, **pve-bot**, configuré sur le royaume **pbs** et utilisé pour effectuer les sauvegardes depuis le PVE de **prod** (voir plus bas).
+Il existe trois utilisateurs spéciaux :
+- **pve-bot**, configuré sur le royaume **pbs** et utilisé pour effectuer les sauvegardes depuis le PVE de **prod** (voir plus bas)
+- **gitoyen-bot**, configuré sur le royaume **pbs** et utilisé pour effectuer les sauvegardes depuis les machines hébergées par Gitoyen (endor)
+- **grenode-bot**, configuré sur le royaume **pbs** et utilisé pour effectuer les sauvegardes depuis les machines hébergées par Grenode (skytop)
 
 ### Datastores
 
@@ -31,7 +34,7 @@ C'est le stockage virtuel sur lequel sont stockés les donnés sauvegardées. À
 Pour chaque datastore, on a accès aux informations suivantes :
 - *Summary* : statisques d'utilisation du datastore
 - *Content* : sauvegardes stockées par machine sauvegardée sous forme `<type>/<id>`. Il est possible de voir les différentes sauvegardes pour chaque machine en cliquant sur le `+`
-- *Prune & GC* : décider quelles sauvegardes on souhaite conserver et faire le ménage. Actuellement on conserve par défaut, pour chaque machine : les 6 dernières qutotidiennes, les 3 dernières hebdomadaires et la dernière mensuelle. Ce nettoyage est effectué tous les jours. 
+- *Prune & GC* : décider quelles sauvegardes on souhaite conserver et faire le ménage. Actuellement on conserve par défaut, pour chaque machine : les 6 dernières qutotidiennes, les 3 dernières hebdomadaires, les 11 dernières mensuelles et la dernière annuelle. Ce nettoyage est effectué tous les jours.
 - *Sync jobs* : il est possible de synchroniser ces sauvegardes sur un autre serveur PBS si besoin. Ce n'est pas le cas pour nous (cf. réplication de la vm).
 - *Verify jobs* : scan d'intégrité des backups, effectué quotidiennement.
 - *Options* : adresse mail à notifier, raisons de notifcation, vérification des nouvelles sauvegardes (désactivé car demande beaucoup d'accès disque et fait foirer les sauvegardes pour cause de timeout et vérif quotidienne activéee cf. ci-dessus)
@@ -45,7 +48,9 @@ cf. *Cluster > Storage*
 
 Storage **pbs** configuré avec l'utilisateur **pve-bot@pbs** pour accéder au datastore **backups** (cf. ci-dessus).
 
-Les vms sauvegardées sont configurées dans *Cluster > Backup*, tous les jours à 3h en mode *snapshot*. Toutes les vms ne sont pas sauvegardées : par exemple seule **vpn1** est sauvegardée, aucune vm de tests ni templates, etc.
+Les vms sauvegardées sont configurées dans *Cluster > Backup*, avec actuellement deux options possibles :
+- **LTS Backups** : tous les jours à 2h en mode snapshot. Utilise les durées de rétention par défaut du datastore (cf. plus haut).
+- **Short retention backups** : tous les jours à 3h en mode *snapshot*. Toutes les vms ne sont pas sauvegardées : par exemple seule **vpn1** est sauvegardée, aucune vm de tests ni templates, etc. Utilise une durée de rétention plus courte à savoir : 3 dernières quotidiennes, 3 dernières hebdomadaires et dernière mensuelle. C'est **PVE** qui se charge de supprimer les *vieilles* sauvegardes sur **PBS**.
 
 Pour connaître l'espace disponible sur le datastore **backups** : *Cluster > node > pbs*.
 
@@ -68,3 +73,9 @@ Note : une sauvegarde va aller stocker les données sur le cluster de **backup**
 Pour restorer une vm depuis une sauvegarde : *vm > Backup*, puis sélection d'une sauvegarde, puis *Restore*, puis suivre les instructions.
 
 TODO: tester *File Restore* et écrire la doc idoine.
+
+## Serveurs GNU/Linux
+
+Méthode utilisée pour la sauvegarde de serveurs hébergés ailleurs que via PVE. Par exemple chez des amis (Gitoyen, Grenode, etc.).
+
+TODO: détailler la procédure.
