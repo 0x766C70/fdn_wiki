@@ -16,6 +16,7 @@
 | damfle            | Damien Flety                    | damfle@fdn.fr                  | Kessel                        |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad, BBB                          |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | DNS, mail, LNS                                    |
+| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, matrix, DNS                      |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | mailing                                |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | vpn, lns, si                           |
@@ -29,7 +30,6 @@
 | cyril             |                                 |                                | mail                                   |                                |
 | eric              | Eric                            | eric@fdn.fr                    | website                                |
 | gal_bolle         | -                               | -                              | -                                      |
-| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, matrix, dns                      |
 | jcd               | Jean Charles Delepine           | jean.charles@delepine.info     | sympa                                  |
 | Neox              | Adrien Bourmault                | -                              | xmpp                                   |
 | nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | mail                                   |
