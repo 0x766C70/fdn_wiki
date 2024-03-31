@@ -61,7 +61,6 @@
 
 #### Services offuscation HTTP :
 - [invidious](https://invidious.fdn.fr/) (accès Youtube)
-- [nitter](https://nitter.fdn.fr/) (accès Twitter)
 
 # Les machines virtuelles non gérées par FDN
 - [geeknode] : asso geeknode - (bureau@geeknode.org)

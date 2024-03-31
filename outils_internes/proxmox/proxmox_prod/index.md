@@ -38,7 +38,7 @@ Pour donner des accès à un utilisateur pour une certaine machine virtuelle, de
 
 Exemples :
 1. Un admincore ayant un accès à un noeud n'est pas automatiquement administrateur de PVE : pour cela, il suffit d'ajouter cet utilisateur au groupe **noyau**. Cet ajout se fait au niveau de l'utilisateur, et non du groupe.
-1. Un adminsys veut pouvoir administrer la machine *nitter*. Au niveau des permissions de la vm, on voit qu'il y a déjà une association **@privacy-admin/benevoleVM**, ie entre le groupe **privacy-admin** et le rôle **benevoleVM**. Deux options s'offrent à nous :
+1. Un adminsys veut pouvoir administrer la machine *invidious*. Au niveau des permissions de la vm, on voit qu'il y a déjà une association **@privacy-admin/benevoleVM**, ie entre le groupe **privacy-admin** et le rôle **benevoleVM**. Deux options s'offrent à nous :
   - rajouter l'utilisateur au groupe **privacy-admin** : il aura alors automatiquement les droits **benevoleVM** non seulement sur cette vm, mais également sur toutes les vm ayant les même permissions, par exemple *invidious*.
   - rajouter une autorisation **benevolesVM** pour cet utilisateur uniquement.
 
