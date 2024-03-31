@@ -13,7 +13,6 @@
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
-| cat               | Catherine Guillard              | -                              | web-open, webmail                      |
 | damfle            | Damien Flety                    | damfle@fdn.fr                  | Kessel                        |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad                          |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
