@@ -16,21 +16,27 @@
 | damfle            | Damien Flety                    | damfle@fdn.fr                  | Kessel                        |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | Peertube, Pad, BBB                          |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | DNS, mail, LNS                                    |
+| eric              | Eric                            | eric@fdn.fr                    | sites web FDN, capsule Gemini      |
 | hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, Matrix, DNS                      |
-| khrys             | Khrys                           | khrys@fdn.fr                   | sites web FDN, listmaster mailing, SI                       |
+| khrys             | Khrys                           | khrys@fdn.fr                   | sites web FDN, listmaster mailing, capsule Gemini                       |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | listmaster mailing                                |
-| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | VPN, LNS, SI                           |
+| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | VPN, LNS                           |
+| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | ackbar (média) |
 
 
-## Adminguest (les autres)
+## Adminguest (non root sur minimum une machine)
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
-| cyril             |                                 |                                | mail                                   |                                |
-| eric              | Eric                            | eric@fdn.fr                    | sites web FDN                                |
-| gal_bolle         | -                               | -                              | -                                      |
-| Neox              | Adrien Bourmault                | -                              | XMPP                                   |
-| nicolas           | Nicolas Grandjean               | nicolas@microniko.net          | mail                                   |
-| perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr          | -                                      |
-| sebian            | -                               | -                              | n/a                                    |
-| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | SI                                      |
+|                            |                                |                          |                                  |
+
+## Admin du SI (Système d'Information Vador)
+
+| login             | Nom/Pseudo                      | Email
+| ----------------- | ------------------------------- | ------------------------------ |
+| gal_bolle         | gal_bolle                               | -                             |
+| nicolas           | Nicolas Grandjean               | nicolas@microniko.net          |
+| perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr      |
+| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            |   
+| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org                  |
+| khrys             | Khrys                           | khrys@fdn.fr                   | 
