@@ -15,6 +15,7 @@
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
 | damfle            | Damien Flety                    | damfle@fdn.fr                  | Kessel                        |
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad, BBB                          |
+| domi              | Dominique Rousseau              | domi@lee-loo.net               | DNS, mail, LNS                                    |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | mlrx              | -                               | -                              | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | mailing                                |
@@ -26,8 +27,7 @@
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
 | blt               | Benoit Neviani                  | benoit@neviani.fr              | supervision, vpn                       |
-| cyril             |                                 |                                | mail                                   |
-| domi              | Dominique Rousseau              | domi@lee-loo.net               | dns                                    |
+| cyril             |                                 |                                | mail                                   |                                |
 | eric              | Eric                            | eric@fdn.fr                    | website                                |
 | gal_bolle         | -                               | -                              | -                                      |
 | hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, matrix, dns                      |
