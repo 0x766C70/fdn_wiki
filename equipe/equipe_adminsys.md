@@ -14,7 +14,7 @@
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
 | damfle            | Damien Flety                    | damfle@fdn.fr                  | Kessel                        |
-| dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad                          |
+| dino              | Nicolas Schont                  | dino@jabberwookie.fr           | peertube, pad, BBB                          |
 | khrys             | Khrys                           | khrys@fdn.fr                   | website, mailing                       |
 | mlrx              | -                               | -                              | mail                                   |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | mailing                                |
