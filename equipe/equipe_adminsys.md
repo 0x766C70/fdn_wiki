@@ -20,7 +20,7 @@
 | hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, Matrix, DNS                      |
 | khrys             | Khrys                           | khrys@fdn.fr                   | sites web FDN, listmaster mailing, capsule Gemini                       |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | listmaster mailing                                |
-| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | VPN, LNS                           |
+| youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | VPN, LNS, SI                       |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | ackbar (média) |
 
 
