@@ -6,7 +6,7 @@
 * Adminsys (équipe adminsys)
 * FDN (tous les membres)
 
-Pour les descriptions, voir notre [fonctionnement](./fonctionnement.md)
+Pour les descriptions, voir notre [fonctionnement](../equipe/fonctionnement.md)
 
 "adminsys" est le groupe projet pivot dans lequel tous les projets fdn sont créés selon l'organisation ci-dessous:
 
