@@ -22,7 +22,7 @@
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | listmaster mailing                                |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | VPN, LNS, SI                       |
 | thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            | ackbar (média) |
-
+| neox               | Adrien Bourmault               | neox@a-lec.org            | XMPP |
 
 ## Adminguest (non root sur minimum une machine)
 
