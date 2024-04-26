@@ -17,7 +17,7 @@
 | dino              | Nicolas Schont                  | dino@jabberwookie.fr           | Peertube, Pad, BBB                          |
 | domi              | Dominique Rousseau              | domi@lee-loo.net               | DNS, mail, LNS                                    |
 | eric              | Eric                            | eric@fdn.fr                    | sites web FDN, capsule Gemini      |
-| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, Matrix, DNS                      |
+| hguilbert         | Hervé Guilbert                  | fdn@amenhotep.net              | mail, Matrix, DNS, XMPP                      |
 | khrys             | Khrys                           | khrys@fdn.fr                   | sites web FDN, listmaster mailing, capsule Gemini                       |
 | stephaneascoet    | Stephane Ascoet                 | stephaneascoet@free.fr         | listmaster mailing                                |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org   | VPN, LNS, SI                       |
