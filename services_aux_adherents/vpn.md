@@ -1,4 +1,4 @@
-FDN fournit à la fois des VPN authentifiés pour nos adhérents (dit standard), un VPN public (ex-openbar), et des VPN authentifiés pour des adhérents de partenaires. Cf. la [documentation VPN](https://git.fdn.fr/fdn-public/wiki/-/tree/master/vpn) sur le wiki public de FDN.
+FDN fournit à la fois des VPN authentifiés pour nos adhérents (dit standard), un VPN public (ex-openbar), et des VPN authentifiés pour des adhérents de partenaires. Cf. la [documentation VPN](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/README.md) sur le wiki public de FDN.
 
 Dans tous les cas, on utilise actuellement openvpn. Trois exemplaires ,un pour servir en udp, l'autre pour servir en tcp, l'autre (rw) pour servir sur tous les ports.
 
@@ -81,7 +81,7 @@ Les IPs sont actuellement piochées dans 80.67.171.0/26 et 2001:910:802::/48. Ce
 
 ## Bande passante
 
-On applique par contre une limitation de bande passante pour maîtriser le coût. Les [détails de la limitation de bande passante](hhttps://git.fdn.fr/fdn/wiki/-/blob/master/pages/travaux/vpn_misc/bw.md) sont techniques, mais ça se résume au fichier de configuration `/etc/default/bw-limit` et au script `/etc/init.d/bw-limit restart`
+On applique par contre une limitation de bande passante pour maîtriser le coût. Les [détails de la limitation de bande passante](https://git.fdn.fr/fdn/wiki/-/blob/master/pages/travaux/vpn_misc/bw.md) sont techniques, mais ça se résume au fichier de configuration `/etc/default/bw-limit` et au script `/etc/init.d/bw-limit restart`
 
 # Renouvellement clés
 
@@ -99,12 +99,9 @@ Parmi les réponses à donner, ce qui est important est la durée de validité, 
 Il faut alors resigner tous les certificats avec la nouvelle autorité.
 
 Il faut alors coller le contenu de ce certificat .crt en plus des autres dans les configs vpn chez les abonnés:
-  * [Config VPN standard](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/configv2.md)
+  * [Config VPN standard](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/config-fdn-vpn.md)
   * [Certificat VPN standard](https://www.fdn.fr/ca-vpn-fdn.crt)
 
-  * [Config VPN public](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/config-fdn-open.md)
-  * [Certificat VPN public](https://www.fdn.fr/ca-vpn-fdn-open.crt)
-/!\ A partir du mois d'avril 2024, il faudra utiliser les fichiers suivants pour le VPN public /!\
   * [Config VPN public](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/config-fdn-vpn-public.md)
   * [Certificat VPN public](https://www.fdn.fr/ca-vpn-public-fdn.crt)
 
@@ -202,7 +199,7 @@ Ajout du module acme dans puppet pour les VM concernées vpn[1,2,3].pp
 
 ### Apache2 & acme
 
-Suivre la procédure [let's encrypt](./outils/letsencrypt.md)
+Suivre la procédure [let's encrypt](./outils_internes/letsencrypt.md)
 
 Modifier le site default (/etc/apache2/site-available/default) par: 
 
