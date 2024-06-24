@@ -168,3 +168,19 @@ Services est le point d'entrée par défaut pour toutes les demandes ne concerna
 Ces groupes n'ont pas pour but de cloisonner l'intervention des bénévoles parce que chacun a la possibilité d'aller voir et de prendre en charge les tickets de service et de support, même s'il ne fait pas partie du groupe initialement défini. Cela a pour but d'éviter que ceux qui n'ont pas les accès particuliers (accès à la machine de mails, au SI, etc.) ne reçoivent les demandes qui ne les concernent pas.
 
 Tous les bénévoles font également partie d'un groupe **Bénévoles** et ont tous les mêmes accès aux tickets. Seuls quelques-uns appartenant à un groupe **Administrateurs** ont accès à la configuration de RT et à **toutes** les files.
+
+### Accès RT à une nouvelle personne bénévole :
+
+Pour lui donner les accès :
+
+- la rechercher par exemple avec son adresse email [ici](https://tickets.fdn.fr/rt/User/Search.html) si RT la connaît déjà (elle a déjà envoyé un email par ce biais)
+- une fois sur sa page, cliquer sur **Modifier** en haut à droite
+- puis dans **contrôle d'accès** à gauche, cocher la case **Autoriser cet utilisateur à recevoir des droits (Privilégié)**, la première case est normalement toujours cochée (**Donner accès à RT à cet utilisateur**), la cocher également si ce n'est pas le cas
+- il faut ensuite entrer son propre mot de passe dans le premier champ pour que la modification soit prise en compte
+- définir un mot de passe temporaire pour les champs suivants qu'il faudra transmettre à la personne (la page d'accueil de RT n'ayant pas de bouton "mot de passe oublié")
+- et pour finir ne pas oublier de cliquer sur **Enregistrer les modifications** en bas à droite pour valider
+
+Pour lui retirer les accès :
+
+- décocher la case **Autoriser cet utilisateur à recevoir des droits (Privilégié)**
+- et la retirer des groupes auxquels elle faisait partie via le bouton **Affiliations**
