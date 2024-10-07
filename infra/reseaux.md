@@ -224,7 +224,7 @@ Empty set (0.01 sec)
 | Eth1/34   | FREE              | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/35   | FREE		| disabled  | 1	       | full    | 1000    | 1000base-SX
 | Eth1/36   | FREE		| sfpAbsent | 1	       | full    | 1000    | --
-| Eth1/37   | Interco_collete_FTTH_Ielo_LIA-15323| connected | trunk    | full    | 10G     | 10Gbase-LR
+| Eth1/37   | Interco_collete_xDSL_FTTH_Ielo_LIA-15323| connected | trunk    | full    | 10G     | 10Gbase-LR
 | Eth1/38   | vers gitoyen-n3k-3064-11a4-th2-par Q-in-Q| connected | trunk    | full    | 10G     | 10Gbase-LR
 | Eth1/39   | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/40   | --                | sfpAbsent | 1        | full    | 10G     | --
