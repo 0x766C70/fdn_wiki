@@ -1,5 +1,5 @@
 !Command: show running-config
-!Time: Sun Mar 10 19:12:36 2024
+!Time: Mon Oct  7 00:56:31 2024
 
 version 6.0(2)U6(9)
 hostname SW-TH2-10G
@@ -351,10 +351,7 @@ interface Ethernet1/10
 
 interface Ethernet1/11
   speed 1000
-  description lns11 - eth0
-  switchport mode trunk
-  switchport trunk allowed vlan 2-4,11,14,16-17,20-22,126-129,504,800-801,2019,2052
-  no shutdown
+  description FREE
 
 interface Ethernet1/12
   speed 100
@@ -400,9 +397,7 @@ interface Ethernet1/20
 
 interface Ethernet1/21
   speed 100
-  description lns11 IPMI
-  switchport access vlan 801
-  no shutdown
+  description FREE
 
 interface Ethernet1/22
   speed 1000
@@ -436,26 +431,22 @@ interface Ethernet1/32
 
 interface Ethernet1/33
   speed 1000
-  description Interco_collecte_xDSL_Nerim
-  switchport access vlan 16
-  no shutdown
+  description FREE
 
 interface Ethernet1/34
   description FREE
 
 interface Ethernet1/35
   speed 1000
-  description OLD_TO_REMOVE_sames via gixe
+  description FREE
 
 interface Ethernet1/36
   speed 1000
-  description Interco_collecte_xDSL_Ielo_LIA-15323
-  switchport mode trunk
-  switchport trunk allowed vlan 126-128
+  description FREE
   no shutdown
 
 interface Ethernet1/37
-  description Interco_collecte_FTTH_Ielo_LIA-15323
+  description Interco_collecte_xDSL_FTTH_Ielo_LIA-15323
   switchport mode trunk
   switchport trunk allowed vlan 126-129
   no shutdown

@@ -117,7 +117,7 @@ Type                    reply
 User id                (prérempli)
 ```
 
-ATTENTION: Pour ajouter plusieurs attributs 'Framed-Route', les suivants (dans l'odre de `UATTR_ID`) doivent utiliser l'opérateur `+=`, et non pas `=`, faute de quoi le radius ne renvoit que la première route.
+ATTENTION : pour ajouter plusieurs attributs 'Framed-Route', les suivants (dans l'odre de `UATTR_ID`) doivent utiliser l'opérateur `+=`, et non pas `=`, faute de quoi le radius ne renvoit que la première route.
 
 
 - Côté routage, il n'y à à priori rien à faire chez FDN (vérifier que le nouveau subnet appartient bien à un subnet qu'on accepte déjà de router dans nos confs bird).
@@ -184,7 +184,7 @@ Empty set (0.01 sec)
 
 ## Ports Cisco Nexus 3064 à TH2
 
-À date du 2024-03-10 :
+À date du 2024-10-07 :
 
 | Port      | Name              | Status    | Vlan     | Duplex  | Speed   | Type
 | -------   | -----             | -------   | -----    | ------  | ------  | -----
@@ -198,7 +198,7 @@ Empty set (0.01 sec)
 | Eth1/8    | tc14 replication  | connected | trunk    | full    | 10G     | SFP-H10GB-CU1.255M
 | Eth1/9    | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/10   | --                | sfpAbsent | 1        | full    | 10G     | --
-| Eth1/11   | lns11 - eth0      | connected | trunk    | full    | 1000    | 1000base-T
+| Eth1/11   | FREE	        | disabled  | 1	       | full    | 1000    | 1000base-T
 | Eth1/12   | nanopi-th2-admin  | connected | 801      | full    | 100     | 1000base-T
 | Eth1/13   | r4p17 replication | connected | trunk    | full    | 1000    | 1000base-T
 | Eth1/14   | r4p17 vlans       | connected | trunk    | full    | 1000    | 1000base-T
@@ -208,7 +208,7 @@ Empty set (0.01 sec)
 | Eth1/18   | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/19   | R4P17 IPMI        | connected | 801      | full    | 100     | 1000base-T
 | Eth1/20   | --                | sfpAbsent | 1        | full    | 10G     | --
-| Eth1/21   | lns11 IPMI        | connected | 801      | full    | 100     | 1000base-T
+| Eth1/21   | FREE	        | sfpAbsent |   1      | auto    | 100     | --
 | Eth1/22   | tc14 IPMI         | connected | 801      | full    | 1000    | 1000base-T
 | Eth1/23   | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/24   | Acces intervention Internet| sfpAbsent | 3        | full    | 1000    | --
@@ -220,10 +220,10 @@ Empty set (0.01 sec)
 | Eth1/30   | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/31   | --                | sfpAbsent | 1        | full    | 10G     | --
 | Eth1/32   | --                | sfpAbsent | 1        | full    | 10G     | --
-| Eth1/33   | Interco_collete_xDSL_Nerim| connected | 16       | full    | 1000    | 1000base-T
+| Eth1/33   | FREE		| disabled  | 1        | full    | 1000    | 1000base-T
 | Eth1/34   | FREE              | sfpAbsent | 1        | full    | 10G     | --
-| Eth1/35   | OLD_TO_REMOVE_sames via gixe    | disabled | 1    | full    | 1000    | 1000base-SX
-| Eth1/36   | Interco_collete_xDSL_Ielo_LIA-15323| connected | trunk    | full    | 1000    | SFP-1000BX-10-U
+| Eth1/35   | FREE		| disabled  | 1	       | full    | 1000    | 1000base-SX
+| Eth1/36   | FREE		| sfpAbsent | 1	       | full    | 1000    | --
 | Eth1/37   | Interco_collete_FTTH_Ielo_LIA-15323| connected | trunk    | full    | 10G     | 10Gbase-LR
 | Eth1/38   | vers gitoyen-n3k-3064-11a4-th2-par Q-in-Q| connected | trunk    | full    | 10G     | 10Gbase-LR
 | Eth1/39   | --                | sfpAbsent | 1        | full    | 10G     | --
