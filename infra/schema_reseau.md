@@ -1,6 +1,6 @@
 # Schéma high level du réseau FDN
 
-![img fdn_network_2023.svg size=x800](./schema_reseau/fdn_network_2023.svg)
+![img fdn_network_2024_12_04.svg size=x800](./schema_reseau/fdn_network_2024_12_04.svg)
 
 # Explication du schéma
 

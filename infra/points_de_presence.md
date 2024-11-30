@@ -17,7 +17,6 @@ Adresse :
 Matériel de FDN :
 
  - 1 switch Cisco Nexus 3064 10G
- - 1 LNS [lns11](./machines/lns11.md)
  - 1 ancien droïde [r4p17](./machines/r4p17.md)
  - 1 NanoPi pour l'[OOB](../../outils_internes/acces_de_secours.md)
 

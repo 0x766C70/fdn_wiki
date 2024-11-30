@@ -1,7 +1,6 @@
 # Les serveurs physiques
 
 #### Anciens LNS (routeurs et L2TP)
-- [lns11](./machines/lns11.md) : arrêté, à TH2
 - [lns22](./machines/lns22.md) : arrêté, à PA3
 
 #### Les droïdes (cluster Proxmox)
