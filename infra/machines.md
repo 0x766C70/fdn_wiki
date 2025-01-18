@@ -35,7 +35,6 @@
 - [chewie](./machines/chewie.md) (sites web FDN)
 - [ackbar](./machines/ackbar.md) [(tracker torrent + media.fdn.fr)](https://ackbar.fdn.fr/)
 - [tiree](./machines/tiree.md) [(peertube)](https://tube.fdn.fr/)
-- [guardian](./machines/guardian.md) (SSO)
 
 #### Communication :
 - [solo](./machines/solo.md) (old-mail + listes Sympa)
