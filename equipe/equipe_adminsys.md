@@ -2,10 +2,10 @@
 
 | login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
 | ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
-| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | web mutualisé, RT, Gitlab, PVE, PBS          |
+| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | web mutualisé, RT, Gitlab, PVE, PBS    |
 | asmadeus          | Dominique Martinet              | asmadeus@codewreck.org         | debug collecte, RT                     |
-| pandaroux         | Charles                               | pandaroux@cdwebplace.fr        | pad, invidious, web mutualisé                           |
-| tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | mail_solo, mailing, UUCP, DNS            |
+| pandaroux         | Charles                         | pandaroux@cdwebplace.fr        | pad, web mutualisé                     |
+| tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | mail_solo, mailing, UUCP, DNS          |
 | vlp               | Thomas Criscione                | thomas@criscione.fr            | mail, LDAP, Gitlab, Matrix, botbot     |
 | ewen              | Ewen BARA                       | ewen@aneirin.net               | DNS faisant autorité                   |
 

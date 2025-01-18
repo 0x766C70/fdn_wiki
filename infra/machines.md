@@ -58,9 +58,6 @@
 #### Ticketing :
 - [jira](./machines/jira.md)
 
-#### Services offuscation HTTP :
-- [invidious](https://invidious.fdn.fr/) (accès Youtube)
-
 # Les machines virtuelles non gérées par FDN
 - [geeknode] : asso geeknode - (bureau@geeknode.org)
 - [unefede] : Fédération FDN - (adminsys@ffdn.org)
