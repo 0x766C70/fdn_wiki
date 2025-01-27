@@ -51,6 +51,12 @@ Détails des commandes disponibles :
 
 ### Création d'un nouveau compte Matrix
 
+On peut vérifier si un compte avec le même login n'existe pas déjà :  
+> -d : affiche les comptes désactivés  
+> -i : recherche par ID Matrix uniquement
+
+    synadm user list -d -i toto
+
 Crée le compte toto et demande le mot de passe associé
 
     synadm user modify toto -p
