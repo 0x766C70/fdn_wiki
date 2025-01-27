@@ -30,6 +30,11 @@ Pour supprimer un dépôt, il faut d'abord s'assurer qu'il n'y a plus aucune don
 Lors du déploiement, le pipeline crée un nouvel environnement et enregistre la procédure de suppression de ces données.
 Par conséquent, avant de supprimer le dépôt il faut arrêter l'environnement présent dans le dépôt au risque de devoir effectuer la suppression manuellement.
 
+Pour arrêter l'environnement du dépot DNS à fermer : 
+- Operate (Opération)
+- Environments (Environnements)
+- Appuyer sur le bouton `Stop` (`Arrêter`)
+
 Lorsque cela est fait le dépôt peut être supprimer sans problème.
 
 ## Ajout d'une zone secondaire
