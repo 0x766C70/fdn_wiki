@@ -100,10 +100,10 @@ Il faut alors resigner tous les certificats avec la nouvelle autorité.
 
 Il faut alors coller le contenu de ce certificat .crt en plus des autres dans les configs vpn chez les abonnés:
   * [Config VPN standard](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/config-fdn-vpn.md)
-  * [Certificat VPN standard](https://www.fdn.fr/ca-vpn-fdn.crt)
+  * [Certificat VPN standard](https://www.fdn.fr/assets/files/ca-vpn-fdn.crt)
 
   * [Config VPN public](https://git.fdn.fr/fdn-public/wiki/-/blob/master/vpn/openvpn/client/config-fdn-vpn-public.md)
-  * [Certificat VPN public](https://www.fdn.fr/ca-vpn-public-fdn.crt)
+  * [Certificat VPN public](https://www.fdn.fr/assets/files/ca-vpn-public-fdn.crt)
 
   * dans le SI dans `cgi/adh/print-vpncube.cgi`
 
