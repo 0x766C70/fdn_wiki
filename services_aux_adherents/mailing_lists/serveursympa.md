@@ -24,13 +24,13 @@ Les personnes gérant le service de listes sont appelées les listmasters et son
 
 ça se met dans `/etc/sympa/sympa.conf` sur [solo](./infra/machines/solo.md). On peut y mettre le compte habituel ou en créer un spécialement pour que la personne soit maitre. Mat n'est favorable a aucune de ces solutions.
 
-#### L'adresse <listmaster@fdn.fr> renvoie au 31/3/2019 sur : 
+#### L'adresse <listmaster@fdn.fr> renvoie au 30/03/2025 sur : 
 
 - <delepine@u-picardie.fr>,
 - <mat@mat.cc>,
 - <stephaneascoet@free.fr>,
-- <scarabeille@free.fr>,
 - <tom@pern.fdn.fr>
+- <khrys@fdn.fr>
 
 Pour ajouter ou enlever une adresse de cette liste, éditer le fichier `/etc/mail/aliases` sur [solo](./infra/machines/solo.md). (La ligne qui commence par "listmaster:") puis faire `sudo newaliases`.
 Le mot de passe d'accès à la base Mysql est dans `/etc/sympa/sympa.conf` sur [solo](./infra/machines/solo.md), ce n'est pas nécessairement le même que celui du compte `listmaster@fdn.fr`
