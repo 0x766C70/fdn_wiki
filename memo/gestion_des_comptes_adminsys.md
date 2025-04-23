@@ -1,5 +1,3 @@
-
-
 Les comptes d'administration système sont gérés par puppet. On distingue les
 comptes d'administration des comptes de services (web sur yoda, mail sur solo,
 etc).  Les comptes de services ne sont pas gérés par puppet.
@@ -19,8 +17,7 @@ des abonnés, Ajouter un utilisateur.
 
 Au préalable, il est nécessaire d'avoir récupéré de manière sure :
 
-  * l'empreinte de son mot de passe pour les utilisateurs sudo (générée avec 
-mkpasswd -m sha-512)
+  * [l'empreinte de son mot de passe](./generate_hash.md) pour les utilisateurs sudo
   * sa ou ses clés ssh
   * le numéro de l'adhérent
 
