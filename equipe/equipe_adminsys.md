@@ -1,13 +1,24 @@
 ## Admincore (noyau)
 
-| login             | Nom/Pseudo                      | Email                          | Référent/Accès Services (vue adhérents)|
-| ----------------- | ------------------------------- | ------------------------------ | -------------------------------------- |
-| afriqs            | Alexandre Friquet               | fdn@lbrafg.net                 | web mutualisé, RT, Gitlab, PVE, PBS    |
-| asmadeus          | Dominique Martinet              | asmadeus@codewreck.org         | debug collecte, RT                     |
-| pandaroux         | Charles                         | pandaroux@cdwebplace.fr        | pad, web mutualisé                     |
-| tom               | Thomas Parmelan                 | tom@pern.fdn.fr                | mail_solo, mailing, UUCP, DNS          |
-| vlp               | Thomas Criscione                | thomas@criscione.fr            | mail, LDAP, Gitlab, Matrix, botbot     |
-| ewen              | Ewen BARA                       | ewen@aneirin.net               | DNS faisant autorité                   |
+```json:table
+{
+    "fields" : [
+        {"key": "login"   , "sortable": true, "label": "Login"},
+        {"key": "name"    , "sortable": true, "label": "Nom/Pseudo"},
+        {"key": "mail"    , "sortable": true, "label": "Email"},
+        {"key": "services", "sortable": true, "label": "Référent/Accès Services (vue adhérents)"}
+    ],
+    "items": [
+        {"login": "afriqs", "name": "Alexandre Friquet", "mail": "fdn@lbrafg.net", "services": "web mutualisé, RT, Gitlab, PVE, PBS"},
+        {"login": "asmadeus", "name": "Dominique Martinet", "mail": "asmadeus@codewreck.org", "services": "debug collecte, RT"},
+        {"login": "pandaroux", "name": "Charles", "mail": "pandaroux@cdwebplace.fr", "services": "pad, web mutualisé"},
+        {"login": "tom", "name": "Thomas Parmelan", "mail": "tom@pern.fdn.fr", "services": "mail_solo, mailing, UUCP, DNS"},
+        {"login": "vlp", "name": "Thomas Criscione", "mail": "thomas@criscione.fr", "services": "mail, LDAP, Gitlab, Matrix, botbot"},
+        {"login": "ewen", "name": "Ewen", "mail": "ewen@aneirin.net", "services": "DNS faisant autorité"}
+    ],
+    "markdown" : true
+}
+```
 
 ## Adminsys (root sur au moins une machine)
 
@@ -37,6 +48,6 @@
 | gal_bolle         | gal_bolle                               | -                             |
 | nicolas           | Nicolas Grandjean               | nicolas@microniko.net          |
 | perliculteur      | Benjamin Bayart                 | bayartb@edgard.fdn.fr      |
-| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            |   
+| thy               | Emmanuel Bourguin               | thy@chezmanu.eu.org            |
 | youpi             | Samuel Thibault                 | samuel.thibault@ens-lyon.org                  |
-| khrys             | Khrys                           | khrys@fdn.fr                   | 
+| khrys             | Khrys                           | khrys@fdn.fr                   |
