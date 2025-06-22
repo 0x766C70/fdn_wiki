@@ -7,7 +7,7 @@ baie en autonomie.
 
 TH2 est situé au 137, boulevard Voltaire, 75011 Paris (11ème). C'est accessible sur la
 ligne 9 de métro (station Charonne), et sur la ligne 56 de bus (arrêt Gymnase
-Jappy). 
+Jappy).
 
 Il existe une entrée de jour (semaine, heures de bureau) et une entrée de nuit
 (week-end, nuit...).
@@ -16,7 +16,7 @@ Pour rentrer, il faut d'abord présenter sa carte d'identité pour obtenir un
 badge et se faire prendre en photo (premier poste de contrôle), puis présenter
 son badge pour vérifier que l'on est sur la liste d'accès à la baie.
 
-Il faut donc être autorisé à accéder aux équipements. On a deux moyens : 
+Il faut donc être autorisé à accéder aux équipements. On a deux moyens :
 
  - être sur la liste des personnes ayant un accès permanent ;
  - disposer d'un accès temporaire.
@@ -33,13 +33,13 @@ Au 1er juillet 2015, les permanents de FDN sont :
 
 Lorsque l'on est au helpdesk de th2, et qu'on fait vérifier son badge, il faut
 aussi récupérer la clé de la baie (et non pas demander à la faire ouvrir, on
-est un cas très particulier chez eux). 
+est un cas très particulier chez eux).
 
 On monte alors au premier étage, on
 passe la porte à badge, on part sur la droite jusqu'au fond ou presque, puis à
 gauche jusqu'au fond. La baie est alors à droite, tout au bout de la rangée
 (c'est quasiment la plus vieille baie du datacenter, on est dans une zone
-ancienne). 
+ancienne).
 
 Un accès réseau est disponible au fond de la baie :
 
@@ -48,7 +48,7 @@ Un accès réseau est disponible au fond de la baie :
 
 # Equinix PA3
 
-FDN loue en direct auprès de Ielo une demi-baie (22 U).
+FDN loue auprès de Gitoyen des U dans une baie partagée.
 Les personnes y ayant accès sont les personnes ayant soit un badge permanent, soit un accès temporaire après demande préalable auprès de Ielo.
 
 Infos : https://docs.equinix.com/en-us/Content/ECPortal/ecp-entering-exiting-ibxs.htm

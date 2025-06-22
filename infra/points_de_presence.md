@@ -4,10 +4,10 @@ FDN dispose de deux *points de présence* (POP), à Paris. Il s'agit de
 
 # Téléhouse 2 (TH2) -- 11A4
 
-TH2 est le datacenter historique de FDN, depuis la création de Gitoyen en 2001. 
+TH2 est le datacenter historique de FDN, depuis la création de Gitoyen en 2001.
 Gitoyen y dispose d'une baie (la `11A4`). Dans cette baie se
 trouvent des équipements de Gitoyen, mais aussi de certains de ses membres,
-comme FDN, qui louent de l'espace à Gitoyen. 
+comme FDN, qui louent de l'espace à Gitoyen.
 
 Adresse :
 
@@ -35,9 +35,8 @@ Pour voir d'anciennes photos, c'est par ici : [archives photos](./points_de_pres
 PA3 est un datacenter géré par la société *Equinix*. FDN, comme d'autres
 structures de l'écosystème Gitoyen, a souhaité y mettre des machines.
 
-FDN loue (en direct) à Liazo une demi-baie, la `114`. Dans cette baie se
-trouvent des équipements de FDN, et des équipements hébergés par FDN pour des
-tiers.
+FDN loue quelques U de la baie Gitoyen, la `114`. Dans cette baie se
+trouvent des équipements de FDN.
 
 Adresse :
 
@@ -47,22 +46,13 @@ Adresse :
 Matériel de FDN :
 
  - 1 switch cisco N3K-3064PQ-10GX
- - 1 ancien switch cisco 3560G 24 ports 1G
  - 1 droïdes [r5d4](./machines/r5d4.md)
  - 1 ancien droïdes [c3px](./machines/c3px.md)
- - 2 anciens anciens droïdes r2d2 / c3po (éteints)
- - 1 LNS [lns22](./machines/lns22.md)
  - 1 NanoPi pour l'[OOB](../../outils_internes/acces_de_secours.md)
-
-Matériels hébergés pour des tiers :
-
-  - N/A
 
 <img src="./points_de_presence/20230216_PA3-plan-global.jpg" alt="[[!img 20230216_PA3-plan-global.jpg size=x160]]" width="160">
 <img src="./points_de_presence/20230216_PA3-plan-data-hall.jpg" alt="[[!img 20230216_PA3-plan-data-hall.jpg size=x160]]" width="160">
 <img src="./points_de_presence/20230216_PA3-access-cage-14-OG-S72.jpg" alt="[[!img 20230216_PA3-access-cage-14-OG-S72.jpg size=x160]]" width="160">
-<img src="./points_de_presence/20230218_PA3-baie-114-haut-avant.jpg" alt="[[!img 20230218_PA3-baie-114-haut-avant.jpg size=x160]]" width="160">
-<img src="./points_de_presence/20230218_PA3-baie-114-avant-bas.jpg" alt="[[!img 20230218_PA3-baie-114-avant-bas.jpg size=x160]]" width="160">
-<img src="./points_de_presence/20230218_PA3-baie-114-arriere-haut.jpg" alt="[[!img 20230218_PA3-baie-114-arriere-haut.jpg size=x160]]" width="160">
-<img src="./points_de_presence/20230218_PA3-baie-114-arriere-bas.jpg" alt="[[!img 20230218_PA3-baie-114-arriere-bas.jpg size=x160]]" width="160">
-<img src="./points_de_presence/20230218_PA3-baie-114-arriere-bandeau-fibre.jpg" alt="[[!img 20230218_PA3-baie-114-arriere-bandeau-fibre.jpg size=x160]]" width="160">
+
+<img src="./points_de_presence/20250619_PA3-baie-114-avant.jpg" alt="[[!img 20250619_PA3-baie-114-avant.jpg size=160x]]" height="160">
+<img src="./points_de_presence/20250619_PA3-baie-114-arriere.jpg" alt="[[!img 20250619_PA3-baie-114-arriere.jpg size=160x]]" height="160">

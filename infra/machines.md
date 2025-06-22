@@ -1,15 +1,10 @@
 # Les serveurs physiques
 
-#### Anciens LNS (routeurs et L2TP)
-- [lns22](./machines/lns22.md) : arrêté, à PA3
-
 #### Les droïdes (cluster Proxmox)
 - [tc14](./machines/tc14.md) (cluster de prod)
 - [r5d4](./machines/r5d4.md) (cluster de prod)
 - r4p17 : nœud du cluster proxmox de sauvegardes (PBS)
 - c3px : nœud du cluster proxmox de sauvegardes (PBS)
-- r2d2 : arrêté, à PA3
-- c3po : arrêté, à PA3
 
 # Les machines virtuelles
 

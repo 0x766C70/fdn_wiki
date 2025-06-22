@@ -1,6 +1,6 @@
 # Schéma high level du réseau FDN
 
-![img fdn_network_2024_12_04.svg size=x800](./schema_reseau/fdn_network_2024_12_04.svg)
+![img fdn_network_2025_06_19.svg size=x800](./schema_reseau/fdn_network_2025_06_19.svg)
 
 # Explication du schéma
 
@@ -19,7 +19,7 @@ Pour connecter son bout de réseau, FDN passe par Gitoyen.
 Gitoyen a aussi une partie de son infrastructure dans ces deux
 DC.
 
-Comme on le voit sur le schéma, FDN possède la demi-baie 114
+Comme on le voit sur le schéma, FDN partage la baie 114
 à PA3 et partage la baie 11A4 avec Gitoyen à TH2.
 
 
@@ -33,10 +33,7 @@ Les connexions entre les deux switchs de Gitoyen sont en 10G.
 Une des connexions fait quelques kilomètres, l'autre passe par un autre chemin
 [= très bien] et fait environ 15 kilomètres.
 
-Quasi tous les services sont sur les droides, hors LNS, les sauvegardes et switchs qui sont encore d'autres serveurs physiques.
-
-Deux droides à PA3 ne sont pas utilisés actuellement [voir ce que
-l'on peut en faire].
+Tous les services sont sur les droides à l'exception des sauvegardes et switchs qui sont encore d'autres composants physiques.
 
 Les droides possèdent 3 liens réseaux, deux d'entre eux sont dédiés à la
 réplication.

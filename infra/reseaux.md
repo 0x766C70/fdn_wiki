@@ -255,7 +255,6 @@ Empty set (0.01 sec)
 | mgmt0     | --                | notconnec | routed   | auto    | auto    | --
 
 * [dump de la conf du switch TH2 10G](./reseaux/switch-TH2-10G-running-config.text)
-* [dump de la conf du switch PA3 10G](./reseaux/switch-PA3-10G-running-config.text)
 
 ## Ports Cisco Nexus 3064 à PA3
 
@@ -328,3 +327,5 @@ Empty set (0.01 sec)
 | Eth1/52/3 | --                | sfpAbsent | 1        | full    | 10G    | --
 | Eth1/52/4 | --                | sfpAbsent | 1        | full    | 10G    | --
 | mgmt0     | --                | notconnec | routed   | auto    | auto   | --
+
+* [dump de la conf du switch PA3 10G](./reseaux/switch-PA3-10G-running-config.text)
