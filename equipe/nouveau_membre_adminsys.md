@@ -19,7 +19,7 @@ Vous verrez plusieurs tâches avec le tag : **je suis nouveau**. Ce sont des tâ
 
 * Un ordinateur
 * Ton accès au gitlab
-* Client IRC (Webchat irssi, pidgin, xchat,... ) ou client Matrix (Element par exemple, vous pouvez demander un compte en écrivant à services@fdn.fr)
+* Client IRC (Webchat irssi, pidgin, hexchat(fork de xchat qui n'est plus soutenu),... ) ou client Matrix (Element par exemple, vous pouvez demander un compte en écrivant à services@fdn.fr)
 
 ## Le wiki Adminsys
 
