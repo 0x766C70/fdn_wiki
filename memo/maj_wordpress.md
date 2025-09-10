@@ -1,3 +1,13 @@
+************
+**!! Ce projet n'est plus en fonctionnement depuis novembre 2024 !!**
+
+**Le site web de FDN est désormais généré par le projet https://git.fdn.fr/communication/www-static-2024**
+
+Les informations suivantes sont conservées pour archivage
+
+************
+
+
 # Mise à jour du site Wordpress
 
 ### 1 - Faire un snapshot de la vm idoine.
