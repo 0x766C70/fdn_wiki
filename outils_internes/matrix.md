@@ -1,7 +1,9 @@
 # MATRIX ROOM MANAGEMENT SCRIPTS - TUTORIAL
 
 Written by: vlp and botbot 🤖
+
 Last updated: 2023-11-16
+
 Version: 1.0
 
 NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
@@ -28,30 +30,40 @@ The scripts work together but can also be used independently.
 ### create_list.sh
 
 Purpose: Generates a prioritized list of top 150 rooms for cleaning
+
 Output: Creates 'room.list' file with room IDs and message counts
+
 Usage: ./create_list.sh
 
 ### clean.sh
 
 Purpose: Purges messages older than 30 days from active rooms
+
 Input: 'room.list' file from create_list.sh
+
 Usage: ./clean.sh
+
 Note: Destructive operation - events are permanently deleted
 
 ### create_empty.sh
 
 Purpose: Identifies empty rooms or rooms with only one external user
+
 Output: List of room IDs with member counts
+
 Usage: ./create_empty.sh > empty_rooms.list
 
 ### purge_empty.sh
 
 Purpose: Removes empty/unused rooms with three safety modes
+
 Input: List of empty rooms from create_empty.sh
+
 Usage:
-Automatic: ./purge_empty.sh empty_rooms.list
-Dry-run: ./purge_empty.sh --dry-run empty_rooms.list
-Manual: ./purge_empty.sh --manual empty_rooms.list
+
+* Automatic: ./purge_empty.sh empty_rooms.list
+* Dry-run: ./purge_empty.sh --dry-run empty_rooms.list
+* Manual: ./purge_empty.sh --manual empty_rooms.list
 
 ## RECOMMENDED WORKFLOW 
 
@@ -93,22 +105,28 @@ In order to claim back database space and improve performance after cleaning or 
 ### Common Issues:
 
 Issue: Permission denied errors
+
 Solution: Verify synadm configuration and admin credentials
 
 Issue: Invalid room listay cleanup threshold?
+
 A: Yes, edit the DAYS_THRESHOLD variable in clean.sh
 
 Q: How do I add more protected rooms?
+
 A: Modify PROTECTED_ROOM_PATTERN variable using pipe separator:
 readonly PROTECTED_ROOM_PATTERN='fdn.fr|protected.domain|another.domain'
 
 Q: What happens if I interrupt a script?
+
 A: Scripts are interrupt-safe. Completed operations persist, incomplete ones abort.
 
 Q: Can I test on a subset of rooms?
+
 A: Yes, create a test list file with a few room IDs and use as input.
 
 Q: How often should I run these scripts?
+
 A: create_list.sh + clean.sh: Monthly
 create_empty.sh + purge_empty.sh: Quarterly
 Adjust based on server activity level.
@@ -118,6 +136,8 @@ Adjust based on server activity level.
 NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 
 These scripts are provided "as is" without any guarantees.
+
 The authors are not responsible for any data loss or service disruption.
+
 Always test in a safe environment before production use.
 
