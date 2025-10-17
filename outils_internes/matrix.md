@@ -10,7 +10,7 @@ NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
 This tutorial explains how to use four bash scripts designed for Matrix server maintenance on FDN infrastructure. These tools help administrators:
 
     * Identify rooms needing maintenance with too much event history
-    * Clean this room from active rooms
+    * Clean this room
     * Find empty/unused rooms
     * Safely purge abandoned rooms
 
