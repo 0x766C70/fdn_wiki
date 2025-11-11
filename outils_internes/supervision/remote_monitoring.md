@@ -1,7 +1,6 @@
 # Généralités
 
-Nous disposons de deux nagios chez FDN.
-Un premier non maintenu (voir le ticket [#5 de monitoring2.0](https://git.fdn.fr/adminsys/monitoring2.0/-/issues/5)) hébergé en interne (sur cecinestpasleia, voir [page dédiée](./outils_internes/supervision/intra_monitoring.md)) et un second gentiment hébergé à l'extérieur de l'infra de FDN sur skytop, une VM hébergée chez Grenode.
+Nous disposons d'un Nagios chez FDN, gentiment hébergé à l'extérieur de l'infra de FDN sur skytop, une VM hébergée chez Grenode (voir [page dédiée](./outils_internes/supervision/remote_monitoring.md)).
 
 Cette VM fait tourner un [Nagios](https://www.nagios.org/) couplé à un [Cachet](https://cachethq.io/)
 afin de présenter une mire de l'état de nos services depuis l'extérieur.

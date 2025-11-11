@@ -39,7 +39,6 @@
 - [taslin](./machines/taslin.md) (nouvelle infra mail)
 
 #### Outils internes :
-- [leia](./machines/leia.md) (nagios, munin, ... à démembrer)
 - [coruscant](./machines/coruscant.md) [(gitlab)](https://git.fdn.fr/)
 - [si](./machines/si.md) (SI fdn)
 - [palpatine](./machines/palpatine.md) (puppetmaster)

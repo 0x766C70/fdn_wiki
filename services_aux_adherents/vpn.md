@@ -35,9 +35,6 @@ Dans tous les cas, on utilise actuellement openvpn. Trois exemplaires ,un pour s
     accept-new'.
   * Tester depuis un client sur vpn et vpn-rw.
   * Si tout OK ajouter ajouter les IPs correspondantes aux domaines `vpn.fdn.fr` et `vpn-rw.fdn.fr` dans la repo des DNS
-  * ajouter manuellement la nouvelle machine sur cecinestpasleia dans
-    le hostgroup `vpn` dans `/etc/nagios3/conf.d/hostgroups.cfg`, et dans la
-    liste de serveurs dans `/etc/check_mk/main.mk`, puis lancer `check_mk -I` et `check_mk -O` (à automatiser dans puppet).
   * ajouter manuellement la nouvelle machine sur isengard dans
     /usr/local/nagios/etc/objects/{fdn_group.cfg,fdn.cfg}, relancer nagios:
     systemctl restart nagios.
