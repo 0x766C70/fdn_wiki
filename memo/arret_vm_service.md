@@ -1,8 +1,8 @@
 ## Suppression d'un service
 
 1. Arrêt de la supervision :
-    - sur [skytop](https://status.fdn.fr/dashboard/components) : désactiver ou supprimer le composant correspondant ;
-    - sur [nagios](https://status.fdn.fr/nagios4) : désactiver via l'IHM ou supprimer sur skytop [^1] les sondes correspondantes ;
+    - sur [Cachet](https://status.fdn.fr/dashboard/components) : supprimer le composant correspondant ;
+    - sur **skytop** : supprimer en CLI [^1] les sondes correspondantes ;
 1. Nettoyage du DNS : chercher toutes les occurences du service et les supprimer, puis pousser les modifications
 1. Arrêt du service :
     - si service, l'arrêter sur la machine physique ou la machine virtuelle ;
@@ -11,7 +11,8 @@
 ## Suppression d'un serveur/d'une VM
 
 1. Arrêt de la supervision :
-    - sur [skytop](https://status.fdn.fr/dashboard/components) : désactiver ou supprimer le composant correspondant ;
+    - sur [Cachet](https://status.fdn.fr/dashboard/components) : supprimer le composant correspondant ;
+    - sur **skytop** : supprimer en CLI [^1] les sondes correspondantes ;
 1. Nettoyage du DNS : chercher toutes les occurences de la vm et les supprimer, puis pousser les modifications
 1. Arrêt de la vm :
     - si machine physique, l'arrêter ;
@@ -27,7 +28,7 @@
         - supprimer le certificat : `puppetserver ca clean --certname my_server.fdn.fr`
         - faire le ménage dans *puppetdb* : `puppet node deactivate my_server.fdn.fr`
 
-[^1] sur skytop :
+[^1] nettoyage nagios en CLI :
 1. supprimer `/etc/nagios4/objects/hosts/<my_server>.conf` ;
 1. tester la configuration nagios : `sudo nagios4 -v /etc/nagios4/nagios.cfg` ;
 1. si OK, recharger nagios : `sudo systemctl reload nagios4`.
