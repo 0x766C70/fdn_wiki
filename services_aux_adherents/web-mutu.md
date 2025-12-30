@@ -5,7 +5,7 @@ FDN fournit à ses membres de l'hébergement de site web sur [rey](./infra/machi
 Les technos supportées sont :
 
 - Langages :
-  - PHP : 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0, 8.1, 8.2, 8.3, 8.4, 8.5 via php-fpm
+  - PHP : 8.2, 8.3, 8.4, 8.5 via php-fpm
   - Perl et autre CGI
 - SGBD :
   - MariaDB
@@ -79,7 +79,7 @@ Avant de mettre en place le site, vous aurez besoin de : utilisateur, version de
 
 Pour vérifier si une version de PHP est installé sur la machine :
 
-	systemctl status php7.2-fpm
+	systemctl status php8.2-fpm
 
 Si elle n'est pas installée :
 
@@ -94,7 +94,7 @@ Grâce à php-fpm il est possible d'affecter des *pools* à chaque utilisateur c
 
 Pour vérifier l'existence d'un pool pour un utilisateur (2 par défaut) et une version de PHP :
 
-	systemctl status php7.2-fpm
+	systemctl status php8.2-fpm
 
 Pour configurer un pool pour un utilisateur, vous aurez besoin de : utilisateur et version de PHP.
 
