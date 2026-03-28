@@ -52,7 +52,7 @@ $ sha1sum <<<"example.com" | cut -d' ' -f1
 97612fdad3f6b17f61d6912994b66ea7b7bacc99
 ```
 
-Voici maintenant les entrées à ajouter au catalogue qui se trouve dans le fichier `/var/cache/bind/db.fdn.catalog` du serveur `dgsi.fdn.fr` à adapter en fonction des informations de la zone:
+Voici maintenant les entrées à ajouter au catalogue qui se trouve dans le fichier `/var/lib/bind/db.fdn.catalog` du serveur `dgsi.fdn.fr` à adapter en fonction des informations de la zone:
 
 ```bind
 97612fdad3f6b17f61d6912994b66ea7b7bacc99.zones	IN	PTR	example.com. ; Ne pas oublier le point final ici
