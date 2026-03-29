@@ -1,1 +1,1 @@
-Machine virtuelle à usage interne de FDN.
+Machine virtuelle hébergeant le [webmail](https://webmail.fdn.fr/) de fdn.
