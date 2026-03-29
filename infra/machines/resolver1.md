@@ -1,2 +1,1 @@
-
-Machine virtuelle pour un resolveur DNS.
+Machine virtuelle pour un résolveur DNS.

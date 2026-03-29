@@ -1,15 +1,13 @@
-**En cours de rédaction**
-
 Machine virtuelle pour l'instance Peertube de FDN.
 
-
 # Caractéristiques
-* Machine: virtuelle;
-* Pistribution : Debian Buster;
-* Noyau : `Linux tiree.fdn.fr 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2 (2019-08-28) x86_64 GNU/Linux`;
-* Processeurs: 4vCPU;
-* RAM : 4Go;
-* Mount:
+
+- Machine : virtuelle
+- Distribution : Debian Buster
+- Noyau : `Linux tiree.fdn.fr 4.19.0-6-amd64 #1 SMP Debian 4.19.67-2 (2019-08-28) x86_64 GNU/Linux`
+- Processeurs : 4 vCPU
+- RAM : 4 Go
+- Mount :
 
 ```
 /dev/vda1 on / type ext4 (rw,relatime,errors=remount-ro)
@@ -17,7 +15,7 @@ Machine virtuelle pour l'instance Peertube de FDN.
 /dev/vdc on /var type ext4 (rw,relatime)
 ```
 
-* DF:
+- DF :
 
 ```
 root@tiree:~# df -h

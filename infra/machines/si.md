@@ -1,2 +1,1 @@
-
-Machine pour le SI de FDN.
+Machine virtuelle pour le SI de FDN.

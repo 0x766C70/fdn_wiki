@@ -99,7 +99,7 @@ Memo : conf de mutu.fdn.fr finale
 	mkdir -p /var/www/adminer
 	mv latest.php /var/www/adminer/index.php
 	vi /etc/apache2/sites-enabled/mutu.fdn.fr.conf
-rajouter le bloc
+Rajouter le bloc :
 
 	Alias /adminer /var/www/adminer
 	<Directory /var/www/adminer>
@@ -108,14 +108,14 @@ rajouter le bloc
 			SetHandler "proxy:unix:/var/run/php/php7.2-fpm-fdn.sock|fcgi://localhost/"
 		</FilesMatch>
 	</Directory>
-puis
+Puis :
 
 	systemctl reload apache2
 	apt install php7.2-mysql
 
 ## TLS
 
-Suivre la procédure [letsencrypt](./outils/letsencrypt.md)] pour mettre en place un certificat TLS pour Apache 2.4 et le domaine **mutu.fdn.fr**.
+Suivre la procédure [letsencrypt](./outils/letsencrypt.md) pour mettre en place un certificat TLS pour Apache 2.4 et le domaine **mutu.fdn.fr**.
 
 ## Logs Apache2
 
