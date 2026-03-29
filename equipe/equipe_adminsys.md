@@ -21,25 +21,42 @@ les pseudos sont contactables sur irc/matrix, et les mails sont du type 'pseudo'
 
 ## Adminsys (root sur au moins une machine)
 
-| login             | Référent/Accès Services (vue adhérents)|
-| ----------------- | -------------------------------------- |
-| damfle            | Kessel                        |
-| dino              | Peertube, Pad, BBB                          |
-| domi              | DNS, mail, LNS,SI                                    |
-| eric              | sites web FDN, capsule Gemini      |
-| hguilbert         | mail, Matrix, DNS, XMPP                      |
-| khrys             | sites web FDN, listmaster mailing, capsule Gemini                       |
-| stephaneascoet    | listmaster mailing                                |
-| youpi             | VPN, LNS, SI                       |
-| neox              | XMPP |
+```json:table
+{
+    "fields" : [
+        {"key": "login"   , "sortable": true, "label": "Login"},
+        {"key": "services", "sortable": true, "label": "Référent/Accès Services (vue adhérents)"}
+    ],
+    "items": [
+        {"login": "damfle"        , "services": "Kessel"},
+        {"login": "dino"          , "services": "Peertube, Pad, BBB"},
+        {"login": "domi"          , "services": "DNS, mail, LNS, SI"},
+        {"login": "eric"          , "services": "sites web FDN, capsule Gemini"},
+        {"login": "hguilbert"     , "services": "mail, Matrix, DNS, XMPP"},
+        {"login": "khrys"         , "services": "sites web FDN, listmaster mailing, capsule Gemini"},
+        {"login": "stephaneascoet", "services": "listmaster mailing"},
+        {"login": "youpi"         , "services": "VPN, LNS, SI"},
+        {"login": "neox"          , "services": "XMPP"}
+    ],
+    "markdown" : true
+}
+```
 
 ## Admin du SI (Système d'Information Vador)
 
-| login             |
-| ----------------- |
-| nicolas           |
-| domi              |
-| perliculteur      |
-| thy               |
-| youpi             |
-| khrys             |
+```json:table
+{
+    "fields" : [
+        {"key": "login", "sortable": true, "label": "Login"}
+    ],
+    "items": [
+        {"login": "nicolas"},
+        {"login": "domi"},
+        {"login": "perliculteur"},
+        {"login": "thy"},
+        {"login": "youpi"},
+        {"login": "khrys"}
+    ],
+    "markdown" : true
+}
+```
