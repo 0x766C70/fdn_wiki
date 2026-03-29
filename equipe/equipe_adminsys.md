@@ -1,5 +1,6 @@
-les pseudos sont contactables sur irc/matrix, et les mails sont du type 'pseudo'@fdn.fr
+# Équipe Adminsys
 
+> Les pseudos sont contactables sur IRC/Matrix, et les mails sont du type `pseudo@fdn.fr`
 
 ## Admincore (noyau)
 

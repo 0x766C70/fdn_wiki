@@ -8,7 +8,7 @@ mais l'ensemble des choses à y faire est au final assez divers. Cela va du
 routage dynamique BGP à la maintenance de VM en passant par de l'animation du groupe.
 
 - Voici la liste actuelle des membres du [groupe adminsys](./equipe_adminsys.md)
-- Un guide des premières étapes en tant que [nouveau adminsys](./nouveau_membre_adminsys.md)
+- Un guide des premières étapes en tant que [nouvel·le adminsys](./nouveau_membre_adminsys.md)
 
 ## Organisation
 
@@ -16,21 +16,21 @@ Le groupe adminsys est organisé en plusieurs niveaux.
 
 Chaque niveau donne accès à un ensemble de droits dans l'infrastructure FDN.
 
-Les niveaux s'organisent ainsi:
+Les niveaux s'organisent ainsi :
 
 ### Niveau Adhérent FDN
 
 * Depuis le gitlab FDN, accès au groupe de projets **adminsys** en mode Reporter
 * Vous pouvez commencer à prendre part aux échanges en ouvrant des Issues ou en en commentant d'autres
 
-### Niveau AdminSys:
+### Niveau AdminSys
 
-* Vous avez le niveau Developper dans le groupe de projet **adminsys**
-* Vous pouvez gérer vos propres projets:
-* Vous êtes Maintainer sur vos projets Gitlab
-* Vous êtes root sur la machine associé
+* Vous avez le niveau Developer dans le groupe de projet **adminsys**
+* Vous pouvez gérer vos propres projets :
+  * Vous êtes Maintainer sur vos projets Gitlab
+  * Vous êtes root sur la machine associée
 
-### Niveau AdminCore:
+### Niveau AdminCore
 
 * Avoir accès aux droides
 * Accès aux VM sensibles (SI, LNS, ...)
@@ -43,7 +43,7 @@ Les niveaux s'organisent ainsi:
 Le plus facile pour s'intégrer à l'équipe adminsys est de venir à un admincamp.
 Les admincamps sont des weekends lors desquels nous nous coordonnons et nous avançons concrètement dans une ambiance conviviale.
 
-Il y a en a environ 4 à 6 par an.  Les admincamps sont annoncés sur les listes benevoles@fdn.fr et ag@fdn.fr et leurs dates sont généralement prévues au moins 6 mois à l'avance et publiées sur ce wiki. N'hésitez pas à vous annoncer si vous souhaitez y participer : `benevoles@fdn.fr`
+Il y en a environ 4 à 6 par an. Les admincamps sont annoncés sur les listes benevoles@fdn.fr et ag@fdn.fr et leurs dates sont généralement prévues au moins 6 mois à l'avance et publiées sur ce wiki. N'hésitez pas à vous annoncer si vous souhaitez y participer : `benevoles@fdn.fr`
 
 ## Pérennité dans les groupes
 
@@ -55,11 +55,11 @@ En cas de non réponse ou si l'Admin exprime le fait d'avoir moins de temps, son
 
 ## Documentation
 
-Il y a une différence entre installer un logiciel chez soi, en mode standalone/one shot et faire tourner un service chez FDN. La mise en service d'un nouveau service nécessite qu'une documentation soit effecuée avant la proposition du service à nos adhérent·e·s.
+Il y a une différence entre installer un logiciel chez soi, en mode standalone/one shot et faire tourner un service chez FDN. La mise en service d'un nouveau service nécessite qu'une documentation soit effectuée avant la proposition du service à nos adhérent·e·s.
 
 Cette documentation doit se faire sur le git en rapport avec le projet sous la forme:
 
-* buildbook : à destination des adminsys, pour remonter un services en cas de besoin et voir comment il a été monté à l'origine
+* buildbook : à destination des adminsys, pour remonter un service en cas de besoin et voir comment il a été monté à l'origine
 * administration : à destination des adminsys, pour les actions courantes à effectuer sur le service (maj, ajout compte, etc.) et une FAQ
 * utilisation : à destination des adhérents, des informations concernant le service et son utilisation au quotidien avec FAQ
 
