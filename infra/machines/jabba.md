@@ -1,10 +1,4 @@
-
 Machine virtuelle (temporaire) d'archivage d'autres machines de FDN (jira, kamino, etc.).
-
-Info personnage:
-
-Jabba est le fils du célèbre Zorba le Hutt et, comme lui, il est le chef gangster d'une grande organisation criminelle : le Clan Desilijic des Hutts.
- 
 
 # Caractéristiques
 
@@ -35,7 +29,7 @@ Aller sur la machine *vm2backup* et y créer une paire de clés SSH pour l'utili
 
 Se connecter à *jabba* et créer l'utilisateur *vm2backup* :
 
-	sudo adduser --home /srv/vm2backup --quiet --disabled-password --gecos vm2backup vm2backup 
+	sudo adduser --home /srv/vm2backup --quiet --disabled-password --gecos vm2backup vm2backup
 	chmod 700 /srv/vm2backup
 
 Puis copier la clé publique SSH à la racine de l'utilisateur *vm2backup* :
@@ -52,7 +46,7 @@ Se connecter en SSH depuis *vm2backup* vers jabba pour authentifier le serveur :
 
 ## Mise en place de l'archivage
 
-Se connecter sur *vm2backup* et mettre en place l'archivage dans la crontab, par ex :
+Se connecter sur *vm2backup* et mettre en place l'archivage dans la crontab, par exemple :
 
 	#!/bin/bash
 

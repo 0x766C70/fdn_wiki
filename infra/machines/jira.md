@@ -1,12 +1,4 @@
-
 Machine virtuelle hébergeant l'outil de [[outils/ticketing]].
-
-Info personnage:
-
-Jira est une vieille marchande de fruits et légumes vivant à Mos Espa sur la
-planète Tatooine. Elle est une des voisines du jeune Anakin Skywalker quand
-celui-ci est encore l'esclave du ferrailleur Watto54.
- 
 
 # Caractéristiques
 
@@ -115,7 +107,7 @@ L'archivage est lancé tous les jours après la sauvegarde :
 
 ## Installation de RT
 
-[source](source : https://rt-wiki.bestpractical.com/wiki/DebianJessieInstallGuide)
+[source](https://rt-wiki.bestpractical.com/wiki/DebianJessieInstallGuide)
 
 	apt install postgresql
 	apt install request-tracker4 rt4-apache2 rt4-clients rt4-db-postgresql rt4-doc-html libapache2-mod-perl2
