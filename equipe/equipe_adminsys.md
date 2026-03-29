@@ -11,7 +11,7 @@
         {"login": "asmadeus", "services": "debug collecte, RT"},
         {"login": "pandaroux", "services": "pad, web mutualisé"},
         {"login": "tom", "services": "mail_solo, mailing, UUCP, DNS"},
-        {"login": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"},
+        {"login": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"}
     ],
     "markdown" : true
 }
