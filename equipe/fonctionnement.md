@@ -13,9 +13,7 @@ routage dynamique BGP à la maintenance de VM en passant par de l'animation du g
 ## Organisation
 
 Le groupe adminsys est organisé en plusieurs niveaux.
-
 Chaque niveau donne accès à un ensemble de droits dans l'infrastructure FDN.
-
 Les niveaux s'organisent ainsi :
 
 ### Niveau Adhérent FDN
@@ -42,15 +40,12 @@ Les niveaux s'organisent ainsi :
 
 Le plus facile pour s'intégrer à l'équipe adminsys est de venir à un admincamp.
 Les admincamps sont des weekends lors desquels nous nous coordonnons et nous avançons concrètement dans une ambiance conviviale.
-
 Il y en a environ 4 à 6 par an. Les admincamps sont annoncés sur les listes benevoles@fdn.fr et ag@fdn.fr et leurs dates sont généralement prévues au moins 6 mois à l'avance et publiées sur ce wiki. N'hésitez pas à vous annoncer si vous souhaitez y participer : `benevoles@fdn.fr`
 
 ## Pérennité dans les groupes
 
 Être Adminsys ne se fait que sur des "mandats" renouvelables d'un an.
-
 Avant chaque AG, il sera demandé de confirmer ou pas sa volonté et sa dispo.
-
 En cas de non réponse ou si l'Admin exprime le fait d'avoir moins de temps, son AdminRank sera alors adapté à son implication.
 
 ## Documentation
@@ -64,6 +59,5 @@ Cette documentation doit se faire sur le git en rapport avec le projet sous la f
 * utilisation : à destination des adhérents, des informations concernant le service et son utilisation au quotidien avec FAQ
 
 C'est une étape indispensable afin que le service soit maintenu et que nos futur·e·s adminsys puissent prendre la main sur le service et comprendre l'historique.
-Un template de doc se trouve dans ce wiki.
-
+Un [template](../templates) de doc se trouve dans ce wiki.
 Dans la mesure du possible, terminer la documentation sur le projet sur lequel on travaille avant d'en démarrer un autre.
