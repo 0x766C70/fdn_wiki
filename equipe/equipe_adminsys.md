@@ -12,7 +12,6 @@
         {"login": "pandaroux", "services": "pad, web mutualisé"},
         {"login": "tom", "services": "mail_solo, mailing, UUCP, DNS"},
         {"login": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"},
-        {"login": "ewen", "services": "DNS faisant autorité"}
     ],
     "markdown" : true
 }
@@ -24,27 +23,20 @@
 | ----------------- | -------------------------------------- |
 | damfle            | Kessel                        |
 | dino              | Peertube, Pad, BBB                          |
-| domi              | DNS, mail, LNS                                    |
+| domi              | DNS, mail, LNS,SI                                    |
 | eric              | sites web FDN, capsule Gemini      |
 | hguilbert         | mail, Matrix, DNS, XMPP                      |
 | khrys             | sites web FDN, listmaster mailing, capsule Gemini                       |
 | stephaneascoet    | listmaster mailing                                |
 | youpi             | VPN, LNS, SI                       |
-| thy               | ackbar (média) |
 | neox              | XMPP |
-
-## Adminguest (non root sur minimum une machine)
-
-| login             | Référent/Accès Services (vue adhérents)|
-| ----------------- | -------------------------------------- |
-|                   |                                        |
 
 ## Admin du SI (Système d'Information Vador)
 
 | login             |
 | ----------------- |
-| gal_bolle         |
 | nicolas           |
+| domi              |
 | perliculteur      |
 | thy               |
 | youpi             |
