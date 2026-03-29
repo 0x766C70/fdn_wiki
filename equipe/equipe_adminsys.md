@@ -1,3 +1,6 @@
+les pseudos sont contactables sur irc/matrix, et les mails sont du type 'pseudo'@fdn.fr
+
+
 ## Admincore (noyau)
 
 ```json:table
@@ -8,9 +11,8 @@
     ],
     "items": [
         {"login": "afriqs", "services": "web mutualisé, RT, Gitlab, PVE, PBS"},
-        {"login": "asmadeus", "services": "debug collecte, RT"},
         {"login": "pandaroux", "services": "pad, web mutualisé"},
-        {"login": "tom", "services": "mail_solo, mailing, UUCP, DNS"},
+        {"login": "tom28", "services": "mail_solo, mailing, UUCP, DNS"},
         {"login": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"}
     ],
     "markdown" : true
