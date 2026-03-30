@@ -1,20 +1,20 @@
 # Équipe Adminsys
 
-> Les pseudos sont contactables sur IRC/Matrix, et les mails sont du type `pseudo@fdn.fr`
+> Les pseudos sont contactables sur IRC/Matrix
 
 ## Admincore (noyau)
 
 ```json:table
 {
     "fields" : [
-        {"key": "login"   , "sortable": true, "label": "Login"},
+        {"key": "pseudo"  , "sortable": true, "label": "Pseudo"},
         {"key": "services", "sortable": true, "label": "Référent/Accès Services (vue adhérents)"}
     ],
     "items": [
-        {"login": "afriqs", "services": "web mutualisé, RT, Gitlab, PVE, PBS"},
-        {"login": "pandaroux", "services": "pad, web mutualisé"},
-        {"login": "tom28", "services": "mail_solo, mailing, UUCP, DNS"},
-        {"login": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"}
+        {"pseudo": "afriqs", "services": "web mutualisé, RT, Gitlab, PVE, PBS"},
+        {"pseudo": "pandaroux", "services": "pad, web mutualisé"},
+        {"pseudo": "tom28", "services": "mail_solo, mailing, UUCP, DNS"},
+        {"pseudo": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"}
     ],
     "markdown" : true
 }
@@ -25,25 +25,25 @@
 ```json:table
 {
     "fields" : [
-        {"key": "login"   , "sortable": true, "label": "Login"},
+        {"key": "pseudo"   , "sortable": true, "label": "Pseudo"},
         {"key": "services", "sortable": true, "label": "Référent/Accès Services (vue adhérents)"}
     ],
     "items": [
-        {"login": "damfle"        , "services": "Kessel"},
-        {"login": "dino"          , "services": "Peertube, Pad, BBB"},
-        {"login": "domi"          , "services": "DNS, mail, LNS, SI"},
-        {"login": "eric"          , "services": "sites web FDN, capsule Gemini"},
-        {"login": "hguilbert"     , "services": "mail, Matrix, DNS, XMPP"},
-        {"login": "khrys"         , "services": "sites web FDN, listmaster mailing, capsule Gemini"},
-        {"login": "stephaneascoet", "services": "listmaster mailing"},
-        {"login": "youpi"         , "services": "VPN, LNS, SI"},
-        {"login": "neox"          , "services": "XMPP"}
+        {"pseudo": "damfle"        , "services": "Kessel"},
+        {"pseudo": "dino"          , "services": "Peertube, Pad, BBB"},
+        {"pseudo": "domi"          , "services": "DNS, mail, LNS, SI"},
+        {"pseudo": "eric"          , "services": "sites web FDN, capsule Gemini"},
+        {"pseudo": "hguilbert"     , "services": "mail, Matrix, DNS, XMPP"},
+        {"pseudo": "khrys"         , "services": "sites web FDN, listmaster mailing, capsule Gemini"},
+        {"pseudo": "stephaneascoet", "services": "listmaster mailing"},
+        {"pseudo": "youpi"         , "services": "VPN, LNS, SI"},
+        {"pseudo": "neox"          , "services": "XMPP"}
     ],
     "markdown" : true
 }
 ```
 
-## Admin du SI (Système d'Information Vador)
+## Admin du SI (root sur le serveur hébergeant le SI)
 
 ```json:table
 {
@@ -51,12 +51,12 @@
         {"key": "login", "sortable": true, "label": "Login"}
     ],
     "items": [
-        {"login": "nicolas"},
         {"login": "domi"},
+        {"login": "khrys"},
+        {"login": "nicolas"},
         {"login": "perliculteur"},
         {"login": "thy"},
-        {"login": "youpi"},
-        {"login": "khrys"}
+        {"login": "youpi"}
     ],
     "markdown" : true
 }
