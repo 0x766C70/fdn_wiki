@@ -18,6 +18,3 @@ Liens externes :
 - [email (nouvelle infra)](https://git.fdn.fr/adminsys/new_mail_server)
 - [wiki public](https://git.fdn.fr/fdn-public/wiki)
 - [wiki adhérents](https://git.fdn.fr/fdn/wiki)
-
-Ménage à faire :
-- [Services (page à supprimer ??)](./services.md)
