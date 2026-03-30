@@ -43,7 +43,7 @@
 }
 ```
 
-## Admin du SI (root sur le serveur hébergeant le SI)
+## Adminsys du SI (root sur le serveur hébergeant le SI)
 
 ```json:table
 {
@@ -62,3 +62,5 @@
     "markdown" : true
 }
 ```
+
+Pour l'accès classique au SI (interface Web), voir [les bénévoles du SI](https://git.fdn.fr/fdn/wiki/-/blob/master/pages/liste_benevoles.md?ref_type=heads#groupe-si)
