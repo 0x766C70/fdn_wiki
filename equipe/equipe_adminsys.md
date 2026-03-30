@@ -52,6 +52,7 @@
     ],
     "items": [
         {"login": "domi"},
+        {"login": "gal_bolle"},
         {"login": "khrys"},
         {"login": "nicolas"},
         {"login": "perliculteur"},
