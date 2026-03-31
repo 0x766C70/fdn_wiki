@@ -11,10 +11,11 @@
         {"key": "services", "sortable": true, "label": "Référent/Accès Services (vue adhérents)"}
     ],
     "items": [
-        {"pseudo": "afriqs", "services": "web mutualisé, RT, Gitlab, PVE, PBS"},
+        {"pseudo": "afriqs",    "services": "web mutualisé, RT, Gitlab, PVE, PBS"},
+        {"pseudo": "neox",      "services": "XMPP"},
         {"pseudo": "pandaroux", "services": "pad, web mutualisé"},
-        {"pseudo": "tom28", "services": "mail_solo, mailing, UUCP, DNS"},
-        {"pseudo": "vlp", "services": "mail, LDAP, Gitlab, Matrix, botbot"}
+        {"pseudo": "tom28",     "services": "mail_solo, mailing, UUCP, DNS"},
+        {"pseudo": "vlp",       "services": "mail, LDAP, Gitlab, Matrix, botbot"}
     ],
     "markdown" : true
 }
@@ -36,8 +37,8 @@
         {"pseudo": "hguilbert"     , "services": "mail, Matrix, DNS, XMPP"},
         {"pseudo": "khrys"         , "services": "sites web FDN, listmaster mailing, capsule Gemini"},
         {"pseudo": "stephaneascoet", "services": "listmaster mailing"},
-        {"pseudo": "youpi"         , "services": "VPN, LNS, SI"},
-        {"pseudo": "neox"          , "services": "XMPP"}
+        {"pseudo": "vianney",        "services": "guri"},
+        {"pseudo": "youpi"         , "services": "VPN, LNS, SI"}
     ],
     "markdown" : true
 }
@@ -52,7 +53,6 @@
     ],
     "items": [
         {"login": "domi"},
-        {"login": "gal_bolle"},
         {"login": "khrys"},
         {"login": "nicolas"},
         {"login": "perliculteur"},
