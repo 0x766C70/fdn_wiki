@@ -4,7 +4,8 @@ Machine virtuelle hébergeant [gitlab](https://git.fdn.fr/)
 # Caractéristiques
 
 - machine virtuelle (proxmox)
-- distribution : Debian Buster
+- distribution : Debian
+- [conf puppet](https://git.fdn.fr/adminsys/puppet/-/blob/production_gitlab/hieradata/hosts/coruscant.fdn.fr.yaml)
 
 # Administration
 
@@ -49,10 +50,26 @@ On part du principe ici qu'on est sur la même machine, que Gitlab tourne déjà
 
 Source : [maj via Omnibus](https://docs.gitlab.com/omnibus/update/README.html#updating-using-the-official-repositories)
 
-	sudo apt update
-	sudo apt install gitlab-ce
+:information_source: page des [*releases*](https://about.gitlab.com/releases/categories/releases)
 
-> Pour changer de version mineur de gitlab-ce il faut mettre à jour le *pinning* dans puppet avant.
+:warning: penser à faire un snapshot sur PVE avant
+
+### Mise à jour mineure (A.B.x)
+
+	$ sudo apt clean
+	$ sudo apt update
+	$ sudo apt install gitlab-ce
+
+### Mise à jour majeure (A.x.y)
+
+    $ sudo puppet agent --disable "<pseudo> : maj gitlab"
+    $ sudo vi /etc/apt/preferences.d/gitlab-ce.pref # modifier la version voulue, en général x+1
+    $ sudo apt clean
+    $ sudo apt update
+    $ sudo apt install gitlab-ce
+    # mettre à jour le dépôt puppet avec la nouvelle version de gitlab
+    $ sudo puppet agent --enable
+    $ sudo puppet agent -t [--noop]
 
 # Buildbook
 
@@ -83,6 +100,8 @@ Normalement les nouvelles machines de FDN sont configurées avec Postfix donc ri
 ## Configuration de Gitlab
 
 Se rendre à l'adresse [https://git.fdn.fr](https://git.fdn.fr), se connecter avec `root/password` et configurer l'instance Gitlab via l'IHM (création des utilisateurs, groupes, projets, etc.).
+
+:warning: la configuration de gitlab est maintenant gérée dans puppet, les mises à jour faites dans les fichiers suivants seront écrasées.
 
 La configuration de gitlab est disponible à plusieurs endroits :
 
