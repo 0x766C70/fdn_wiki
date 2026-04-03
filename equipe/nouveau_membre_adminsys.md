@@ -32,3 +32,15 @@ C'est un bon point de départ pour donner un coup de main car il y a toujours de
 
 Le plus important dans l'histoire c'est de comprendre comment le groupe fonctionne pour mieux s'adapter et s'intégrer :)
 Un tour dans la [page dédiée](./fonctionnement.md) à ce sujet est fortement conseillé !
+
+## Accueillir les nouveaux admincore
+
+### Voici une liste des accès à mettre en place lors de l'arrivée d'un nouvel admincore :
+- [ ] Accès au gitlab dans le groupe admincore
+- [ ] Accès à l'infra via le module users de puppet
+- [ ] Accès au sso
+- [ ] Accès .htaccess pour le SI
+- [ ] Accès pve et pve backup
+- [ ] Accès à la liste noyau-adminsys
+- [ ] Accès admin RT
+- [ ] Accès aux pass adminsys
